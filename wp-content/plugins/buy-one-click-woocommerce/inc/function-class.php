@@ -3,6 +3,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+use Coderun\BuyOneClick\Help;
+
 /**
  * Некоторый функционал плагина
  * 
@@ -30,134 +32,44 @@ class BuyFunction {
     }
 
     /**
-     * Дополнительное сообщение
-     */
-    public static function viewBuyMessage() {
-        if (!empty(BuyCore::$buyoptions['success_action'])) {
-            ?>
-            <div class = "overlay_message" title = "<?php _e('Notification', 'coderun-oneclickwoo'); ?>"></div>
-            <div class = "popummessage">
-                <div class="close_message">x</div>
-                <?php echo BuyCore::$buyoptions['success_action_message']; ?>
-            </div>
-            <?php
-        }
-    }
-
-    /**
      * Форма для быстрого заказа
      */
-    static function viewBuyForm($cartinfo) {
+    public static function viewBuyForm($params) {
+
+        $default_params = array(
+            'article' => '',
+            'name' => '',
+            'amount' => '',
+            'custom' => '',
+            'imageurl' => '',
+            'imageurl' => '',
+        );
+
+        $params = array_merge($default_params, $params);
+
+        $help = Help::getInstance();
+
+        $options = $help->get_options();
+
+        $field = array(
+            'product_id' => $params['article'],
+            'product_name' => $params['name'],
+            'product_price' => $params['amount'],
+            'form_custom' => $params['custom'] ? 1 : 0,
+            'product_img' => $params['imageurl'],
+            'product_src_img' => '<img src="' . $params['imageurl'] . '" width="80" height="80">',
+            'variation_plugin' => $help->module_variation,
+            'is_template_style' => self::is_template_style(),
+            'html_form_file_upload' => self::get_from_upload_file()
+        );
+
+
         ob_start();
-        $idtovar = $cartinfo['article']; //Номер товара или страницы WP
-        $nametovar = $cartinfo['name']; // Название товара или title страницы
-        $pricetovar = $cartinfo['amount']; // Цена
-        if (!empty($cartinfo['custom'])) {
-            $custom = 1;
-        } else {
-            $custom = 0;
-        }
-        if (!empty($cartinfo['imageurl'])) {
-            $imagetovar = '<img src="' . $cartinfo['imageurl'] . '" width="80" height="80">'; // Изображение
-        } else {
-            $imagetovar = '';
-        }
-        ?>
-        <div id="formOrderOneClick">
-            <?php
-            if (BuyCore::$variation) {
-                BuyVariationClass::viewJs();
-            }
-            ?>
-            <div class="overlay" title="окно"></div>
-            <div class="popup">
-                <div class="close_order <?php echo (self::is_template_style() ? 'button' : '') ?>">x</div>
-                <form class="b1c-form" method="post" action="#" id="buyoneclick_form_order">
-                    <h2><?php echo BuyCore::$buyoptions['namebutton']; ?></h2>
-                    <?php if (!empty(BuyCore::$buyoptions['infotovar_chek'])) { ?>
-                        <table>
-                            <tr valign="top">
-                                <th scope="row"><?php _e('Name', 'coderun-oneclickwoo'); ?></th>
-                                <td>
-                                    <span class="description"><?php _e('Price', 'coderun-oneclickwoo'); ?></span>
-                                </td>
-                                <?php if (!empty($cartinfo['imageurl'])) { ?>
-                                    <td>
-                                        <span class="description"><?php _e('Picture', 'coderun-oneclickwoo'); ?></span>
-                                    </td>
-                                <?php } ?>
-                            </tr>
-                            <tr valign="top">
-                                <th scope="row"><?php echo $nametovar; ?></th>
-                                <td>
-                                    <span class="description"><?php echo $pricetovar; ?></span>
-                                </td>
-                                <?php if (!empty($imagetovar)) { ?>
-                                    <td>
-                                        <span class="description"><?php echo $imagetovar; ?></span>
-                                    </td>
-                                <?php } ?>
-                            </tr>
-                        </table>
-                    <?php } ?>
-
-                    <?php if (!empty(BuyCore::$buyoptions['fio_chek'])) { ?>
-                        <input class="buyvalide <?php echo (self::is_template_style() ? 'input-text' : '') ?>" type="text" <?php
-                        if (!empty(BuyCore::$buyoptions['fio_verifi'])) {
-                            // echo 'required';
-                        }
-                        ?> placeholder="<?php echo BuyCore::$buyoptions['fio_descript']; ?>" name="txtname">	
-                           <?php } ?>
-                           <?php if (!empty(BuyCore::$buyoptions['fon_chek'])) { ?>
-                        <input class="buyvalide <?php echo (self::is_template_style() ? 'input-text' : '') ?> " type="tel" <?php
-                        if (!empty(BuyCore::$buyoptions['fon_verifi'])) {
-                            //echo 'required';
-                        }
-                        ?> placeholder="<?php echo BuyCore::$buyoptions['fon_descript']; ?>" name="txtphone">
-                        <p class="phoneFormat"><?php
-                            if (!empty(BuyCore::$buyoptions['fon_format'])) {
-                                echo __('Format', 'coderun-oneclickwoo') . ' ' . BuyCore::$buyoptions['fon_format'];
-                            }
-                            ?></p>
-                    <?php } ?>
-                    <?php if (!empty(BuyCore::$buyoptions['email_chek'])) { ?>
-                        <input class="buyvalide <?php echo (self::is_template_style() ? 'input-text' : '') ?> " type="email" <?php
-                        if (!empty(BuyCore::$buyoptions['email_verifi'])) {
-                            //echo 'required';
-                        }
-                        ?> placeholder="<?php echo BuyCore::$buyoptions['email_descript']; ?>" name="txtemail">
-                           <?php } ?>
-                           <?php if (!empty(BuyCore::$buyoptions['dopik_chek'])) { ?>
-                        <textarea class="buymessage buyvalide" <?php
-                        if (!empty(BuyCore::$buyoptions['dopik_verifi'])) {
-                            //echo 'required';
-                        }
-                        ?> name="message" placeholder="<?php echo BuyCore::$buyoptions['dopik_descript']; ?>" rows="2" value=""></textarea>
-                              <?php } ?>
-
-                    <?php if (!empty(BuyCore::$buyoptions['conset_personal_data_enabled'])) { ?>
-                        <p>
-                            <input type="checkbox" name="conset_personal_data">
-                            <?php echo BuyCore::$buyoptions['conset_personal_data_text']; ?>
-                        </p>
-                    <?php } ?>
-
-                    <input type="hidden" name="buy_nametovar" value="<?php echo $nametovar; ?>" />
-                    <input type="hidden" name="buy_pricetovar" value="<?php echo $pricetovar; ?>" />
-                    <input type="hidden" name="buy_idtovar" value="<?php echo $idtovar; ?>" /> 
-
-                    <?php wp_nonce_field(); ?>
-                    <p class="form-message-result"></p>
-                    <input type="submit" data-custom="<?php echo $custom; ?>" class="button alt buyButtonOkForm" value="<?php echo BuyCore::$buyoptions['butform_descript']; ?>" name="btnsend">
-                </form>
-            </div>
-            <?php self::viewBuyMessage(); ?>
-        </div>
-        <?php
+        include_once CODERUN_ONECLICKWOO_TEMPLATES_PLUGIN_DIR . '/forms/order_form.php';
         $form = ob_get_contents();
         ob_end_clean();
 
-        return $form;
+        return apply_filters('coderun_oneclickwoo_order_form_html', $form);
     }
 
     /**
@@ -165,15 +77,32 @@ class BuyFunction {
      */
     static function viewBuyButton($short_code = false) {
         $page = '';
-        if (!empty(BuyCore::$buyoptions['positionbutton'])) {
-            global $product, $woocommerce_loop;
+
+        $options = Help::getInstance()->get_options();
+
+        if (!empty($options['buyoptions']['positionbutton'])) {
+            global $product, $post;
 
             $name = self::get_button_name();
+
+            if (is_object($product)) {
+                $product_id = $product->get_id();
+            } elseif (is_object($post)) {
+                $product_id = $post->ID;
+            } else {
+                $product_id = 0;
+            }
 
             ob_start();
             ?>
 
-            <button class="clickBuyButton button21 button alt" data-productid="<?= $product->get_id(); ?>"><?php echo $name; ?></button>
+            <button
+                class="single_add_to_cart_button clickBuyButton button21 button alt ld-ext-left" 
+                data-variation_id="0" 
+                data-productid="<?php echo $product_id; ?>">
+                <span> <?php echo $name; ?></span>
+                <div style="font-size:14px" class="ld ld-ring ld-cycle"></div>
+            </button>
 
             <?php
             $page = ob_get_contents();
@@ -192,11 +121,22 @@ class BuyFunction {
      */
     static function viewBuyButtonCustrom($arParams) {
         $page = '';
-        if (!empty(BuyCore::$buyoptions['namebutton']) and ! empty(BuyCore::$buyoptions['positionbutton'])) {
+
+        $options = Help::getInstance()->get_options();
+
+        if (!empty($options['buyoptions']['namebutton']) and ! empty($options['buyoptions']['positionbutton'])) {
             ob_start();
             ?>
 
-            <button class="clickBuyButtonCustom button21 button alt" href="#" data-productid="<?php echo $arParams['id']; ?>" data-name="<?php echo $arParams['name']; ?>" data-count="<?php echo $arParams['count']; ?>" data-price="<?php echo $arParams['price']; ?>"><?php echo BuyCore::$buyoptions['namebutton']; ?></button>
+            <button 
+                class="clickBuyButtonCustom button21 button alt ld-ext-left" 
+                href="#" data-productid="<?php echo $arParams['id']; ?>" 
+                data-name="<?php echo $arParams['name']; ?>" 
+                data-count="<?php echo $arParams['count']; ?>" 
+                data-price="<?php echo $arParams['price']; ?>">
+                <span><?php echo $options['buyoptions']['namebutton']; ?></span>
+                <div style="font-size:14px" class="ld ld-ring ld-cycle"></div>
+            </button>
 
             <?php
             $page = ob_get_contents();
@@ -206,8 +146,27 @@ class BuyFunction {
         return $page;
     }
 
+    /**
+     * Вернёт форму загрузки файлов
+     * @return type
+     */
+    protected static function get_from_upload_file() {
+        $options = Help::getInstance()->get_options('buyoptions');
+        if (!empty($options['upload_input_file_chek'])) {
+            ob_start();
+            include_once CODERUN_ONECLICKWOO_TEMPLATES_PLUGIN_DIR . '/forms/file_uploader.php';
+            $form = ob_get_contents();
+            ob_end_clean();
+
+            return apply_filters('coderun_oneclickwoo_order_form_html', $form);
+        }
+
+        return '';
+    }
+
     protected static function is_template_style() {
-        if (isset(BuyCore::$buyoptions['form_style_color']) && BuyCore::$buyoptions['form_style_color'] == '6') {
+        $options = Help::getInstance()->get_options();
+        if (isset($options['buyoptions']['form_style_color']) && $options['buyoptions']['form_style_color'] == '6') {
             return true;
         }
         return false;
@@ -220,79 +179,65 @@ class BuyFunction {
      * @return array 'article' - код товара, 'name'-наименование,'imageurl'-url картинки,'amount'-цена,
      * 'quantity' -количество
      */
-    static function BuyInfoCart($productid, $urlpost) {
-        $urlpost = ''; //устарела
-        //global $post; // Что бы получать данные о посте Wordpress
-        //$postid = url_to_postid($urlpost);
-        // if (empty($postid)) {
-        $postid = $productid;
-        //}
-        //$product_id = $post->ID; //ID продукта (ID поста Wordpress)
-        $product_id = $postid; //ID продукта (ID поста Wordpress)
-        $product = new WC_Product($product_id); // Класс Woo для работы с товаром
+    public static function get_product_param($product_id) {
+
+        $result = array();
+
+        $product = wc_get_product($product_id); // Класс Woo для работы с товаром
+
         if (method_exists($product, 'get_image_id')) {
 
-
-            $article = $product_id; //Код товара по классификации Wordpress (ID продукта)
             $name = $product->get_post_data()->post_title; //Название товара
-            $imageurl = wp_get_attachment_image_src($product->get_image_id()); //Урл картинки товара
+            $image_param = wp_get_attachment_image_src($product->get_image_id()); //Урл картинки товара
             $amount = $product->get_price(); //Цена товара
             $quantity = '1'; //Количество товаров - не использую
             //Данные о товаре
-            $datacart = array(
-                'article' => $article,
+            $result = array(
+                'article' => $product_id,
                 'name' => $name,
-                'imageurl' => $imageurl[0],
+                'imageurl' => $image_param[0],
                 'amount' => $amount,
                 'quantity' => $quantity
             );
-
-            return $datacart;
-        } else {
-            return FALSE;
         }
+
+        return $result;
     }
 
     /**
-     * Отправка Email через функцию PHP mail
+     * Отправка Email
      */
-    static function BuyEmailNotification($to, $subject, $message) {
+    static function BuyEmailNotification($to, $subject, $field) {
 
-        $namemag = $message['namemag'];
-        $date = $message['time'];
-        $urltovar = $message['url'];
-        $price = $message['price'];
-        $nametovar = $message['nametov'];
-        $dopinfo = $message['dopinfo'];
-        $fon = $message['fon'];
-        $fio = $message['fio'];
-        $email = $message['email'];
-        $dop_pole = $message['dop_pole'];
+        $options = Help::getInstance()->get_options();
+
         $headers = 'MIME-Version: 1.0' . "\r\n";
         $headers .= "Content-type: text/html; charset=UTF-8 \r\n";
-        $headers .= "From: " . $namemag . " <" . BuyCore::$buynotification['emailfrom'] . ">\r\n";
+        $headers .= "From: " . $field['company_name'] . " <" . $options['buynotification']['emailfrom'] . ">\r\n";
 //Функция Wordpress иногда ломается, можно использовать просто mail
-        wp_mail($to, $subject, self::htmlEmailTemplate($namemag, $date, $urltovar, $price, $nametovar, $dopinfo, $fon, $fio, $dop_pole, $email), $headers);
+        wp_mail($to, $subject, self::htmlEmailTemplate($field), $headers);
     }
 
     protected static function get_button_name() {
         global $product;
 
+        $options = Help::getInstance()->get_options();
+
         $default_name = __('Buy on click', 'coderun-oneclickwoo');
 
-        if (!isset(BuyCore::$buyoptions['namebutton'])) {
+        if (!isset($options['buyoptions']['namebutton'])) {
             return $default_name;
         }
 
         $name = null;
 
-        $default_name = BuyCore::$buyoptions['namebutton'];
+        $default_name = $options['buyoptions']['namebutton'];
 
-        if (isset(BuyCore::$buyoptions['woo_stock_status_button_text'])) {
-            $name = BuyCore::$buyoptions['woo_stock_status_button_text'];
+        if (isset($options['buyoptions']['woo_stock_status_button_text'])) {
+            $name = $options['buyoptions']['woo_stock_status_button_text'];
         }
 
-        if (!is_object($product) || empty($product->get_id()) || empty(BuyCore::$buyoptions['woo_stock_status_enable'])) {
+        if (!is_object($product) || empty($product->get_id()) || empty($options['buyoptions']['woo_stock_status_enable'])) {
             return $default_name;
         }
 
@@ -309,47 +254,64 @@ class BuyFunction {
     /**
      * Шаблон emial сообщения
      */
-    static function htmlEmailTemplate($namemag, $date, $urltovar, $price, $nametovar, $dopinfo, $fon, $fio, $dop_pole, $email) {
+    static function htmlEmailTemplate($params) {
+
+        $default_params = array(
+            'company_name' => '',
+            'order_time' => '',
+            'product_link' => '',
+            'product_price' => '',
+            'product_name' => '',
+            'user_cooment' => '',
+            'user_phone' => '',
+            'order_admin_comment' => '',
+            'user_email' => '',
+        );
+
+        $params = wp_parse_args($params, $default_params);
+
+
+
         $message = ' 
 <table style="height: 255px; border-color: #1b0dd9;" border="2" width="579">
 <tbody>
 <tr>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;" colspan="2">' . $namemag . '</td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;" colspan="2">' . $params['company_name'] . '</td>
 </tr>
 <tr>
 <td style="border-color: #132cba; text-align: center; vertical-align: middle;"> ' . __('Date', 'coderun-oneclickwoo') . ': </td>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $date . '</td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $params['order_time'] . '</td>
 </tr>
 <tr>
 <td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . __('Link to the product', 'coderun-oneclickwoo') . ': </td>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $urltovar . '</td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $params['product_link'] . '</td>
 </tr>
 <tr>
 <td style="border-color: #132cba; text-align: center; vertical-align: middle;"> ' . __('Price', 'coderun-oneclickwoo') . ': </td>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $price . '</td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $params['product_price'] . '</td>
 </tr>
 <tr>
 <td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . __('Name', 'coderun-oneclickwoo') . '</td>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $nametovar . '</td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $params['product_name'] . '</td>
 </tr>
 <tr>
 <td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . __('Email', 'coderun-oneclickwoo') . '</td>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $email . '</td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $params['user_email'] . '</td>
 </tr>
 <tr>
 <td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . __('Phone number', 'coderun-oneclickwoo') . '</td>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $fon . '</td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $params['user_phone'] . '</td>
 </tr>
 <tr>
 <td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . __('Customer', 'coderun-oneclickwoo') . '</td>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $fio . '</td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;">' . $params['user_name'] . '</td>
 </tr>
 <tr>
 <td style="border-color: #132cba; text-align: center; vertical-align: middle;"> ' . __('Additionally', 'coderun-oneclickwoo') . ' </td>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;"> ' . $dop_pole . ' </td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;"> ' . $params['user_cooment'] . ' </td>
 </tr>
 <tr>
-<td style="border-color: #132cba; text-align: center; vertical-align: middle;" colspan="2">' . $dopinfo . '</td>
+<td style="border-color: #132cba; text-align: center; vertical-align: middle;" colspan="2">' . $params['order_admin_comment'] . '</td>
 </tr>
 </tbody>
 </table>

@@ -1,5 +1,9 @@
 <?php
 
+namespace Coderun\BuyOneClick;
+
+use Coderun\BuyOneClick\Help;
+
 if (!defined('ABSPATH')) {
     exit;
 }
@@ -44,7 +48,9 @@ class BuyCore {
     /**
      * Версия ядра
      */
-    const VERSION = '1.8.8';
+    const VERSION = '1.9.7';
+
+    protected static $_instance = null;
 
     /**
      * Настройки плагина
@@ -125,36 +131,61 @@ class BuyCore {
      * @var type 
      */
     public static $variation = FALSE;
+    protected $options = array();
+
+    /**
+     * Singletone
+     * @return BuyCore
+     */
+    public static function getInstance() {
+
+        if (is_null(self::$_instance)) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
+    public function __clone() {
+        throw new \Exception('Forbiden instance __clone');
+    }
+
+    public function __wakeup() {
+        throw new \Exception('Forbiden instance __wakeup');
+    }
 
     /**
      * Конструктор класса
      */
-    public function __construct() {
+    protected function __construct() {
+
+        $help = Help::getInstance();
+
+        $this->options = $options = $help->get_options();
+
         if (class_exists('BuyVariationClass')) {
-            self::$variation = TRUE;
+
+            $help->module_variation = true;
+
+            self::$variation = $help->module_variation;
         }
-
-        $help = \Coderun\BuyOneClick\Help::getInstance();
-
-        $options = $help->get_options();
 
         self::$buyoptions = $options['buyoptions']; //Загрука опций из базы
         self::$buyzakaz = $options['buyzakaz']; //Загрука опций из базы
         self::$buynotification = $options['buynotification']; //Загрука опций из базы
         self::$buysmscoptions = $options['buysmscoptions']; //Получаем настройки смсцентра из опций
-        $this->addAction();
-        $this->addOptions();
+        // $this->addAction();
+        // $this->addOptions();
     }
 
     /**
      * Подключение функций через add_action Wordpress
      */
     public function addAction() {
-        $buyoptions = self::$buyoptions;
+        $buyoptions = $this->options['buyoptions'];
         if (!empty($buyoptions['enable_button']) and $buyoptions['enable_button'] == 'on') {
             $position = $buyoptions['positionbutton']; //Позиция кнопки
             if (self::$variation) {
-                $strPosition = BuyVariationClass::getPositionButton();
+                $strPosition = \BuyVariationClass::getPositionButton();
                 if ($strPosition !== FALSE) {
                     $position = $strPosition;
                 }
@@ -162,25 +193,26 @@ class BuyCore {
             add_action($position, array($this, 'styleAddFrontPage')); //Стили фронта
             add_action($position, array($this, 'scriptAddFrontPage')); //Скрипты фронта
             add_action($position, array('BuyFunction', 'viewBuyButton')); //Кнопка заказать
-            //add_action($position, array('BuyFunction', 'viewBuyForm')); //Форма заказа с 25.08.2016 ajax
-            //add_action($position, array('BuyFunction', 'viewBuyMessage')); //Дополнительное сообщение с 8.09.2016 в форме
             //Положение в категории товаров
             if (!empty($buyoptions['enable_button_category']) and $buyoptions['enable_button_category'] == 'on') {
                 $position_category = $buyoptions['positionbutton_category']; //Позиция кнопки
                 add_action($position_category, array('BuyFunction', 'viewBuyButton')); //Кнопка заказать
                 add_action($position_category, array($this, 'styleAddFrontPage')); //Стили фронта
                 add_action($position_category, array($this, 'scriptAddFrontPage')); //Скрипты фронта
-                //add_action($position_category, array('BuyFunction', 'viewBuyMessage')); //Дополнительное сообщение с 8.09.2016 в форме
             }
         }
-        add_action('admin_menu', array($this, 'adminOptions'));
-        //add_action('woocommerce_receipt_buyclik', array('BuyFunction', 'viewBuyForm')); // Подтверждение заказа
-
-
-        add_filter('plugin_action_links', array($this, 'pluginLinkSetting'), 10, 2); //Настройка на странице плагинов
+//        add_action('admin_menu', array($this, 'adminOptions'));
+//
+//        add_filter('plugin_action_links', array($this, 'pluginLinkSetting'), 10, 2); //Настройка на странице плагинов
         //
 
         add_action('wp_head', array($this, 'jsVariableHead'));
+    }
+
+    public function action_admin_page() {
+        add_action('admin_menu', array($this, 'adminOptions'));
+
+        add_filter('plugin_action_links', array($this, 'pluginLinkSetting'), 10, 2); //Настройка на странице плагинов
     }
 
     /**
@@ -188,7 +220,7 @@ class BuyCore {
      */
     public function jsVariableHead() {
 
-        $buyoptions = self::$buyoptions;
+        $buyoptions = $this->options['buyoptions'];
 
         $variables = array('ajaxurl' => admin_url('admin-ajax.php'));
         if (self::$variation) {
@@ -212,6 +244,23 @@ class BuyCore {
             $variables['work_mode'] = 0;
         }
 
+        if (isset($buyoptions['success_action'])) {
+            $variables['success_action'] = intval($buyoptions['success_action']);
+            if (!empty($buyoptions['success_action_close'])) {
+                $variables['after_submit_form'] = intval($buyoptions['success_action_close']); // 2 Закрытие формы через мсек
+            }
+            if (!empty($buyoptions['success_action_message'])) {
+                $variables['after_submit_form'] = $buyoptions['success_action_message']; // 3 Сообщение после нажатия кнопки в форме
+            }
+            if (!empty($buyoptions['success_action_redirect'])) {
+                $variables['after_submit_form'] = $buyoptions['success_action_redirect']; // 4  Редирект на страницу после нажатия на кнопку в форме
+            }
+
+            if (!empty($buyoptions['success'])) {
+                $variables['after_message_form'] = $buyoptions['success'];
+            }
+        }
+
 
         $str = '';
         $str .= "<script type=\"text/javascript\">\n";
@@ -227,15 +276,15 @@ class BuyCore {
      * Операции выполняемые при деактивации плагина
      */
     public function deactivationPlugin() {
-        delete_option('buyoptions');
-        delete_option('buyzakaz');
-        delete_option('buynotification');
-        delete_option('buysmscoptions');
+        //delete_option('buyoptions');
+        // delete_option('buyzakaz');
+        //delete_option('buynotification');
+        //delete_option('buysmscoptions');
         remove_shortcode('viewBuyButton');
     }
 
     /**
-     * Добавление опций в базу Wordpress
+     * Добавление опций в базу Wordpress при активации
      */
     public function addOptions() {
         add_option('buyoptions', array()); //массив настроек плагина
@@ -268,7 +317,6 @@ class BuyCore {
      * Скрипты для страницы плагина
      */
     public function scriptAddpage() {
-        //wp_enqueue_script('buyonclickjs', plugins_url() . '/' . self::PATCH_PLUGIN . '/' . 'js/form.js', ['jquery'], self::VERSION);
         wp_enqueue_script('buybootstrapjs1', plugins_url() . '/' . self::PATCH_PLUGIN . '/' . 'bootstrap/js/bootstrap.js', ['jquery'], self::VERSION);
         wp_enqueue_script('buyorder', plugins_url() . '/' . self::PATCH_PLUGIN . '/' . 'js/admin_order.js', ['jquery'], self::VERSION);
 
@@ -284,7 +332,8 @@ class BuyCore {
      */
     public function styleAddFrontPage() {
         $numForm = null;
-        $buyoptions = get_option('buyoptions');
+        //Help::getInstance()->get_options();
+        $buyoptions = Help::getInstance()->get_options('buyoptions');
         if (isset($buyoptions['form_style_color'])) {
             $numForm = $buyoptions['form_style_color'];
         }
@@ -293,21 +342,26 @@ class BuyCore {
         }
 
         $wp_uploads_dir = wp_get_upload_dir();
+    
+        wp_register_style('buyonclickfront-general', plugins_url() . '/' . self::PATCH_PLUGIN . '/templates/css/general.css');
+        wp_enqueue_style('buyonclickfront-general');
+        
+        $deps=array('buyonclickfront-general');
 
         if (file_exists($wp_uploads_dir['basedir'] . '/' . self::PATCH_PLUGIN . '/css/form_' . $numForm . '.css')) {
-            wp_register_style('buyonclickcss2', $wp_uploads_dir['baseurl'] . '/' . self::PATCH_PLUGIN . '/css/form_' . $numForm . '.css');
+            wp_register_style('buyonclickcss2', $wp_uploads_dir['baseurl'] . '/' . self::PATCH_PLUGIN . '/css/form_' . $numForm . '.css',$deps);
         } elseif (file_exists(get_stylesheet_directory() . '/' . self::PATCH_PLUGIN . '/css/form_' . $numForm . '.css')) {
-            wp_register_style('buyonclickcss2', get_stylesheet_directory_uri() . '/' . self::PATCH_PLUGIN . '/css/form_' . $numForm . '.css');
+            wp_register_style('buyonclickcss2', get_stylesheet_directory_uri() . '/' . self::PATCH_PLUGIN . '/css/form_' . $numForm . '.css',$deps);
         } else {
-            wp_register_style('buyonclickcss2', plugins_url() . '/' . self::PATCH_PLUGIN . '/templates/css/form_' . $numForm . '.css');
+            wp_register_style('buyonclickcss2', plugins_url() . '/' . self::PATCH_PLUGIN . '/templates/css/form_' . $numForm . '.css',$deps);
         }
 
         if (file_exists($wp_uploads_dir['basedir'] . '/' . self::PATCH_PLUGIN . '/css/formmessage.css')) {
-            wp_register_style('buyonclickfrontcss3', $wp_uploads_dir['baseurl'] . '/' . self::PATCH_PLUGIN . '/css/formmessage.css');
+            wp_register_style('buyonclickfrontcss3', $wp_uploads_dir['baseurl'] . '/' . self::PATCH_PLUGIN . '/css/formmessage.css',$deps);
         } elseif (file_exists(get_stylesheet_directory() . '/' . self::PATCH_PLUGIN . '/css/formmessage.css')) {
-            wp_register_style('buyonclickfrontcss3', get_stylesheet_directory_uri() . '/' . self::PATCH_PLUGIN . '/css/formmessage.css');
+            wp_register_style('buyonclickfrontcss3', get_stylesheet_directory_uri() . '/' . self::PATCH_PLUGIN . '/css/formmessage.css',$deps);
         } else {
-            wp_register_style('buyonclickfrontcss3', plugins_url() . '/' . self::PATCH_PLUGIN . '/templates/css/formmessage.css');
+            wp_register_style('buyonclickfrontcss3', plugins_url() . '/' . self::PATCH_PLUGIN . '/templates/css/formmessage.css',$deps);
         }
 
         wp_enqueue_style('buyonclickfrontcss3');
@@ -339,7 +393,7 @@ class BuyCore {
      * Активная вкладка в админпанели плагина
      * @return string css Класс для активной вкладки
      */
-    static public function adminActiveTab($tab_name = null, $tab = null) {
+    public function adminActiveTab($tab_name = null, $tab = null) {
 
         if (isset($_GET['tab']) && !$tab)
             $tab = $_GET['tab'];
@@ -358,7 +412,8 @@ class BuyCore {
      * Подключает нужную страницу исходя из вкладки на страницы настроек плагина
      * @result include_once tab{номер вкладки}-option1.php
      */
-    static public function tabViwer() {
+    public function tabViwer() {
+
         if (isset($_GET['tab'])) {
             $tab = $_GET['tab'];
             switch ($tab) {

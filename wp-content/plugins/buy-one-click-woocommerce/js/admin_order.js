@@ -49,6 +49,30 @@ jQuery(document).ready(function () {
 
 
     });
+    /**
+     * Удалить заказ Woo ассоциированный с журналом плагина
+     */
+    jQuery('.removeorder_woo').click(function (e) {
+        e.preventDefault();
+        var self=this;
+        jQuery.ajax({
+            type: "POST",
+            url: getAjaxUrl(),
+            async: false,
+            data: {
+                action: 'removeorder',
+                orderId:  jQuery(this).attr('data-woo_id'),
+                pluginId: jQuery(this).attr('data-plugin_id')
+            }
+        }).done(function(response){
+            if(response.success) {
+                jQuery(self).hide();
+            }
+        });
+
+
+
+    });
 
     //Обновление статус
     jQuery('.updatestatus').click(function () {

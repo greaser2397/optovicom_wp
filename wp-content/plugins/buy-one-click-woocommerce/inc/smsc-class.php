@@ -4,6 +4,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+use Coderun\BuyOneClick\Help;
+
 // SMSC.RU API (smsc.ru) версия 3.4 (05.03.2015)
 //Собранно в класс Djo zixn.ru
 class BuySMSC {
@@ -12,6 +14,9 @@ class BuySMSC {
      * Обычная отправка СМС
      */
     function send_sms($phones, $message, $translit = 0, $time = 0, $id = 0, $format = 0, $sender = false, $query = "", $files = array()) {
+
+        $options = Help::getInstance()->get_options();
+
         static $formats = array(1 => "flash=1", "push=1", "hlr=1", "bin=1", "bin=2", "ping=1", "mms=1", "mail=1", "call=1");
 
         $m = $this->_smsc_send_cmd("send", "cost=3&phones=" . urlencode($phones) . "&mes=" . urlencode($message) .
@@ -19,7 +24,7 @@ class BuySMSC {
                 ($sender === false ? "" : "&sender=" . urlencode($sender)) .
                 ($time ? "&time=" . urlencode($time) : "") . ($query ? "&$query" : ""), $files);
 
-        if (BuyCore::$buysmscoptions['debug']) {
+        if ($options['buysmscoptions']['debug']) {
             if ($m[1] > 0) {
                 $m['debud'] = "Сообщение отправлено успешно. ID: $m[0], всего SMS: $m[1], стоимость: $m[2], баланс: $m[3].\n";
             } else {
@@ -31,7 +36,8 @@ class BuySMSC {
     }
 
     function _smsc_send_cmd($cmd, $arg = "", $files = array()) {
-        $url = (BuyCore::$buysmscoptions['https'] ? "https" : "http") . "://smsc.ru/sys/$cmd.php?login=" . urlencode(BuyCore::$buysmscoptions['login']) . "&psw=" . urlencode(BuyCore::$buysmscoptions['password']) . "&fmt=1&charset=" . BuyCore::$buysmscoptions['charset'] . "&" . $arg;
+        $options = Help::getInstance()->get_options();
+        $url = ($options['buysmscoptions']['https'] ? "https" : "http") . "://smsc.ru/sys/$cmd.php?login=" . urlencode($options['buysmscoptions']['login']) . "&psw=" . urlencode($options['buysmscoptions']['password']) . "&fmt=1&charset=" . $options['buysmscoptions']['charset'] . "&" . $arg;
 
         $i = 0;
         do {
@@ -43,11 +49,10 @@ class BuySMSC {
             }
 
             $ret = $this->_smsc_read_url($url, $files);
-        }
-        while ($ret == "" && ++$i < 4);
+        } while ($ret == "" && ++$i < 4);
 
         if ($ret == "") {
-            if (BuyCore::$buysmscoptions['debug'])
+            if ($options['buysmscoptions']['debug'])
                 echo "Ошибка чтения адреса: $url\n";
 
             $ret = ","; // фиктивный ответ
@@ -69,8 +74,9 @@ class BuySMSC {
 // curl или fsockopen (только http) или включена опция allow_url_fopen для file_get_contents
 
     function _smsc_read_url($url, $files) {
+        $options = Help::getInstance()->get_options();
         $ret = "";
-        $post = BuyCore::$buysmscoptions['methodpost'] || strlen($url) > 2000 || $files;
+        $post = $options['buysmscoptions']['methodpost'] || strlen($url) > 2000 || $files;
 
         if (function_exists("curl_init")) {
             static $c = 0; // keepalive
@@ -106,13 +112,11 @@ class BuySMSC {
             curl_setopt($c, CURLOPT_URL, $url);
 
             $ret = curl_exec($c);
-        }
-        elseif ($files) {
-            if (BuyCore::$buysmscoptions['debug'])
+        } elseif ($files) {
+            if ($options['buysmscoptions']['debug'])
                 echo "Не установлен модуль curl для передачи файлов\n";
-        }
-        else {
-            if (!BuyCore::$buysmscoptions['https'] && function_exists("fsockopen")) {
+        } else {
+            if (!$options['buysmscoptions']['https'] && function_exists("fsockopen")) {
                 $m = parse_url($url);
 
                 if (!$fp = fsockopen($m["host"], 80, $errno, $errstr, 10))
