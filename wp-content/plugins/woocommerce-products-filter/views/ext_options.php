@@ -45,6 +45,12 @@ extract($options);
                     </select>
                     <?php
                     break;
+                case 'image':
+                    ?>
+                        <input type="text" name="woof_settings[<?php echo $key ?>]" value="<?php echo $woof_settings[$key] ?>" id="<?php echo $key ?>" />
+                        <a href="#" class="woof-button woof_select_image"><?php echo $placeholder ?></a>                    
+                    <?php
+                    break;
 
                 default:
                     break;

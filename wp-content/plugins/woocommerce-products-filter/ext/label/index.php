@@ -20,7 +20,10 @@ final class WOOF_EXT_LABEL extends WOOF_EXT
     {
         return plugin_dir_path(__FILE__);
     }
-
+    public function get_ext_override_path()
+    {
+        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->html_type. DIRECTORY_SEPARATOR;
+    }
     public function get_ext_link()
     {
         return plugin_dir_url(__FILE__);

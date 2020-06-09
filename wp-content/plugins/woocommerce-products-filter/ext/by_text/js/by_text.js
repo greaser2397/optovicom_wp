@@ -6,7 +6,9 @@ function woof_init_text() {
         val=val.replace("\'","\&#039;");
         val=val.replace("\"","\&quot;");
         var uid = jQuery(this).data('uid');
+
         if (e.keyCode == 13 /*&& val.length > 0*/) {
+            
             woof_text_do_submit = true;
             woof_text_direct_search('woof_text', val);
             return true;

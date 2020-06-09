@@ -7,7 +7,7 @@ $current_request_txt="";
 if ($WOOF->is_isset_in_request_data("slider_".$meta_key))
 {
     $current_request_txt = $request["slider_".$meta_key];
-    $current_request = explode('-', urldecode($current_request_txt));
+    $current_request = explode('^', urldecode($current_request_txt));
 }
 else{
     $current_request=array();
@@ -17,7 +17,7 @@ else{
 
 $min=0;
 $max=100;
-$min_max=explode("-",$range,2);
+$min_max=explode("^",$range,2);
 if(count($min_max)>1){
     $min= floatval($min_max[0]);
     $max= floatval($min_max[1]);   
@@ -91,7 +91,7 @@ if (in_array($show_toggle, array(1, 2))) {
 if($show):
 $top_panel_txt="";    
 $top_panel_txt= WOOF_HELPER::wpml_translate(null,$options['title']);
-$top_panel_txt.=sprintf(":%s %s %s",$meta_settings['prefix'],$current_request_txt,$meta_settings['postfix'])
+$top_panel_txt.=sprintf(":%s %s %s",$meta_settings['prefix'],str_replace("^", "-",$current_request_txt),$meta_settings['postfix'])
 ?>
 <div data-css-class="woof_meta_slider_container" class="woof_meta_slider_container woof_container woof_container_<?php echo "slider_".$meta_key ?>">
     <div class="woof_container_inner">

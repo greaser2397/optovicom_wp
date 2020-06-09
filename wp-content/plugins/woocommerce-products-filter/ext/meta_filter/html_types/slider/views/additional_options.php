@@ -1,6 +1,7 @@
 <?php
 if (!defined('ABSPATH'))
     die('No direct access allowed');
+
 ?>
 <input type="hidden" name="woof_settings[<?php echo $key ?>][show_title_label]" value="<?php echo (isset($settings[$key]['show_title_label'])? $settings[$key]['show_title_label']:1) ?>" /> 
 <input type="hidden" name="woof_settings[<?php echo $key ?>][show_toggle_button]" value="<?php echo (isset($settings[$key]['show_toggle_button'])? $settings[$key]['show_toggle_button']:0) ?>" /> 
@@ -91,14 +92,14 @@ if (!defined('ABSPATH'))
     	<div class="woof-form-element-container">
 	    <div class="woof-name-description">
 		<strong><?php _e('Range', 'woocommerce-products-filter') ?></strong>
-		<span><?php _e('Example: 1-100', 'woocommerce-products-filter') ?></span>
+		<span><?php _e('Example: 1^100', 'woocommerce-products-filter') ?></span>
 	    </div>
 
 	    <div class="woof-form-element">
 		<input type="text" class="woof_popup_option" data-option="range" placeholder="" value="" />
 	    </div>
 	</div>
-    	<div class="woof-form-element-container">
+    	<div class="woof-form-element-container"> 
 
 	    <div class="woof-name-description">
 		<strong><?php _e('Prefix', 'woocommerce-products-filter') ?></strong>

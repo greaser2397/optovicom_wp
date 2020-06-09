@@ -5,10 +5,10 @@ if (!defined('ABSPATH'))
  class WOOF_META_FILTER_SLIDER extends WOOF_META_FILTER_TYPE {
     public $type='slider';
     public $js_func_name="woof_init_meta_slider";
-    public $range="1-100";
+    public $range="1^100";
     public function __construct($key,$options,$woof_settings) {
         parent::__construct($key,$options,$woof_settings);
-        $this->init();
+        $this->init(); 
     } 
     public  function init(){
         add_action('woof_print_html_type_options_' . $this->meta_key,array($this, 'draw_meta_filter_structure'));
@@ -17,7 +17,7 @@ if (!defined('ABSPATH'))
         if(isset($this->woof_settings[$this->meta_key]['range'])){
             $this->range=$this->woof_settings[$this->meta_key]['range'];
         }else{
-            $this->woof_settings[$this->meta_key]['range']="1-100";
+            $this->woof_settings[$this->meta_key]['range']="1^100";
             $this->woof_settings[$this->meta_key]['step']=1;
             $this->woof_settings[$this->meta_key]['prefix']=$this->woof_settings[$this->meta_key]['postfix']="";
         }
@@ -27,7 +27,10 @@ if (!defined('ABSPATH'))
     public function get_meta_filter_path(){
         return plugin_dir_path(__FILE__);
     }
-
+    public function get_meta_filter_override_path()
+    {
+        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .'meta_filter'. DIRECTORY_SEPARATOR ."html_types". DIRECTORY_SEPARATOR .$this->type. DIRECTORY_SEPARATOR;
+    }
     public function get_meta_filter_link(){
         return plugin_dir_url(__FILE__);
     }
@@ -37,12 +40,12 @@ if (!defined('ABSPATH'))
         
     }    
     public function wp_footer(){
-        wp_enqueue_script('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/js/ion-rangeSlider/ion.rangeSlider.min.js', array('jquery'));
-        wp_enqueue_style('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.css');   
+        wp_enqueue_script('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/js/ion-rangeSlider/ion.rangeSlider.min.js', array('jquery'),WOOF_VERSION);
+        wp_enqueue_style('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.css',array(),WOOF_VERSION);   
         $ion_slider_skin = $this->woof_settings['ion_slider_skin'];
-        wp_enqueue_style('ion.range-slider-skin', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.' . $ion_slider_skin . '.css');
-        wp_enqueue_script( 'meta-slider-js',  $this->get_meta_filter_link(). 'js/slider.js', array('jquery'), '', true );
-        wp_enqueue_style( 'meta-slider-css',  $this->get_meta_filter_link(). 'css/slider.css' );
+        wp_enqueue_style('ion.range-slider-skin', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.' . $ion_slider_skin . '.css',array(),WOOF_VERSION);
+        wp_enqueue_script( 'meta-slider-js',  $this->get_meta_filter_link(). 'js/slider.js', array('jquery') ,WOOF_VERSION, true );
+        wp_enqueue_style( 'meta-slider-css',  $this->get_meta_filter_link(). 'css/slider.css',array(),WOOF_VERSION );
     } 
     public function woof_print_html_type_meta(){
         $data['meta_key']=$this->meta_key;
@@ -50,7 +53,12 @@ if (!defined('ABSPATH'))
         $data['meta_settings']= $data['meta_options']= (isset($this->woof_settings[$this->meta_key]))?$this->woof_settings[$this->meta_key]:"";
         $data['range']=$this->range;
         if(isset($this->woof_settings[$this->meta_key]["show"]) AND $this->woof_settings[$this->meta_key]["show"]){
-            echo  $this->render_html($this->get_meta_filter_path().'/views/woof.php', $data);
+
+            if(file_exists($this->get_meta_filter_override_path(). 'views' . DIRECTORY_SEPARATOR . 'woof.php')){
+                echo $this->render_html($this->get_meta_filter_override_path() . 'views' .DIRECTORY_SEPARATOR . 'woof.php', $data);
+            }else{
+                echo  $this->render_html($this->get_meta_filter_path().'/views/woof.php', $data);
+            }
         }
     }    
     protected function draw_additional_options(){
@@ -71,21 +79,21 @@ if (!defined('ABSPATH'))
         $curr_request=$this->check_current_request();
         if($curr_request){  
             $curr_range=array();
-            $curr_range=explode("-",$curr_request);
+            $curr_range=explode("^",$curr_request);
             $from=0;
             $to=0;
             $from= floatval($curr_range[0]); 
             if(count($curr_range)>1){
                 $to= floatval($curr_range[1]);                 
             }else{
-                $range=explode("-",$this->range,2);
+                $range=explode("^",$this->range,2);
                 $to=$range[1];
             }
-            
+            $type=apply_filters('woof_slider_meta_query_type','numeric',$this->meta_key);
             $meta=array(
                 'key' => $this->meta_key,
                 'value'   => array( $from, $to ),
-		'type'    => 'numeric',
+		'type'    => $type,
                 'compare'=>'BETWEEN',
             );    
             return $meta;
@@ -101,7 +109,7 @@ if (!defined('ABSPATH'))
         $value_txt="";
         $prefix="";
         $postfix="";
-        $arr_val= explode("-", $value,2);
+        $arr_val= explode("^", $value,2);
         if(count($arr_val)>1){
             if($key){
                 $meta_key=str_replace("slider_", "",$key);

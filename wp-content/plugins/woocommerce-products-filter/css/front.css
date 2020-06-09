@@ -13,12 +13,21 @@
 
 ul.woof_list{
     margin: 0 !important;
+    list-style: none !important;
+}
+
+li.woof_list{
+    list-style: none !important;
 }
 
 .woof_list li{
     list-style: none !important;
     padding: 0 0 5px 0 !important;
 
+}
+
+.woof_block_html_items ul{
+    margin-left: 0;
 }
 
 .woof_list label{
@@ -146,6 +155,7 @@ p:hover.woof_tooltip span.woof_tooltip_data {
     display: none;
     position: relative;
     z-index: 99;
+    clear: both;
 }
 
 .woof_products_top_panel ul{
@@ -190,7 +200,7 @@ p:hover.woof_tooltip span.woof_tooltip_data {
     -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
     -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
     box-shadow:inset 0px 1px 0px 0px #ffffff;
-    background: #fdfdfd;
+    background: #fefefe;
     /*
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fdfdfd), color-stop(1, #eee) );
     background:-moz-linear-gradient( center top, #fdfdfd 5%, #eee 100% );
@@ -296,8 +306,8 @@ p:hover.woof_tooltip span.woof_tooltip_data {
 
 .woof_childs_list_opener span{
     display: inline-block;    
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
     background-position: right;
     width: 18px;
     height: 18px;
@@ -1028,6 +1038,9 @@ a.chosen-single{
 font-size: 18px;
 font-weight: bold;
 color: #2c2c2c;
+}
+.woof_container .woof_container_inner input[type="search"] {
+line-height: normal !important;
 }
 
 /* Small Devices, Tablets */

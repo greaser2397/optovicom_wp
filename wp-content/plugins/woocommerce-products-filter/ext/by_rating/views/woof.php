@@ -3,8 +3,7 @@ if (!defined('ABSPATH'))
     die('No direct access allowed');
 
 global $WOOF;
-if (isset($WOOF->settings['by_rating']) AND $WOOF->settings['by_rating']['show'])
-{
+if (isset($WOOF->settings['by_rating']) AND $WOOF->settings['by_rating']['show']) {
     ?>
     <div data-css-class="woof_by_rating_container" class="woof_by_rating_container woof_container">
         <div class="woof_container_overlay_item"></div>
@@ -25,6 +24,7 @@ if (isset($WOOF->settings['by_rating']) AND $WOOF->settings['by_rating']['show']
                     <option <?php echo selected($selected, $key); ?> value="<?php echo $key ?>"><?php echo $value ?></option>
                 <?php endforeach; ?>
             </select>
+            <input type="hidden" value="<?php echo __('Min rating: ', 'woocommerce-products-filter'), $selected ?>" data-anchor="woof_n_<?php echo "min_rating" ?>_<?php echo $selected ?>" />
         </div>
     </div>
     <?php

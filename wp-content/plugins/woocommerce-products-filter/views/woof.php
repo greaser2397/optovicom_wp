@@ -9,7 +9,7 @@ if ($dynamic_recount == -1) {
 } else {
     $args['show_count_dynamic'] = $dynamic_recount;
 }
-$args['hide_dynamic_empty_pos'] = get_option('woof_hide_dynamic_empty_pos', 0);
+$args['hide_dynamic_empty_pos'] = 0;
 $args['woof_autosubmit'] = $autosubmit;
 //***
 $_REQUEST['tax_only'] = $tax_only;
@@ -24,12 +24,14 @@ if (!function_exists('woof_show_btn')) {
 
             <?php
             global $WOOF;
-            if ($WOOF->is_isset_in_request_data($WOOF->get_swoof_search_slug())): global $woof_link;
+            if ($WOOF->is_isset_in_request_data($WOOF->get_swoof_search_slug()) OR ( class_exists("WOOF_EXT_TURBO_MODE") AND isset($WOOF->settings["woof_turbo_mode"]["enable"]) AND $WOOF->settings["woof_turbo_mode"]["enable"] )): global $woof_link;
                 ?>
 
                 <?php
-                $woof_reset_btn_txt = __('Reset', 'woocommerce-products-filter');
-
+                $woof_reset_btn_txt = '';
+                if (empty($woof_reset_btn_txt)) {
+                    $woof_reset_btn_txt = __('Reset', 'woocommerce-products-filter');
+                }
                 $woof_reset_btn_txt = WOOF_HELPER::wpml_translate(null, $woof_reset_btn_txt);
                 ?>
 
@@ -40,14 +42,17 @@ if (!function_exists('woof_show_btn')) {
 
             <?php if (!$autosubmit OR $ajax_redraw): ?>
                 <?php
-                $woof_filter_btn_txt = __('Filter', 'woocommerce-products-filter');
+                $woof_filter_btn_txt = '';
+                if (empty($woof_filter_btn_txt)) {
+                    $woof_filter_btn_txt = __('Filter', 'woocommerce-products-filter');
+                }
 
                 $woof_filter_btn_txt = WOOF_HELPER::wpml_translate(null, $woof_filter_btn_txt);
                 ?>
                 <button style="float: left;" class="button woof_submit_search_form"><?php echo $woof_filter_btn_txt ?></button>
             <?php endif; ?>
 
-        </div>            
+        </div>
         <?php
     }
 
@@ -197,7 +202,7 @@ if (!function_exists('woof_print_tax')) {
                         ?>
                         <div class="<?php echo $css_classes ?>" <?php if (!empty($woof_container_styles)): ?>style="<?php echo $woof_container_styles ?>"<?php endif; ?>>
                             <?php
-                            echo $WOOF->render_html(WOOF_PATH . 'views/html_types/checkbox.php', $args);
+                            echo $WOOF->render_html(apply_filters('woof_html_types_view_checkbox', WOOF_PATH . 'views/html_types/checkbox.php'), $args);
                             ?>
                         </div>
                         <?php
@@ -214,7 +219,7 @@ if (!function_exists('woof_print_tax')) {
                         ?>
                         <div class="<?php echo $css_classes ?>">
                             <?php
-                            echo $WOOF->render_html(WOOF_PATH . 'views/html_types/select.php', $args);
+                            echo $WOOF->render_html(apply_filters('woof_html_types_view_select', WOOF_PATH . 'views/html_types/select.php'), $args);
                             ?>
                         </div>
                         <?php
@@ -231,7 +236,7 @@ if (!function_exists('woof_print_tax')) {
                         ?>
                         <div class="<?php echo $css_classes ?>">
                             <?php
-                            echo $WOOF->render_html(WOOF_PATH . 'views/html_types/mselect.php', $args);
+                            echo $WOOF->render_html(apply_filters('woof_html_types_view_mselect', WOOF_PATH . 'views/html_types/mselect.php'), $args);
                             ?>
                         </div>
                         <?php
@@ -276,10 +281,10 @@ if (!function_exists('woof_print_tax')) {
 
 
                                 if (!$is_custom) {
-                                    echo $WOOF->render_html(WOOF_PATH . 'views/html_types/radio.php', $args);
+                                    echo $WOOF->render_html(apply_filters('woof_html_types_view_radio', WOOF_PATH . 'views/html_types/radio.php'), $args);
                                 }
                             } else {
-                                echo $WOOF->render_html(WOOF_PATH . 'views/html_types/radio.php', $args);
+                                echo $WOOF->render_html(apply_filters('woof_html_types_view_radio', WOOF_PATH . 'views/html_types/radio.php'), $args);
                             }
                             ?>
 
@@ -333,7 +338,7 @@ if (!function_exists('woof_print_item_by_key')) {
                                     <?php echo WOOF_HELPER::draw_tooltipe(WOOF_HELPER::wpml_translate(null, $WOOF->settings['by_price']['title_text']), $tooltip_text) ?>
                                     </<?php echo apply_filters('woof_title_tag', 'h4'); ?>>
                                 <?php endif; ?>
-                                <?php WOOF_HELPER::price_filter(); ?>
+                                <?php WOOF_HELPER::price_filter($additional_taxes); ?>
                             </div>
                         </div>
                     </div>
@@ -396,13 +401,48 @@ if (!function_exists('woof_print_item_by_key')) {
                     <div data-css-class="woof_price5_search_container" class="woof_price5_search_container woof_container woof_price_filter">
                         <div class="woof_container_overlay_item"></div>
                         <div class="woof_container_inner">
+                            <?php
+                            $css_classes = "woof_block_html_items";
+                            $show_toggle = 0;
+                            if (isset($WOOF->settings[$key]['show_toggle_button'])) {
+                                $show_toggle = (int) $WOOF->settings[$key]['show_toggle_button'];
+                            }
+                            $tooltip_text = "";
+                            if (isset($WOOF->settings['tooltip_text'][$key])) {
+                                $tooltip_text = $WOOF->settings['tooltip_text'][$key];
+                            }
+                            //***
+                            $search_query = $WOOF->get_request_data();
+                            $block_is_closed = true;
+                            if (in_array("min_price", array_keys($search_query))) {
+                                $block_is_closed = false;
+                            }
+                            if ($show_toggle === 1 AND ! in_array("min_price", array_keys($search_query))) {
+                                $css_classes .= " woof_closed_block";
+                            }
+
+                            if ($show_toggle === 2 AND ! in_array("min_price", array_keys($search_query))) {
+                                $block_is_closed = false;
+                            }
+
+                            if (in_array($show_toggle, array(1, 2))) {
+                                $block_is_closed = apply_filters('woof_block_toggle_state', $block_is_closed);
+                                if ($block_is_closed) {
+                                    $css_classes .= " woof_closed_block";
+                                } else {
+                                    $css_classes = str_replace('woof_closed_block', '', $css_classes);
+                                }
+                            }
+                            ?>
                             <?php if (isset($WOOF->settings['by_price']['title_text']) AND ! empty($WOOF->settings['by_price']['title_text'])): ?>
                                 <<?php echo apply_filters('woof_title_tag', 'h4'); ?>>
                                 <?php echo WOOF_HELPER::wpml_translate(null, $WOOF->settings['by_price']['title_text']); ?>
+                                <?php WOOF_HELPER::draw_title_toggle($show_toggle, $block_is_closed); ?>
                                 </<?php echo apply_filters('woof_title_tag', 'h4'); ?>>
                             <?php endif; ?>
-
-                            <?php echo do_shortcode('[woof_price_filter type="radio" additional_taxes="' . $additional_taxes . '"]'); ?>
+                            <div class="<?php echo $css_classes ?>" <?php if (!empty($woof_container_styles)): ?>style="<?php echo $woof_container_styles ?>"<?php endif; ?>>
+                                <?php echo do_shortcode('[woof_price_filter type="radio" additional_taxes="' . $additional_taxes . '"]'); ?>
+                            </div>
 
                         </div>
                     </div>
@@ -463,11 +503,11 @@ if (!function_exists('woof_print_item_by_key')) {
                     <div></div>
                 <?php endif; ?>
 
-                <!--- here is possible drop html code which is never redraws by AJAX ---->
+                <!--- here is possible to drop html code which is never redraws by AJAX ---->
+                <?php echo apply_filters('woof_print_content_before_redraw_zone', '') ?>
 
                 <div class="woof_redraw_zone" data-woof-ver="<?php echo WOOF_VERSION ?>">
                     <?php echo apply_filters('woof_print_content_before_search_form', '') ?>
-
                     <?php
                     if (isset($start_filtering_btn) AND (int) $start_filtering_btn == 1) {
                         $start_filtering_btn = true;
@@ -482,12 +522,10 @@ if (!function_exists('woof_print_item_by_key')) {
                     if ($this->is_isset_in_request_data($this->get_swoof_search_slug())) {
                         $start_filtering_btn = false;
                     }
-
-                    $txt = apply_filters('woof_start_filtering_btn_txt', __('Show products filter form', 'woocommerce-products-filter'));
                     ?>
 
                     <?php if ($start_filtering_btn): ?>
-                        <a href="#" class="woof_button woof_start_filtering_btn"><?php echo $txt ?></a>
+                        <a href="#" class="woof_button woof_start_filtering_btn"><?php echo $woof_start_filtering_btn_txt ?></a>
                     <?php else: ?>
                         <?php
                         if ($btn_position == 't' OR $btn_position == 'tb'OR $btn_position == 'bt') {

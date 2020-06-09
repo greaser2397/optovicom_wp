@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('ABSPATH'))
+    die('No direct access allowed');
+
 class WOOF_ADV {
 
     public $notices_list = array();

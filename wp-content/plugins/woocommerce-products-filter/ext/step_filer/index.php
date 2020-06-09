@@ -2,7 +2,6 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
-//29-10-2018
 final class WOOF_EXT_STEP_FILTER extends WOOF_EXT {
 
     public $type = 'application';
@@ -17,7 +16,10 @@ final class WOOF_EXT_STEP_FILTER extends WOOF_EXT {
     public function get_ext_path() {
         return plugin_dir_path(__FILE__);
     }
-
+    public function get_ext_override_path()
+    {
+        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->folder_name. DIRECTORY_SEPARATOR;
+    }
     public function get_ext_link() {
         return plugin_dir_url(__FILE__);
     }
@@ -111,12 +113,40 @@ final class WOOF_EXT_STEP_FILTER extends WOOF_EXT {
                 $data["filter_type"] = 2;
             }
         }
+        
+        $data["selector"] = ".woof_step";
+        if (isset($args["selector"])) {
+            $data["selector"] = $args["selector"];
+        } 
+        $data["img_behavior"] = "append";
+        if (isset($args["img_behavior"])) {
+            $data["img_behavior"] = $args["img_behavior"];
+        } 
+        
+        $data["images"] = array();
+        if (isset($args['images'])) {
+            $size=apply_filters("woof_step_filter_img_size",'thumbnail');
+            $image_arr= explode(",",$args['images']);
+            foreach($image_arr as $image_item){
+                $image_item=explode(":",$image_item,2);
+                if(count($image_item)==2){
+                    $url=wp_get_attachment_image_url(intval($image_item[1]),$size);
+                    if($url){
+                        $data["images"][trim($image_item[0])]= '<img src="'.$url.'" class="woof_step_filter_image woof_step_filter_image_'.trim($image_item[0]).'" >';
+                    }
+                }
+                
+            }
 
+        }
 
 
         $data["shortcode_woof"] = "[woof ajax_redraw=1 autosubmit=0  " . $shortcode_txt . "]";
 
         global $WOOF;
+        if(file_exists($this->get_ext_override_path(). 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'step_filter.php')){
+            return $WOOF->render_html($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'step_filter.php', $data);
+        }           
         return $WOOF->render_html($this->get_ext_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcode' . DIRECTORY_SEPARATOR . 'step_filter.php', $data);
     }
 

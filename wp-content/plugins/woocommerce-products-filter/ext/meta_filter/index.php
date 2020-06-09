@@ -2,7 +2,6 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
-//12-06-2018
 final class WOOF_META_FILTER extends WOOF_EXT {
 
     public $type = 'application';
@@ -18,6 +17,10 @@ final class WOOF_META_FILTER extends WOOF_EXT {
     public function __construct() {
         parent::__construct();
         $this->init();
+    }
+
+    public function get_ext_override_path() {
+        return get_stylesheet_directory() . DIRECTORY_SEPARATOR . "woof" . DIRECTORY_SEPARATOR . "ext" . DIRECTORY_SEPARATOR . $this->html_type . DIRECTORY_SEPARATOR;
     }
 
     public function get_ext_path() {
@@ -46,45 +49,56 @@ final class WOOF_META_FILTER extends WOOF_EXT {
             'slider' => array(
                 'key' => 'slider',
                 'title' => __('Slider', 'woocommerce-products-filter'),
-                'hide_if' => 'string',
+                //'hide_if' => 'string',
+                'hide_if' => array('string', 'DATE'),
                 'show_options' => false,
-            ),            
+            ),
             'textinput' => array(
                 'key' => 'textinput',
                 'title' => __('Search by text', 'woocommerce-products-filter'),
-                'hide_if' => 'no',
+                //'hide_if' => 'no',
+                'hide_if' => array('DATE'),
                 'show_options' => false,
             ),
             'checkbox' => array(
                 'key' => 'checkbox',
                 'title' => __('Checkbox', 'woocommerce-products-filter'),
-                'hide_if' => 'no',
+                //'hide_if' => 'no',
+                'hide_if' => array('DATE'),
                 'show_options' => false,
             ),
             'select' => array(
                 'key' => 'select',
                 'title' => __('Drop-down', 'woocommerce-products-filter'),
-                'hide_if' => 'no',
+                //'hide_if' => 'no',
+                'hide_if' => array('DATE'),
                 'show_options' => true,
             ),
             'mselect' => array(
                 'key' => 'mselect',
                 'title' => __('Multi Drop-down', 'woocommerce-products-filter'),
-                'hide_if' => 'no',
+                //'hide_if' => 'no',
+                'hide_if' => array('DATE'),
                 'show_options' => true,
+            ),
+            'datepicker' => array(
+                'key' => 'datepicker',
+                'title' => __('Datepicker', 'woocommerce-products-filter'),
+                'hide_if' => array('string'),
+                'show_options' => false,
             ),
         );
 
         $this->meta_filter_types = apply_filters('woof_meta_filter_add_types', $this->meta_filter_types);
         global $WOOF;
         if (isset($this->woof_settings['meta_filter']) AND is_array($this->woof_settings['meta_filter'])) {
-             $counter = 0;
+            $counter = 0;
             foreach ($this->woof_settings['meta_filter'] as $key => $val) {
                 if ($key == "__META_KEY__") {
                     continue;
                 }
-                
-                if ($counter >= 2) {
+
+                if ($counter++ >= 2) {
                     break;
                 }
 
@@ -94,7 +108,6 @@ final class WOOF_META_FILTER extends WOOF_EXT {
                 //add_action('woof_print_html_type_' . $key,array($this, 'woof_print_html_type_meta'));
                 //++++
                 $this->conect_activate_meta_filter($key, $val);
-                $counter++;
             }
         }
         //add meta items to structure
@@ -132,7 +145,7 @@ final class WOOF_META_FILTER extends WOOF_EXT {
             $pds_cpt = new WOOF_PDS_CPT();
             $this->excluded_meta = array_merge($pds_cpt->get_internal_meta_keys(), $this->excluded_meta);
         }
-        wp_enqueue_script('woof_qs_admin', $this->get_ext_link() . 'js/admin.js');
+        wp_enqueue_script('woof_qs_admin', $this->get_ext_link() . 'js/admin.js', array(), WOOF_VERSION);
         //***
         global $WOOF;
         $data = array();
@@ -151,7 +164,7 @@ final class WOOF_META_FILTER extends WOOF_EXT {
 
         require_once $this->get_ext_path() . 'classes/woof_pds_cpt.php';
         if (class_exists('WOOF_PDS_CPT', false)) {
-            $pds_cpt=new WOOF_PDS_CPT();
+            $pds_cpt = new WOOF_PDS_CPT();
             $this->excluded_meta = array_merge($pds_cpt->get_internal_meta_keys(), $this->excluded_meta);
         }
         $product_id = intval($_REQUEST['product_id']);

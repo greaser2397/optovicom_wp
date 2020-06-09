@@ -47,17 +47,33 @@ if (!defined('ABSPATH'))
     if (!isset($woof_settings[$key]['search_count'])) {
         $woof_settings[$key]['search_count'] = 2;
     }
+    if (!isset($woof_settings[$key]['show_notice'])) {
+        $woof_settings[$key]['show_notice'] = 0;
+    }    
     if (!isset($woof_settings[$key]['notes_for_customer'])) {
-        $woof_settings[$key]['notes_for_customer'] = '';
+        $woof_settings[$key]['notes_for_customer'] = "";
+    } 
+    if (!isset($woof_settings[$key]['show_notice_product'])) {
+        $woof_settings[$key]['show_notice_product'] = 0;
     }
+    if (!isset($woof_settings[$key]['show_notice_text'])) {
+        $woof_settings[$key]['show_notice_text'] = __('This product matches your search %title%.', 'woocommerce-products-filter') ;
+    }
+    if (!isset($woof_settings[$key]['show_notice_tex_not'])) {
+        $woof_settings[$key]['show_notice_text_not'] = __('Sorry! This product is not suitable for your search %title%.', 'woocommerce-products-filter') ;;
+    }
+
     ?>
     <input type="hidden" name="woof_settings[<?php echo $key ?>][show_label]" value="<?php echo $woof_settings[$key]['show_label'] ?>" /> 
     <input type="hidden" name="woof_settings[<?php echo $key ?>][label]" value="<?php echo $woof_settings[$key]['label'] ?>" />
     <input type="hidden" name="woof_settings[<?php echo $key ?>][placeholder]" value="<?php echo $woof_settings[$key]['placeholder'] ?>" />
     <input type="hidden" name="woof_settings[<?php echo $key ?>][btn_label]" value="<?php echo $woof_settings[$key]['btn_label'] ?>" />
-    <input type="hidden" name="woof_settings[<?php echo $key ?>][notes_for_customer]" value="<?php echo $woof_settings[$key]['notes_for_customer'] ?>" />
+    <input type="hidden" name="woof_settings[<?php echo $key ?>][notes_for_customer]" value="<?php echo stripcslashes($woof_settings[$key]['notes_for_customer']); ?>" />
     <input type="hidden" name="woof_settings[<?php echo $key ?>][search_count]" value="<?php echo $woof_settings[$key]['search_count'] ?>" />
-
+    <input type="hidden" name="woof_settings[<?php echo $key ?>][show_notice]" value="<?php echo $woof_settings[$key]['show_notice'] ?>" />
+    <input type="hidden" name="woof_settings[<?php echo $key ?>][show_notice_product]" value="<?php echo $woof_settings[$key]['show_notice_product'] ?>" />
+    <input type="hidden" name="woof_settings[<?php echo $key ?>][show_notice_text]" value="<?php echo $woof_settings[$key]['show_notice_text'] ?>" />
+    <input type="hidden" name="woof_settings[<?php echo $key ?>][show_notice_text_not]" value="<?php echo $woof_settings[$key]['show_notice_text_not'] ?>" />
     <div id="woof-modal-content-<?php echo $key ?>" style="display: none;">
 
         <div class="woof-form-element-container">
@@ -121,7 +137,77 @@ if (!defined('ABSPATH'))
             </div>
 
         </div>
+        <div class="woof-form-element-container">
 
+            <div class="woof-name-description">
+                <strong><?php _e('Show notice', 'woocommerce-products-filter') ?></strong>
+                <span><?php _e('Display message if current product is suitable for saved search', 'woocommerce-products-filter') ?></span>
+            </div>
+
+            <div class="woof-form-element">
+		<?php
+		$show_notice = array(
+		    0 => __('No', 'woocommerce-products-filter'),
+		    1 => __('Yes(only if the product exists)', 'woocommerce-products-filter'),
+                    2 => __('Yes', 'woocommerce-products-filter')
+		);
+		?>
+
+                <div class="select-wrap">
+                    <select class="woof_popup_option" data-option="show_notice">
+			<?php foreach ($show_notice as $key => $value) : ?>
+    			<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+			<?php endforeach; ?>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>  
+        <div class="woof-form-element-container">
+
+            <div class="woof-name-description">
+                <strong><?php _e('Show notice on product page', 'woocommerce-products-filter') ?></strong>
+                <span><?php _e('Display message if current product is suitable for saved search', 'woocommerce-products-filter') ?></span>
+            </div>
+
+            <div class="woof-form-element">
+
+                <div class="select-wrap">
+                    <select class="woof_popup_option" data-option="show_notice_product">
+			<?php foreach ($show_notice as $key => $value) : ?>
+    			<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+			<?php endforeach; ?>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>   
+        <div class="woof-form-element-container">
+
+            <div class="woof-name-description">
+                <strong><?php _e('Text if current product is suitable for saved searches', 'woocommerce-products-filter') ?></strong>
+                <span><?php _e('Any text notes for customer. Example: This product matches your search: %title%.', 'woocommerce-products-filter') ?></span>
+            </div>
+
+            <div class="woof-form-element">
+                <textarea class="woof_popup_option" data-option="show_notice_text"></textarea>
+            </div>
+
+        </div>        
+        <div class="woof-form-element-container">
+
+            <div class="woof-name-description">
+                <strong><?php _e('Text if current product is not suitable for saved searches', 'woocommerce-products-filter') ?></strong>
+                <span><?php _e('Any text notes for customer. Example: Sorry! This product is not suitable for your search %title%.', 'woocommerce-products-filter') ?></span>
+            </div>
+
+            <div class="woof-form-element">
+                <textarea class="woof_popup_option" data-option="show_notice_text_not"></textarea>
+            </div>
+
+        </div> 
     </div>
 
 

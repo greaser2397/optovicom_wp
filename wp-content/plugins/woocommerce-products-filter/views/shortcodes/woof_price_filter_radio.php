@@ -4,26 +4,23 @@ if (!isset($additional_taxes)) {
     $additional_taxes = '';
 }
 $price2_filter_data = WOOF_HELPER::get_price2_filter_data($additional_taxes);
-$price_filter2_1opt_txt = __('filter by price', 'woocommerce-products-filter');
-if (isset($this->settings['by_price']['first_option_text'])) {
-    if (!empty($this->settings['by_price']['first_option_text'])) {
-	$price_filter2_1opt_txt = WOOF_HELPER::wpml_translate(null, $this->settings['by_price']['first_option_text']);
-    }
-}
-
-if (isset($placeholder)) {
-    $price_filter2_1opt_txt = WOOF_HELPER::wpml_translate(null, $placeholder);
-}
 
 $show_count = get_option('woof_show_count', 0);
 $show_count_dynamic = get_option('woof_show_count_dynamic', 0);
-$hide_dynamic_empty_pos = get_option('woof_hide_dynamic_empty_pos', 0);
+$hide_dynamic_empty_pos = 0;
 $hide_count_text=0;
-
+//***
+if(isset($_REQUEST['hide_terms_count_txt_short']) AND $_REQUEST['hide_terms_count_txt_short']!=-1){
+    if((int)$_REQUEST['hide_terms_count_txt_short']==1){
+        $hide_count_text=1;
+    }else{
+        $hide_count_text=0;
+    }
+}
 //***
 ?>
 
-<<?php echo apply_filters('woof_title_tag', 'h4'); ?>><?php echo $price_filter2_1opt_txt ?></<?php echo apply_filters('woof_title_tag', 'h4'); ?>>
+
 <div data-css-class="woof_price_filter_radio_container" class="woof_checkbox_authors_container ">
     <div class="woof_container_overlay_item"></div>
     <div class="woof_container_inner">

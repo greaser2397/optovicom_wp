@@ -29,7 +29,7 @@ final class WOOF_HELPER {
     }
 
     public static function escape($value) {
-        if(is_string($value)){
+        if (is_string($value)) {
             return sanitize_text_field(esc_html($value));
         }
     }
@@ -129,6 +129,8 @@ final class WOOF_HELPER {
             $args['lang'] = ICL_LANGUAGE_CODE;
         }
 
+        $args = apply_filters('woof_get_terms_args', $args);
+
         $cats_objects = get_categories($args);
 
         $cats = array();
@@ -215,7 +217,7 @@ final class WOOF_HELPER {
 
         if (empty($string)) {
             if (is_object($taxonomy_info)) {
-                $string = $WOOF->settings['custom_tax_label'][$taxonomy_info->name];
+                $string = stripcslashes($WOOF->settings['custom_tax_label'][$taxonomy_info->name]);
             }
         }
 
@@ -234,8 +236,13 @@ final class WOOF_HELPER {
 
         //***
         $check_for_custom_label = false;
-        if (class_exists('SitePress')) {
-            $lang = ICL_LANGUAGE_CODE;
+        if (class_exists('SitePress') OR class_exists("Polylang")) {
+            if (class_exists('SitePress')) {
+                $lang = ICL_LANGUAGE_CODE;
+            }
+            if (class_exists('Polylang')) {
+                $lang = get_locale();
+            }
             $woof_settings = get_option('woof_settings');
             if (isset($woof_settings['wpml_tax_labels']) AND ! empty($woof_settings['wpml_tax_labels'])) {
                 $translations = $woof_settings['wpml_tax_labels'];
@@ -288,7 +295,7 @@ final class WOOF_HELPER {
     }
 
     //drawing of native woo price filter
-    public static function price_filter() {
+    public static function price_filter($additional_taxes = "") {
         global $_chosen_attributes, $wpdb, $wp, $WOOF;
         $request = $WOOF->get_request_data();
         /*
@@ -340,10 +347,13 @@ final class WOOF_HELPER {
                 }
             }
         }
+        if (!isset($additional_taxes)) {
+            $additional_taxes = "";
+        }
 
         //***
-        $min = self::get_min_price();
-        $max = self::get_max_price();
+        $min = self::get_min_price($additional_taxes);
+        $max = self::get_max_price($additional_taxes);
         //***
         $min_price = ($min_price) ?: $min;
         $max_price = ($max_price) ?: $max;
@@ -363,8 +373,8 @@ final class WOOF_HELPER {
 			<div class="price_slider_wrapper">
 				<div class="price_slider" style="display:none;"></div>
 				<div class="price_slider_amount">
-					<input type="text" id="min_price" name="min_price" value="' . esc_attr($min_price) . '" data-min="' . esc_attr(apply_filters('woocommerce_price_filter_widget_amount', $min)) . '" placeholder="' . __('Min price', 'woocommerce-products-filter') . '" />
-					<input type="text" id="max_price" name="max_price" value="' . esc_attr($max_price) . '" data-max="' . esc_attr(apply_filters('woocommerce_price_filter_widget_amount', $max)) . '" placeholder="' . __('Max price', 'woocommerce-products-filter') . '" />
+					<input type="text" id="min_price" name="min_price" value="' . esc_attr(apply_filters('woocommerce_price_filter_widget_amount', $min_price)) . '" data-min="' . esc_attr(apply_filters('woocommerce_price_filter_widget_amount', $min)) . '" placeholder="' . __('Min price', 'woocommerce-products-filter') . '" />
+					<input type="text" id="max_price" name="max_price" value="' . esc_attr(apply_filters('woocommerce_price_filter_widget_amount', $max_price)) . '" data-max="' . esc_attr(apply_filters('woocommerce_price_filter_widget_amount', $max)) . '" placeholder="' . __('Max price', 'woocommerce-products-filter') . '" />
 					<button type="submit" class="button">' . __('Filter', 'woocommerce-products-filter') . '</button>
 					<div class="price_label" style="display:none;">
 						' . __('Price:', 'woocommerce-products-filter') . ' <span class="from"></span> &mdash; <span class="to"></span>
@@ -525,11 +535,12 @@ final class WOOF_HELPER {
         //CAST( price_meta.meta_value AS UNSIGNED )
         $sql = "SELECT min( FLOOR( price_meta.meta_value + 0.0)  ) as min_price, max( CEILING( price_meta.meta_value + 0.0)  )as max_price FROM {$wpdb->posts} ";
         $sql .= " LEFT JOIN {$wpdb->postmeta} as price_meta ON {$wpdb->posts}.ID = price_meta.post_id " . $tax_query_sql['join'] . $meta_query_sql['join'];
-        $sql .= " 	WHERE {$wpdb->posts}.post_type = 'product'
+        $sql .= " WHERE {$wpdb->posts}.post_type = 'product'
 					AND {$wpdb->posts}.post_status = 'publish'
 					AND price_meta.meta_key IN ('" . implode("','", array_map('esc_sql', apply_filters('woocommerce_price_filter_meta_keys', array('_price')))) . "')
 					AND price_meta.meta_value > '' ";
         $sql .= $tax_query_sql['where'] . $meta_query_sql['where'];
+        $sql = apply_filters('woof_get_filtered_price_query', $sql);
         return $wpdb->get_row($sql);
     }
 
@@ -704,25 +715,37 @@ final class WOOF_HELPER {
             update_option('woof_notices', $notices);
         }
     }
-    public static function draw_tooltipe($title,$tooltip_text) {
-        if(!$tooltip_text OR empty($tooltip_text) OR $tooltip_text=='none'){
+
+    public static function draw_tooltipe($title, $tooltip_text) {
+        if (!$tooltip_text OR empty($tooltip_text) OR $tooltip_text == 'none') {
             return"";
         }
+
         global $WOOF;
-        $tooltip_text=self::wpml_translate(null,stripcslashes(wp_strip_all_tags($tooltip_text)));
+
+        if (!isset($WOOF->settings['use_tooltip'])) {
+            $show_tooltip = 1;
+        } else {
+            $show_tooltip = $WOOF->settings['use_tooltip'];
+        }
+        if (!$show_tooltip) {
+            return"";
+        }
+
+        $tooltip_text = self::wpml_translate(null, stripcslashes(wp_strip_all_tags($tooltip_text)));
         $toggle_image = ((isset($WOOF->settings['woof_tooltip_img']) AND ! empty($WOOF->settings['woof_tooltip_img'])) ? $WOOF->settings['woof_tooltip_img'] : WOOF_LINK . 'img/woof_info_icon.png');
-        $current_id=uniqid("woof_tooltip_content");
+        $current_id = uniqid("woof_tooltip_content");
         ?>
-            <img src="<?php echo $toggle_image ?>" class="woof_tooltip_header" data-tooltip-content="#<?php echo $current_id ?>">
-            <div class="woof_tooltip_templates">
-                <span id="<?php echo $current_id ?>">
-                    <span class="woof_tooltip_title"><?php echo $title ?></span>
-                    <span class="woof_tooltip_text"><?php echo $tooltip_text ?></span>
-                </span>
-            </div>          
+        <img src="<?php echo $toggle_image ?>" class="woof_tooltip_header" data-tooltip-content="#<?php echo $current_id ?>">
+        <div class="woof_tooltip_templates">
+            <span id="<?php echo $current_id ?>">
+                <span class="woof_tooltip_title"><?php echo $title ?></span>
+                <span class="woof_tooltip_text"><?php echo $tooltip_text ?></span>
+            </span>
+        </div>          
         <?php
-        
     }
+
     public static function draw_title_toggle($show, $block_is_closed) {
         if (!$show) {
             return "";

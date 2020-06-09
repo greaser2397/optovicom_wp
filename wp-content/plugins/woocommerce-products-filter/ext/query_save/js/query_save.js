@@ -24,6 +24,7 @@ function woof_init_save_query() {
 	    // alert(jQuery.parseJSON(content));
 	    if (content) {
 		var req = content;
+                jQuery('.woof_sq_max_count').remove();
 		woof_redraw_save_query(req);
                 jQuery('.woof_save_query_title').val("");
 	    }
@@ -50,6 +51,7 @@ function woof_init_save_query() {
 
 	    var req = jQuery.parseJSON(content);
 	    //console.log(req); 
+            
 	    jQuery('.woof_query_save_item_' + req.key).remove();
 	    woof_check_count_save_query();
 
@@ -91,3 +93,59 @@ function woof_init_save_query() {
         }
     } 
 }
+
+jQuery(document).ready(function() {
+
+var notice_wraper=jQuery(".woof_query_save_notice");
+var notice_wraper_prodoct=jQuery(".woof_query_save_notice_product");
+
+if(notice_wraper.length){
+    var data_ids=[];
+    jQuery.each(jQuery(notice_wraper),function(i,item){
+        data_ids.push(jQuery(item).data("id"));        
+    });
+    data_ids = data_ids.filter((v, i, a) => a.indexOf(v) === i);
+    var data = {
+        action: "woof_save_query_check_query",
+        product_ids: data_ids,
+        type: 'woof'
+    };
+    
+    jQuery.post(woof_ajaxurl, data, function (content) {
+        var result = jQuery.parseJSON(content);
+        console.log(result); 
+        jQuery.each(result,function(i,item){
+            jQuery.each(item,function(key,res){
+                jQuery(".woof_query_save_notice_"+key).html(res);
+            });
+        });
+
+    });
+
+    //return false;    
+}
+if(notice_wraper_prodoct.length){
+    
+    var data_ids=[];
+    jQuery.each(jQuery(notice_wraper_prodoct),function(i,item){
+        data_ids.push(jQuery(item).data("id"));        
+    });
+
+    data_ids = data_ids.filter((v, i, a) => a.indexOf(v) === i);
+    var data = {
+        action: "woof_save_query_check_query",
+        product_ids: data_ids,
+        type: 'product'
+    };
+    jQuery.post(woof_ajaxurl, data, function (content) {
+        var result = jQuery.parseJSON(content);
+        jQuery.each(result,function(id,item){
+            jQuery.each(item,function(key,res){
+                jQuery(".woof_query_save_notice_product_"+id).append(res);
+            });
+        });
+
+    });    
+}
+return false;
+});

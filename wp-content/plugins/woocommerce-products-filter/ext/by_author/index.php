@@ -20,6 +20,10 @@ final class WOOF_EXT_BY_AUTHOR extends WOOF_EXT
     {
         return plugin_dir_path(__FILE__);
     }
+    public function get_ext_override_path()
+    {
+        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->html_type. DIRECTORY_SEPARATOR;
+    }
 
     public function get_ext_link()
     {
@@ -69,6 +73,9 @@ final class WOOF_EXT_BY_AUTHOR extends WOOF_EXT
     public function woof_author_filter($args = array())
     {
         global $WOOF;
+        if(file_exists($this->get_ext_override_path(). 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_author_filter.php')){
+            return $WOOF->render_html($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_author_filter.php', $args);
+        }
         return $WOOF->render_html($this->get_ext_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_author_filter.php', $args);
     }
 

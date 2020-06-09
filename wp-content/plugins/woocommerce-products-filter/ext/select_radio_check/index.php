@@ -3,7 +3,6 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
-//31-10-2016
 final class WOOF_EXT_SEL_RADIO_CHECK extends WOOF_EXT {
 
     public $type = 'html_type';
@@ -20,7 +19,10 @@ final class WOOF_EXT_SEL_RADIO_CHECK extends WOOF_EXT {
     {
         return plugin_dir_path(__FILE__);
     }
-
+    public function get_ext_override_path()
+    {
+        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->html_type. DIRECTORY_SEPARATOR;
+    }
     public function get_ext_link()
     {
         return plugin_dir_url(__FILE__);
@@ -28,7 +30,7 @@ final class WOOF_EXT_SEL_RADIO_CHECK extends WOOF_EXT {
 
     public function woof_add_html_types($types)
     {
-        $types[$this->html_type] = __('Radio in drop-down', 'woocommerce-products-filter');
+        $types[$this->html_type] = __('Radio/Checkbox in drop-down', 'woocommerce-products-filter');
         return $types;
     }
 
@@ -43,11 +45,10 @@ final class WOOF_EXT_SEL_RADIO_CHECK extends WOOF_EXT {
         $this->taxonomy_type_additional_options = array(
             'select_radio_check_type' => array(
                 'title' => __('Type', 'woocommerce-products-filter'),
-                'tip' => __('How to display this filter-element on the site frontend', 'woocommerce-products-filter'),
+                'tip' => __('How to display this filter-element on the site frontend. In the free version activated radio buttons only', 'woocommerce-products-filter'),
                 'type' => 'select',
                 'options' => array(
                     0 => __('Radio', 'woocommerce-products-filter'),
-                    //1 => __('Checkbox', 'woocommerce-products-filter')
                 )
             ),
             'select_radio_check_height' => array(

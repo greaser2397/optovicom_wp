@@ -101,4 +101,20 @@ a.woof_remove_query_save img{
     line-height: 0 !important;
     font-size: 14px;
 }
-
+.woof_notise_not_match{
+    color: #c5c5c5;
+    font-style: italic;
+}
+.woof_notise_not_match .dashicons-warning{
+    color:#f3e790;
+}
+.woof_notise_match{
+    font-style: italic;    
+}
+.woof_notise_match .dashicons-yes-alt{
+    color: #6d966d;    
+}
+.woof_query_save_notice_product{
+    font-size: 10px;
+    margin-bottom: 10px;
+}

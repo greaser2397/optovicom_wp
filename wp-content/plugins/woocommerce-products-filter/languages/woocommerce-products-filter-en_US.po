@@ -4,23 +4,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:100
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:81
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:118
+#: woocommerce-products-filter/ext/slideout/index.php:1
 msgid ""
 msgstr ""
 
-#. Text in echo
-#: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:170
-msgid "Additional search data for text search"
-msgstr ""
-
-#. Text in echo
-#: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:52
-msgid "External cron is more predictable with time of execution, but additional knowledge how to set it correctly is required (<i style=\"color: orange;\">External cron will be ready in the next version of the extension</i>)"
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:260
+msgid "%"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1631
-#: woocommerce-products-filter/views/plugin_options.php:1632
+#: woocommerce-products-filter/views/plugin_options.php:1850
+#: woocommerce-products-filter/views/plugin_options.php:1851
 msgid "%s"
 msgstr ""
 
@@ -30,12 +27,12 @@ msgid "(Statistic collected from: %s %d)"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1403
+#: woocommerce-products-filter/views/plugin_options.php:1622
 msgid "(zip)"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:263
+#: woocommerce-products-filter/ext/by_text/views/options.php:274
 msgid "+SKU "
 msgstr ""
 
@@ -45,29 +42,51 @@ msgid "12 hours recommended"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1425
+#: woocommerce-products-filter/views/plugin_options.php:1644
 msgid "<b>Note for admin</b>: Create folder for custom extensions in wp-content folder: tab Advanced -> Options -> Custom extensions folder"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1536
+#: woocommerce-products-filter/views/plugin_options.php:1755
 msgid "<i>ver.:</i> %s"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:69
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:85
+#: woocommerce-products-filter/views/plugin_options.php:2322
 msgid "AND"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:32
+#: woocommerce-products-filter/views/plugin_options.php:2314
+msgid "AND or OR: if to select AND and on the site front select 2 terms - will be found products which contains both terms on the same time."
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2297
+msgid "ASC"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:45
 msgid "ATTENTION! Your version of the woocommerce plugin is too obsolete. There is no warranty for working with WOOF!!"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/by_text/views/options.php:301
+msgid "Ability to search by the description of the any variation in the variable product"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:17
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:17
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:19
 msgid "About extension"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:199
+msgid "Action"
 msgstr ""
 
 #. Text in function
@@ -76,8 +95,13 @@ msgid "Action failed. Please refresh the page and retry."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:264
+#: woocommerce-products-filter/ext/by_text/views/options.php:275
 msgid "Activates the ability to search by SKU from the same text-input"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/views/plugin_options.php:37
+msgid "Actualized for WooCommerce v.%s.x"
 msgstr ""
 
 #. Text in echo
@@ -90,9 +114,19 @@ msgstr ""
 msgid "Add Custom key by hands"
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/query_save/views/options.php:33
+msgid "Add this query"
+msgstr ""
+
 #. Text in echo
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:137
 msgid "Additional Quick-search Filter options"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:170
+msgid "Additional search data for text search"
 msgstr ""
 
 #. Text in echo
@@ -101,23 +135,28 @@ msgid "Additional search data: which taxonomies terms titles should be included 
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:150
+#: woocommerce-products-filter/classes/widgets.php:134
 msgid "Additional text before"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1864
+#: woocommerce-products-filter/views/plugin_options.php:2085
 msgid "Adv"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:70
+#: woocommerce-products-filter/views/plugin_options.php:83
 msgid "Advanced"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1952
+#: woocommerce-products-filter/views/plugin_options.php:2189
 msgid "Advanced info is <a href=\"%s\" target=\"_blank\">here</a>"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:52
+msgid "After activation of Turbo Mode firstly what should be done is generating of the data file, see button below. And also do not forget to set cron mode."
 msgstr ""
 
 #. Text in echo
@@ -126,7 +165,7 @@ msgid "After installing all settings for statistics assembling - enable it here"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1357
+#: woocommerce-products-filter/views/plugin_options.php:1576
 msgid "All"
 msgstr ""
 
@@ -136,13 +175,18 @@ msgid "Any"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:709
+#: woocommerce-products-filter/views/plugin_options.php:781
 msgid "Any image for closed html-items block 20x20"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:691
+#: woocommerce-products-filter/views/plugin_options.php:763
 msgid "Any image for opened html-items block 20x20"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/by_text/views/options.php:327
+msgid "Any notes for customer."
 msgstr ""
 
 #. Text in echo
@@ -152,36 +196,48 @@ msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:297
+#: woocommerce-products-filter/ext/query_save/views/options.php:132
 msgid "Any text notes for customer under subscription form."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/products_messenger/index.php:452
+#: woocommerce-products-filter/ext/query_save/views/options.php:203
+msgid "Any text notes for customer. Example: Sorry! This product is not suitable for your search %title%."
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:191
+msgid "Any text notes for customer. Example: This product matches your search: %title%."
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/products_messenger/index.php:457
+#: woocommerce-products-filter/ext/query_save/index.php:243
 msgid "Are you sure?"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2454
+#: woocommerce-products-filter/views/plugin_options.php:2860
 msgid "As drop-down"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2457
+#: woocommerce-products-filter/views/plugin_options.php:2863
 msgid "As ion range-slider"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2455
+#: woocommerce-products-filter/views/plugin_options.php:2861
 msgid "As radio button"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2456
+#: woocommerce-products-filter/views/plugin_options.php:2862
 msgid "As textinputs"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2453
+#: woocommerce-products-filter/views/plugin_options.php:2859
 msgid "As woo range-slider"
 msgstr ""
 
@@ -196,18 +252,18 @@ msgid "Author:"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:544
+#: woocommerce-products-filter/views/plugin_options.php:616
 msgid "Auto filter close/open image"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:561
+#: woocommerce-products-filter/views/plugin_options.php:633
 msgid "Auto filter close/open text"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_sku/views/options.php:145
-#: woocommerce-products-filter/ext/by_text/views/options.php:181
+#: woocommerce-products-filter/ext/by_text/views/options.php:192
 msgid "Autocomplete"
 msgstr ""
 
@@ -222,19 +278,29 @@ msgid "Autocomplete relevant variants in SKU textinput"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:182
+#: woocommerce-products-filter/ext/by_text/views/options.php:193
 msgid "Autocomplete relevant variants in by_text textinput"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:190
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/classes/widgets.php:174
+#: woocommerce-products-filter/index.php:3398
 msgid "Autosubmit"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:121
+#: woocommerce-products-filter/ext/by_text/views/options.php:132
 msgid "Behavior"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/image/index.php:1
+msgid "Behavior as radio button"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:17
+msgid "Boost speed of products filtering. This mode allows to avoid generating big MySQL queries while products filtering on the site front what makes less loading to the server and getting filtering results more quick"
 msgstr ""
 
 #. Text in function
@@ -243,12 +309,33 @@ msgid "Both"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/classes/widgets.php:223
+#: woocommerce-products-filter/classes/widgets.php:207
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
 msgid "Bottom"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_author/index.php:63
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:59
+msgid "Button as"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:129
+msgid "Button image size"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:106
+msgid "Button label"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:255
+msgid "Button offset (px) from top or left from the window edge"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/by_author/index.php:67
 msgid "By author"
 msgstr ""
 
@@ -263,7 +350,7 @@ msgid "By emails count"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_rating/index.php:55
+#: woocommerce-products-filter/ext/by_rating/index.php:57
 msgid "By rating"
 msgstr ""
 
@@ -273,12 +360,17 @@ msgid "By rating drop-down"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/index.php:84
+#: woocommerce-products-filter/ext/by_text/index.php:87
 msgid "By text"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1085
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:374
+msgid "By this button you can set settings and generate shortcode for your needs for on single pages. After using, if you do not want the settings became globals, refresh the page to avoid settings saving!"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1242
 msgid "Cache dynamic recount number for each item in filter"
 msgstr ""
 
@@ -288,12 +380,12 @@ msgid "Cache folder"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1844
+#: woocommerce-products-filter/views/plugin_options.php:2065
 msgid "Cache pages, allow to make a lot of search queries on your site without high load on your server!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1184
+#: woocommerce-products-filter/views/plugin_options.php:1341
 msgid "Cache terms"
 msgstr ""
 
@@ -313,7 +405,7 @@ msgid "Check DB connection"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:65
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:81
 msgid "Check search logic AND/OR"
 msgstr ""
 
@@ -324,12 +416,22 @@ msgid "Checkbox"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1402
+#: woocommerce-products-filter/views/plugin_options.php:1621
 msgid "Choose an extension zip"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:750
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/woof.php:127
+msgid "Clear"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "Click"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:822
 msgid "Code"
 msgstr ""
 
@@ -344,38 +446,73 @@ msgid "Conditions logic"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1986
+#: woocommerce-products-filter/views/plugin_options.php:2223
 msgid "Container max-height (px). 0 means no max-height."
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/turbo_mode/index.php:84
+msgid "Creating"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:768
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:58
+msgid "Cron type"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1498
+msgid "Css class of ordering dropdown container. Is needed for ajax compatibility with wp themes. If you do not understand, leave it blank."
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1518
+msgid "Css class of per page dropdown container. Is needed for ajax compatibility with wp themes. If you do not understand, leave it blank."
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1477
+msgid "Css class of result-count container. Is needed for ajax compatibility with wp themes. If you do not understand, leave it blank."
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:840
 msgid "Custom CSS code"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1286
+#: woocommerce-products-filter/views/plugin_options.php:1443
 msgid "Custom extensions folder"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1299
+#: woocommerce-products-filter/views/plugin_options.php:1456
 msgid "Custom extensions folder path relative to: %s"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1374
+#: woocommerce-products-filter/views/plugin_options.php:1593
 msgid "Custom extensions installation"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:725
+#: woocommerce-products-filter/views/plugin_options.php:797
 msgid "Custom front css styles file link"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:122
+msgid "Custom text of the button"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:271
 msgid "DB Name"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2298
+msgid "DESC"
 msgstr ""
 
 #. Text in function
@@ -399,68 +536,80 @@ msgid "Database successfully updated!!!"
 msgstr ""
 
 #. Text in function
+#: woocommerce-products-filter/ext/meta_filter/index.php:1
+msgid "Datepicker"
+msgstr ""
+
+#. Text in function
 #: woocommerce-products-filter/ext/products_messenger/index.php:1
 msgid "Dear [DISPLAY_NAME], we increased the range of our products. Number of new products: [PRODUCT_COUNT]"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/classes/widgets.php:223
-#: woocommerce-products-filter/views/plugin_options.php:717
-#: woocommerce-products-filter/views/plugin_options.php:1433
+#: woocommerce-products-filter/classes/widgets.php:220
+#: woocommerce-products-filter/classes/widgets.php:207
+#: woocommerce-products-filter/views/plugin_options.php:789
+#: woocommerce-products-filter/views/plugin_options.php:1652
+#: woocommerce-products-filter/views/plugin_options.php:2271
 msgid "Default"
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+msgid "Default - mm/dd/yy"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1514
+#: woocommerce-products-filter/views/plugin_options.php:1733
 msgid "Default extensions"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/html_types/radio.php:99
-#: woocommerce-products-filter/views/html_types/radio.php:207
-#: woocommerce-products-filter/views/shortcodes/woof_price_filter_radio.php:58
+#: woocommerce-products-filter/views/html_types/radio.php:112
+#: woocommerce-products-filter/views/html_types/radio.php:226
+#: woocommerce-products-filter/views/shortcodes/woof_price_filter_radio.php:57
 msgid "Delete"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1708
-msgid "Demo site"
+#: woocommerce-products-filter/views/plugin_options.php:1928
+msgid "Demo sites"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:63
+#: woocommerce-products-filter/views/plugin_options.php:76
 msgid "Design"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:210
+#: woocommerce-products-filter/ext/by_text/views/options.php:221
 msgid "Direct links to posts in autocomplete suggestion"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1050
+#: woocommerce-products-filter/views/plugin_options.php:2290
+msgid "Direction of terms sorted inside of filter block"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1206
 msgid "Disable swoof influence"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:532
-#: woocommerce-products-filter/views/plugin_options.php:1359
+#: woocommerce-products-filter/views/plugin_options.php:1578
 msgid "Disabled"
 msgstr ""
 
-#. Text in function
-#: woocommerce-products-filter/installer/includes/installer.class.php:198
-msgid "Dismiss"
-msgstr ""
-
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2002
+#: woocommerce-products-filter/views/plugin_options.php:2239
 msgid "Display items in a row"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1691
-msgid "Docs"
+#: woocommerce-products-filter/ext/query_save/views/options.php:171
+msgid "Display message if current product is suitable for saved search"
 msgstr ""
 
 #. Text in function
@@ -475,22 +624,22 @@ msgid "Drop-down"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2183
+#: woocommerce-products-filter/views/plugin_options.php:2529
 msgid "Drop-down OR radio"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2184
+#: woocommerce-products-filter/views/plugin_options.php:2530
 msgid "Drop-down OR radio price filter ranges"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2199
+#: woocommerce-products-filter/views/plugin_options.php:2546
 msgid "Drop-down price filter first option text"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2198
+#: woocommerce-products-filter/views/plugin_options.php:2545
 msgid "Drop-down price filter text"
 msgstr ""
 
@@ -500,18 +649,18 @@ msgid "Drop-down to filter ptoducts by rating"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1855
+#: woocommerce-products-filter/views/plugin_options.php:2076
 msgid "Duplicate, clone, backup, move and transfer an entire site from one location to another."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:174
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/classes/widgets.php:158
+#: woocommerce-products-filter/index.php:3398
 msgid "Dynamic recount"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:187
+#: woocommerce-products-filter/classes/widgets.php:171
 msgid "Dynamic recount for current search form"
 msgstr ""
 
@@ -525,27 +674,43 @@ msgstr ""
 msgid "Emails count"
 msgstr ""
 
+#. Text in echo
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:25
+msgid "Enable turbo mode"
+msgstr ""
+
 #. Text in function
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:532
-#: woocommerce-products-filter/views/plugin_options.php:1358
+#: woocommerce-products-filter/views/plugin_options.php:1577
 msgid "Enabled"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:73
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:517
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:109
 msgid "Enter any random text in the field and use it in the external cron with link like: http://mysite.com/?woof_stat_collection=__YOUR_SECRET_KEY_HERE__"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1951
+#: woocommerce-products-filter/views/plugin_options.php:2188
 msgid "Enter count of terms which should be visible to make all other collapsible. \"Show more\" button will be appeared. This feature is works with: radio, checkboxes, labels, colors."
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/color/index.php:1
+msgid "Enter tooltip text if necessary"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/ext/quick_search/views/shortcodes/woof_quick_search.php:317
-#: woocommerce-products-filter/ext/quick_search/views/shortcodes/woof_quick_search.php:321
+#: woocommerce-products-filter/ext/quick_search/views/shortcodes/woof_quick_search.php:318
+#: woocommerce-products-filter/ext/quick_search/views/shortcodes/woof_quick_search.php:322
 msgid "Error! Please read documents"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+msgid "Europe - dd-mm-yy"
 msgstr ""
 
 #. Text in function
@@ -560,25 +725,29 @@ msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_sku/views/options.php:230
-#: woocommerce-products-filter/ext/by_text/views/options.php:292
-#: woocommerce-products-filter/ext/image/index.php:112
-#: woocommerce-products-filter/views/plugin_options.php:301
-#: woocommerce-products-filter/views/plugin_options.php:1817
+#: woocommerce-products-filter/ext/by_text/views/options.php:340
+#: woocommerce-products-filter/ext/image/index.php:150
+#: woocommerce-products-filter/views/plugin_options.php:314
 msgid "Example"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:2186
+#: woocommerce-products-filter/views/plugin_options.php:2533
+msgid "Example: 0-50,51-100,101-i. Where \"i\" is infinity."
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/views/plugin_options.php:2532
 msgid "Example: 0-50,51-100,101-i. Where \"i\" is infinity. Max price is %s."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:77
-msgid "Example: 1-100"
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:95
+msgid "Example: 1^100"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_backorder/index.php:55
+#: woocommerce-products-filter/ext/by_backorder/index.php:57
 msgid "Exclude On backorder"
 msgstr ""
 
@@ -598,25 +767,32 @@ msgid "Exclude: On backorder"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1850
+#: woocommerce-products-filter/views/plugin_options.php:2071
 msgid "Exports your database, does a find and replace on URLs and file paths, then allows you to save it to your computer."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1344
+#: woocommerce-products-filter/views/plugin_options.php:1563
 msgid "Ext-Applications options"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:93
-#: woocommerce-products-filter/views/plugin_options.php:1339
+#: woocommerce-products-filter/views/plugin_options.php:106
+#: woocommerce-products-filter/views/plugin_options.php:1558
 msgid "Extensions"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:153
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:532
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
 msgid "External Cron"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:52
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:88
+msgid "External cron is more predictable with time of execution, but additional knowledge how to set it correctly is required (<i style=\"color: orange;\">External cron will be ready in the next version of the extension</i>)"
 msgstr ""
 
 #. Text in echo
@@ -625,34 +801,45 @@ msgid "External cron key (is recommended as flexible for timetable)"
 msgstr ""
 
 #. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1917
+msgid "FAQ"
+msgstr ""
+
+#. Text in echo
 #: woocommerce-products-filter/ext/by_featured/views/options.php:18
 msgid "Featured checkbox"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_featured/index.php:58
+#: woocommerce-products-filter/ext/by_featured/index.php:61
 #: woocommerce-products-filter/ext/by_featured/views/woof.php:1
 msgid "Featured product"
 msgstr ""
 
+#. Text in echo
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:167
+msgid "File updated!!!"
+msgstr ""
+
 #. Text in function
 #: woocommerce-products-filter/classes/helper.php:1
-#: woocommerce-products-filter/views/woof.php:42
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:108
+#: woocommerce-products-filter/views/woof.php:485
 msgid "Filter"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Filter button text"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Filter button text in the search form"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_rating/views/woof.php:13
+#: woocommerce-products-filter/ext/by_rating/views/woof.php:12
 msgid "Filter by rating"
 msgstr ""
 
@@ -662,52 +849,52 @@ msgid "First drop-down option placeholder text OR title for checkboxes"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1433
+#: woocommerce-products-filter/views/plugin_options.php:1652
 msgid "Flat dark (1column)"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1433
+#: woocommerce-products-filter/views/plugin_options.php:1652
 msgid "Flat dark (2columns)"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1433
+#: woocommerce-products-filter/views/plugin_options.php:1652
 msgid "Flat dark (3columns)"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1433
+#: woocommerce-products-filter/views/plugin_options.php:1652
 msgid "Flat dark (4columns) without sidebar*"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1433
+#: woocommerce-products-filter/views/plugin_options.php:1652
 msgid "Flat grey (1column)"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1433
+#: woocommerce-products-filter/views/plugin_options.php:1652
 msgid "Flat grey (2columns)"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1433
+#: woocommerce-products-filter/views/plugin_options.php:1652
 msgid "Flat grey (3columns)"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1433
+#: woocommerce-products-filter/views/plugin_options.php:1652
 msgid "Flat grey (4columns) without sidebar*"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:732
+#: woocommerce-products-filter/views/plugin_options.php:804
 msgid "For developers who want to rewrite front css of the plugin front side. You are need to know CSS for this!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1969
+#: woocommerce-products-filter/views/plugin_options.php:2206
 msgid "For example you want to show title of Product Categories as \"My Products\". Just for your convenience."
 msgstr ""
 
@@ -727,12 +914,17 @@ msgid "For simple products only"
 msgstr ""
 
 #. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1123
+msgid "For variable products you can show an image depending on the current filter selection. For example you have variation with red color, and that varation has its own preview image - if on the site front user will select red color this imag will be shown. You can select attributes by which images will be selected"
+msgstr ""
+
+#. Text in echo
 #: woocommerce-products-filter/ext/by_sku/views/options.php:188
 msgid "For which type of products will be realized searching by SKU. Request for variables products creates more mysql queries in database ..."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:222
+#: woocommerce-products-filter/classes/widgets.php:206
 msgid "Form AJAX redrawing"
 msgstr ""
 
@@ -741,14 +933,24 @@ msgstr ""
 msgid "From"
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+msgid "Full - DD, d MM, yy"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1760
+#: woocommerce-products-filter/views/plugin_options.php:1982
 msgid "GDPR"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1766
+#: woocommerce-products-filter/views/plugin_options.php:1988
 msgid "GDPR info"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:370
+msgid "Generate shortcode"
 msgstr ""
 
 #. Text in echo
@@ -757,18 +959,23 @@ msgid "Get"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2295
+#: woocommerce-products-filter/views/plugin_options.php:2644
 msgid "Get WooCommerce Bulk Editor"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2300
+#: woocommerce-products-filter/views/plugin_options.php:2649
 msgid "Get WooCommerce Currency Swither"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:35
 msgid "Get keys from any product by its ID"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:25
+msgid "Global visibility"
 msgstr ""
 
 #. Text in echo
@@ -781,49 +988,59 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "Hide"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:462
+#: woocommerce-products-filter/views/plugin_options.php:513
 msgid "Hide auto filter by default"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Hide childs in checkboxes and radio"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Hide childs in checkboxes and radio. Near checkbox/radio which has childs will be plus icon to show childs."
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Hide empty terms"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Hide empty terms in \"Dynamic recount\" mode"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:159
+#: woocommerce-products-filter/classes/widgets.php:143
 msgid "Hide search form by default and show one button instead"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:976
+#: woocommerce-products-filter/views/plugin_options.php:1132
 msgid "Hide terms count text"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Hide woof top panel buttons"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:265
 msgid "Host"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "Hover"
 msgstr ""
 
 #. Text in echo
@@ -857,37 +1074,62 @@ msgid "How often assemble data file"
 msgstr ""
 
 #. Text in echo
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:151
+msgid "How often update products data file"
+msgstr ""
+
+#. Text in echo
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:464
 msgid "How to assemble statistic"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:236
+#: woocommerce-products-filter/ext/by_text/views/options.php:247
 msgid "How to open links with posts in suggestion"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:486
+#: woocommerce-products-filter/views/plugin_options.php:2264
+msgid "How to sort terms inside of filter block"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+msgid "ISO 8601 - yy-mm-dd"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2272
+msgid "Id"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:537
 msgid "If in options tab option \"Set filter automatically\" is \"Yes\" you can hide filter and show hide/show button instead of it."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:772
+#: woocommerce-products-filter/views/plugin_options.php:2315
+msgid "If to select NOT IN will be found items which not has selected terms!! Means vice versa to the the concept of including: excluding"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:844
 msgid "If you are need to customize something and you don't want to lose your changes after update"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:853
+#: woocommerce-products-filter/views/plugin_options.php:959
 msgid "If you do not like search key \"swoof\" in the search link you can replace it by your own word. But be care to avoid conflicts with any themes and plugins, + never define it as symbol \"s\".<br /> Not understood? Simply do not touch it!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:968
+#: woocommerce-products-filter/views/plugin_options.php:1074
 msgid "If you have troubles with relevant terms recount on categories pages with dynamic recount for not logged in users - select transient."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1003
+#: woocommerce-products-filter/views/plugin_options.php:1159
 msgid "If you want show relevant tags on the categories pages you should activate show count, dynamic recount and <b>hide empty terms</b> in the tab Options. But if you do not want show count (number) text near each term - set Yes here."
 msgstr ""
 
@@ -897,46 +1139,47 @@ msgid "If you want to Unsubscribe from this newsletter"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2336
-msgid "If you want to exclude some current taxonomies terms from the search form! Example: 11,23,77"
+#: woocommerce-products-filter/views/plugin_options.php:2695
+msgid "If you want to exclude some current taxonomies terms from the search form! Use Reverse if you want include only instead of exclude! Example: 11,23,77"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_sku/views/options.php:228
-#: woocommerce-products-filter/ext/by_text/views/options.php:290
+#: woocommerce-products-filter/ext/by_text/views/options.php:338
 #: woocommerce-products-filter/ext/image/index.php:1
+#: woocommerce-products-filter/ext/slideout/index.php:1
 msgid "Image"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:696
+#: woocommerce-products-filter/views/plugin_options.php:768
 msgid "Image for block toggle [<i>closed</i>]"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:678
+#: woocommerce-products-filter/views/plugin_options.php:750
 msgid "Image for block toggle [<i>opened</i>]"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/color/index.php:157
+#: woocommerce-products-filter/ext/color/index.php:169
 msgid "Image for checked color type checkbox"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/image/index.php:1
-#: woocommerce-products-filter/ext/image/index.php:160
+#: woocommerce-products-filter/ext/image/index.php:198
 msgid "Image for checked image type checkbox"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/color/index.php:165
+#: woocommerce-products-filter/ext/color/index.php:177
 msgid "Image for color checkboxes when its checked. Better use png. Size is: 25x25 px."
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/image/index.php:1
-#: woocommerce-products-filter/ext/image/index.php:168
+#: woocommerce-products-filter/ext/image/index.php:206
 msgid "Image for image checkboxes when its checked. Better use png. Size is: 25x25 px."
 msgstr ""
 
@@ -946,52 +1189,62 @@ msgid "Image for sku search button which appears near input when users typing th
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:588
+#: woocommerce-products-filter/views/plugin_options.php:660
 msgid "Image for subcategories [<i>close</i>]"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:576
+#: woocommerce-products-filter/views/plugin_options.php:648
 msgid "Image for subcategories [<i>open</i>]"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:291
+#: woocommerce-products-filter/ext/by_text/views/options.php:339
 msgid "Image for text search button which appears near input when users typing there any symbols. Better use png. Size is: 20x20 px."
 msgstr ""
 
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:86
+msgid "Image or text, button-image can be selected below of the option, instead of default one in Slideout image field. If text - you can below of the option insert Slideout text"
+msgstr ""
+
 #. Text in function
-#: woocommerce-products-filter/ext/image/index.php:97
+#: woocommerce-products-filter/ext/image/index.php:135
 msgid "Image settings for term %s"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/image/index.php:105
+#: woocommerce-products-filter/ext/image/index.php:143
 msgid "Image styles"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:584
+#: woocommerce-products-filter/views/plugin_options.php:656
 msgid "Image when you select in tab Options \"Hide childs in checkboxes and radio\". By default it is green cross."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:596
+#: woocommerce-products-filter/views/plugin_options.php:668
 msgid "Image when you select in tab Options \"Hide childs in checkboxes and radio\". By default it is green minus."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:552
+#: woocommerce-products-filter/views/plugin_options.php:598
+msgid "Image which displayed for tooltip"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:624
 msgid "Image which displayed instead filter while it is closed if selected. Write \"none\" here if you want to use text only!"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:2098
+#: woocommerce-products-filter/views/plugin_options.php:2409
 msgid "Images"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_instock/index.php:55
+#: woocommerce-products-filter/ext/by_instock/index.php:57
 #: woocommerce-products-filter/ext/by_instock/views/woof.php:1
 msgid "In stock"
 msgstr ""
@@ -1002,47 +1255,52 @@ msgid "In stock checkbox"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:237
+#: woocommerce-products-filter/ext/by_text/views/options.php:248
 msgid "In the same window (_self) or in the new one (_blank)"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:99
+#: woocommerce-products-filter/views/plugin_options.php:112
 msgid "Info"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:784
+#: woocommerce-products-filter/views/plugin_options.php:856
 msgid "Init plugin on the next site pages only "
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1816
+#: woocommerce-products-filter/views/plugin_options.php:2038
 msgid "Insert Gallery in post, page and custom post types just in two clicks. You can create great galleries for your products."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2211
+#: woocommerce-products-filter/views/plugin_options.php:2558
 msgid "Ion Range slider"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:453
+#: woocommerce-products-filter/views/plugin_options.php:466
 msgid "Ion-Range slider js lib skin for range-sliders of the plugin"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1823
+#: woocommerce-products-filter/views/plugin_options.php:2044
 msgid "It concatenates all scripts and styles, minifies and compresses them, adds expires headers, caches them, and moves styles to the page head, and scripts to the footer"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2226
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:209
+msgid "It is better to keep products data file in wp-uploads folder to avoid data removing after the plugin update, but not all hosting providers allows to get json data from this folder, so if you select keep data in the plugin folder remember about it and reassemble products data using button above after the plugin update."
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2573
 msgid "It will be counted in the filter( Only for ion-slider )"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:776
+#: woocommerce-products-filter/views/plugin_options.php:848
 msgid "JavaScript code after AJAX is done"
 msgstr ""
 
@@ -1059,89 +1317,105 @@ msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:95
+#: woocommerce-products-filter/ext/query_save/views/options.php:82
 msgid "Label"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_sku/views/options.php:90
 #: woocommerce-products-filter/ext/by_sku/views/options.php:104
-#: woocommerce-products-filter/ext/by_text/views/options.php:93
-#: woocommerce-products-filter/ext/by_text/views/options.php:107
+#: woocommerce-products-filter/ext/by_text/views/options.php:104
+#: woocommerce-products-filter/ext/by_text/views/options.php:118
 msgid "Leave it empty if you not need this"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "Left"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/index.php:3398
 msgid "Lets checked terms will be on the top"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:209
+#: woocommerce-products-filter/views/plugin_options.php:1910
+msgid "Links"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/by_text/views/options.php:220
 msgid "Links to posts in suggestion"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1011
+#: woocommerce-products-filter/views/plugin_options.php:1167
 msgid "Listen catalog visibility"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1039
+#: woocommerce-products-filter/views/plugin_options.php:1195
 msgid "Listen catalog visibility - options in each product backend page in 'Publish' sidebar widget."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:901
+#: woocommerce-products-filter/index.php:943
 msgid "Loading ..."
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:717
+#: woocommerce-products-filter/views/plugin_options.php:789
 msgid "Loading balls - SVG"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:717
+#: woocommerce-products-filter/views/plugin_options.php:789
 msgid "Loading bars - SVG"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:717
+#: woocommerce-products-filter/views/plugin_options.php:789
 msgid "Loading bubbles - SVG"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:717
+#: woocommerce-products-filter/views/plugin_options.php:789
 msgid "Loading cubes - SVG"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:717
+#: woocommerce-products-filter/views/plugin_options.php:789
 msgid "Loading cyclone - SVG"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:717
+#: woocommerce-products-filter/views/plugin_options.php:789
 msgid "Loading spin - SVG"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:717
+#: woocommerce-products-filter/views/plugin_options.php:789
 msgid "Loading spinning bubbles - SVG"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:717
+#: woocommerce-products-filter/views/plugin_options.php:789
 msgid "Loading spokes - SVG"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:311
+#: woocommerce-products-filter/views/plugin_options.php:324
 msgid "Loading word"
 msgstr ""
 
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2313
+msgid "Logic of filtering"
+msgstr ""
+
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1561
+#: woocommerce-products-filter/views/plugin_options.php:1780
 msgid "Looks like its not the WOOF extension here %s!"
 msgstr ""
 
@@ -1156,12 +1430,12 @@ msgid "Max deep of the search request"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1990
+#: woocommerce-products-filter/views/plugin_options.php:2227
 msgid "Max height of  the block"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1985
+#: woocommerce-products-filter/views/plugin_options.php:2222
 msgid "Max height of the block"
 msgstr ""
 
@@ -1174,6 +1448,11 @@ msgstr ""
 #. Text in echo
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:369
 msgid "Max requests per unique user"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:119
+msgid "Max saved queries per user"
 msgstr ""
 
 #. Text in echo
@@ -1193,11 +1472,17 @@ msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:180
+#: woocommerce-products-filter/ext/query_save/views/options.php:120
 msgid "Maximum number of subscriptions for a single registered user."
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+msgid "Medium - d MM, y"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/index.php:117
+#: woocommerce-products-filter/ext/meta_filter/index.php:130
 msgid "Meta Data"
 msgstr ""
 
@@ -1207,9 +1492,9 @@ msgid "Meta Fields"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:43
-#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:77
-#: woocommerce-products-filter/ext/meta_filter/index.php:185
+#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:45
+#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:88
+#: woocommerce-products-filter/ext/meta_filter/index.php:198
 msgid "Meta filter"
 msgstr ""
 
@@ -1219,14 +1504,39 @@ msgstr ""
 msgid "Min price"
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/by_rating/views/woof.php:27
+msgid "Min rating: "
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1743
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:334
+msgid "Mobile behavior"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:19
+msgid "More about extension"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1965
 msgid "More video"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/meta_filter/index.php:1
 msgid "Multi Drop-down"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/query_save/index.php:1
+msgid "My query"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2323
+msgid "NOT IN"
 msgstr ""
 
 #. Text in function
@@ -1240,7 +1550,8 @@ msgid "New products"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/classes/widgets.php:223
+#: woocommerce-products-filter/classes/widgets.php:220
+#: woocommerce-products-filter/classes/widgets.php:207
 #: woocommerce-products-filter/ext/by_author/views/options.php:27
 #: woocommerce-products-filter/ext/by_backorder/views/options.php:24
 #: woocommerce-products-filter/ext/by_featured/views/options.php:24
@@ -1250,24 +1561,33 @@ msgstr ""
 #: woocommerce-products-filter/ext/by_sku/views/options.php:24
 #: woocommerce-products-filter/ext/by_sku/views/options.php:192
 #: woocommerce-products-filter/ext/by_text/views/options.php:24
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 #: woocommerce-products-filter/ext/color/index.php:1
-#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:47
-#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:81
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:69
-#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:41
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:44
+#: woocommerce-products-filter/ext/image/index.php:1
+#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:49
+#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:92
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:85
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:43
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:46
 #: woocommerce-products-filter/ext/meta_filter/html_types/textinput/views/additional_options.php:45
-#: woocommerce-products-filter/ext/meta_filter/index.php:189
+#: woocommerce-products-filter/ext/meta_filter/index.php:202
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:23
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:273
-#: woocommerce-products-filter/index.php:2352
-#: woocommerce-products-filter/views/plugin_options.php:2098
-#: woocommerce-products-filter/views/plugin_options.php:1433
-#: woocommerce-products-filter/views/plugin_options.php:1595
-#: woocommerce-products-filter/views/plugin_options.php:2010
-#: woocommerce-products-filter/views/plugin_options.php:2464
-#: woocommerce-products-filter/views/plugin_options.php:2452
+#: woocommerce-products-filter/ext/query_save/views/options.php:23
+#: woocommerce-products-filter/ext/query_save/views/options.php:148
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
+#: woocommerce-products-filter/index.php:3398
+#: woocommerce-products-filter/views/plugin_options.php:2409
+#: woocommerce-products-filter/views/plugin_options.php:1652
+#: woocommerce-products-filter/views/plugin_options.php:1854
+#: woocommerce-products-filter/views/plugin_options.php:1814
+#: woocommerce-products-filter/views/plugin_options.php:1737
+#: woocommerce-products-filter/views/plugin_options.php:2247
+#: woocommerce-products-filter/views/plugin_options.php:2870
+#: woocommerce-products-filter/views/plugin_options.php:2500
+#: woocommerce-products-filter/views/plugin_options.php:2858
 msgid "No"
 msgstr ""
 
@@ -1283,7 +1603,13 @@ msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/products_messenger/index.php:1
+#: woocommerce-products-filter/ext/query_save/index.php:1
 msgid "None"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/classes/rate_alert.php:63
+msgid "Nope, maybe later!"
 msgstr ""
 
 #. Text in function
@@ -1292,30 +1618,32 @@ msgid "Not possible to create folder %s automatically, create it please manually
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/shortcodes/woof_price_filter_radio.php:67
-#: woocommerce-products-filter/views/shortcodes/woof_price_filter_select.php:58
+#: woocommerce-products-filter/views/shortcodes/woof_price_filter_radio.php:28
+#: woocommerce-products-filter/views/shortcodes/woof_price_filter_select.php:60
 msgid "Not possible. Enter options ranges in the plugin settings -> tab Structure -> Search by price -> additional options"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1950
+#: woocommerce-products-filter/views/plugin_options.php:2187
 msgid "Not toggled terms count"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1421
+#: woocommerce-products-filter/views/plugin_options.php:1640
 msgid "Note for admin: Folder %s for extensions is not writable OR doesn exists! Ignore this message if you not planning using WOOF custom extensions!"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_sku/views/options.php:215
+#: woocommerce-products-filter/ext/by_text/views/options.php:326
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:296
+#: woocommerce-products-filter/ext/query_save/views/options.php:131
 msgid "Notes for customer"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/woof.php:56
-#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/woof.php:58
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/woof.php:73
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/woof.php:74
 msgid "Notice! Add options in the plugin settings->Meta filter"
 msgstr ""
 
@@ -1324,20 +1652,36 @@ msgstr ""
 msgid "Notice:"
 msgstr ""
 
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2274
+msgid "Numeric."
+msgstr ""
+
 #. Text in function
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:69
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:85
+#: woocommerce-products-filter/views/plugin_options.php:2321
 msgid "OR"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_onsales/index.php:55
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:241
+msgid "Offset"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/classes/rate_alert.php:67
+msgid "Ok, you deserve it"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/by_onsales/index.php:57
 #: woocommerce-products-filter/ext/by_onsales/views/woof.php:1
-msgid "On sales"
+msgid "On sale"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_onsales/views/options.php:18
-msgid "On sales checkbox"
+msgid "On sale checkbox"
 msgstr ""
 
 #. Text in function
@@ -1351,29 +1695,34 @@ msgid "One week"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:882
+#: woocommerce-products-filter/views/plugin_options.php:988
 msgid "Optimize loading of WOOF JavaScript files"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:18
-#: woocommerce-products-filter/views/plugin_options.php:56
-#: woocommerce-products-filter/views/plugin_options.php:755
+#: woocommerce-products-filter/views/plugin_options.php:69
+#: woocommerce-products-filter/views/plugin_options.php:827
 msgid "Options"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:275
+#: woocommerce-products-filter/views/plugin_options.php:1485
+msgid "Order dropdown css selector"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:288
 msgid "Overlay image background"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:246
+#: woocommerce-products-filter/views/plugin_options.php:259
 msgid "Overlay skins"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:917
+#: woocommerce-products-filter/views/plugin_options.php:1023
 msgid "Override no products found content"
 msgstr ""
 
@@ -1383,30 +1732,45 @@ msgid "Password"
 msgstr ""
 
 #. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1505
+msgid "Per page css selector"
+msgstr ""
+
+#. Text in echo
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:135
 msgid "Period of emailing to subscribed users. Set it to \"No\" if you going to use external cron."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:932
+#: woocommerce-products-filter/views/plugin_options.php:1038
 msgid "Place in which you can paste text or/and any shortcodes which will be displayed when customer will not find any products by his search criterias. Example:"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:94
+msgid "Placeholder"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_author/views/options.php:61
 #: woocommerce-products-filter/ext/by_sku/views/options.php:103
-#: woocommerce-products-filter/ext/by_text/views/options.php:106
+#: woocommerce-products-filter/ext/by_text/views/options.php:117
 msgid "Placeholder text"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:717
+#: woocommerce-products-filter/views/plugin_options.php:789
 msgid "Plainoverlay - CSS"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:293
+#: woocommerce-products-filter/views/plugin_options.php:306
 msgid "Plainoverlay color"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/shortcodes/woof_save_query.php:100
+msgid "Please fill the title field."
 msgstr ""
 
 #. Text in echo
@@ -1420,17 +1784,23 @@ msgid "Please update database: "
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:99
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:149
+msgid "Position"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:117
 msgid "Postfix"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:87
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:105
 msgid "Prefix"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/products_messenger/index.php:1
+#: woocommerce-products-filter/ext/query_save/index.php:1
 msgid "Price - from %s to %s"
 msgstr ""
 
@@ -1467,7 +1837,13 @@ msgstr ""
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:17
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:29
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:33
+#: woocommerce-products-filter/ext/query_save/views/options.php:29
 msgid "Products Messenger"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/turbo_mode/index.php:85
+msgid "Products and Variants"
 msgstr ""
 
 #. Text in echo
@@ -1476,42 +1852,42 @@ msgid "Products assembling period in data file for quick search."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:861
+#: woocommerce-products-filter/views/plugin_options.php:967
 msgid "Products per page"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:874
+#: woocommerce-products-filter/views/plugin_options.php:980
 msgid "Products per page when searching is going only. Set here -1 to prevent pagination managing from here!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/quick_search/index.php:186
+#: woocommerce-products-filter/ext/quick_search/index.php:195
 msgid "Quick search"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1727
+#: woocommerce-products-filter/views/plugin_options.php:1949
 msgid "Quick video tutorial"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:203
+#: woocommerce-products-filter/views/plugin_options.php:216
 msgid "Radio and checkboxes skin"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:76
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:94
 msgid "Range"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:420
+#: woocommerce-products-filter/views/plugin_options.php:433
 msgid "Range-slider skin"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2185
+#: woocommerce-products-filter/views/plugin_options.php:2531
 msgid "Ranges for price filter."
 msgstr ""
 
@@ -1531,49 +1907,75 @@ msgid "Reassemble data file for quick search manually now"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1798
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:159
+msgid "Reassemble products data now!"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2020
 msgid "Recommended plugins for your site flexibility and features"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Red buttons on the top of the shop page when searching done"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:154
+#: woocommerce-products-filter/classes/widgets.php:138
 msgid "Redirect to"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:156
+#: woocommerce-products-filter/classes/widgets.php:140
 msgid "Redirect to any page - use it by your own logic. Leave it empty for default behavior."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:234
+#: woocommerce-products-filter/classes/widgets.php:218
 msgid "Redraws search form by AJAX, and to start filtering \"Filter\" button should be pressed. Useful when uses hierarchical drop-down for example"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/quick_search/index.php:1
-#: woocommerce-products-filter/views/woof.php:42
+#: woocommerce-products-filter/ext/step_filer/views/shortcode/step_filter.php:1
+#: woocommerce-products-filter/views/woof.php:485
 msgid "Reset"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Reset button text"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Reset button text in the search form. Write \"none\" to hide this button on front."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:141
+#: woocommerce-products-filter/views/plugin_options.php:154
 msgid "Reset items order"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1464
+msgid "Result count css selector"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2692
+msgid "Reverse"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:884
+msgid "Reverse: deactivate plugin on the next site pages only"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "Right"
 msgstr ""
 
 #. Text in echo
@@ -1587,8 +1989,18 @@ msgid "SKU textinput placeholder. Set \"none\" if you want leave it empty on the
 msgstr ""
 
 #. Text in function
+#: woocommerce-products-filter/ext/query_save/views/options.php:33
+msgid "Save current search query"
+msgstr ""
+
+#. Text in function
 #: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:71
 msgid "Save meta fields"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:17
+msgid "Save search query"
 msgstr ""
 
 #. Text in echo
@@ -1603,8 +2015,8 @@ msgid "Search by InStock"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2446
-#: woocommerce-products-filter/views/plugin_options.php:2462
+#: woocommerce-products-filter/views/plugin_options.php:2852
+#: woocommerce-products-filter/views/plugin_options.php:2868
 msgid "Search by Price"
 msgstr ""
 
@@ -1620,13 +2032,18 @@ msgid "Search by Text"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 msgid "Search by content"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 msgid "Search by content OR excerpt"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/by_text/views/options.php:300
+msgid "Search by description in variations"
 msgstr ""
 
 #. Text in echo
@@ -1635,7 +2052,7 @@ msgid "Search by exact value OR if meta key exists"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 msgid "Search by excerpt"
 msgstr ""
 
@@ -1645,7 +2062,7 @@ msgid "Search by featured"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:153
+#: woocommerce-products-filter/ext/by_text/views/options.php:164
 msgid "Search by full word only"
 msgstr ""
 
@@ -1656,22 +2073,22 @@ msgid "Search by text"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 msgid "Search by title"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 msgid "Search by title AND content"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 msgid "Search by title OR content"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 msgid "Search by title OR content OR excerpt"
 msgstr ""
 
@@ -1688,7 +2105,7 @@ msgid "Search in variable produts"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:64
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:80
 msgid "Search logic"
 msgstr ""
 
@@ -1698,7 +2115,7 @@ msgid "Search option"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:838
+#: woocommerce-products-filter/views/plugin_options.php:944
 msgid "Search slug"
 msgstr ""
 
@@ -1710,6 +2127,7 @@ msgstr ""
 #. Text in echo
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:61
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:504
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:97
 msgid "Secret key for external cron"
 msgstr ""
 
@@ -1719,26 +2137,32 @@ msgid "See more new products..."
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Select \"Yes\" if you want to TRY make filtering in your shop by AJAX. Not compatible for 100% of all wp themes, so test it well if you are going to buy premium version of the plugin because incompatibility is not fixable!"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_sku/views/options.php:235
-#: woocommerce-products-filter/ext/by_text/views/options.php:297
-#: woocommerce-products-filter/ext/color/index.php:130
-#: woocommerce-products-filter/ext/color/index.php:162
-#: woocommerce-products-filter/ext/image/index.php:94
-#: woocommerce-products-filter/ext/image/index.php:165
-#: woocommerce-products-filter/views/plugin_options.php:282
-#: woocommerce-products-filter/views/plugin_options.php:593
-#: woocommerce-products-filter/views/plugin_options.php:706
+#: woocommerce-products-filter/ext/by_text/views/options.php:345
+#: woocommerce-products-filter/ext/color/index.php:142
+#: woocommerce-products-filter/ext/color/index.php:174
+#: woocommerce-products-filter/ext/image/index.php:132
+#: woocommerce-products-filter/ext/image/index.php:203
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:101
+#: woocommerce-products-filter/views/plugin_options.php:295
+#: woocommerce-products-filter/views/plugin_options.php:665
+#: woocommerce-products-filter/views/plugin_options.php:778
 msgid "Select Image"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/by_author/views/shortcodes/woof_author_filter.php:7
 msgid "Select a product author"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:89
+msgid "Select acceptable for your hosting type of cron"
 msgstr ""
 
 #. Text in echo
@@ -1763,6 +2187,7 @@ msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:160
+#: woocommerce-products-filter/ext/step_filer/views/tabs_content.php:40
 msgid "Select taxonomy, taxonomies combinations OR leave this field empty to see general data for all the most requested taxonomies"
 msgstr ""
 
@@ -1772,7 +2197,7 @@ msgid "Select the time period for which you want to see statistical data"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Selected terms will always be displayed on the top (for parent-terms only, child will be on the top but under parent-term as it was)"
 msgstr ""
 
@@ -1782,23 +2207,38 @@ msgid "Server options for statistic stock"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:108
+#: woocommerce-products-filter/ext/by_text/views/options.php:119
 msgid "Set \"none\" to disable placeholder for this textinput"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Set filter automatically"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Set filter automatically on the shop page"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/index.php:1
 msgid "Settings"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+msgid "Short - d M, y"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:362
+msgid "Should the slideout button be visible on mobile devices"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "Show"
 msgstr ""
 
 #. Text in echo
@@ -1818,7 +2258,7 @@ msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_onsales/views/options.php:19
-msgid "Show On sales only checkbox inside woof search form"
+msgid "Show On sale only checkbox inside woof search form"
 msgstr ""
 
 #. Text in echo
@@ -1827,48 +2267,98 @@ msgid "Show Search by author drop-down inside woof search form"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1251
+#: woocommerce-products-filter/views/plugin_options.php:1408
 msgid "Show blocks helper button"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2142
+#: woocommerce-products-filter/views/plugin_options.php:2453
 msgid "Show button"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2143
+#: woocommerce-products-filter/views/plugin_options.php:2454
 msgid "Show button for woocommerce filter by price inside woof search form when it is dispayed as woo range-slider"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Show count"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Show count of items near taxonomies terms on the front"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
-msgid "Show count of items near taxonomies terms on the front dynamically. Must be switched on \"Show count\""
+#: woocommerce-products-filter/index.php:3398
+msgid "Show count of items near taxonomies terms on the front dynamically. Must be switched on \"Show count\". In turbo mode if filter is very big better select \"Yes, only for PC\""
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1278
+#: woocommerce-products-filter/views/plugin_options.php:1435
 msgid "Show helper button for shortcode [woof] on the front when 'Set filter automatically' is Yes"
 msgstr ""
 
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1090
+msgid "Show image of variation"
+msgstr ""
+
 #. Text in function
-#: woocommerce-products-filter/classes/helper.php:757
+#: woocommerce-products-filter/ext/image/index.php:1
+msgid "Show image title"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/image/index.php:1
+msgid "Show image title below picture"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/color/index.php:1
+msgid "Show in one column"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/color/index.php:1
+msgid "Show in one column with title"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/classes/helper.php:799
 msgid "Show less"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/classes/helper.php:757
+#: woocommerce-products-filter/classes/helper.php:799
 msgid "Show more"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:143
+msgid "Show notice"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:170
+msgid "Show notice on product page"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "Show on all devices"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "Show only on desktop"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "Show only on mobile"
 msgstr ""
 
 #. Text in echo
@@ -1877,7 +2367,7 @@ msgid "Show product mesenger box inside woof search form"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/woof.php:437
+#: woocommerce-products-filter/index.php:3398
 msgid "Show products filter form"
 msgstr ""
 
@@ -1904,58 +2394,69 @@ msgid "Show textinput for searching by products title"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:12
-#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:11
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:14
-#: woocommerce-products-filter/views/plugin_options.php:1904
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:13
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:13
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:12
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:16
+#: woocommerce-products-filter/views/plugin_options.php:2125
 msgid "Show title label"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:37
-#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:36
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:39
-#: woocommerce-products-filter/views/plugin_options.php:1924
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:38
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:38
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:38
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:41
+#: woocommerce-products-filter/views/plugin_options.php:2145
+#: woocommerce-products-filter/views/plugin_options.php:2493
 msgid "Show toggle button"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:38
-#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:37
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:40
-#: woocommerce-products-filter/views/plugin_options.php:1925
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:39
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:39
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:39
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:42
+#: woocommerce-products-filter/views/plugin_options.php:2146
+#: woocommerce-products-filter/views/plugin_options.php:2494
 msgid "Show toggle button near the title on the front above the block of html-items"
 msgstr ""
 
-#. Text in function
-#: woocommerce-products-filter/ext/color/index.php:1
+#. Text in echo
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:66
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:66
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:66
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:69
+#: woocommerce-products-filter/views/plugin_options.php:2166
+#: woocommerce-products-filter/views/plugin_options.php:2513
 msgid "Show tooltip"
 msgstr ""
 
-#. Text in function
-#: woocommerce-products-filter/ext/color/index.php:1
-msgid "Show tooltip on hover"
-msgstr ""
-
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2448
+#: woocommerce-products-filter/views/plugin_options.php:2854
 msgid "Show woocommerce filter by price inside woof search form"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:13
-#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:12
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:15
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:14
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:14
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:13
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:17
 msgid "Show/Hide meta block title on the front"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1905
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:52
+msgid "Show/Hide slideout on shop pages"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2126
 msgid "Show/Hide taxonomy block title on the front"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1829
+#: woocommerce-products-filter/views/plugin_options.php:2050
 msgid "Shrink, beautify, track, manage and share any URL on or off of your WordPress website. Create links that look how you want using your own domain name!"
 msgstr ""
 
@@ -1966,13 +2467,28 @@ msgid "Simple products only"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:494
+#: woocommerce-products-filter/views/plugin_options.php:545
 msgid "Skins for the auto filter"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:525
+#: woocommerce-products-filter/views/plugin_options.php:576
 msgid "Skins for the auto-filter which appears on the shop page if in tab Options enabled Set filter automatically"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/index.php:80
+msgid "Slideout"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:96
+msgid "Slideout image"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:114
+msgid "Slideout text"
 msgstr ""
 
 #. Text in function
@@ -1981,7 +2497,7 @@ msgid "Slider"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1077
+#: woocommerce-products-filter/views/plugin_options.php:1233
 msgid "Sometimes code '<code>wp_query->is_post_type_archive = true</code>' does not necessary. Try to disable this and try woof-search on your site. If all is ok - leave its disabled. Disabled code by this option you can find in index.php by mark disable_swoof_influence."
 msgstr ""
 
@@ -1991,12 +2507,32 @@ msgid "Somthing wrong!"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/ext/query_save/views/options.php:33
+msgid "Sorry! This product is not suitable for your search %title%."
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2289
+msgid "Sort terms"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:185
+msgid "Speed"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/index.php:3398
 msgid "Start searching just after changing any of the elements on the search form"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/stat/index.php:196
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:301
+msgid "State after init"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/stat/index.php:198
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:13
 msgid "Statistic"
 msgstr ""
@@ -2018,6 +2554,7 @@ msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:77
+#: woocommerce-products-filter/ext/step_filer/views/tabs_content.php:32
 msgid "Statistical parameters:"
 msgstr ""
 
@@ -2027,23 +2564,29 @@ msgid "Statistics collection:"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:66
-#: woocommerce-products-filter/views/plugin_options.php:2212
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:84
+#: woocommerce-products-filter/views/plugin_options.php:2559
 msgid "Step"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:941
+#: woocommerce-products-filter/ext/step_filer/index.php:42
+#: woocommerce-products-filter/ext/step_filer/views/tabs_content.php:13
+msgid "Step by step filter"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1047
 msgid "Storage type"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:49
+#: woocommerce-products-filter/views/plugin_options.php:62
 msgid "Structure"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1717
+#: woocommerce-products-filter/views/plugin_options.php:1939
 msgid "Styles and codes which are applied on the demo site"
 msgstr ""
 
@@ -2058,7 +2601,7 @@ msgid "Subject of the email."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:206
+#: woocommerce-products-filter/classes/widgets.php:190
 msgid "Submit button position"
 msgstr ""
 
@@ -2083,6 +2626,11 @@ msgid "Subscription time"
 msgstr ""
 
 #. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1919
+msgid "Support"
+msgstr ""
+
+#. Text in echo
 #: woocommerce-products-filter/ext/meta_filter/html_types/textinput/views/additional_options.php:15
 msgid "TEXT"
 msgstr ""
@@ -2093,12 +2641,12 @@ msgid "TRUE value, all another are FALSE. Example: yes or true or 1. By default 
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2225
+#: woocommerce-products-filter/views/plugin_options.php:2572
 msgid "Tax"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2224
+#: woocommerce-products-filter/views/plugin_options.php:2571
 msgid "Taxes"
 msgstr ""
 
@@ -2108,7 +2656,7 @@ msgid "Taxonomy conditionals"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1968
+#: woocommerce-products-filter/views/plugin_options.php:2205
 msgid "Taxonomy custom label"
 msgstr ""
 
@@ -2118,23 +2666,33 @@ msgid "Terms: "
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:2098
+#: woocommerce-products-filter/views/plugin_options.php:2409
 msgid "Text"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2171
+#: woocommerce-products-filter/views/plugin_options.php:2482
 msgid "Text before the price filter range slider. Leave it empty if you not need it!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:658
+#: woocommerce-products-filter/views/plugin_options.php:730
 msgid "Text for block toggle [<i>closed</i>]"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:642
+#: woocommerce-products-filter/views/plugin_options.php:714
 msgid "Text for block toggle [<i>opened</i>]"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:202
+msgid "Text if current product is not suitable for saved searches"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:190
+msgid "Text if current product is suitable for saved searches"
 msgstr ""
 
 #. Text in echo
@@ -2163,23 +2721,39 @@ msgid "Text search conditional"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:568
+#: woocommerce-products-filter/views/plugin_options.php:640
 msgid "Text which displayed instead filter while it is closed if selected."
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/classes/rate_alert.php:71
+msgid "Thank you, I did it!"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:154
+#: woocommerce-products-filter/ext/query_save/views/options.php:95
+msgid "The placeholder  in title field"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/by_text/views/options.php:165
 msgid "The result is only with the full coincidence of words"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:219
+#: woocommerce-products-filter/classes/widgets.php:203
 msgid "The submit and reset buttons position in current search form"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:96
+#: woocommerce-products-filter/ext/query_save/views/options.php:83
 msgid "The text before the block of subscription block"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/query_save/views/options.php:107
+msgid "The text in the button"
 msgstr ""
 
 #. Text in echo
@@ -2193,28 +2767,39 @@ msgid "This link does not work."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:792
-msgid "This option excludes initialization of the plugin on all pages of the site except links and link-masks in the textarea. One row - one link (or link-mask)! Example of link: http://site.com/ajaxed-search-7. Example of link-mask: product-category! Leave it empty to allow the plugin initialization on all pages of the site!"
+#: woocommerce-products-filter/views/plugin_options.php:898
+msgid "This option enables or disables initialization of the plugin on all pages of the site except links and link-masks in the textarea. One row - one link (or link-mask)! Example of link: http://site.com/ajaxed-search-7. Example of link-mask: product-category! Leave it empty to allow the plugin initialization on all pages of the site!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:909
+#: woocommerce-products-filter/views/plugin_options.php:1015
 msgid "This option place WOOF JavaScript files on the site footer. Use it for page loading optimization. Be care with this option, and always after enabling of it test your site frontend!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/image/index.php:106
+#: woocommerce-products-filter/ext/image/index.php:144
 msgid "This option should be set"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1834
+#: woocommerce-products-filter/views/plugin_options.php:2055
 msgid "This plugin provides an easy to use interface to create and administer custom post types and taxonomies in WordPress."
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/query_save/views/options.php:33
+msgid "This product matches your search %title%."
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:146
+#: woocommerce-products-filter/classes/widgets.php:130
+#: woocommerce-products-filter/views/plugin_options.php:2273
 msgid "Title"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/query_save/views/options.php:33
+msgid "Title of the Query*"
 msgstr ""
 
 #. Text in echo
@@ -2224,8 +2809,8 @@ msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/by_sku/views/options.php:89
-#: woocommerce-products-filter/ext/by_text/views/options.php:92
-#: woocommerce-products-filter/views/plugin_options.php:2170
+#: woocommerce-products-filter/ext/by_text/views/options.php:103
+#: woocommerce-products-filter/views/plugin_options.php:2481
 msgid "Title text"
 msgstr ""
 
@@ -2234,44 +2819,65 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#. Text in function
-#: woocommerce-products-filter/installer/includes/installer.class.php:198
-msgid "To get automatic updates, you need to register %s for this site. %sRegister %s%s"
-msgstr ""
-
 #. Text in echo
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:167
 msgid "To update the key, just delete it and save the plugin settings. Key should be min 16 symbols."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:605
+#: woocommerce-products-filter/views/plugin_options.php:677
 msgid "Toggle block type"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:670
+#: woocommerce-products-filter/views/plugin_options.php:742
 msgid "Toggle text for closed html-items block. Example: open. By default applied sign plus \"+\""
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:654
+#: woocommerce-products-filter/views/plugin_options.php:726
 msgid "Toggle text for opened html-items block. Example: close. By default applied sign minus \"-\""
 msgstr ""
 
+#. Text in echo
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:65
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:65
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:65
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:68
+#: woocommerce-products-filter/views/plugin_options.php:2165
+#: woocommerce-products-filter/views/plugin_options.php:2512
+msgid "Tooltip"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:590
+msgid "Tooltip icon"
+msgstr ""
+
 #. Text in function
-#: woocommerce-products-filter/classes/widgets.php:223
+#: woocommerce-products-filter/ext/color/index.php:1
+msgid "Tooltip text"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/classes/widgets.php:207
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
 msgid "Top"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/classes/widgets.php:223
+#: woocommerce-products-filter/classes/widgets.php:207
 msgid "Top AND Bottom"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Try to ajaxify the shop"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/turbo_mode/index.php:175
+msgid "Turbo mode"
 msgstr ""
 
 #. Text in function
@@ -2285,7 +2891,7 @@ msgid "Two weeks"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:635
+#: woocommerce-products-filter/views/plugin_options.php:707
 msgid "Type of the toogle on the front for block of html-items as: radio, checkbox .... Works only if the block title is not hidden!"
 msgstr ""
 
@@ -2301,7 +2907,13 @@ msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:126
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:163
 msgid "Update now!"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:104
+msgid "Url of the custom image for the button"
 msgstr ""
 
 #. Text in echo
@@ -2310,27 +2922,27 @@ msgid "Use WordPress Cron if your site has a lot of traffic, and external cron i
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:381
+#: woocommerce-products-filter/views/plugin_options.php:394
 msgid "Use beauty scroll"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:411
+#: woocommerce-products-filter/views/plugin_options.php:424
 msgid "Use beauty scroll when you apply max height for taxonomy block on the front"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:342
+#: woocommerce-products-filter/views/plugin_options.php:355
 msgid "Use chosen"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:372
+#: woocommerce-products-filter/views/plugin_options.php:385
 msgid "Use chosen javascript library on the front of your site for drop-downs."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:129
+#: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:132
 msgid "Use comma as in example: 1,2,3,4,5. If you want structure like title->value use next syntax example: France^1,Germany^2,USA^3. Countries are titles here."
 msgstr ""
 
@@ -2339,23 +2951,38 @@ msgstr ""
 msgid "Use for"
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/image/index.php:1
+msgid "Use image as radio button"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:824
+#: woocommerce-products-filter/views/plugin_options.php:930
 msgid "Use it if you can not translate your custom taxonomies labels and attributes labels by another plugins."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:779
+#: woocommerce-products-filter/views/plugin_options.php:851
 msgid "Use it when you are need additional action after AJAX redraw your products in shop page or in page with shortcode! For use when you need additional functionality after AJAX redraw of your products on the shop page or on pages with shortcodes."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1243
+#: woocommerce-products-filter/views/plugin_options.php:474
+msgid "Use tooltip"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:504
+msgid "Use tooltip library on the front of your site. Possible to disable it here if any scripts conflicts on the site front."
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1400
 msgid "Useful thing when you already set your site IN THE PRODUCTION MODE - its getting terms for filter faster without big MySQL queries! If you actively adds new terms every day or week you can set cron period for cleaning. Another way set: '<b>not clean cache automatically</b>'!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1174
+#: woocommerce-products-filter/views/plugin_options.php:1331
 msgid "Useful thing when you already set your site IN THE PRODUCTION MODE and use dynamic recount -> it make recount very fast! Of course if you added new products which have to be in search results you have to clean this cache OR you can set time period for auto cleaning!"
 msgstr ""
 
@@ -2365,7 +2992,12 @@ msgid "User"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:171
+#: woocommerce-products-filter/ext/query_save/views/options.php:19
+msgid "User can save the search query"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/classes/widgets.php:155
 msgid "User on the site front will have to press button like \"Show products filter form\" to load search form by ajax and start filtering. Good feature when search form is quite big and page loading takes more time because of it!"
 msgstr ""
 
@@ -2375,7 +3007,8 @@ msgid "Value exists"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1749
+#: woocommerce-products-filter/views/plugin_options.php:1918
+#: woocommerce-products-filter/views/plugin_options.php:1971
 msgid "Video tutorials"
 msgstr ""
 
@@ -2390,7 +3023,7 @@ msgid "View of the search by author "
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2326
+#: woocommerce-products-filter/views/plugin_options.php:2675
 msgid "View of the taxonomies terms on the front"
 msgstr ""
 
@@ -2401,18 +3034,13 @@ msgid "View product"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2296
+#: woocommerce-products-filter/views/plugin_options.php:2645
 msgid "WOOBE"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2301
+#: woocommerce-products-filter/views/plugin_options.php:2650
 msgid "WOOCS"
-msgstr ""
-
-#. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:26
-msgid "WOOF - Products Filter Options v.%s"
 msgstr ""
 
 #. Text in function
@@ -2420,8 +3048,13 @@ msgstr ""
 msgid "WOOF - WooCommerce Products Filter"
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/views/plugin_options.php:36
+msgid "WOOF - WooCommerce Products Filter v.%s"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2290
+#: woocommerce-products-filter/views/plugin_options.php:2639
 msgid "WOOF FULL VERSION"
 msgstr ""
 
@@ -2431,18 +3064,28 @@ msgid "WOOF cannot create database table for statistic! Make sure that your mysq
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1166
+#: woocommerce-products-filter/views/plugin_options.php:1323
 msgid "WOOF cannot create the database table! Make sure that your mysql user has the CREATE privilege! Do it manually using your host panel&phpmyadmin!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:733
+#: woocommerce-products-filter/views/plugin_options.php:1916
+msgid "WOOF documentation"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/index.php:772
 msgid "WOOF settings saving ..."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:800
+#: woocommerce-products-filter/views/plugin_options.php:906
 msgid "WPML taxonomies labels translations"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:226
+msgid "Way to show of slideout popup out: click or hover"
 msgstr ""
 
 #. Text in echo
@@ -2451,13 +3094,33 @@ msgid "Weekly recommended"
 msgstr ""
 
 #. Text in echo
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:182
+msgid "Where to keep products data file"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:178
+msgid "Where to show slideout button: right, left, top"
+msgstr ""
+
+#. Text in echo
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:269
 msgid "Which limitation has priority. Event after which user stop getting the emails. Both - means that any first event of two ones, will reset user subscription."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1839
+#: woocommerce-products-filter/views/plugin_options.php:2060
 msgid "Widget Logic lets you control on which pages widgets appear using"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:142
+msgid "Width X Height (px) of the button image"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:295
+msgid "Width and height of the popup html container size in (px)"
 msgstr ""
 
 #. Text in echo
@@ -2467,12 +3130,12 @@ msgid "Will the plugin look in each variable of variable products. Request for v
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1806
+#: woocommerce-products-filter/views/plugin_options.php:2028
 msgid "WooCommerce Currency Switcher – is the plugin that allows you to switch to different currencies and get their rates converted in the real time!"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/classes/widgets.php:236
+#: woocommerce-products-filter/classes/widgets.php:207
 msgid "WooCommerce Products Filter"
 msgstr ""
 
@@ -2482,19 +3145,21 @@ msgid "WooCommerce Products Filter by realmag777"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:332
+#: woocommerce-products-filter/views/plugin_options.php:345
 msgid "Word while searching is going on front when \"Overlay skins\" is default."
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:153
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:532
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
 msgid "WordPress Cron"
 msgstr ""
 
 #. Text in echo
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:81
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:526
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:117
 msgid "WordPress Cron period"
 msgstr ""
 
@@ -2504,17 +3169,18 @@ msgid "WordPress cron period"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1811
+#: woocommerce-products-filter/views/plugin_options.php:2033
 msgid "WordPress plugin for managing and bulk edit WooCommerce Products data in robust and flexible way! Be professionals with managing data of your woocommerce e-shop!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2003
+#: woocommerce-products-filter/views/plugin_options.php:2240
 msgid "Works for radio and checkboxes only. Allows show radio/checkboxes in 1 row!"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/classes/widgets.php:223
+#: woocommerce-products-filter/classes/widgets.php:220
+#: woocommerce-products-filter/classes/widgets.php:207
 #: woocommerce-products-filter/ext/by_author/views/options.php:28
 #: woocommerce-products-filter/ext/by_backorder/views/options.php:25
 #: woocommerce-products-filter/ext/by_featured/views/options.php:25
@@ -2524,54 +3190,71 @@ msgstr ""
 #: woocommerce-products-filter/ext/by_sku/views/options.php:25
 #: woocommerce-products-filter/ext/by_sku/views/options.php:192
 #: woocommerce-products-filter/ext/by_text/views/options.php:25
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 #: woocommerce-products-filter/ext/color/index.php:1
-#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:48
-#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:82
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:69
-#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:41
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:44
+#: woocommerce-products-filter/ext/image/index.php:1
+#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:50
+#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:93
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:85
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:43
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:46
 #: woocommerce-products-filter/ext/meta_filter/html_types/textinput/views/additional_options.php:45
-#: woocommerce-products-filter/ext/meta_filter/index.php:190
+#: woocommerce-products-filter/ext/meta_filter/index.php:203
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:24
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:273
-#: woocommerce-products-filter/index.php:2352
-#: woocommerce-products-filter/views/plugin_options.php:2098
-#: woocommerce-products-filter/views/plugin_options.php:1433
-#: woocommerce-products-filter/views/plugin_options.php:1595
-#: woocommerce-products-filter/views/plugin_options.php:2011
-#: woocommerce-products-filter/views/plugin_options.php:2464
+#: woocommerce-products-filter/ext/query_save/views/options.php:24
+#: woocommerce-products-filter/ext/query_save/views/options.php:148
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
+#: woocommerce-products-filter/index.php:3398
+#: woocommerce-products-filter/views/plugin_options.php:2409
+#: woocommerce-products-filter/views/plugin_options.php:1652
+#: woocommerce-products-filter/views/plugin_options.php:1854
+#: woocommerce-products-filter/views/plugin_options.php:1814
+#: woocommerce-products-filter/views/plugin_options.php:1737
+#: woocommerce-products-filter/views/plugin_options.php:2248
+#: woocommerce-products-filter/views/plugin_options.php:2870
 msgid "Yes"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/widgets.php:203
+#: woocommerce-products-filter/classes/widgets.php:187
 msgid "Yes - filtering starts immediately if user changed any item in the search form. No - user can set search data and then should press Filter button"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/ext/query_save/views/options.php:148
+msgid "Yes(only if the product exists)"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/index.php:3398
 msgid "Yes, but only for desktop"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:2352
+#: woocommerce-products-filter/index.php:3398
 msgid "Yes, but only for mobile devices"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:69
-#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:41
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:44
-#: woocommerce-products-filter/views/plugin_options.php:1933
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:85
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:43
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:46
+#: woocommerce-products-filter/views/plugin_options.php:2154
+#: woocommerce-products-filter/views/plugin_options.php:2501
 msgid "Yes, show as closed"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:69
-#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:41
-#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:44
-#: woocommerce-products-filter/views/plugin_options.php:1934
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:85
+#: woocommerce-products-filter/ext/meta_filter/html_types/mselect/views/additional_options.php:85
+#: woocommerce-products-filter/ext/meta_filter/html_types/select/views/additional_options.php:43
+#: woocommerce-products-filter/ext/meta_filter/html_types/slider/views/additional_options.php:46
+#: woocommerce-products-filter/views/plugin_options.php:2155
+#: woocommerce-products-filter/views/plugin_options.php:2502
 msgid "Yes, show as opened"
 msgstr ""
 
@@ -2581,12 +3264,17 @@ msgid "You are unsubscribed from the future products newsletters."
 msgstr ""
 
 #. Text in echo
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:174
+msgid "You can always assemble products data for Turbo Mode by one click! While its assembling filtering on the site front is still possible with previous assembled products data until new data assembled!"
+msgstr ""
+
+#. Text in echo
 #: woocommerce-products-filter/ext/by_author/views/options.php:76
 msgid "You can define whith which role show users in the drop down"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1561
+#: woocommerce-products-filter/views/plugin_options.php:1780
 msgid "You should write extension info in info.dat file!"
 msgstr ""
 
@@ -2596,7 +3284,7 @@ msgid "You unsubscribed from the newsletter."
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:7
+#: woocommerce-products-filter/views/plugin_options.php:32
 msgid "Your settings have been saved."
 msgstr ""
 
@@ -2607,11 +3295,12 @@ msgstr ""
 #: woocommerce-products-filter/ext/by_instock/views/options.php:30
 #: woocommerce-products-filter/ext/by_sku/views/options.php:29
 #: woocommerce-products-filter/ext/by_text/views/options.php:29
-#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:51
-#: woocommerce-products-filter/ext/meta_filter/index.php:193
+#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:53
+#: woocommerce-products-filter/ext/meta_filter/index.php:206
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:29
-#: woocommerce-products-filter/views/plugin_options.php:2337
-#: woocommerce-products-filter/views/plugin_options.php:2462
+#: woocommerce-products-filter/ext/query_save/views/options.php:29
+#: woocommerce-products-filter/views/plugin_options.php:2696
+#: woocommerce-products-filter/views/plugin_options.php:2868
 msgid "additional options"
 msgstr ""
 
@@ -2621,92 +3310,102 @@ msgid "all"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_rating/views/woof.php:13
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "as Image"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:347
+msgid "as Text"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/by_rating/views/woof.php:12
 msgid "average rating between 1 to 2-"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_rating/views/woof.php:13
+#: woocommerce-products-filter/ext/by_rating/views/woof.php:12
 msgid "average rating between 2 to 3-"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_rating/views/woof.php:13
+#: woocommerce-products-filter/ext/by_rating/views/woof.php:12
 msgid "average rating between 3 to 4-"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_rating/views/woof.php:13
+#: woocommerce-products-filter/ext/by_rating/views/woof.php:12
 msgid "average rating between 4 to 5"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/color/index.php:129
+#: woocommerce-products-filter/ext/color/index.php:141
 msgid "background image url 25x25"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_text/views/options.php:122
+#: woocommerce-products-filter/ext/by_text/views/options.php:133
 msgid "behavior of the text searching"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/by_sku/index.php:73
+#: woocommerce-products-filter/ext/by_sku/index.php:75
 msgid "by SKU"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "clean cache automatically daily"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "clean cache automatically each 2 days"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "clean cache automatically each 3 days"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "clean cache automatically each 4 days"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "clean cache automatically each 5 days"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "clean cache automatically each 6 days"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "clean cache automatically each 7 days"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "clean cache automatically hourly"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "clean cache automatically twicedaily"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1112
+#: woocommerce-products-filter/views/plugin_options.php:1269
 msgid "clear cache"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1211
+#: woocommerce-products-filter/views/plugin_options.php:1368
 msgid "clear terms cache"
 msgstr ""
 
@@ -2714,27 +3413,34 @@ msgstr ""
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:273
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:153
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:532
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
 msgid "daily"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:833
+#: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:140
+#: woocommerce-products-filter/index.php:872
 msgid "date"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/index.php:904
+#: woocommerce-products-filter/index.php:946
 msgid "default_overlay_skin_word"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:141
+#: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:145
 msgid "delete"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/plugin_options.php:1518
+#: woocommerce-products-filter/views/plugin_options.php:1744
 msgid "do not clean cache automatically"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:1038
+msgid "do not use shortcodes here in turbo mode"
 msgstr ""
 
 #. Text in echo
@@ -2746,13 +3452,14 @@ msgstr ""
 #: woocommerce-products-filter/ext/by_rating/views/options.php:16
 #: woocommerce-products-filter/ext/by_sku/views/options.php:16
 #: woocommerce-products-filter/ext/by_text/views/options.php:16
-#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:39
-#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:73
-#: woocommerce-products-filter/ext/meta_filter/index.php:181
+#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:41
+#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:84
+#: woocommerce-products-filter/ext/meta_filter/index.php:194
 #: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:92
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:15
-#: woocommerce-products-filter/views/plugin_options.php:2316
-#: woocommerce-products-filter/views/plugin_options.php:2444
+#: woocommerce-products-filter/ext/query_save/views/options.php:15
+#: woocommerce-products-filter/views/plugin_options.php:2665
+#: woocommerce-products-filter/views/plugin_options.php:2850
 msgid "drag and drope"
 msgstr ""
 
@@ -2792,13 +3499,12 @@ msgid "enter title"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2335
+#: woocommerce-products-filter/views/plugin_options.php:2689
 msgid "excluded terms ids"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/views/shortcodes/woof_price_filter_radio.php:67
-#: woocommerce-products-filter/views/shortcodes/woof_price_filter_select.php:66
+#: woocommerce-products-filter/views/shortcodes/woof_price_filter_select.php:74
 msgid "filter by price"
 msgstr ""
 
@@ -2808,12 +3514,22 @@ msgid "finished!"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2291
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/woof.php:118
+msgid "from"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/woof.php:2
+msgid "from: %s"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2640
 msgid "full version of the plugin"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:908
+#: woocommerce-products-filter/index.php:950
 msgid "hide products filter"
 msgstr ""
 
@@ -2824,12 +3540,22 @@ msgid "hourly"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1956
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:328
+msgid "how to show slideout popup after page loaded: opened or closed"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/additional_options.php:80
+msgid "jQuery-ui calendar date format"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2193
 msgid "leave it empty to show all terms"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1973
+#: woocommerce-products-filter/views/plugin_options.php:2210
 msgid "leave it empty to use native taxonomy name"
 msgstr ""
 
@@ -2839,7 +3565,7 @@ msgid "max price"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:836
+#: woocommerce-products-filter/index.php:875
 msgid "menu order"
 msgstr ""
 
@@ -2852,6 +3578,7 @@ msgstr ""
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:273
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:153
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:532
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
 msgid "min1"
 msgstr ""
 
@@ -2859,6 +3586,7 @@ msgstr ""
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:273
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:153
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:532
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
 msgid "monthly"
 msgstr ""
 
@@ -2871,122 +3599,149 @@ msgstr ""
 #: woocommerce-products-filter/ext/by_rating/views/options.php:16
 #: woocommerce-products-filter/ext/by_sku/views/options.php:16
 #: woocommerce-products-filter/ext/by_text/views/options.php:16
-#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:39
-#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:73
-#: woocommerce-products-filter/ext/meta_filter/index.php:181
+#: woocommerce-products-filter/ext/meta_filter/classes/woof_type_meta_filter.php:41
+#: woocommerce-products-filter/ext/meta_filter/html_types/checkbox/index.php:84
+#: woocommerce-products-filter/ext/meta_filter/index.php:194
 #: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:92
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:15
-#: woocommerce-products-filter/views/plugin_options.php:2316
-#: woocommerce-products-filter/views/plugin_options.php:2444
+#: woocommerce-products-filter/ext/query_save/views/options.php:15
+#: woocommerce-products-filter/views/plugin_options.php:2665
+#: woocommerce-products-filter/views/plugin_options.php:2850
 msgid "move"
 msgstr ""
 
 #. Text in function
 #: woocommerce-products-filter/ext/products_messenger/views/item_list_subscr.php:2
+#: woocommerce-products-filter/ext/query_save/views/item_list_query.php:10
 msgid "new"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 msgid "new window"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:135
+#: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:138
 msgid "number"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:832
+#: woocommerce-products-filter/index.php:871
 msgid "orderby"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:834
+#: woocommerce-products-filter/index.php:873
 msgid "per page"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:837
+#: woocommerce-products-filter/index.php:876
 msgid "popularity"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2213
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:192
+msgid "popup animation speed in (ms)"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/views/plugin_options.php:2560
 msgid "predifined step"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:840
+#: woocommerce-products-filter/index.php:879
 msgid "price high to low"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:839
+#: woocommerce-products-filter/index.php:878
 msgid "price low to high"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:835
-#: woocommerce-products-filter/index.php:909
+#: woocommerce-products-filter/index.php:874
+#: woocommerce-products-filter/index.php:951
 msgid "price range"
 msgstr ""
 
+#. Text in function
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:260
+msgid "px"
+msgstr ""
+
 #. Text in echo
-#: woocommerce-products-filter/index.php:838
+#: woocommerce-products-filter/index.php:877
 msgid "rating"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:1470
-#: woocommerce-products-filter/views/plugin_options.php:2123
+#: woocommerce-products-filter/views/plugin_options.php:1689
+#: woocommerce-products-filter/views/plugin_options.php:2434
 msgid "remove extension"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/plugin_options.php:2092
+#: woocommerce-products-filter/views/plugin_options.php:2403
 msgid "select image"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/image/index.php:93
+#: woocommerce-products-filter/ext/image/index.php:131
 msgid "set link to the image"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/views/woof.php:428
+#: woocommerce-products-filter/views/woof.php:502
 msgid "show blocks helper"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/index.php:907
+#: woocommerce-products-filter/index.php:949
 msgid "show products filter"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:136
+#: woocommerce-products-filter/ext/meta_filter/views/tabs_content.php:139
 msgid "string"
 msgstr ""
 
 #. Text in function
-#: woocommerce-products-filter/ext/by_text/views/options.php:268
+#: woocommerce-products-filter/classes/rate_alert.php:48
+msgid "support"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/by_text/views/options.php:305
 msgid "the same window"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/classes/helper.php:729
-#: woocommerce-products-filter/classes/helper.php:733
-#: woocommerce-products-filter/classes/helper.php:734
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/woof.php:125
+msgid "to"
+msgstr ""
+
+#. Text in function
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/woof.php:2
+msgid "to: %s"
+msgstr ""
+
+#. Text in echo
+#: woocommerce-products-filter/classes/helper.php:771
+#: woocommerce-products-filter/classes/helper.php:775
+#: woocommerce-products-filter/classes/helper.php:776
 msgid "toggle"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/color/index.php:105
+#: woocommerce-products-filter/ext/color/index.php:117
 msgid "toggle color terms"
 msgstr ""
 
 #. Text in echo
-#: woocommerce-products-filter/ext/image/index.php:74
+#: woocommerce-products-filter/ext/image/index.php:98
 msgid "toggle image terms"
 msgstr ""
 
@@ -2999,6 +3754,7 @@ msgstr ""
 #. Text in function
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:273
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:153
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
 msgid "twicemonthly"
 msgstr ""
 
@@ -3011,47 +3767,32 @@ msgstr ""
 #: woocommerce-products-filter/ext/products_messenger/views/options.php:273
 #: woocommerce-products-filter/ext/quick_search/views/tabs_content.php:153
 #: woocommerce-products-filter/ext/stat/views/tabs_content.php:532
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
 msgid "weekly"
 msgstr ""
 
-
-msgid "Grig step"
+#. Text in function
+#: woocommerce-products-filter/ext/turbo_mode/views/tabs_content.php:188
+msgid "without update"
 msgstr ""
 
-msgid "Hide each Nth grid label. -1 hide all labels, 1 show all labels, 2n show each second label, 3n show each third label, etc..."
+#. Text in echo
+#: woocommerce-products-filter/ext/stat/views/tabs_content.php:189
+msgid "xxx"
 msgstr ""
 
-msgid "Activates dynamic recount for each term in the the range. If you have very long range (a lot of terms) this feature will generate additional MySQL queries which will create additional loading on the server!"
+#. Text in echo
+#: woocommerce-products-filter/ext/meta_filter/html_types/datepicker/views/woof.php:120
+msgid "Сlear"
 msgstr ""
 
-msgid "Sort terms"
+#. Text in echo
+#: woocommerce-products-filter/ext/slideout/views/tabs_content.php:272
+msgid "Сontainer size"
 msgstr ""
 
-msgid "Direction of terms sorted inside of filter block"
+#. Text in function
+#: woocommerce-products-filter/ext/products_messenger/index.php:1
+#: woocommerce-products-filter/ext/query_save/index.php:1
+msgid "Сount is max"
 msgstr ""
-
-msgid "How to sort terms inside of filter block"
-msgstr ""
-
-msgid "Logic of filtering"
-msgstr ""
-
-msgid "AND or OR: if to select AND and on the site front select 2 terms - will be found products which contains both terms on the same time."
-msgstr ""
-
-msgid "Show in one column"
-msgstr ""
-
-msgid "Show in one column with title"
-msgstr ""
-
-msgid "Tooltip text"
-msgstr ""
-
-msgid "Enter tooltip text if necessary"
-msgstr ""
-
-
-
-
-
