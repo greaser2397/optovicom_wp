@@ -111,6 +111,8 @@ if ( ! class_exists( 'Storefront' ) ) :
 						'gallery',
 						'caption',
 						'widgets',
+						'style',
+						'script',
 					)
 				)
 			);
@@ -180,6 +182,37 @@ if ( ! class_exists( 'Storefront' ) ) :
 			 * Add support for editor styles.
 			 */
 			add_theme_support( 'editor-styles' );
+
+			/**
+			 * Add support for editor font sizes.
+			 */
+			add_theme_support( 'editor-font-sizes', array(
+				array(
+					'name' => __( 'Small', 'storefront' ),
+					'size' => 14,
+					'slug' => 'small',
+				),
+				array(
+					'name' => __( 'Normal', 'storefront' ),
+					'size' => 16,
+					'slug' => 'normal',
+				),
+				array(
+					'name' => __( 'Medium', 'storefront' ),
+					'size' => 23,
+					'slug' => 'medium',
+				),
+				array(
+					'name' => __( 'Large', 'storefront' ),
+					'size' => 26,
+					'slug' => 'large',
+				),
+				array(
+					'name' => __( 'Huge', 'storefront' ),
+					'size' => 37,
+					'slug' => 'huge',
+				),
+			) );
 
 			/**
 			 * Enqueue editor styles.

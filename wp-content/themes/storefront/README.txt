@@ -1,9 +1,9 @@
 === Storefront ===
 Contributors: automattic, tiagonoronha, jameskoster
-Requires at least: 4.7
-Tested up to: 5.2
-Stable tag: 2.5.0
-Version: 2.5.0
+Requires at least: 5.2.6
+Tested up to: 5.4.1
+Stable tag: 2.5.6
+Version: 2.5.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: e-commerce, two-columns, left-sidebar, right-sidebar, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, accessibility-ready, rtl-language-support, footer-widgets, sticky-post, theme-options, editor-style
@@ -48,6 +48,82 @@ To the best of our knowledge, Google doesn’t track nor share end user data.
 Privacy Policy for the Google Fonts API: https://developers.google.com/fonts/faq#what_does_using_the_google_fonts_api_mean_for_the_privacy_of_my_users
 
 == Changelog ==
+
+= 2.5.7 - 2020-06-02 =
+* Fix - Edit, reply and author icons are now displayed in comment list. #1319
+* Fix - Updated font-weight of the All Products block so it matches the other product grid blocks. #1344
+* Dev - Include FontAwesome brands icon set. #1345
+
+
+= 2.5.6 - 2020-05-05 =
+* Enhancement - Custom site background color is now used in editor preview. #1317
+* Fix - Ensure mobile sticky footer navigation links are visible when colours are customised (use header/nav colour scheme, consistent with 2.5.4 and earlier releases). #1321
+* Fix – Fix issue where product and category images were not centered on homepage & category pages. #1313
+* Fix – "Reveal password" button (eye icon) is now positioned correctly in new password fields (my account change password and signup). #1325
+* Fix - Fix several mispositioned :focus rings (in Firefox and other browsers). #1318
+* Fix – Ensure product images have appropriate bottom margin. #1313
+* Fix – Buttons blocks now respect the border radius set by the user. #1323
+* Fix - Buttons blocks no longer show an underline. #1310
+* Fix – Product page, cart, and checkout layout fixes affecting stores with longer product names on smaller screens. #1326
+* Fix - WordPress 5.4 compatibility – Text inside the Calendar block is now centered, in line with the Calendar widget. #1315
+* Fix – WordPress 5.4 compatibility – Ensure block editor uses theme typography styling. #1316
+* Fix – WordPress 5.4 compatibility – Adapt block editor width if sidebar widgets are present/disabled. #1316
+* Compatibility - Disable the footer bar when used with Checkout or Cart blocks (currently in development). #1307
+* i18n – Use correct direction arrow icons in RTL languages (next, previous and forward). #1306
+* i18n – Fix inappropriate use of disambiguation context in admin notice 'or' string. #1303
+* Tweak – Improve HTML5 compliance for enqueued scripts and styles. #1309
+* Tweak – Removed unnecessary vertical-align css rule for button, select, input and textarea elements. #1295
+* Dependencies – Update Font Awesome icon font to 5.13.0. #1279
+
+= 2.5.5 - 2020-02-28 =
+* Fix - Blocks: Fix vertical alignment of left/right aligned image blocks. #1265
+* Fix - Blocks: Correct center alignment of product image in Top Rated Products block with small number of columns. #1267
+* Fix - Blocks: Improve margins between floated embed/image block and list block. #1272 #1274
+* Fix - Customizer: Ensure headings and links in the footer use colors set in Customizer. #1261
+
+= 2.5.4 - 2020-02-19 =
+* Feature - Add support for new `wp_body_open` hook. #1208
+* Fix - Customizer: Move "Product Page" settings into WooCommerce tab. #1224
+* Fix - Blocks: Ensure product grid blocks don't wrap unnecessarily. #1217
+* Fix - Editor: Fix layout issue with image block placeholder buttons. #1242
+* Fix - Improve "Sale!" badge legibility by using white background (was transparent). #1251
+* Fix - Improve accessibility of screen reader skip links. #1216
+* Fix - Prevent search engine indexing of add-to-cart link. #1207
+* Fix - Ensure password visibility button is not hidden on login form. #1238
+* Fix - Allow translation of "or" in admin notice for activating WooCommerce plugin. #1257
+* Fix - Remove underline from @wordpress/components button links. #1187
+* Fix - Use `noreferrer` on footer credit link. #1243
+* Dev - Update npm dev dependencies. #1258
+* Dev - Automatically exclude storefront folder & zip when preparing release. #1199
+
+= 2.5.3 - 2019-08-19 =
+* Fix - Remove directory that was included in the previous release by mistake.
+
+= 2.5.2 - 2019-08-19 =
+* Fix - Introduce extra block styles to fix issue with WooCommerce 3.7 blocks. #1189
+* Fix - Make Storefront admin notices conform to new WP.org theme rules. #1190
+* Dev - Add filter to alter credit links. #1191
+
+= 2.5.1 - 2019-07-04 =
+* Feature - WooCommerce Product Recommendations integration.
+* Enhancement - Add support for color styles in the "Table" block.
+* Fix - Move privacy link outside credit link conditional.
+* Fix - "Separator" block styles preview styling.
+* Fix - Increase Shipping Methods cell size on the Checkout page.
+* Fix - Stop logo image from overlapping with the "Menu" toggle on small screens.
+* Fix - Cover block placeholder layout.
+* Fix - Cover block paragraph size and default color.
+* Fix - Floated images alignment when using the "Image" block.
+* Fix - Uneven form input widths on checkout page.
+* Fix - Composite Products: Layout issue limited to Bundles contained in Composites when the "Hide Thumbnail" option of a bundled product is hidden.
+* Fix - Fixed an edge case where a PHP warning could show up when going through the NUX.
+* Fix - Removed CSS rule that forced a 2-column layout on cart cross-sells.
+* Fix - "Product Filter" widget styling on small screens.
+* Fix - Add styling for number input type.
+* Fix - Warning in the Query Monitor plugin when using Jetpack without the "Infinite Scroll" module enabled.
+* Dev - Removed minification from front-end stylesheets since it makes the files impossible to read for folks trying to do simple tweaks.
+* Dev - Moved style.css "do not edit" note to a non important comment.
+* Dev - Updated node dependencies.
 
 = 2.5.0 - 2019-05-09 =
 * Feature - Updated Starter Content to make use of WooCommerce 3.6 blocks, and also the new cover block introduced in WordPress 5.2, to create a custom editable homepage.
