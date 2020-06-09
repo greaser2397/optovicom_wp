@@ -1,0 +1,200 @@
+.site-main {
+  .banner-slider {
+    border: 15px solid;
+    border-color: $c-primary transparent;
+    margin: 15px 0 20px;
+
+    @include bpmin(tablet) {
+      border-width: 25px;
+    }
+
+    .slick-list {
+      border: 5px solid;
+      border-color: $black transparent;
+
+      @include bpmin(tablet) {
+        border-width: 10px;
+      }
+    }
+
+    .banner-slide {
+      height: 750px;
+      min-height: 460px;
+      max-height: calc(100vh - 495px);
+      outline: none;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+
+      @include bpmax(tabletsm) {
+        height: 460px;
+      }
+
+      > img {
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+        object-fit: cover;
+
+        @include bpmin(tabletsm) {
+          max-height: 100%;
+          height: auto;
+        }
+      }
+
+      .slide-content {
+        padding: 5% 50px;
+        max-width: 100%;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        top: 0;
+        left: 0;
+
+        @include bpmin(tablet) {
+          padding: 5% 70px;
+        }
+
+        @include bpmax(tabletsm) {
+          padding: 5%;
+          height: auto;
+          top: auto;
+          bottom: 5%;
+        }
+
+        .product {
+          &__name {
+            font: 400 24px/1em $f-secondary;
+            letter-spacing: 0.01em;
+            margin: 0 0 20px;
+            color: $black;
+            max-width: 240px;
+            text-shadow: 2px -2px 1.8px $c-primary;
+
+            @include bpmin(tablet) {
+              font-size: 37px;
+            }
+          }
+
+          &__price {
+            display: block;
+            padding: 12px 20px;
+            margin-right: auto;
+            background: $black;
+            color: $c-primary;
+            box-shadow: inset 0 0 0 3px $c-primary;
+            border: 5px solid $black;
+            font: 300 18px/1.1em $f-primary;
+          }
+
+          &-info {
+            max-width: 410px;
+            margin: 0 0 20px;
+            display: inline-block;
+
+            @include bpmax(tabletsm) {
+              margin: 0 0 10px;
+            }
+
+            p {
+              display: block;
+              font: 400 16px/1.65em $f-primary;
+              margin: 0;
+              color: $black;
+              text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+
+              @include bpmin(tablet) {
+                font-size: 20px;
+              }
+
+              @media screen and (max-width: 1023px), screen and (max-height: 799px) {
+                font-size: 16px;
+              }
+
+              @include bpmax(tabletsm) {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        a.r-more {
+          display: block;
+          letter-spacing: 1px;
+          font: 400 14px/1em $f-primary;
+          width: 190px;
+          padding: 15px 15px;
+          text-align: center;
+          text-transform: uppercase;
+          margin: 20px 0 0;
+
+          @include hoverBorderInvert($c-primary, $black);
+        }
+      }
+    }
+
+    .slick-arrow {
+      width: 18px;
+      height: 32px;
+      background-size: cover;
+      z-index: 1;
+
+      &::before {
+        content: none;
+      }
+
+      &.slick-prev {
+        left: -20px;
+        display: block;
+        background: url('../images/arrow-prev.svg') center no-repeat;
+
+        @include bpmin(1520px) {
+          left: -35px;
+        }
+      }
+
+      &.slick-next {
+        right: -20px;
+        display: block;
+        background: url('../images/arrow-next.svg') center no-repeat;
+
+        @include bpmin(1520px) {
+          right: -35px;
+        }
+      }
+    }
+
+    &-wrapper {
+      margin: 0 0 90px;
+
+      .preview-slider {
+        margin: 0 -12.5px;
+
+        .preview-slide {
+          outline: none;
+          position: relative;
+          height: 120px;
+          margin: 0 12.5px 0;
+          background: #7b7b7b center no-repeat;
+          background-size: cover;
+          cursor: pointer;
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: block;
+            background-color: rgba(0, 0, 0, 0.5);
+          }
+        }
+      }
+    }
+  }
+}

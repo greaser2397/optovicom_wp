@@ -1,0 +1,35 @@
+.not-found {
+  p {
+    font: 400 18px/1.4em $f-primary;
+    color: rgba(0, 0, 0, 0.8);
+    margin: 0 0 35px;
+    text-align: center;
+  }
+
+  .search-form {
+    display: flex;
+
+    label {
+      display: block;
+      width: calc(100% - 120px);
+
+      input {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .search-submit {
+      @include clearButton;
+
+      width: 120px;
+      padding: 15px 12px;
+      font: 400 16px/1em $f-primary;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+
+      @include hoverBorderInvert($c-primary, $black);
+    }
+  }
+}
+

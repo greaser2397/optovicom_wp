@@ -1,0 +1,34 @@
+input {
+  &:not([type="submit"]),
+  &:not([type="reset"]),
+  &:not([type="radio"]),
+  &:not([type="button"]) {
+    padding: 20px 12px;
+    font: 16px/1em $f-primary;
+    color: $black;
+    border: 1px solid rgba(141, 141, 141, 0.5);
+    box-sizing: border-box;
+    outline: none;
+  }
+}
+
+.comment-form {
+  max-width: 100%;
+  width: 540px;
+
+  p {
+    display: block;
+  }
+
+  &-comment {
+    label {
+      display: block;
+    }
+
+    #comment {
+      width: 100%;
+      display: block;
+      padding: 15px;
+    }
+  }
+}

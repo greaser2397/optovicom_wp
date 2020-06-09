@@ -1,0 +1,13 @@
+{
+    "name": "wp-rock/optovicom",
+    "description": "Packages for Optovicom",
+    "authors": [
+        {
+            "name": "wp-rock",
+            "email": "example-name@wp-rock.com"
+        }
+    ],
+    "require": {
+        "raiym/instagram-php-scraper": "^0.8.26"
+    }
+}

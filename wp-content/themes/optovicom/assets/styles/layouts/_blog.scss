@@ -1,0 +1,25 @@
+/* stylelint-disable */
+
+.site-main {
+  .blog-entry {
+    h2.entry-title {
+      color: $c-primary;
+      font-size: 28px;
+
+      a {
+        font-size: inherit;
+        display: inline-block;
+        color: inherit;
+        -webkit-text-stroke: 1px $black;
+      }
+    }
+
+    .site-button {
+      display: table;
+      @include hoverBorderInvert($c-primary, $black);
+      border-radius: 0;
+      padding: 8px 15px;
+      margin: 20px 0 10px;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+/* stylelint-disable */
+
+.site-main {
+  .woocommerce {
+    .woocommerce-form,
+    .woocommerce-ResetPassword,
+    .lost_reset_password,
+    .woocommerce-form-register {
+      max-width: 620px;
+      margin: 35px auto;
+      padding: 15px;
+      border: none;
+      border-radius: 0;
+
+      .form-row {
+        margin: 0 0 15px;
+        width: 100%;
+        float: none;
+
+        span.required {
+          display: none;
+        }
+
+        label {
+          display: block;
+          font: 500 14px/1em $f-primary;
+          letter-spacing: 1px;
+          margin: 0 0 10px;
+        }
+
+        &.form-row-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 5px 0 35px;
+
+          &::before,
+          &::after {
+            content: none;
+          }
+
+          label.woocommerce-form__label {
+            margin: 0;
+
+            input {
+              display: none;
+
+              &:checked {
+                + span {
+                  &::before {
+                    background-color: $c-primary;
+                  }
+                }
+              }
+            }
+            span {
+              display: inline-block;
+              font: 500 10px/1em $f-primary;
+              letter-spacing: 1px;
+              cursor: pointer;
+              color: rgba(0, 0, 0, 0.8);
+
+              &::before {
+                content: '';
+                display: inline-block;
+                position: relative;
+                width: 13px;
+                height: 13px;
+                margin: 0 10px 0 0;
+                vertical-align: middle;
+                background-color: $white;
+                box-shadow: inset 0 0 0 1px $white;
+                border: 1px solid $c-primary;
+              }
+            }
+          }
+
+          .lost_password {
+            display: block;
+
+            a {
+              display: block;
+              font: 400 14px/1em $f-primary;
+              letter-spacing: -0.155556px;
+              text-decoration: underline;
+              color: $black;
+
+              &:hover,
+              &:active {
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+
+      .woocommerce-Button {
+        @include clearButton;
+
+        border-radius: 30px;
+        font: 400 16px/1em $f-primary;
+        text-transform: uppercase;
+        text-align: center;
+        width: 100%;
+        padding: 15px;
+        letter-spacing: 5px;
+
+        @include hoverBorderInvert($c-primary, $white);
+      }
+    }
+  }
+}

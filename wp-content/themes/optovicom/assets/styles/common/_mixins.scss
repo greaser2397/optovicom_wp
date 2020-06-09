@@ -1,0 +1,389 @@
+//Variables for media queries
+
+//Min
+
+$desktopmin: 'min-width: 1200px';
+$desktopsmmin: 'min-width: 1024px';
+$laptopmin: 'min-width: 992px';
+$tabletmin: 'min-width: 768px';
+$tabletsmmin: 'min-width: 640px';
+$mobilemin: 'min-width: 480px';
+
+//Max
+$desktopmax: 'max-width: 1199px';
+$desktopsmmax: 'max-width: 1023px';
+$laptopmax: 'max-width: 991px';
+$tabletmax: 'max-width: 767px';
+$tabletsmmax: 'max-width: 639px';
+$mobilemax: 'max-width: 479px';
+
+/**
+ * Partial containing all SCSS mixins
+ */
+
+/**
+ * Breakpoint mixin with max-width media query
+ * May be used with pre-defined values such as desktop, laptop etc.
+ * Additionally you can use this mixin with custom width
+ *
+ * Examples:
+ *    @include bpmax(desktop) {}
+ *    @include bpmax(1439px) {}
+ */
+
+@mixin bpmax($point) {
+  @if $point == desktop {
+    @media screen and ($desktopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == desktopsm {
+    @media screen and ($desktopsmmax) {
+      @content;
+    }
+  }
+
+  @else if $point == laptop {
+    @media screen and ($laptopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == tablet {
+    @media screen and ($tabletmax) {
+      @content;
+    }
+  }
+
+  @else if $point == tabletsm {
+    @media screen and ($tabletsmmax) {
+      @content;
+    }
+  }
+
+  @else if $point == mobile {
+    @media screen and ($mobilemax) {
+      @content;
+    }
+  }
+
+  @else {
+    @media screen and (max-width: $point) {
+      @content;
+    }
+  }
+}
+
+/**
+ * Breakpoint mixin with min-width media query
+ * May be used with pre-defined values such as desktop, laptop etc.
+ * Additionally you can use this mixin with custom width
+ *
+ * Examples:
+ *    @include bpmin(desktop) {}
+ *    @include bpmin(1439px) {}
+ */
+
+@mixin bpmin($point) {
+  @if $point == desktop {
+    @media screen and ($desktopmin) {
+      @content;
+    }
+  }
+
+  @else if $point == desktopsm {
+    @media screen and ($desktopsmmin) {
+      @content;
+    }
+  }
+
+  @else if $point == laptop {
+    @media screen and ($laptopmin) {
+      @content;
+    }
+  }
+
+  @else if $point == tablet {
+    @media screen and ($tabletmin) {
+      @content;
+    }
+  }
+
+  @else if $point == tabletsm {
+    @media screen and ($tabletsmmin) {
+      @content;
+    }
+  }
+
+  @else if $point == mobile {
+    @media screen and ($mobilemin) {
+      @content;
+    }
+  }
+
+  @else {
+    @media screen and (min-width: $point) {
+      @content;
+    }
+  }
+}
+
+/**
+ * Breakpoint mixin that applies styles for a specific interval
+ * Additionally you can use this mixin with custom width
+ *
+ */
+
+@mixin bpmid($point, $endpoint: null) {
+  @if $point == desktop-mobile {
+    @media screen and ($mobilemin) and ($desktopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == desktop-tabletsm {
+    @media screen and ($tabletsmmin) and ($desktopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == desktop-tablet {
+    @media screen and ($tabletmin) and ($desktopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == desktop-laptop {
+    @media ($laptopmin) and ($desktopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == desktop-desktopsm {
+    @media screen and ($desktopsmmin) and ($desktopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == desktopsm-mobile {
+    @media screen and ($mobilemin) and ($desktopsmmax) {
+      @content;
+    }
+  }
+
+  @else if $point == desktopsm-tabletsm {
+    @media screen and ($tabletsmmin) and ($desktopsmmax) {
+      @content;
+    }
+  }
+
+  @else if $point == desktopsm-tablet {
+    @media screen and ($tabletmin) and ($desktopsmmax) {
+      @content;
+    }
+  }
+
+  @else if $point == desktopsm-laptop {
+    @media ($laptopmin) and ($desktopsmmax) {
+      @content;
+    }
+  }
+
+  @else if $point == laptop-mobile {
+    @media screen and ($mobilemin) and ($laptopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == laptop-tabletsm {
+    @media screen and ($tabletsmmin) and ($laptopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == laptop-tablet {
+    @media screen and ($tabletmin) and ($laptopmax) {
+      @content;
+    }
+  }
+
+  @else if $point == tablet-mobile {
+    @media screen and ($mobilemin) and ($tabletmax) {
+      @content;
+    }
+  }
+
+  @else if $point == tablet-tabletsm {
+    @media screen and ($tabletsmmin) and ($tabletmax) {
+      @content;
+    }
+  }
+
+  @else if $point == tabletsm-mobile {
+    @media screen and ($mobilemin) and ($tabletsmmax) {
+      @content;
+    }
+  }
+
+  @else {
+    @media screen and (min-width: $point) and (max-width: $endpoint) {
+      @content;
+    }
+  }
+}
+
+/**
+
+ * @font-face mixin that helps to shorten your code when declaring new custom fonts
+ *
+ */
+
+$f-default: 'Gilroy';
+
+@mixin fontFace($f-path, $f-family: $f-default, $f-weight: 400, $f-style: normal) {
+  @font-face {
+    font-family: $f-family;
+    src: url($f-path);
+    font-weight: $f-weight;
+    font-style: $f-style;
+  }
+}
+
+/**
+
+ * Mixin that sets background and text colors of element to those which are passed to mixin
+ * and inverts those colors on hover
+ *
+ */
+
+@mixin hoverBgInvert($bg: $white, $color: $black) {
+  background-color: $bg;
+  color: $color;
+
+  &:hover,
+  &:active {
+    background-color: $color;
+    color: $bg;
+    text-decoration: none;
+  }
+}
+
+/**
+
+ * Mixin that sets background and text colors of element to those which are passed to mixin
+ * and inverts colors on hover + adds border with text color on hover
+ *
+ */
+
+@mixin hoverBorderInvert($bg: $white, $color: $black, $width: 1px) {
+  background-color: $bg;
+  color: $color;
+  border: $width solid $bg;
+  border-radius: 30px;
+
+  &:hover,
+  &:active {
+    background-color: $color;
+    color: $bg;
+    text-decoration: none;
+  }
+}
+
+/**
+
+ * Almost the same mixin as @hoverBorderInvert() but the border is shown in the default state
+ *
+ */
+
+@mixin hoverBorderVisible($bg: $white, $color: $black, $width: 1px) {
+  background-color: $bg;
+  color: $color;
+  border: $width solid $color;
+
+  &:hover,
+  &:active {
+    background-color: $color;
+    color: $bg;
+    text-decoration: none;
+  }
+}
+
+/**
+
+ * Adds analogue of text-decoration: underline but using pseudo element
+ * that gives ability to animate bottom line
+ *
+ */
+
+@mixin hoverBorderDown($color: $black, $height: 2px) {
+  position: relative;
+  color: $color;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: $height;
+    background-color: $color;
+    transition: 0.4s;
+    transform: scaleX(0);
+  }
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/**
+
+ * Cross-browser placeholder mixin
+ *
+ * Example: @include placeholder { color: #fff; }
+ * This will add same color for every prefix below
+ *
+ */
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &::placeholder {
+    @content;
+  }
+}
+
+/**
+
+ * Mixins that removes default button styles
+ *
+ */
+
+@mixin clearButton {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  display: block;
+}

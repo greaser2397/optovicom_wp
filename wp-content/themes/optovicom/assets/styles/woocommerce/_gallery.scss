@@ -1,0 +1,122 @@
+/* stylelint-disable */
+/* WooCommerce 3.0 Gallery*/
+
+.woocommerce-product-gallery {
+  position: relative;
+  margin-bottom: 3em;
+
+  figure {
+    margin: 0;
+  }
+
+  .woocommerce-product-gallery__image {
+    &:nth-child(n+2) {
+      width: 25%;
+      display: inline-block;
+    }
+  }
+
+  .flex-control-thumbs {
+    li {
+      list-style: none;
+      float: left;
+      cursor: pointer;
+    }
+
+    img {
+      opacity: 0.5;
+
+      &.flex-active,
+      &:hover,
+      &:active {
+        opacity: 1;
+      }
+    }
+  }
+
+  img {
+    display: block;
+  }
+
+  &--columns-3 {
+    .flex-control-thumbs {
+      li {
+        width: 33.3333%;
+      }
+    }
+  }
+
+  &--columns-4 {
+    .flex-control-thumbs {
+      li {
+        width: 25%;
+      }
+    }
+  }
+
+  &--columns-5 {
+    .flex-control-thumbs {
+      li {
+        width: 20%;
+      }
+    }
+  }
+
+  &__trigger {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    z-index: 99;
+  }
+
+  a.woocommerce-product-gallery__trigger {
+    text-decoration: none;
+  }
+}
+
+.single-product {
+  div.product {
+    .woocommerce-product-gallery {
+      &__trigger {
+        position: absolute;
+        top: .875em;
+        right: .875em;
+        display: block;
+        color: $white;
+        height: 2em;
+        width: 2em;
+        border-radius: 3px;
+        z-index: 99;
+        text-align: center;
+        text-indent: -999px;
+        overflow: hidden;
+
+        &:before {
+          font: normal normal normal 1em/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          display: block;
+          content: "\f00e";
+          line-height: 2;
+          text-indent: 0;
+        }
+
+        &:hover,
+        &:active {
+          background-color: $c-primary;
+          color: $black;
+
+          &::before {
+            border-color: $white;
+          }
+
+          &::after {
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
+}

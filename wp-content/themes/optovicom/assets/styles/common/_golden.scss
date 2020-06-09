@@ -1,0 +1,140 @@
+.archive #load-more {
+  display: none;
+}
+
+.woocommerce-pagination {
+  margin-bottom: 20px;
+}
+
+.summary a.clickBuyButton {
+  border: 2px solid #000;
+  border-radius: 30px;
+  padding: 15px;
+  max-width: calc(100% - 90px);
+  width: 260px;
+  outline: none;
+  font: 400 14px/1em Exo\ 2, Arial, Helvetica, sans-serif;
+  background: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+
+.summary a.clickBuyButton:hover {
+  background-color: #000;
+  color: #fff;
+  font: 400 14px/1em Exo\ 2, Arial, Helvetica, sans-serif;
+}
+
+#formOrderOneClick input[type="email"], #buyoneclick_form_order input[type="tel"], #buyoneclick_form_order input.buyvalide {
+  width: calc(100% - 7px) !important;
+}
+
+#formOrderOneClick textarea {
+  width: calc(100% - 7px) !important;
+}
+
+.golden-footer-title {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.golden-footer-text {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.viber-social {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+.viber-pc {
+  background: url(/wp-content/themes/optovicom/viber.png) no-repeat;
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+@media (max-width: 1024px) {
+  .viber-pc {
+    display: none;
+  }
+}
+
+.viber-pc {
+  background: url(/wp-content/themes/optovicom/viber.png) no-repeat;
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+}
+
+@media (min-width: 1024px) {
+  .viber-phone {
+    display: none;
+  }
+}
+
+.golden-wrap-products {
+  display: flex;
+  justify-content: space-between;
+}
+
+.golden-filters {
+  flex-basis: 20%;
+}
+
+.products {
+  flex-basis: 80%;
+}
+
+.golden-filters .ui-slider-range, .ui-slider-handle {
+  background-color: #ffc832 !important;
+}
+
+.golden-filters #woocommerce_product_categories-2 ul {
+  list-style: none;
+}
+
+.golden-filters a {
+  text-decoration: none !important;
+}
+
+.site-main .woocommerce {
+  padding: 0 0 30px;
+}
+
+.golden-filters .product-categories {
+  padding-left: 0
+}
+
+@media (max-width: 620px) {
+  .golden-filters {
+    flex-basis: 100%;
+  }
+  .products {
+    flex-basis: 100%;
+  }
+}
+
+.golden-filter-button {
+  display: none;
+  outline: none;
+}
+
+@media (max-width: 630px) {
+  .golden-filter-button {
+    display: block;
+  }
+  .golden-filters {
+    display: none;
+  }
+  .golden-filters__active {
+    display: block;
+  }
+}

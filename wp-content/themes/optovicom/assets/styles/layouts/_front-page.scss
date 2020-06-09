@@ -1,0 +1,286 @@
+/* stylelint-disable */
+
+.site-main {
+  .advantages-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px 0 60px;
+
+    @include bpmax(tabletsm) {
+      flex-direction: column;
+    }
+
+    .section__title {
+      margin: 0 0 75px;
+      display: flex;
+      width: 100%;
+      color: $c-primary;
+      justify-content: center;
+      text-align: center;
+      font: 500 48px/1.2em $f-secondary;
+      letter-spacing: 1px;
+      -webkit-text-stroke: 1.2px $black;
+    }
+
+    .advantage-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+
+      @include bpmax(tabletsm) {
+        padding: 0 0 30px;
+        margin: 0 auto 30px;
+        width: 90%;
+      }
+
+      &:not(:last-child) {
+        @include bpmax(tabletsm) {
+          border-bottom: 2px solid $c-primary;
+          box-shadow: inset 0 -2px 0 0 $black;
+        }
+      }
+
+      @include bpmin(tabletsm) {
+        margin: 0 0 40px;
+        width: 50%;
+      }
+
+      @include bpmin(laptop) {
+        margin: 0 0 40px;
+        width: 25%;
+      }
+
+      img {
+        max-height: 64px;
+        width: auto;
+        max-width: 100%;
+        display: block;
+        margin: 0 0 25px;
+      }
+
+      p {
+        margin: 0;
+
+        &.title {
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font: 700 18px/1.25em $f-primary;
+          margin: 0 0 15px;
+
+          @include bpmin(desktop) {
+            font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+
+  .new-products {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 70px;
+
+    &-wrapper {
+      @include bpmin(mobile) {
+        margin: 0 -15px;
+      }
+
+      .section__title {
+        margin: 0 0 75px;
+        display: flex;
+        width: 100%;
+        color: $c-primary;
+        justify-content: center;
+        text-align: center;
+        font: 500 48px/1.2em $f-secondary;
+        letter-spacing: 1px;
+        -webkit-text-stroke: 1.2px $black;
+      }
+    }
+
+    .product {
+      width: 100%;
+      margin: 0 0 35px;
+
+      @include bpmin(mobile) {
+        width: 48%;
+        margin: 0 1% 35px;
+      }
+
+      @include bpmin(tablet) {
+        width: 23%;
+      }
+
+      &__thumbnail {
+        width: 100%;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        box-shadow: 0 16px 18px -20px rgba(0, 0, 0, 0.5), 0 34px 20px -30px $c-primary;
+
+        span {
+          width: 130px;
+          display: block;
+          background-color: #ff2e00;
+          position: absolute;
+          text-align: center;
+          text-transform: uppercase;
+          letter-spacing: 1.09px;
+          left: 0;
+          bottom: 0;
+          color: $white;
+          font: 700 14px/1em $f-primary;
+          padding: 15px;
+          border-bottom-right-radius: 15px;
+        }
+
+        img {
+          width: 100%;
+          display: block;
+          transition: 0.6s;
+        }
+
+        &:hover,
+        &:active {
+          img {
+            transform: scale(1.2);
+          }
+        }
+      }
+
+      &-content {
+        width: 100%;
+        text-align: center;
+        min-height: 190px;
+        padding: 40px 15px 15px;
+
+        .price {
+          display: flex;
+          flex-direction: column;
+          font: 700 26px/35px $f-secondary;
+          margin: 0 0 5px;
+          color: $black;
+
+          span {
+            font: 700 26px/35px $f-secondary;
+            color: inherit;
+          }
+
+          .woocommerce-Price-currencySymbol {
+            text-decoration: none;
+          }
+
+          ins {
+            order: 0;
+            display: block;
+            color: #ff2e00;
+            text-decoration: none;
+            line-height: normal;
+          }
+
+          del {
+            order: 1;
+            display: block;
+            color: #7b7b7b;
+            line-height: normal;
+            text-decoration: none;
+            font-size: 18px;
+
+            .amount {
+              line-height: normal;
+              position: relative;
+
+              &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: calc(50% + 2px);
+                left: 0;
+                transform: translateY(-50%);
+                width: 100%;
+                z-index: 1;
+                height: 1px;
+                background-color: #7b7b7b;
+              }
+            }
+
+            .woocommerce-Price-currencySymbol {
+              &::before {
+                font-size: 18px;
+                margin: 0 0 0 3px;
+              }
+            }
+          }
+        }
+      }
+
+      &__name {
+        font: 700 15px/1.5em $f-primary;
+        color: $black;
+        margin: 0 0 10px;
+        padding: 0 15px;
+
+        @include bpmin(desktop) {
+          font-size: 16px;
+        }
+      }
+
+      .add_to_cart_button,
+      .product_type_simple,
+      .product_type_variable,
+      .button {
+        @include clearButton;
+
+        text-align: center;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        border-radius: 30px;
+        font: 400 14px/1em $f-primary;
+        padding: 15px;
+        width: 100%;
+
+        @include hoverBorderInvert($black, $white, 1px);
+
+        &.added {
+          background-color: $c-primary;
+          color: $black;
+        }
+
+        &::after {
+          margin: 0 7px;
+          top: auto;
+          left: auto;
+          bottom: auto;
+          right: auto;
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+        }
+      }
+
+      .added_to_cart {
+        &.wc-forward {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .page-content-wrap {
+    padding: 20px 0 95px;
+
+    a {
+      color: $c-primary;
+      text-decoration: underline;
+
+      &:hover,
+      &:active {
+        text-decoration-color: $black;
+      }
+    }
+  }
+}

@@ -1,0 +1,237 @@
+/* stylelint-disable */
+
+.footer {
+  background-color: $black;
+
+  &-inner {
+    padding: 50px 15px 10px;
+  }
+
+  &-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    @include bpmax(mobile) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    @include bpmin(tablet) {
+      justify-content: space-between;
+    }
+
+    .column {
+      &__title {
+        font: 400 20px/1.2em $f-secondary;
+        letter-spacing: 2px;
+        margin: 0 0 30px;
+        color: $c-primary;
+      }
+
+      &-content {
+        margin: 0 0 35px;
+
+        @include bpmin(mobile) {
+          width: 100%;
+        }
+
+        @include bpmin(tablet) {
+          max-width: 80%;
+        }
+
+        @include bpmin(desktop) {
+          max-width: 630px;
+          margin: 0;
+        }
+
+        .footer__logo {
+          display: block;
+          width: 100%;
+          overflow: hidden;
+
+          &-wrapper {
+            display: block;
+            max-width: 190px;
+            margin: 0 0 30px;
+            background: #fff;
+            overflow: hidden;
+            padding: 5px 15px;
+            border-radius: 0 30px;
+            transition: border-radius 0.4s;
+
+            @include bpmax(mobile) {
+              margin: 0 auto 30px;
+            }
+
+            &:hover,
+            &:active {
+              border-radius: 30px 0;
+            }
+          }
+        }
+
+        .footer-content {
+          p {
+            color: $white;
+            font: 400 16px/24px $f-primary;
+            margin: 0;
+          }
+        }
+      }
+
+      &-menu {
+        margin: 0 0 35px;
+
+        @include bpmin(mobile) {
+          width: 30%;
+          margin: 0;
+        }
+
+        @include bpmin(tablet) {
+          width: 15%;
+        }
+
+        @include bpmin(desktop) {
+          width: auto;
+        }
+
+        .footer-menu {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            display: block;
+            margin: 0 0 10px;
+
+            a {
+              display: inline-block;
+              font: 400 16px/1.2em $f-primary;
+              color: $white;
+            }
+          }
+        }
+      }
+
+      &-social {
+        max-width: 210px;
+        margin: 0;
+
+        @include bpmin(mobile) {
+          margin: 0 auto;
+        }
+
+        @include bpmin(tablet) {
+          margin: 0;
+        }
+
+        .footer-social {
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+
+          &-wrapper {
+            margin: 0 -10px;
+          }
+
+          li {
+            display: block;
+            flex-grow: 1;
+            margin: 0 10px 20px;
+
+            a {
+              width: 54px;
+              height: 54px;
+              padding: 5px;
+              overflow: hidden;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font: 700 24px/1em 'Font Awesome';
+              text-decoration: none;
+
+              @include hoverBorderInvert($c-primary, $black);
+
+              i {
+                display: block;
+                line-height: inherit;
+                font-size: inherit;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0 0;
+    margin: 30px 0 0;
+    border-top: 1px solid $c-primary;
+    text-align: center;
+
+    @include bpmin(tabletsm) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .copyright {
+      margin: 0 0 20px;
+      display: block;
+      font: 400 16px/1.3em $f-primary;
+      color: $white;
+
+      @include bpmin(tabletsm) {
+        margin: 0;
+      }
+    }
+
+    .footer-nav {
+      ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+
+        @include bpmin(tabletsm) {
+          flex-direction: row;
+          margin: 0 -8px;
+        }
+
+        @include bpmin(tablet) {
+          margin: 0 -12px;
+        }
+
+        li {
+          display: block;
+          margin: 0 0 20px;
+
+          @include bpmin(tabletsm) {
+            margin: 0 8px 20px;
+          }
+
+          @include bpmin(tablet) {
+            margin: 0 12px 20px;
+          }
+
+          a {
+            display: inline-block;
+            font: 400 16px/1.3em $f-primary;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}

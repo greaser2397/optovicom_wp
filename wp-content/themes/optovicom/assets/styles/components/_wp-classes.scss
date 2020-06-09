@@ -1,0 +1,63 @@
+/**
+ * WordPress Generated Classes
+ * @see http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+ */
+
+/** Media alignment */
+.alignnone {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.aligncenter {
+  display: block;
+  margin: $spacer auto;
+  height: auto;
+}
+
+.alignleft,
+.alignright {
+  margin-bottom: $spacer;
+  height: auto;
+}
+
+@include bpmin(tablet) {
+  .alignleft {
+    float: left;
+    margin-right: $spacer;
+  }
+
+  .alignright {
+    float: right;
+    margin-left: $spacer;
+  }
+}
+
+/** Captions */
+.wp-caption {
+  margin: 0 0 25px;
+}
+
+.wp-caption img {
+  display: block;
+  width: 100%;
+}
+
+.wp-caption-text {
+  color: #707070;
+  text-align: center;
+  font: 400 italic 15px/1.4em $f-primary;
+  padding: 3px 10px;
+}
+
+.site-main {
+  p {
+    > img[class*='wp-image'] {
+      border: 10px solid $c-primary;
+      padding: 10px;
+      box-shadow: inset 0 0 0 10px $black;
+    }
+  }
+}

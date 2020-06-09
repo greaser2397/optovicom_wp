@@ -1,0 +1,25 @@
+/*  All fonts that are used on the website, hosted from a CDN or plugged-in locally  */
+
+/*  Exo 2  */
+
+@include fontFace('../fonts/Exo2/Exo2-Light.ttf', 'Exo2', 300);
+@include fontFace('../fonts/Exo2/Exo2-LightItalic.ttf', 'Exo 2', 300, italic);
+@include fontFace('../fonts/Exo2/Exo2-Regular.ttf', 'Exo 2');
+@include fontFace('../fonts/Exo2/Exo2-Italic.ttf', 'Exo 2', 400, italic);
+@include fontFace('../fonts/Exo2/Exo2-Medium.ttf', 'Exo 2', 500);
+@include fontFace('../fonts/Exo2/Exo2-MediumItalic.ttf', 'Exo2', 500, italic);
+@include fontFace('../fonts/Exo2/Exo2-SemiBold.ttf', 'Exo 2', 600);
+@include fontFace('../fonts/Exo2/Exo2-SemiBoldItalic.ttf', 'Exo 2', 600, italic);
+@include fontFace('../fonts/Exo2/Exo2-Bold.ttf', 'Exo 2', 700);
+@include fontFace('../fonts/Exo2/Exo2-BoldItalic.ttf', 'Exo2', 700, italic);
+@include fontFace('../fonts/Exo2/Exo2-ExtraBold.ttf', 'Exo 2', 800);
+@include fontFace('../fonts/Exo2/Exo2-ExtraBoldItalic.ttf', 'Exo 2', 800, italic);
+
+/*  Oswald  */
+
+@include fontFace('../fonts/Oswald/Oswald-ExtraLight.ttf', 'Oswald', 200);
+@include fontFace('../fonts/Oswald/Oswald-Light.ttf', 'Oswald', 300);
+@include fontFace('../fonts/Oswald/Oswald-Regular.ttf', 'Oswald');
+@include fontFace('../fonts/Oswald/Oswald-Medium.ttf', 'Oswald', 500);
+@include fontFace('../fonts/Oswald/Oswald-SemiBold.ttf', 'Oswald', 600);
+@include fontFace('../fonts/Oswald/Oswald-Bold.ttf', 'Oswald', 700);
