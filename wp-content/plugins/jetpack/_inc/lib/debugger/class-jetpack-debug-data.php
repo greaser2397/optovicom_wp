@@ -5,6 +5,12 @@
  * @package jetpack
  */
 
+use Automattic\Jetpack\Constants;
+use Automattic\Jetpack\Sync\Modules;
+use Automattic\Jetpack\Sync\Functions;
+use Automattic\Jetpack\Sync\Sender;
+use Automattic\Jetpack\Redirect;
+
 /**
  * Class Jetpack_Debug_Data
  *
@@ -89,6 +95,10 @@ class Jetpack_Debug_Data {
 	 * @return array $args Debug information in the same format as the initial argument.
 	 */
 	public static function core_debug_data( $debug ) {
+		$support_url = Jetpack::is_development_version()
+			? Redirect::get_url( 'jetpack-contact-support-beta-group' )
+			: Redirect::get_url( 'jetpack-contact-support' );
+
 		$jetpack = array(
 			'jetpack' => array(
 				'label'       => __( 'Jetpack', 'jetpack' ),
@@ -98,7 +108,7 @@ class Jetpack_Debug_Data {
 						'Diagnostic information helpful to <a href="%1$s" target="_blank" rel="noopener noreferrer">your Jetpack Happiness team<span class="screen-reader-text">%2$s</span></a>',
 						'jetpack'
 					),
-					esc_html( 'https://jetpack.com/contact-support/' ),
+					esc_url( $support_url ),
 					__( '(opens in a new tab)', 'jetpack' )
 				),
 				'fields'      => self::debug_data(),
@@ -266,21 +276,14 @@ class Jetpack_Debug_Data {
 		);
 
 		/** Sync Debug Information */
-		/** Load Sync modules */
-		require_once JETPACK__PLUGIN_DIR . 'sync/class.jetpack-sync-modules.php';
-		/** Load Sync sender */
-		require_once JETPACK__PLUGIN_DIR . 'sync/class.jetpack-sync-sender.php';
-		/** Load Sync functions */
-		require_once JETPACK__PLUGIN_DIR . 'sync/class.jetpack-sync-functions.php';
-
-		$sync_module = Jetpack_Sync_Modules::get_module( 'full-sync' );
+		$sync_module = Modules::get_module( 'full-sync' );
 		if ( $sync_module ) {
 			$sync_statuses              = $sync_module->get_status();
 			$human_readable_sync_status = array();
 			foreach ( $sync_statuses as $sync_status => $sync_status_value ) {
 				$human_readable_sync_status[ $sync_status ] =
 					in_array( $sync_status, array( 'started', 'queue_finished', 'send_started', 'finished' ), true )
-						? date( 'r', $sync_status_value ) : $sync_status_value;
+						? gmdate( 'r', $sync_status_value ) : $sync_status_value;
 			}
 			$debug_info['full_sync'] = array(
 				'label'   => 'Full Sync Status',
@@ -289,7 +292,7 @@ class Jetpack_Debug_Data {
 			);
 		}
 
-		$queue = Jetpack_Sync_Sender::get_instance()->get_sync_queue();
+		$queue = Sender::get_instance()->get_sync_queue();
 
 		$debug_info['sync_size'] = array(
 			'label'   => 'Sync Queue Size',
@@ -302,7 +305,7 @@ class Jetpack_Debug_Data {
 			'private' => false,
 		);
 
-		$full_sync_queue = Jetpack_Sync_Sender::get_instance()->get_full_sync_queue();
+		$full_sync_queue = Sender::get_instance()->get_full_sync_queue();
 
 		$debug_info['full_sync_size'] = array(
 			'label'   => 'Full Sync Queue Size',
@@ -321,10 +324,10 @@ class Jetpack_Debug_Data {
 		 * Must follow sync debug since it depends on sync functionality.
 		 */
 		$idc_urls = array(
-			'home'       => Jetpack_Sync_Functions::home_url(),
-			'siteurl'    => Jetpack_Sync_Functions::site_url(),
-			'WP_HOME'    => Jetpack_Constants::is_defined( 'WP_HOME' ) ? Jetpack_Constants::get_constant( 'WP_HOME' ) : '',
-			'WP_SITEURL' => Jetpack_Constants::is_defined( 'WP_SITEURL' ) ? Jetpack_Constants::get_constant( 'WP_SITEURL' ) : '',
+			'home'       => Functions::home_url(),
+			'siteurl'    => Functions::site_url(),
+			'WP_HOME'    => Constants::is_defined( 'WP_HOME' ) ? Constants::get_constant( 'WP_HOME' ) : '',
+			'WP_SITEURL' => Constants::is_defined( 'WP_SITEURL' ) ? Constants::get_constant( 'WP_SITEURL' ) : '',
 		);
 
 		$debug_info['idc_urls']         = array(

@@ -75,6 +75,21 @@
 	font-size: 28px;
 }
 
+.jetpack-masterbar #wpadminbar #wp-admin-bar-recovery-mode {
+	background-color: #ca4a1f;
+	color: #fff;
+	margin-right: 1em;
+}
+#wpadminbar #wp-admin-bar-jetpack-scan-notice {
+	margin-right: 1em;
+}
+@media screen and (max-width: 959px ) {
+	#wpadminbar #wp-admin-bar-jetpack-scan-notice {
+		width:32px;
+	}
+	#wpadminbar #wp-admin-bar-jetpack-scan-notice a { color: transparent!important;}
+}
+
 @media screen and (max-width: 480px) {
 	.jetpack-masterbar.post-new-php.block-editor-page #wp-toolbar ul li {
 		flex: 1;
@@ -118,5 +133,9 @@
 
 	.jetpack-masterbar.post-new-php.block-editor-page #wpadminbar li#wp-admin-bar-newdash {
 		order: 3;
+	}
+	#wpadminbar #wp-admin-bar-jetpack-scan-notice,
+	.jetpack-masterbar #wpadminbar #wp-admin-bar-recovery-mode {
+		display: none;
 	}
 }

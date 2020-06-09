@@ -6,6 +6,8 @@
  * @since      7.3.0
  */
 
+use Automattic\Jetpack\Connection\Client;
+
 /**
  * Class WPCOM_REST_API_V2_Endpoint_Memberships
  * This introduces V2 endpoints.
@@ -87,7 +89,7 @@ class WPCOM_REST_API_V2_Endpoint_Memberships extends WP_REST_Controller {
 	 */
 	public function create_product( $request ) {
 		if ( ( defined( 'IS_WPCOM' ) && IS_WPCOM ) ) {
-			require_lib( 'memberships' );
+			jetpack_require_lib( 'memberships' );
 			$connected_destination_account_id = Jetpack_Memberships::get_connected_account_id();
 			if ( ! $connected_destination_account_id ) {
 				return new WP_Error( 'no-destination-account', __( 'Please set up a Stripe account for this site first', 'jetpack' ) );
@@ -108,7 +110,7 @@ class WPCOM_REST_API_V2_Endpoint_Memberships extends WP_REST_Controller {
 			return $product->to_array();
 		} else {
 			$blog_id  = Jetpack_Options::get_option( 'id' );
-			$response = Jetpack_Client::wpcom_json_api_request_as_user(
+			$response = Client::wpcom_json_api_request_as_user(
 				"/sites/$blog_id/{$this->rest_base}/product",
 				'v2',
 				array(
@@ -145,12 +147,12 @@ class WPCOM_REST_API_V2_Endpoint_Memberships extends WP_REST_Controller {
 	 */
 	public function get_status() {
 		if ( ( defined( 'IS_WPCOM' ) && IS_WPCOM ) ) {
-			require_lib( 'memberships' );
+			jetpack_require_lib( 'memberships' );
 			$blog_id = get_current_blog_id();
 			return (array) get_memberships_settings_for_site( $blog_id );
 		} else {
 			$blog_id  = Jetpack_Options::get_option( 'id' );
-			$response = Jetpack_Client::wpcom_json_api_request_as_user(
+			$response = Client::wpcom_json_api_request_as_user(
 				"/sites/$blog_id/{$this->rest_base}/status",
 				'v2',
 				array(),

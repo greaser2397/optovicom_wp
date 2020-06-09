@@ -11,6 +11,8 @@
  * Additional Search Queries: like, likes, wordpress.com
  */
 
+use Automattic\Jetpack\Assets;
+
 Jetpack::dns_prefetch( array(
 	'//widgets.wp.com',
 	'//s0.wp.com',
@@ -27,7 +29,7 @@ class Jetpack_Likes {
 		static $instance = NULL;
 
 		if ( ! $instance ) {
-			$instance = new Jetpack_Likes;
+			$instance = new Jetpack_Likes();
 		}
 
 		return $instance;
@@ -156,7 +158,7 @@ class Jetpack_Likes {
 	static function is_post_likeable( $post_id = 0 ) {
 		_deprecated_function( __METHOD__, 'jetpack-5.4', 'Jetpack_Likes_Settings()->is_post_likeable' );
 		$settings = new Jetpack_Likes_Settings();
-		return $settings->is_post_likeable();
+		return $settings->is_post_likeable( $post_id );
 	}
 
 	/**
@@ -251,7 +253,7 @@ class Jetpack_Likes {
 	}
 
 	function action_init() {
-		if ( is_admin() ) {
+		if ( is_admin() || ! $this->settings->is_likes_visible() ) {
 			return;
 		}
 
@@ -278,8 +280,8 @@ class Jetpack_Likes {
 			add_filter( 'post_flair', array( &$this, 'post_likes' ), 30, 1 );
 			add_filter( 'post_flair_block_css', array( $this, 'post_flair_service_enabled_like' ) );
 
-			wp_enqueue_script( 'postmessage', '/wp-content/js/postmessage.js', array( 'jquery' ), JETPACK__VERSION, false );
-			wp_enqueue_script( 'jetpack_resize', '/wp-content/js/jquery/jquery.jetpack-resize.js', array( 'jquery' ), JETPACK__VERSION, false );
+			wp_enqueue_script( 'postmessage', '/wp-content/js/postmessage.js', array( 'jquery' ), JETPACK__VERSION, true );
+			wp_enqueue_script( 'jetpack_resize', '/wp-content/js/jquery/jquery.jetpack-resize.js', array( 'jquery' ), JETPACK__VERSION, true );
 			wp_enqueue_script( 'jetpack_likes_queuehandler', plugins_url( 'queuehandler.js' , __FILE__ ), array( 'jquery', 'postmessage', 'jetpack_resize' ), JETPACK__VERSION, true );
 			wp_enqueue_style( 'jetpack_likes', plugins_url( 'jetpack-likes.css', __FILE__ ), array(), JETPACK__VERSION );
 		}
@@ -291,24 +293,24 @@ class Jetpack_Likes {
 	function register_scripts() {
 		wp_register_script(
 			'postmessage',
-			Jetpack::get_file_url_for_environment( '_inc/build/postmessage.min.js', '_inc/postmessage.js' ),
+			Assets::get_file_url_for_environment( '_inc/build/postmessage.min.js', '_inc/postmessage.js' ),
 			array( 'jquery' ),
 			JETPACK__VERSION,
-			false
+			true
 		);
 		wp_register_script(
 			'jetpack_resize',
-			Jetpack::get_file_url_for_environment(
+			Assets::get_file_url_for_environment(
 				'_inc/build/jquery.jetpack-resize.min.js',
 				'_inc/jquery.jetpack-resize.js'
 			),
 			array( 'jquery' ),
 			JETPACK__VERSION,
-			false
+			true
 		);
 		wp_register_script(
 			'jetpack_likes_queuehandler',
-			Jetpack::get_file_url_for_environment(
+			Assets::get_file_url_for_environment(
 				'_inc/build/likes/queuehandler.min.js',
 				'modules/likes/queuehandler.js'
 			),
@@ -369,7 +371,7 @@ class Jetpack_Likes {
 			if ( $this->in_jetpack ) {
 				wp_enqueue_script(
 					'likes-post-count',
-					Jetpack::get_file_url_for_environment(
+					Assets::get_file_url_for_environment(
 						'_inc/build/likes/post-count.min.js',
 						'modules/likes/post-count.js'
 					),
@@ -378,7 +380,7 @@ class Jetpack_Likes {
 				);
 				wp_enqueue_script(
 					'likes-post-count-jetpack',
-					Jetpack::get_file_url_for_environment(
+					Assets::get_file_url_for_environment(
 						'_inc/build/likes/post-count-jetpack.min.js',
 						'modules/likes/post-count-jetpack.js'
 					),

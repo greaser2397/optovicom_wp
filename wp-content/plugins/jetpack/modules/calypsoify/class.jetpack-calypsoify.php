@@ -3,6 +3,9 @@
  * This is Calypso skin of the wp-admin interface that is conditionally triggered via the ?calypsoify=1 param.
  * Ported from an internal Automattic plugin.
  */
+
+use Automattic\Jetpack\Redirect;
+
 class Jetpack_Calypsoify {
 
 	/**
@@ -38,7 +41,7 @@ class Jetpack_Calypsoify {
 		if ( $this->is_calypsoify_enabled ) {
 			add_action( 'admin_init', array( $this, 'setup_admin' ), 6 );
 			add_action( 'admin_menu', array( $this, 'remove_core_menus' ), 100 );
-			add_action( 'admin_menu', array( $this, 'add_plugin_menus' ), 101 );
+			add_action( 'admin_menu', array( $this, 'add_custom_menus' ), 101 );
 		}
 
 		// Make this always available -- in case calypsoify gets toggled off.
@@ -67,6 +70,8 @@ class Jetpack_Calypsoify {
 		add_action( 'manage_plugins_columns', array( $this, 'manage_plugins_columns_header' ) );
 		add_action( 'manage_plugins_custom_column', array( $this, 'manage_plugins_custom_column' ), 10, 2 );
 		add_filter( 'bulk_actions-plugins', array( $this, 'bulk_actions_plugins' ) );
+
+		add_action( 'current_screen', array( $this, 'attach_views_filter' ) );
 
 		if ( 'plugins.php' === basename( $_SERVER['PHP_SELF'] ) ) {
 			add_action( 'admin_notices', array( $this, 'plugins_admin_notices' ) );
@@ -202,10 +207,10 @@ class Jetpack_Calypsoify {
 	}
 
 	public function remove_core_menus() {
+		remove_menu_page( 'edit.php?post_type=feedback' );
 		remove_menu_page( 'index.php' );
 		remove_menu_page( 'jetpack' );
 		remove_menu_page( 'edit.php' );
-		remove_menu_page( 'edit.php?post_type=feedback' );
 		remove_menu_page( 'upload.php' );
 		remove_menu_page( 'edit.php?post_type=page' );
 		remove_menu_page( 'edit-comments.php' );
@@ -226,21 +231,27 @@ class Jetpack_Calypsoify {
 		remove_submenu_page( 'options-general.php', 'sharing' );
 	}
 
-	public function add_plugin_menus() {
+	public function add_custom_menus() {
 		global $menu, $submenu;
 
-		add_menu_page( __( 'Manage Plugins', 'jetpack' ), __( 'Manage Plugins', 'jetpack' ), 'activate_plugins', 'plugins.php', '', $this->installed_plugins_icon(), 1 );
-
-		// // Count the settings page submenus, if it's zero then don't show this.
-		if ( empty( $submenu['options-general.php'] ) ) {
+		if ( isset( $_GET['post_type'] ) && 'feedback' === $_GET['post_type'] ) {
+			// there is currently no gridicon for feedback, so using dashicon.
+			add_menu_page( __( 'Feedback', 'jetpack' ), __( 'Feedback', 'jetpack' ), 'edit_pages', 'edit.php?post_type=feedback', '', 'dashicons-feedback', 1 );
 			remove_menu_page( 'options-general.php' );
+			remove_submenu_page( 'edit.php?post_type=feedback', 'feedback-export' );
 		} else {
-			// Rename and make sure the plugin settings menu is always last.
-			// Sneaky plugins seem to override this otherwise.
-			// Settings is always key 80.
-			$menu[80][0]                            = __( 'Plugin Settings', 'jetpack' );
-			$menu[ max( array_keys( $menu ) ) + 1 ] = $menu[80];
-			unset( $menu[80] );
+			add_menu_page( __( 'Manage Plugins', 'jetpack' ), __( 'Manage Plugins', 'jetpack' ), 'activate_plugins', 'plugins.php', '', $this->installed_plugins_icon(), 1 );
+			// Count the settings page submenus, if it's zero then don't show this.
+			if ( empty( $submenu['options-general.php'] ) ) {
+				remove_menu_page( 'options-general.php' );
+			} else {
+				// Rename and make sure the plugin settings menu is always last.
+				// Sneaky plugins seem to override this otherwise.
+				// Settings is always key 80.
+				$menu[80][0]                            = __( 'Plugin Settings', 'jetpack' );
+				$menu[ max( array_keys( $menu ) ) + 1 ] = $menu[80];
+				unset( $menu[80] );
+			}
 		}
 	}
 
@@ -274,13 +285,21 @@ class Jetpack_Calypsoify {
 		);
 	}
 
-	public function insert_sidebar_html() { ?>
-		<a href="<?php echo esc_url( 'https://wordpress.com/stats/day/' . Jetpack::build_raw_urls( home_url() ) ); ?>" id="calypso-sidebar-header">
+	/**
+	 * Inserts Sidebar HTML
+	 *
+	 * @return void
+	 */
+	public function insert_sidebar_html() {
+		$heading       = ( isset( $_GET['post_type'] ) && 'feedback' === $_GET['post_type'] ) ? __( 'Feedback', 'jetpack' ) : __( 'Plugins', 'jetpack' );
+		$stats_day_url = Redirect::get_url( 'calypso-stats-day' );
+		?>
+		<a href="<?php echo esc_url( $stats_day_url ); ?>" id="calypso-sidebar-header">
 			<svg class="gridicon gridicons-chevron-left" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M14 20l-8-8 8-8 1.414 1.414L8.828 12l6.586 6.586"></path></g></svg>
 
 			<ul>
 				<li id="calypso-sitename"><?php bloginfo( 'name' ); ?></li>
-				<li id="calypso-plugins"><?php esc_html_e( 'Plugins' ); ?></li>
+				<li id="calypso-plugins"><?php echo esc_html( $heading ); ?></li>
 			</ul>
 		</a>
 		<?php
@@ -291,15 +310,15 @@ class Jetpack_Calypsoify {
 
 		// Add proper links to masterbar top sections.
 		$my_sites_node       = (object) $wp_admin_bar->get_node( 'blog' );
-		$my_sites_node->href = 'https://wordpress.com/stats/day/' . Jetpack::build_raw_urls( home_url() );
+		$my_sites_node->href = Redirect::get_url( 'calypso-stats-day' );
 		$wp_admin_bar->add_node( $my_sites_node );
 
 		$reader_node       = (object) $wp_admin_bar->get_node( 'newdash' );
-		$reader_node->href = 'https://wordpress.com';
+		$reader_node->href = Redirect::get_url( 'calypso-read' );
 		$wp_admin_bar->add_node( $reader_node );
 
 		$me_node       = (object) $wp_admin_bar->get_node( 'my-account' );
-		$me_node->href = 'https://wordpress.com/me';
+		$me_node->href = Redirect::get_url( 'calypso-me' );
 		$wp_admin_bar->add_node( $me_node );
 	}
 
@@ -397,11 +416,26 @@ class Jetpack_Calypsoify {
 	}
 
 	/**
-	 * Returns the URL for switching the user's editor to the Calypso (WordPress.com Classic) editor.
+	 * Returns the URL for switching the user's editor to the Classic editor.
 	 *
 	 * @return string
 	 */
 	public function get_switch_to_classic_editor_url() {
+		// phpcs:ignore WordPress.Security.NonceVerification
+		if ( isset( $_GET['editor/after-deprecation'] ) ) {
+			$post_id    = get_the_ID();
+			$post_type  = get_current_screen()->post_type;
+			$path       = is_null( $post_id ) ? 'post-new.php' : 'post.php';
+			$query_args = array(
+				'post'       => $post_id,
+				'action'     => ( $post_id ) ? 'edit' : null,
+				'post_type'  => ( 'post' !== $post_type ) ? $post_type : null,
+				'set-editor' => 'classic',
+			);
+
+			return add_query_arg( $query_args, admin_url( $path ) );
+		}
+
 		return add_query_arg(
 			'set-editor',
 			'classic',
@@ -470,6 +504,27 @@ class Jetpack_Calypsoify {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Attach a WP_List_Table views filter to all screens.
+	 */
+	public function attach_views_filter( $current_screen ) {
+		add_filter( "views_{$current_screen->id}", array( $this, 'filter_views' ) );
+	}
+
+	/**
+	 * Remove the parentheses from list table view counts when Calypsofied.
+	 *
+	 * @param array $views Array of views. See: WP_List_Table::get_views().
+	 * @return array Filtered views.
+	 */
+	public function filter_views( $views ) {
+		foreach ( $views as $id => $view ) {
+			$views[ $id ] = preg_replace( '/<span class="count">\((\d+)\)<\/span>/', '<span class="count">$1</span>', $view );
+		}
+
+		return $views;
 	}
 }
 
