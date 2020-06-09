@@ -1,10 +1,10 @@
 === Jetpack by WordPress.com ===
-Contributors: automattic, adamkheckler, aduth, akirk, allendav, alternatekev, andy, annezazu, apeatling, azaozz, batmoo, barry, beaulebens, blobaugh, cainm, cena, cfinke, chaselivingston, chellycat, clickysteve, csonnek, danielbachhuber, davoraltman, daniloercoli, designsimply, dllh, drawmyface, dsmart, dzver, ebinnion, eliorivero, enej, eoigal, erania-pinnera, ethitter, gcorne, georgestephanis, gibrown, goldsounds, hew, hugobaeta, hypertextranch, iammattthomas, iandunn, jblz, jasmussen, jeffgolenski, jeherve, jenhooks, jenia, jessefriedman, jgs, jkudish, jmdodd, joanrho, johnjamesjacoby, jshreve, keoshi, koke, kraftbj, lancewillett, lschuyler, macmanx, martinremy, matt, matveb, mattwiebe, maverick3x6, mcsf, mdawaffe, MichaelArestad, migueluy, mikeyarce, mkaz, nancythanki, nickmomrik, obenland, oskosk, pento, professor44, rachelsquirrel, rdcoll, ryancowles, richardmuscat, richardmtl, roccotripaldi, samhotchkiss, scarstocea, sdquirk, stephdau, tmoorewp, tyxla, Viper007Bond, westi, yoavf, zinigor
+Contributors: automattic, adamkheckler, aduth, akirk, allendav, alternatekev, andy, annezazu, apeatling, azaozz, batmoo, barry, beaulebens, blobaugh, brbrr, cainm, cena, cfinke, chaselivingston, chellycat, clickysteve, csonnek, danielbachhuber, davoraltman, daniloercoli, delawski, designsimply, dllh, drawmyface, dsmart, dzver, ebinnion, egregor, eliorivero, enej, eoigal, erania-pinnera, ethitter, gcorne, georgestephanis, gibrown, goldsounds, hew, hugobaeta, hypertextranch, iammattthomas, iandunn, jblz, jasmussen, jeffgolenski, jeherve, jenhooks, jenia, jessefriedman, jgs, jkudish, jmdodd, joanrho, johnjamesjacoby, jshreve, kbrownkd, keoshi, koke, kraftbj, lancewillett, lschuyler, macmanx, martinremy, matt, matveb, mattwiebe, maverick3x6, mcsf, mdawaffe, MichaelArestad, migueluy, mikeyarce, mkaz, nancythanki, nickmomrik, obenland, oskosk, pento, professor44, rachelsquirrel, rdcoll, ryancowles, richardmuscat, richardmtl, roccotripaldi, samhotchkiss, scarstocea, scottsweb, sdquirk, simison, stephdau, tmoorewp, tyxla, Viper007Bond, westi, yoavf, zinigor
 Tags: Jetpack, WordPress.com, backup, security, related posts, CDN, speed, anti-spam, social sharing, SEO, video, stats
-Stable tag: 7.4
-Requires at least: 5.1
-Requires PHP: 5.3
-Tested up to: 5.2
+Stable tag: 8.6.1
+Requires at least: 5.3
+Requires PHP: 5.6
+Tested up to: 5.4
 
 The ideal plugin for stats, related posts, search engine optimization, social sharing, protection, backups, security, and more.
 
@@ -23,11 +23,11 @@ Jetpack is your site's security detail, guarding you against brute-force attacks
 * Fast, priority support from WordPress experts.
 
 = Peak Performance =
-Activate site accelerator tools and watch your page load times and hosting costs drop -- we'll optimize your images and serve them from our own powerful global network, and speed up your mobile site to reduce bandwidth usage (and save money!). Connect Jetpack to take advantage of:
+Activate site accelerator tools and watch your page load times decrease -- we'll optimize your images and serve them from our own powerful global network, and speed up your mobile site to reduce bandwidth usage (and save money!). Connect Jetpack to take advantage of:
 
 * Images and static files, like CSS and JavaScript, served from our servers, not yours.
 * Elasticsearch-powered related content and site search, for relevant results with no drain on your servers.
-* Lazy image loading for a faster mobile experience.
+* Lazy load images for a faster mobile experience.
 * Unlimited and high-speed video via our content delivery network.
 
 = Effortless Site Management =
@@ -96,81 +96,74 @@ There are opportunities for developers at all levels to contribute. [Learn more 
 
 == Changelog ==
 
-= 7.4.1 =
+= 8.6.1 =
 
-* Release date: June 17, 2019
-* Release post: https://wp.me/p1moTy-kvz
+* Release date: June 2, 2020
 
-**Bug fix**
+**Bug Fixes**
 
-* Contact Form Block: avoid errors when trying to edit a form block, when using the Gutenberg plugin.
+* Resolves PHP notice when generating Twitter Cards for posts with images without saved size information.
+* Resolves an issue that can lead to excessive SQL queries.
 
-= 7.4 =
+= 8.6 =
 
-* Release date: June 4, 2019
-* Release post: https://wp.me/p1moTy-jgZ
+* Release date: June 2, 2020
+* Release post: https://wp.me/p1moTy-pb1
+
+**Major Enhancements**
+
+* Image Compare Block: show off your before / after pictures! This new block allows you to easily compare two images with a slider.
+* Latest Instagram Posts Block: this new block allows you to insert lists of the latest posts from your Instagram feed, on any post or page of your site.
 
 **Enhancements**
 
-* About Page: remove submenu and add link to page in the footer of Jetpack's dashboard.
-* Admin Page: remove Themes card on Plans tab.
-* Admin Page: consolidate the look of the different discussion settings.
-* Admin Page: add Security Checklist information.
-* Business Hours Block: improve the display of Business Hours.
-* Business Hours Block: Simplify hours format.
-* Comment Form: use HTTP 4xx status codes for comment errors.
-* Contact Form Block: improve styles for better display on mobile devices.
-* General: introduce a new Jetpack Logo package, to make it easier to share and re-use.
-* Multisite: Use modern `wp_initialize_site` hook when automatically connecting new sites.
-* Recurring Payments Block: automatically add button to the post content once you create it.
-* Recurring Payments Block: improve the display of the renewal frequency in button list.
-* Recurring Payments Block: require a paid plan to use the button.
-* Recurring Payments Block: improve the look of the payment modal on mobile devices.
-* Search: add new option for cross-site search permissions.
-* Sharing: update default sharing settings to include buttons.
-* Sitemaps: rename the `jetpack_sitemap_generate` and `jetpack_news_sitemap_generate` filters to the more accurate `jetpack_sitemap_include_in_robotstxt` and `jetpack_news_sitemap_include_in_robotstxt`.
-* Slideshow Block: depending on viewport, display prev/next arrows.
-* Slideshow Block: remove outline when focussing on the block.
-* Sync: offer posts, comments, and comment meta checksums when providing sync status.
-* Tiled Galleries: add `srcset` in the editor for an improved editing experience.
-* WordPress.com Block Editor: allow managing reusable blocks in the WordPress.com interface.
-* WordPress.com Toolbar: display hamburger icon in toolbar when in the block editor.
-* WordPress.com Toolbar: display a link to exit recovery mode when it is active on the site.
+* Blocks: add new RSVP, Registration, Appointment, and Feedback form options to the existing Form block.
+* Blocks: add new width option to Form block fields.
+* Blocks: add more customization options to the Subscriptions block.
+* Blocks: use the Mailchimp logo for the Mailchimp block icon.
+* Blocks: add Schema.org metadata to the Star Rating block.
+* Blocks: add alignment options to the Revue block's button.
+* Blocks: add an example usage of the Podcast Player Block.
+* Carousel: new option to remove the Comment form area from the Carousel view.
+* Connection Flow: add new tools allowing for a better Jetpack onboarding for new Jetpack site owners.
+* Connection Flow: ensure connection can happen on sites that can be a bit slower.
+* Dashboard: add new sections for the upcoming Scan feature.
+* Dashboard: allow for easy copying of Sitemap URLs from within the dashboard.
+* Infinite Scroll: add support for running inline scripts.
+* Performance: improve autoloading of Jetpack options.
+* Twitter Cards: use additional post-specific media for Twitter card tags.
+* Synchronization: new experimental feature aiming to minimize the impact of Sync on servers, by having Synchronization actions processed by WordPress.com asynchronously.
+* WordPress.com Toolbar: remove retired "Recommendations" link.
+* WordPress.com Block Editor: offer an option to "Switch to Classic Editor".
 
 **Improved compatibility**
 
-* Display Posts Widget: remove overly opinionated CSS.
-* General: Jetpack now requires PHP 5.3.2, and will display a notice if your site uses an older version of PHP.
-* General: display a notice and log an error if your version of WordPress is not supported by Jetpack.
-* General: Update `Jetpack::get_content_width()` to ensure that only numeric values are used.
-* GIF Block: improve compatibility with the AMP plugin.
-* Shortcodes: bring more of our shortcodes to meet current WordPress Coding Standards to help us maintain these features in the future.
-* Site Health: improve Jetpack errors' messaging in WordPress' new Site Health tools.
+* Blocks: ensure that the Video block can still be used to upload videos with the latest version of the Gutenberg plugin.
+* Connection tools: ensure better compatibility with other plugins that may rely on a Jetpack connection.
+* Contact Form: improve compatibility with the Akismet service.
+* Google Analytics: ensure compatibility with the AMP plugin.
+* Shortcodes & Embeds: ensure that the slideshow and TED shortcodes are compatible with the AMP plugin.
+* SSO: allow third-party plugins to hook into Jetpack's Secure Sign On login form.
+* Widgets: ensure that the Cookies & Consent widget is compatible with the AMP plugin.
+* WordPress.com REST API: improve compatibility with the block editor.
 
 **Bug fixes**
 
-* Admin Page: make sure the Jetpack Dashboard is displayed properly in IE11.
-* Admin Page: do not show Plugin Autoupdates card on admin searches.
-* Carousel: avoid scrolling back to the top of the page when you close the Carousel view.
-* Connect Flow: sanitize from parameter when building connection URL.
-* Mobile Themes: fix "View Full Site" and "View Mobile Site" links when WordPress lives in a subdirectory.
-* Recurring Payments Block: avoid invalid subscription amounts.
-* Recurring Payments Block: allow line breaks in the payment button.
-* Related Posts: do not add markup to attachment pages by default.
-* SEO Tools: support taxonomy archive pages in page titles.
-* Sharing: make sure the Whatsapp button works well in all browsers, including Firefox on desktop.
-* Shortcodes: update embed type detection for Medium Collections.
-* Social Icons SVG: switch to the presentation role for better accessibility.
-* Subscriptions: display checkboxes above the comment submit button.
-* Sync: add new WP Cli commands to help in monitoring and updating sync settings.
-* Tracks: limit the length of the strings saved for feature searches.
-* Unit Tests: add support for testing using VVV 3.0.
-* Verification Tools: make sure the feature can be disabled by override.
-* WooCommerce Analytics: remove duplicate self-executing anonymous function.
-* WordPress.com Interface: make sure navigation menu items match the one available in the WordPress.com interface.
-* WordPress.com Toolbar: restore the previous layout.
-* WordPress.com Toolbar: ensure you are properly logged out of your WordPress.com account when you sign out of your site using the toolbar.
-* WP Cli: ensure that WP Cli commands added by Jetpack include translator comments when necessary, to help with translations.
+* Blocks: avoid layout issues with the OpenTable block's button.
+* Blocks: fix SVG attributes naming.
+* Blocks: fix infinite scroll compatibility.
+* Blocks: improve the display of currencies in Recurring Payments block.
+* Blocks: ensure Podcast Player icons are always visible, even on sites where WordPress lives in a subdirectory.
+* Dashboard: avoid broken profile image in the Jetpack Dashboard.
+* Embeds: stop using deprecated WordPress option.
+* Embeds: ensure that all valid Spotify embeds are being rendered.
+* Infinite Scroll: fix issues with sites that may customize post queries.
+* Related posts: avoid making requests for Related posts in embedded posts.
+* Search: fix issues with the Instant Search layout when the number of posts per page is set to more than 20.
+* Site Accelerator: avoid breaking links when linking to Wikimedia images.
+* Site Health Tools: correct issue that prevented the WordPress Site Health area from completing all checks.
+* Synchronization: ensure data is properly handled when customizing the Sync experience.
+* Theme Tools: add correct schema.org value for Jetpack Breadcrumbs.
 
 --------
 

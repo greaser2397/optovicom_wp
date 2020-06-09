@@ -1,11 +1,13 @@
 <?php if (!defined('ABSPATH')) die('No direct access allowed'); ?>
-<div class="woof-admin-preloader"></div>
-
+<!--<div class="woof-admin-preloader"></div>-->
+<div class="woof-admin-preloader">
+    <div class="cssload-loader">
+        <div class="cssload-inner cssload-one"></div>
+        <div class="cssload-inner cssload-two"></div>
+        <div class="cssload-inner cssload-three"></div>
+    </div>
+</div>
 <div class="subsubsub_section">
-
-    <?php if (isset($_GET['settings_saved'])): ?>
-        <div id="message" class="updated"><p><strong><?php _e("Your settings have been saved.", 'woocommerce-products-filter') ?></strong></p></div>
-    <?php endif; ?>
 
     <?php
     if (!empty(WOOF_HELPER::$notices)) {
@@ -22,8 +24,20 @@
         </script>
     <?php endif; ?>
 
+    <div style="height: 5px;"></div>
+
     <section class="woof-section">
-        <h3><?php printf(__('WOOF - Products Filter Options v.%s', 'woocommerce-products-filter'), WOOF_VERSION) ?></h3>
+
+
+        <?php if (isset($_GET['settings_saved'])): ?>
+            <div class="woof-notice"><?php _e("Your settings have been saved.", 'woocommerce-products-filter') ?></div>
+        <?php endif; ?>
+
+
+        <h3 style="color: red; margin-bottom: 1px;"><?php printf(__('WOOF - WooCommerce Products Filter v.%s', 'woocommerce-products-filter'), WOOF_VERSION) ?></h3>
+        <i><?php printf(esc_html__('Actualized for WooCommerce v.%s.x', 'woocommerce-products-filter'), WOOCOMMERCE_VERSION) ?></i><br />
+        <br />
+
         <input type="hidden" name="woof_settings" value="" />
         <input type="hidden" name="woof_settings[items_order]" value="<?php echo(isset($woof_settings['items_order']) ? $woof_settings['items_order'] : '') ?>" />
 
@@ -456,6 +470,44 @@
                         </div>
                     </div><!--/ .woof-control-section-->
 
+                    <div class="woof-control-section">
+
+                        <h4><?php _e('Use tooltip', 'woocommerce-products-filter') ?></h4>
+
+                        <div class="woof-control-container">
+
+                            <div class="woof-control woof-upload-style-wrap">
+
+                                <?php
+                                $tooltip_selects = array(
+                                    0 => __('No', 'woocommerce-products-filter'),
+                                    1 => __('Yes', 'woocommerce-products-filter')
+                                );
+
+                                if (!isset($woof_settings['use_tooltip'])) {
+                                    $woof_settings['use_tooltip'] = 1;
+                                }
+                                $tooltip_select = $woof_settings['use_tooltip'];
+                                ?>
+
+                                <div class="select-wrap">
+                                    <select name="woof_settings[use_tooltip]" class="chosen_select">
+                                        <?php foreach ($tooltip_selects as $key => $value) : ?>
+                                            <option value="<?php echo $key; ?>" <?php if ($tooltip_select == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+
+
+                            </div>
+                            <div class="woof-description">
+                                <p class="description">
+                                    <?php _e('Use tooltip library on the front of your site. Possible to disable it here if any scripts conflicts on the site front.', 'woocommerce-products-filter') ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div><!--/ .woof-control-section-->
+
                     <?php if (get_option('woof_set_automatically')): ?>
                         <div class="woof-control-section">
 
@@ -526,9 +578,9 @@
                                 </div>
                             </div>
 
-                        </div><!--/ .woof-control-section-->                        
+                        </div><!--/ .woof-control-section-->
                     <?php endif; ?>
-                    
+
                     <?php
                     if (!isset($woof_settings['woof_tooltip_img'])) {
                         $woof_settings['woof_tooltip_img'] = '';
@@ -804,18 +856,52 @@
                                     <tr>
                                         <th scope="row"><label for="init_only_on"><?php _e('Init plugin on the next site pages only ', 'woocommerce-products-filter') ?></label></th>
                                         <td>
+                                            <div class="woof-control-section">
+                                                <div class="woof-control-container">
+                                                    <div class="woof-control">
+
+                                                        <?php
+                                                        $init_only_on_r = array(
+                                                            0 => __("Yes", 'woocommerce-products-filter'),
+                                                            1 => __("No", 'woocommerce-products-filter')
+                                                        );
+                                                        ?>
+
+                                                        <?php
+                                                        if (!isset($woof_settings['init_only_on_reverse']) OR empty($woof_settings['init_only_on_reverse'])) {
+                                                            $woof_settings['init_only_on_reverse'] = 0;
+                                                        }
+                                                        ?>
+                                                        <div class="select-wrap">
+                                                            <select name="woof_settings[init_only_on_reverse]">
+                                                                <?php foreach ($init_only_on_r as $key => $value) : ?>
+                                                                    <option value="<?php echo $key; ?>" <?php if ($woof_settings['init_only_on_reverse'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                                                                <?php endforeach; ?>
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="woof-description" style="margin-top: 0;">
+                                                        <p class="description"><?php _e("Reverse: deactivate plugin on the next site pages only", 'woocommerce-products-filter') ?></p>
+                                                    </div>
+                                                </div>
+
+                                            </div><!--/ .woof-control-section-->
+
+
+
                                             <?php
                                             if (!isset($this->settings['init_only_on'])) {
                                                 $this->settings['init_only_on'] = '';
                                             }
                                             ?>
                                             <textarea class="wide woof_custom_css" id="init_only_on" style="height: 300px; width: 100%;" name="woof_settings[init_only_on]"><?php echo stripcslashes(trim($this->settings['init_only_on'])) ?></textarea>
-                                            <p class="description"><?php _e('This option excludes initialization of the plugin on all pages of the site except links and link-masks in the textarea. One row - one link (or link-mask)! Example of link: http://site.com/ajaxed-search-7. Example of link-mask: product-category! Leave it empty to allow the plugin initialization on all pages of the site!', 'woocommerce-products-filter') ?></p>
+                                            <p class="description"><?php _e('This option enables or disables initialization of the plugin on all pages of the site except links and link-masks in the textarea. One row - one link (or link-mask)! Example of link: http://site.com/ajaxed-search-7. Example of link-mask: product-category! Leave it empty to allow the plugin initialization on all pages of the site!', 'woocommerce-products-filter') ?></p>
                                         </td>
                                     </tr>
 
 
-                                    <?php if (class_exists('SitePress')): ?>
+                                    <?php if (class_exists('SitePress') OR class_exists('Polylang')): ?>
                                         <tr>
                                             <th scope="row"><label for="wpml_tax_labels">
                                                     <?php _e('WPML taxonomies labels translations', 'woocommerce-products-filter') ?> <img class="help_tip" data-tip="Syntax:
@@ -862,8 +948,9 @@
                                         <div class="woof-control">
 
                                             <?php
+                                            if (!isset($woof_settings['swoof_search_slug'])) {
                                                 $woof_settings['swoof_search_slug'] = '';
-                                            
+                                            }
                                             ?>
 
                                             <input placeholder="swoof" type="text" name="woof_settings[swoof_search_slug]" value="<?php echo $woof_settings['swoof_search_slug'] ?>" id="swoof_search_slug" />
@@ -916,13 +1003,13 @@
                                                 $woof_settings['optimize_js_files'] = 0;
                                             }
                                             ?>
-                                            <div class="select-wrap">
-                                                <select name="woof_settings[optimize_js_files]">
-                                                    <?php foreach ($optimize_js_files as $key => $value) : ?>
-                                                        <option value="<?php echo $key; ?>" <?php if ($woof_settings['optimize_js_files'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
+
+                                            <select name="woof_settings[optimize_js_files]">
+                                                <?php foreach ($optimize_js_files as $key => $value) : ?>
+                                                    <option value="<?php echo $key; ?>" <?php if ($woof_settings['optimize_js_files'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+
 
                                         </div>
                                         <div class="woof-description">
@@ -940,19 +1027,20 @@
                                         <div class="woof-control">
 
                                             <?php
+                                            if (!isset($woof_settings['override_no_products'])) {
                                                 $woof_settings['override_no_products'] = '';
-                                            
+                                            }
                                             ?>
 
-                                            <textarea name="woof_settings[override_no_products]" id="override_no_products" ><?php echo $woof_settings['override_no_products'] ?></textarea>
+                                            <textarea name="woof_settings[override_no_products]" id="override_no_products" ></textarea>
 
                                         </div>
                                         <div class="woof-description">
-                                            <p class="description"><?php _e('Place in which you can paste text or/and any shortcodes which will be displayed when customer will not find any products by his search criterias. Example:', 'woocommerce-products-filter') ?> <i style="color: orangered;">&lt;center&gt;&lt;h2>Where are the products?&lt;/h2&gt;&lt;/center&gt;&lt;h4&gt;Perhaps you will like next products&lt;/h4&gt; [recent_products limit="3" columns="4" ]</i></p>
+                                            <p class="description"><?php _e('Place in which you can paste text or/and any shortcodes which will be displayed when customer will not find any products by his search criterias. Example:', 'woocommerce-products-filter') ?> <i style="color: orangered;">&lt;center&gt;&lt;h2>Where are the products?&lt;/h2&gt;&lt;/center&gt;&lt;h4&gt;Perhaps you will like next products&lt;/h4&gt;[recent_products limit="3" columns="4" ]</i> (<?php _e('do not use shortcodes here in turbo mode', 'woocommerce-products-filter') ?>)</p>
                                         </div>
                                     </div>
 
-                                </div><!--/ .woof-control-section-->                                
+                                </div><!--/ .woof-control-section-->
 
                                 <!--
                                 <div class="woof-control-section">
@@ -977,7 +1065,7 @@
                                             <div class="select-wrap">
                                                 <select name="woof_settings[storage_type]">
                                 <?php foreach ($storage_types as $key => $value) : ?>
-                                                                                                                                                                                                                    <option value="<?php echo $key; ?>" <?php if ($woof_settings['storage_type'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                                                                                                                                                                                                                                                                                            <option value="<?php echo $key; ?>" <?php if ($woof_settings['storage_type'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
                                 <?php endforeach; ?>
                                                 </select>
                                             </div>
@@ -989,6 +1077,37 @@
                                     </div>
 
                                 </div> -->
+                                <div class="woof-control-section woof_premium_only">
+                                    <?php
+                                    $show_images_by_attr = array(
+                                        0 => __("No", 'woocommerce-products-filter'),
+                                    );
+
+                                    $woof_settings['show_images_by_attr_show'] = 0;
+                                    ?>
+
+                                    <h5><?php _e("Show image of variation", 'woocommerce-products-filter') ?></h5>
+
+                                    <div class="woof-control-container">
+                                        <div class="woof-control">
+
+                                            <select name="woof_settings[show_images_by_attr_show]" disabled="">
+                                                <?php foreach ($show_images_by_attr as $key => $value) : ?>
+                                                    <option value="<?php echo $key; ?>" <?php if ($woof_settings['show_images_by_attr_show'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+
+
+                                        </div>
+
+
+                                        <div class="woof-description">
+                                            <p class="description"><?php _e("For variable products you can show an image depending on the current filter selection. For example you have variation with red color, and that varation has its own preview image - if on the site front user will select red color this imag will be shown. You can select attributes by which images will be selected", 'woocommerce-products-filter') ?></p>
+                                        </div>
+
+                                    </div>
+
+                                </div><!--/ .woof-control-section-->
 
                                 <div class="woof-control-section woof_premium_only">
 
@@ -1003,14 +1122,16 @@
                                             );
                                             ?>
 
-                                            
-                                            <div class="select-wrap">
-                                                <select name="woof_settings[hide_terms_count_txt]">
-                                                    <?php foreach ($hide_terms_count_txt as $key => $value) : ?>
-                                                        <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
+                                            <?php
+                                            $woof_settings['hide_terms_count_txt'] = 0;
+                                            ?>
+
+                                            <select name="woof_settings[hide_terms_count_txt]">
+                                                <?php foreach ($hide_terms_count_txt as $key => $value) : ?>
+                                                    <option value="<?php echo $key; ?>" <?php if ($woof_settings['hide_terms_count_txt'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+
 
                                         </div>
                                         <div class="woof-description">
@@ -1039,13 +1160,13 @@
                                                 $woof_settings['listen_catalog_visibility'] = 0;
                                             }
                                             ?>
-                                            <div class="select-wrap">
-                                                <select name="woof_settings[listen_catalog_visibility]">
-                                                    <?php foreach ($listen_catalog_visibility as $key => $value) : ?>
-                                                        <option value="<?php echo $key; ?>" <?php if ($woof_settings['listen_catalog_visibility'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
+
+                                            <select name="woof_settings[listen_catalog_visibility]">
+                                                <?php foreach ($listen_catalog_visibility as $key => $value) : ?>
+                                                    <option value="<?php echo $key; ?>" <?php if ($woof_settings['listen_catalog_visibility'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+
 
                                         </div>
                                         <div class="woof-description">
@@ -1078,13 +1199,13 @@
                                                 $woof_settings['disable_swoof_influence'] = 0;
                                             }
                                             ?>
-                                            <div class="select-wrap">
-                                                <select name="woof_settings[disable_swoof_influence]">
-                                                    <?php foreach ($disable_swoof_influence as $key => $value) : ?>
-                                                        <option value="<?php echo $key; ?>" <?php if ($woof_settings['disable_swoof_influence'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
+
+                                            <select name="woof_settings[disable_swoof_influence]">
+                                                <?php foreach ($disable_swoof_influence as $key => $value) : ?>
+                                                    <option value="<?php echo $key; ?>" <?php if ($woof_settings['disable_swoof_influence'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+
 
                                         </div>
                                         <div class="woof-description">
@@ -1094,172 +1215,173 @@
 
                                 </div><!--/ .woof-control-section-->
 
-                                <div class="woof-control-section">
+                                <?php if (!isset($woof_settings['woof_turbo_mode']['enable']) OR $woof_settings['woof_turbo_mode']['enable'] != 1 OR ! class_exists("WOOF_EXT_TURBO_MODE")) { ?>
+                                    <div class="woof-control-section">
 
-                                    <h5><?php _e("Cache dynamic recount number for each item in filter", 'woocommerce-products-filter') ?></h5>
+                                        <h5><?php _e("Cache dynamic recount number for each item in filter", 'woocommerce-products-filter') ?></h5>
 
-                                    <div class="woof-control-container">
-                                        <div class="woof-control">
+                                        <div class="woof-control-container">
+                                            <div class="woof-control">
 
-                                            <?php
-                                            $cache_count_data = array(
-                                                0 => __("No", 'woocommerce-products-filter'),
-                                                1 => __("Yes", 'woocommerce-products-filter')
-                                            );
-                                            ?>
+                                                <?php
+                                                $cache_count_data = array(
+                                                    0 => __("No", 'woocommerce-products-filter'),
+                                                    1 => __("Yes", 'woocommerce-products-filter')
+                                                );
+                                                ?>
 
-                                            <?php
-                                            if (!isset($woof_settings['cache_count_data']) OR empty($woof_settings['cache_count_data'])) {
-                                                $woof_settings['cache_count_data'] = 0;
-                                            }
-                                            ?>
-                                            <div class="select-wrap">
+                                                <?php
+                                                if (!isset($woof_settings['cache_count_data']) OR empty($woof_settings['cache_count_data'])) {
+                                                    $woof_settings['cache_count_data'] = 0;
+                                                }
+                                                ?>
+
                                                 <select name="woof_settings[cache_count_data]">
                                                     <?php foreach ($cache_count_data as $key => $value) : ?>
                                                         <option value="<?php echo $key; ?>" <?php if ($woof_settings['cache_count_data'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
-                                            </div>
 
-                                            <?php if ($woof_settings['cache_count_data']): ?>
-                                                <br />
-                                                <br /><a href="#" class="button js_cache_count_data_clear"><?php _e("clear cache", 'woocommerce-products-filter') ?></a>&nbsp;<span style="color: green"></span><br />
-                                                <br />
-                                                <?php
-                                                $clean_period = 'days7';
-                                                if (isset($this->settings['cache_count_data_auto_clean'])) {
-                                                    $clean_period = $this->settings['cache_count_data_auto_clean'];
-                                                }
-                                                $periods = array(
-                                                    0 => __("do not clean cache automatically", 'woocommerce-products-filter'),
-                                                    'hourly' => __("clean cache automatically hourly", 'woocommerce-products-filter'),
-                                                    'twicedaily' => __("clean cache automatically twicedaily", 'woocommerce-products-filter'),
-                                                    'daily' => __("clean cache automatically daily", 'woocommerce-products-filter'),
-                                                    'days2' => __("clean cache automatically each 2 days", 'woocommerce-products-filter'),
-                                                    'days3' => __("clean cache automatically each 3 days", 'woocommerce-products-filter'),
-                                                    'days4' => __("clean cache automatically each 4 days", 'woocommerce-products-filter'),
-                                                    'days5' => __("clean cache automatically each 5 days", 'woocommerce-products-filter'),
-                                                    'days6' => __("clean cache automatically each 6 days", 'woocommerce-products-filter'),
-                                                    'days7' => __("clean cache automatically each 7 days", 'woocommerce-products-filter')
-                                                );
-                                                ?>
-                                                <div class="select-wrap">
+
+                                                <?php if ($woof_settings['cache_count_data']): ?>
+                                                    <br />
+                                                    <br /><a href="#" class="button js_cache_count_data_clear"><?php _e("clear cache", 'woocommerce-products-filter') ?></a>&nbsp;<span style="color: green"></span><br />
+                                                    <br />
+                                                    <?php
+                                                    $clean_period = 'days7';
+                                                    if (isset($this->settings['cache_count_data_auto_clean'])) {
+                                                        $clean_period = $this->settings['cache_count_data_auto_clean'];
+                                                    }
+                                                    $periods = array(
+                                                        0 => __("do not clean cache automatically", 'woocommerce-products-filter'),
+                                                        'hourly' => __("clean cache automatically hourly", 'woocommerce-products-filter'),
+                                                        'twicedaily' => __("clean cache automatically twicedaily", 'woocommerce-products-filter'),
+                                                        'daily' => __("clean cache automatically daily", 'woocommerce-products-filter'),
+                                                        'days2' => __("clean cache automatically each 2 days", 'woocommerce-products-filter'),
+                                                        'days3' => __("clean cache automatically each 3 days", 'woocommerce-products-filter'),
+                                                        'days4' => __("clean cache automatically each 4 days", 'woocommerce-products-filter'),
+                                                        'days5' => __("clean cache automatically each 5 days", 'woocommerce-products-filter'),
+                                                        'days6' => __("clean cache automatically each 6 days", 'woocommerce-products-filter'),
+                                                        'days7' => __("clean cache automatically each 7 days", 'woocommerce-products-filter')
+                                                    );
+                                                    ?>
+
                                                     <select name="woof_settings[cache_count_data_auto_clean]">
                                                         <?php foreach ($periods as $key => $txt): ?>
                                                             <option <?php selected($clean_period, $key) ?> value="<?php echo $key ?>"><?php echo $txt; ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
-                                                </div>
 
-                                            <?php endif; ?>
 
-                                        </div>
-                                        <div class="woof-description">
+                                                <?php endif; ?>
 
-                                            <?php
-                                            global $wpdb;
+                                            </div>
+                                            <div class="woof-description">
 
-                                            $charset_collate = '';
-                                            if (method_exists($wpdb, 'has_cap') AND $wpdb->has_cap('collation')) {
-                                                if (!empty($wpdb->charset)) {
-                                                    $charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
+                                                <?php
+                                                global $wpdb;
+
+                                                $charset_collate = '';
+                                                if (method_exists($wpdb, 'has_cap') AND $wpdb->has_cap('collation')) {
+                                                    if (!empty($wpdb->charset)) {
+                                                        $charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
+                                                    }
+                                                    if (!empty($wpdb->collate)) {
+                                                        $charset_collate .= " COLLATE $wpdb->collate";
+                                                    }
                                                 }
-                                                if (!empty($wpdb->collate)) {
-                                                    $charset_collate .= " COLLATE $wpdb->collate";
-                                                }
-                                            }
-                                            //***
-                                            $sql = "CREATE TABLE IF NOT EXISTS `" . WOOF::$query_cache_table . "` (
+                                                //***
+                                                $sql = "CREATE TABLE IF NOT EXISTS `" . WOOF::$query_cache_table . "` (
                                     `mkey` varchar(64) NOT NULL,
                                     `mvalue` text NOT NULL,
 				    KEY `mkey` (`mkey`)
                                   ) {$charset_collate}";
 
-                                            if ($wpdb->query($sql) === false) {
+                                                if ($wpdb->query($sql) === false) {
+                                                    ?>
+                                                    <p class="description"><?php _e("WOOF cannot create the database table! Make sure that your mysql user has the CREATE privilege! Do it manually using your host panel&phpmyadmin!", 'woocommerce-products-filter') ?></p>
+                                                    <code><?php echo $sql; ?></code>
+                                                    <input type="hidden" name="woof_settings[cache_count_data]" value="0" />
+                                                    <?php
+                                                    echo $wpdb->last_error;
+                                                }
                                                 ?>
-                                                <p class="description"><?php _e("WOOF cannot create the database table! Make sure that your mysql user has the CREATE privilege! Do it manually using your host panel&phpmyadmin!", 'woocommerce-products-filter') ?></p>
-                                                <code><?php echo $sql; ?></code>
-                                                <input type="hidden" name="woof_settings[cache_count_data]" value="0" />
-                                                <?php
-                                                echo $wpdb->last_error;
-                                            }
-                                            ?>
 
-                                            <p class="description"><?php _e("Useful thing when you already set your site IN THE PRODUCTION MODE and use dynamic recount -> it make recount very fast! Of course if you added new products which have to be in search results you have to clean this cache OR you can set time period for auto cleaning!", 'woocommerce-products-filter') ?></p>
+                                                <p class="description"><?php _e("Useful thing when you already set your site IN THE PRODUCTION MODE and use dynamic recount -> it make recount very fast! Of course if you added new products which have to be in search results you have to clean this cache OR you can set time period for auto cleaning!", 'woocommerce-products-filter') ?></p>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                </div><!--/ .woof-control-section-->
-
+                                    </div><!--/ .woof-control-section-->
 
 
-                                <div class="woof-control-section">
 
-                                    <h5><?php _e("Cache terms", 'woocommerce-products-filter') ?></h5>
+                                    <div class="woof-control-section">
 
-                                    <div class="woof-control-container">
-                                        <div class="woof-control">
+                                        <h5><?php _e("Cache terms", 'woocommerce-products-filter') ?></h5>
 
-                                            <?php
-                                            $cache_terms = array(
-                                                0 => __("No", 'woocommerce-products-filter'),
-                                                1 => __("Yes", 'woocommerce-products-filter')
-                                            );
-                                            ?>
+                                        <div class="woof-control-container">
+                                            <div class="woof-control">
 
-                                            <?php
-                                            if (!isset($woof_settings['cache_terms']) OR empty($woof_settings['cache_terms'])) {
-                                                $woof_settings['cache_terms'] = 0;
-                                            }
-                                            ?>
-                                            <div class="select-wrap">
+                                                <?php
+                                                $cache_terms = array(
+                                                    0 => __("No", 'woocommerce-products-filter'),
+                                                    1 => __("Yes", 'woocommerce-products-filter')
+                                                );
+                                                ?>
+
+                                                <?php
+                                                if (!isset($woof_settings['cache_terms']) OR empty($woof_settings['cache_terms'])) {
+                                                    $woof_settings['cache_terms'] = 0;
+                                                }
+                                                ?>
+
                                                 <select name="woof_settings[cache_terms]">
                                                     <?php foreach ($cache_terms as $key => $value) : ?>
                                                         <option value="<?php echo $key; ?>" <?php if ($woof_settings['cache_terms'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
+
+
+                                                <?php if ($woof_settings['cache_terms']): ?>
+                                                    <br />
+                                                    <br /><a href="#" class="button js_cache_terms_clear"><?php _e("clear terms cache", 'woocommerce-products-filter') ?></a>&nbsp;<span style="color: green"></span><br />
+                                                    <br />
+                                                    <?php
+                                                    $clean_period = 'days7';
+                                                    if (isset($this->settings['cache_terms_auto_clean'])) {
+                                                        $clean_period = $this->settings['cache_terms_auto_clean'];
+                                                    }
+                                                    $periods = array(
+                                                        0 => __("do not clean cache automatically", 'woocommerce-products-filter'),
+                                                        'hourly' => __("clean cache automatically hourly", 'woocommerce-products-filter'),
+                                                        'twicedaily' => __("clean cache automatically twicedaily", 'woocommerce-products-filter'),
+                                                        'daily' => __("clean cache automatically daily", 'woocommerce-products-filter'),
+                                                        'days2' => __("clean cache automatically each 2 days", 'woocommerce-products-filter'),
+                                                        'days3' => __("clean cache automatically each 3 days", 'woocommerce-products-filter'),
+                                                        'days4' => __("clean cache automatically each 4 days", 'woocommerce-products-filter'),
+                                                        'days5' => __("clean cache automatically each 5 days", 'woocommerce-products-filter'),
+                                                        'days6' => __("clean cache automatically each 6 days", 'woocommerce-products-filter'),
+                                                        'days7' => __("clean cache automatically each 7 days", 'woocommerce-products-filter')
+                                                    );
+                                                    ?>
+                                                    <div class="select-wrap">
+                                                        <select name="woof_settings[cache_terms_auto_clean]">
+                                                            <?php foreach ($periods as $key => $txt): ?>
+                                                                <option <?php selected($clean_period, $key) ?> value="<?php echo $key ?>"><?php echo $txt; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+
+                                                <?php endif; ?>
+
                                             </div>
-
-                                            <?php if ($woof_settings['cache_terms']): ?>
-                                                <br />
-                                                <br /><a href="#" class="button js_cache_terms_clear"><?php _e("clear terms cache", 'woocommerce-products-filter') ?></a>&nbsp;<span style="color: green"></span><br />
-                                                <br />
-                                                <?php
-                                                $clean_period = 'days7';
-                                                if (isset($this->settings['cache_terms_auto_clean'])) {
-                                                    $clean_period = $this->settings['cache_terms_auto_clean'];
-                                                }
-                                                $periods = array(
-                                                    0 => __("do not clean cache automatically", 'woocommerce-products-filter'),
-                                                    'hourly' => __("clean cache automatically hourly", 'woocommerce-products-filter'),
-                                                    'twicedaily' => __("clean cache automatically twicedaily", 'woocommerce-products-filter'),
-                                                    'daily' => __("clean cache automatically daily", 'woocommerce-products-filter'),
-                                                    'days2' => __("clean cache automatically each 2 days", 'woocommerce-products-filter'),
-                                                    'days3' => __("clean cache automatically each 3 days", 'woocommerce-products-filter'),
-                                                    'days4' => __("clean cache automatically each 4 days", 'woocommerce-products-filter'),
-                                                    'days5' => __("clean cache automatically each 5 days", 'woocommerce-products-filter'),
-                                                    'days6' => __("clean cache automatically each 6 days", 'woocommerce-products-filter'),
-                                                    'days7' => __("clean cache automatically each 7 days", 'woocommerce-products-filter')
-                                                );
-                                                ?>
-                                                <div class="select-wrap">
-                                                    <select name="woof_settings[cache_terms_auto_clean]">
-                                                        <?php foreach ($periods as $key => $txt): ?>
-                                                            <option <?php selected($clean_period, $key) ?> value="<?php echo $key ?>"><?php echo $txt; ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-
-                                            <?php endif; ?>
-
+                                            <div class="woof-description">
+                                                <p class="description"><?php _e("Useful thing when you already set your site IN THE PRODUCTION MODE - its getting terms for filter faster without big MySQL queries! If you actively adds new terms every day or week you can set cron period for cleaning. Another way set: '<b>not clean cache automatically</b>'!", 'woocommerce-products-filter') ?></p>
+                                            </div>
                                         </div>
-                                        <div class="woof-description">
-                                            <p class="description"><?php _e("Useful thing when you already set your site IN THE PRODUCTION MODE - its getting terms for filter faster without big MySQL queries! If you actively adds new terms every day or week you can set cron period for cleaning. Another way set: '<b>not clean cache automatically</b>'!", 'woocommerce-products-filter') ?></p>
-                                        </div>
-                                    </div>
 
-                                </div><!--/ .woof-control-section-->
-
+                                    </div><!--/ .woof-control-section-->
+                                <?php } ?>
                                 <div class="woof-control-section">
 
                                     <h5><?php _e("Show blocks helper button", 'woocommerce-products-filter') ?></h5>
@@ -1279,13 +1401,13 @@
                                                 $woof_settings['show_woof_edit_view'] = 1;
                                             }
                                             ?>
-                                            <div class="select-wrap">
-                                                <select id="show_woof_edit_view" name="woof_settings[show_woof_edit_view]">
-                                                    <?php foreach ($show_woof_edit_view as $key => $value) : ?>
-                                                        <option value="<?php echo $key; ?>" <?php if ($woof_settings['show_woof_edit_view'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
+
+                                            <select id="show_woof_edit_view" name="woof_settings[show_woof_edit_view]">
+                                                <?php foreach ($show_woof_edit_view as $key => $value) : ?>
+                                                    <option value="<?php echo $key; ?>" <?php if ($woof_settings['show_woof_edit_view'] == $key): ?>selected="selected"<?php endif; ?>><?php echo $value; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+
 
                                         </div>
                                         <div class="woof-description">
@@ -1311,6 +1433,68 @@
                                         </div>
                                         <div class="woof-description">
                                             <p class="description"><?php printf(__('Custom extensions folder path relative to: %s', 'woocommerce-products-filter'), WP_CONTENT_DIR . DIRECTORY_SEPARATOR) ?></p>
+                                        </div>
+                                    </div>
+
+                                </div><!--/ .woof-control-section-->
+
+                                <div class="woof-control-section">
+
+                                    <h5><?php _e('Result count css selector', 'woocommerce-products-filter') ?></h5>
+
+                                    <div class="woof-control-container">
+                                        <div class="woof-control">
+                                            <?php
+                                            if (!isset($woof_settings['result_count_redraw'])) {
+                                                $woof_settings['result_count_redraw'] = "";
+                                            }
+                                            ?>
+
+                                            <input type="text" name="woof_settings[result_count_redraw]" value="<?php echo $woof_settings['result_count_redraw'] ?>"  />
+                                        </div>
+                                        <div class="woof-description">
+                                            <p class="description"><?php _e('Css class of result-count container. Is needed for ajax compatibility with wp themes. If you do not understand, leave it blank.', 'woocommerce-products-filter') ?></p>
+                                        </div>
+                                    </div>
+
+                                </div><!--/ .woof-control-section-->
+
+                                <div class="woof-control-section">
+
+                                    <h5><?php _e('Order dropdown css selector', 'woocommerce-products-filter') ?></h5>
+
+                                    <div class="woof-control-container">
+                                        <div class="woof-control">
+                                            <?php
+                                            if (!isset($woof_settings['order_dropdown_redraw'])) {
+                                                $woof_settings['order_dropdown_redraw'] = "";
+                                            }
+                                            ?>
+
+                                            <input type="text" name="woof_settings[order_dropdown_redraw]" value="<?php echo $woof_settings['order_dropdown_redraw'] ?>"  />
+                                        </div>
+                                        <div class="woof-description">
+                                            <p class="description"><?php _e('Css class of ordering dropdown container. Is needed for ajax compatibility with wp themes. If you do not understand, leave it blank.', 'woocommerce-products-filter') ?></p>
+                                        </div>
+                                    </div>
+
+                                </div><!--/ .woof-control-section-->
+                                <div class="woof-control-section">
+
+                                    <h5><?php _e('Per page css selector', 'woocommerce-products-filter') ?></h5>
+
+                                    <div class="woof-control-container">
+                                        <div class="woof-control">
+                                            <?php
+                                            if (!isset($woof_settings['per_page_redraw'])) {
+                                                $woof_settings['per_page_redraw'] = "";
+                                            }
+                                            ?>
+
+                                            <input type="text" name="woof_settings[per_page_redraw]" value="<?php echo $woof_settings['per_page_redraw'] ?>"  />
+                                        </div>
+                                        <div class="woof-description">
+                                            <p class="description"><?php _e('Css class of per page dropdown container. Is needed for ajax compatibility with wp themes. If you do not understand, leave it blank.', 'woocommerce-products-filter') ?></p>
                                         </div>
                                     </div>
 
@@ -1481,7 +1665,7 @@
                                                             </td>
                                                             <td><div style="width:5px;"></div></td>
                                                             <td style="width: 100%; vertical-align: top; position: relative;">
-                                                                <a href="#" class="woof_ext_remove" data-title="" data-idx="<?php echo $idx ?>" title="<?php _e('remove extension', 'woocommerce-products-filter') ?>"><img src="<?php echo WOOF_LINK ?>img/delete2.png" alt="<?php _e('remove extension', 'woocommerce-products-filter') ?>" /></a>
+                                                                <a href="#" class="woof_ext_remove" data-title="" data-idx="<?php echo $idx ?>" title="<?php _e('remove extension', 'woocommerce-products-filter') ?>"><img src="<?php echo WOOF_LINK ?>img/delete.png" alt="<?php _e('remove extension', 'woocommerce-products-filter') ?>" /></a>
                                                                 <?php
                                                                 if (!empty($info)) {
                                                                     if (!empty($info) AND is_array($info)) {
@@ -1702,15 +1886,16 @@
                     <table class="form-table">
                         <tbody>
                             <tr valign="top">
-                                <th scope="row"><label><?php _e("Docs", 'woocommerce-products-filter') ?></label></th>
+                                <th scope="row"><label><?php _e("Links", 'woocommerce-products-filter') ?></label></th>
                                 <td>
 
                                     <ul>
 
                                         <li>
-                                            <a class="button" href="https://products-filter.com/documentation/" target="_blank">WOOF documentation</a>
-                                            <a class="button" href="https://products-filter.com/category/faq/" target="_blank">FAQ</a>
-                                            <a class="button" href="https://products-filter.com/video-tutorials/" target="_blank" style="border: solid 1px greenyellow;">Video tutorials</a>
+                                            <a class="button" href="https://products-filter.com/documentation/" target="_blank"><?php _e("WOOF documentation", 'woocommerce-products-filter') ?></a>
+                                            <a class="button" href="https://products-filter.com/category/faq/" target="_blank"><?php _e("FAQ", 'woocommerce-products-filter') ?></a>
+                                            <a class="button" href="https://products-filter.com/video-tutorials/" target="_blank"><?php _e("Video tutorials", 'woocommerce-products-filter') ?></a>
+                                            <a class="button" href="https://pluginus.net/support/" target="_blank"><?php _e("Support", 'woocommerce-products-filter') ?></a>
                                         </li>
 
                                     </ul>
@@ -1719,16 +1904,18 @@
                             </tr>
 
                             <tr valign="top">
-                                <th scope="row"><label><?php _e("Demo site", 'woocommerce-products-filter') ?></label></th>
+                                <th scope="row"><label><?php _e("Demo sites", 'woocommerce-products-filter') ?></label></th>
                                 <td>
 
                                     <ul>
 
                                         <li>
-                                            <a href="http://demo.products-filter.com/" target="_blank">WOOF - WooCommerce Products Filter</a>
+                                            <a href="http://demo.products-filter.com/" class="button" target="_blank">Demo 1</a>&nbsp;
+                                            <a href="http://demo10k.products-filter.com/" class="button" target="_blank">Demo 2</a>&nbsp;
+                                            <a href="http://turbo.products-filter.com/" class="button" target="_blank">Demo 3</a>&nbsp;
                                         </li>
                                         <li>
-                                            <a href="https://products-filter.com/styles-codes-applied-on-demo-site/" target="_blank"><?php _e("Styles and codes which are applied on the demo site", 'woocommerce-products-filter') ?></a>
+                                            <a href="https://products-filter.com/styles-codes-applied-on-demo-site/" class="button" target="_blank"><?php _e("Styles and codes which are applied on the demo site", 'woocommerce-products-filter') ?></a>
                                         </li>
 
                                     </ul>
@@ -1760,16 +1947,16 @@
                                     <ul>
 
                                         <li>
-                                            <a href="https://products-filter.com/video-tutorials/" target="_blank"><?php _e("Video tutorials", 'woocommerce-products-filter') ?></a>
+                                            <a href="https://products-filter.com/video-tutorials/" class="button" target="_blank"><?php _e("Video tutorials", 'woocommerce-products-filter') ?></a>
                                         </li>
 
                                     </ul>
 
                                 </td>
                             </tr>
-                            
-                            
-                            
+
+
+
                             <tr valign="top">
                                 <th scope="row"><label><?php _e("GDPR", 'woocommerce-products-filter') ?></label></th>
                                 <td>
@@ -1777,7 +1964,7 @@
                                     <ul>
 
                                         <li>
-                                            <a href="https://products-filter.com/gdpr/" target="_blank"><?php _e("GDPR info", 'woocommerce-products-filter') ?></a>
+                                            <a href="https://products-filter.com/gdpr/" class="button" target="_blank"><?php _e("GDPR info", 'woocommerce-products-filter') ?></a>
                                         </li>
 
                                     </ul>
@@ -1792,7 +1979,7 @@
                                         <div id="plugin_warning" style="padding: 9px; border: solid red 3px; background: #eee; ">
                                             <div class="plugin_warning_head"><strong style="color: red;">ATTENTION MESSAGE FROM THE PLUGIN AUTHOR TO ALL USERS WHO USES PIRATE VERSION OF THE PLUGIN! IF YOU BOUGHT IT - DO NOT READ AND IGNORE IT!!</strong>!<br></div>
                                             <br />
-                                            GET YOUR COPY OF THE PLUGIN <em> <span style="text-decoration: underline;"><span style="color: #ff0000;"><strong>ONLY</strong></span></span></em> FROM <a href="https://codecanyon.net/item/woof-woocommerce-products-filter/11498469?ref=realmag777" target="_blank"><span style="color: #008000;"><strong>CODECANYON.NET</strong></span></a> OR <span style="color: #008000;"><strong><a href="https://wordpress.org/plugins/woocommerce-products-filter/" target="_blank">WORDPRESS.ORG</a></strong></span> IF YOU DO NOT WANT TO BE AN AFFILIATE OF PORNO VIRUS SITE.<br>
+                                            GET YOUR COPY OF THE PLUGIN <em> <span style="text-decoration: underline;"><span style="color: #ff0000;"><strong>ONLY</strong></span></span></em> FROM <a href="https://pluginus.net/affiliate/woocommerce-products-filter" target="_blank"><span style="color: #008000;"><strong>CODECANYON.NET</strong></span></a> OR <span style="color: #008000;"><strong><a href="https://wordpress.org/plugins/woocommerce-products-filter/" target="_blank">WORDPRESS.ORG</a></strong></span> IF YOU DO NOT WANT TO BE AN AFFILIATE OF PORNO VIRUS SITE.<br>
                                             <br>
                                             <strong>DID YOU CATCH A VIRUS DOWNLOADING THE PLUGIN FROM ANOTHER (PIRATE) SITES<span style="color: #ff0000;">?</span></strong> THIS IS YOUR TROUBLES AND <em>DO NOT WRITE TO SUPPORT THAT GOOGLE DOWN YOUR SITE TO ZERO BECAUSE OF &nbsp;PORNO VIRUS</em>!!<br>
                                             <br>
@@ -1816,12 +2003,12 @@
 
 
                                         <li>
-                                            <a href="https://currency-switcher.com/" target="_blank"><img src="<?php echo WOOF_LINK ?>img/plugin_options/woocs_banner.png" /></a>
+                                            <a href="https://currency-switcher.com/" target="_blank"><img width="300" alt="" src="<?php echo WOOF_LINK ?>img/plugin_options/woocs_banner.jpg" /></a>
                                             <p class="description"><?php _e("WooCommerce Currency Switcher – is the plugin that allows you to switch to different currencies and get their rates converted in the real time!", 'woocommerce-products-filter') ?></p>
                                         </li>
-                                        
+
                                         <li>
-                                            <a href="https://bulk-editor.com/downloads/" target="_blank"><img src="<?php echo WOOF_LINK ?>img/plugin_options/woobe_banner.jpg" /></a>
+                                            <a href="https://bulk-editor.com/downloads/" target="_blank"><img width="300" alt="" src="<?php echo WOOF_LINK ?>img/plugin_options/woobe_banner.jpg" /></a>
                                             <p class="description"><?php _e("WordPress plugin for managing and bulk edit WooCommerce Products data in robust and flexible way! Be professionals with managing data of your woocommerce e-shop!", 'woocommerce-products-filter') ?></p>
                                         </li>
 
@@ -1880,7 +2067,7 @@
                                     <ul>
 
                                         <li>
-                                            <a href="https://share.payoneer.com/nav/6I2wmtpBuitGE6ZnmaMXLYlP8iriJ-63OMLi3PT8SRGceUjGY1dvEhDyuAGBp91DEmf8ugfF3hkUU1XhP_C6Jg2" target="_blank"><img src="<?php echo WOOF_LINK ?>img/plugin_options/100125.png" alt="" /></a>
+                                            <a href="https://wp.bulk-editor.com/" target="_blank" title="WPBE - WordPress Posts Bulk Editor Professional"><img src="<?php echo WOOF_LINK ?>img/plugin_options/wpbe-banner.png" alt="WPBE - WordPress Posts Bulk Editor Professional" width="300" /></a>
                                         </li>
 
                                     </ul>
@@ -1895,7 +2082,7 @@
 
             </div>
 
-            <div style="float: right;">
+            <div style="float: right; padding-top: 4px;">
                 <a href="https://pluginus.net/" target="_blank" style="font-size: 11px; color: #aaa; text-decoration: none;">Powered by PluginUs.NET</a>
             </div>
 
@@ -2046,7 +2233,7 @@
             </div>
 
         </div>
-        
+
         <div class="woof_option_container  woof_option_all">
 
             <div class="woof-form-element-container">
@@ -2064,7 +2251,7 @@
                             <option value="id"><?php _e('Id', 'woocommerce-products-filter') ?></option>
                             <option value="name"><?php _e('Title', 'woocommerce-products-filter') ?></option>
                             <option value="numeric"><?php _e('Numeric.', 'woocommerce-products-filter') ?></option>
-                         
+
                         </select>
                     </div>
 
@@ -2096,21 +2283,23 @@
             </div>
 
         </div>
-        <div class="woof_option_container  woof_option_checkbox woof_option_mselect woof_option_image woof_option_color woof_option_label woof_option_select_radio_check">
+        <?php //  woof_option_checkbox woof_option_mselect woof_option_image woof_option_color woof_option_label woof_option_select_radio_check   ?>
+        <div class="woof_option_container woof_option_all ">
 
             <div class="woof-form-element-container">
 
                 <div class="woof-name-description">
                     <strong><?php _e('Logic of filtering', 'woocommerce-products-filter') ?></strong>
                     <span><?php _e('AND or OR: if to select AND and on the site front select 2 terms - will be found products which contains both terms on the same time.', 'woocommerce-products-filter') ?></span>
+                    <span><?php _e('If to select NOT IN will be found items which not has selected terms!! Means vice versa to the the concept of including: excluding', 'woocommerce-products-filter') ?></span>
                 </div>
-
                 <div class="woof-form-element">
 
                     <div class="select-wrap">
                         <select class="woof_popup_option" data-option="comparison_logic">
                             <option value="OR"><?php _e('OR', 'woocommerce-products-filter') ?></option>
-                            <option value="AND"><?php _e('AND', 'woocommerce-products-filter') ?></option>      
+                            <option class="woof_option_checkbox woof_option_mselect woof_option_image woof_option_color woof_option_label woof_option_select_radio_check" value="AND" style="display: none;"><?php _e('AND', 'woocommerce-products-filter') ?></option>
+                            <option value="NOT IN"><?php _e('NOT IN', 'woocommerce-products-filter') ?></option>
                         </select>
                     </div>
 
@@ -2221,7 +2410,7 @@
                         </td>
                         <td><div style="width:5px;"></div></td>
                         <td style="width: 100%; vertical-align: top; position: relative;">
-                            <a href="#" class="woof_ext_remove" data-title="__TITLE__" data-idx="__IDX__" title="<?php _e('remove extension', 'woocommerce-products-filter') ?>"><img src="<?php echo WOOF_LINK ?>img/delete2.png" alt="<?php _e('remove extension', 'woocommerce-products-filter') ?>" /></a>
+                            <a href="#" class="woof_ext_remove" data-title="__TITLE__" data-idx="__IDX__" title="<?php _e('remove extension', 'woocommerce-products-filter') ?>"><img src="<?php echo WOOF_LINK ?>img/delete.png" alt="<?php _e('remove extension', 'woocommerce-products-filter') ?>" /></a>
                             <label for="__IDX__">
                                 <input type="checkbox" name="__NAME__" value="__IDX__" id="__IDX__">
                                 __TITLE__
@@ -2277,7 +2466,25 @@
             </div>
 
         </div>
+        <div class="woof-form-element-container">
 
+            <div class="woof-name-description">
+                <strong><?php _e('Show toggle button', 'woocommerce-products-filter') ?></strong>
+                <span><?php _e('Show toggle button near the title on the front above the block of html-items', 'woocommerce-products-filter') ?></span>
+            </div>
+
+            <div class="woof-form-element">
+                <div class="select-wrap">
+                    <select class="woof_popup_option" data-option="show_toggle_button">
+                        <option value="0"><?php _e('No', 'woocommerce-products-filter') ?></option>
+                        <option value="1"><?php _e('Yes, show as closed', 'woocommerce-products-filter') ?></option>
+                        <option value="2"><?php _e('Yes, show as opened', 'woocommerce-products-filter') ?></option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
         <div class="woof-form-element-container">
 
             <div class="woof-name-description">
@@ -2294,14 +2501,14 @@
             </div>
 
         </div>
-        
+
         <div class="woof-form-element-container">
 
             <div class="woof-name-description">
                 <h3><?php _e('Drop-down OR radio', 'woocommerce-products-filter') ?></h3>
                 <strong><?php _e('Drop-down OR radio price filter ranges', 'woocommerce-products-filter') ?></strong>
                 <span><?php _e('Ranges for price filter.', 'woocommerce-products-filter') ?></span>
-                <!-- <span><?php //printf(__('Example: 0-50,51-100,101-i. Where "i" is infinity. Max price is %s.', 'woocommerce-products-filter'), WOOF_HELPER::get_max_price()) ?></span> -->
+                <!-- <span><?php //printf(__('Example: 0-50,51-100,101-i. Where "i" is infinity. Max price is %s.', 'woocommerce-products-filter'), WOOF_HELPER::get_max_price())                   ?></span> -->
                 <span><?php echo __('Example: 0-50,51-100,101-i. Where "i" is infinity.', 'woocommerce-products-filter') ?></span>
             </div>
 
@@ -2371,6 +2578,7 @@
                 jQuery('#woof_reset_btn_txt').prop('disabled', true);
                 jQuery('#woof_reset_btn_txt').val('In the premium version');
                 jQuery('#woof_hide_dynamic_empty_pos').prop('disabled', true);
+                jQuery('#woof_hide_dynamic_empty_pos_turbo_mode').prop('disabled', true);
                 jQuery('select[name="woof_settings[hide_terms_count_txt]"]').prop('disabled', true);
                 //***
                 jQuery('#swoof_search_slug').prop('disabled', true);
@@ -2389,7 +2597,8 @@
 
             label[for=woof_filter_btn_txt],
             label[for=woof_reset_btn_txt],label[for=swoof_search_slug],
-            label[for=woof_hide_dynamic_empty_pos],label[for=hide_terms_count_txt]
+            label[for=woof_hide_dynamic_empty_pos],label[for=woof_hide_dynamic_empty_pos_turbo_mode],
+            label[for=hide_terms_count_txt]
             {
                 color:red;
             }
@@ -2407,17 +2616,17 @@
         <tr>
             <td style="width: 33%;">
                 <h3 style="color: tomato"><?php _e("WOOF FULL VERSION", 'woocommerce-products-filter') ?>:</h3>
-                <a href="http://codecanyon.net/item/woof-woocommerce-products-filter/11498469?ref=realmag777" target="_blank"><img src="<?php echo WOOF_LINK ?>img/plugin_options/woof_banner.jpg" alt="<?php _e("full version of the plugin", 'woocommerce-products-filter'); ?>" /></a>
+                <a href="https://pluginus.net/affiliate/woocommerce-products-filter" target="_blank"><img width="300" src="<?php echo WOOF_LINK ?>img/plugin_options/woof_banner.jpg" alt="<?php _e("full version of the plugin", 'woocommerce-products-filter'); ?>" /></a>
             </td>
-            
+
             <td style="width: 33%;">
                 <h3><?php _e("Get WooCommerce Bulk Editor", 'woocommerce-products-filter') ?>:</h3>
-                <a href="https://codecanyon.net/item/woobe-woocommerce-bulk-editor-professional/21779835?ref=realmag777" target="_blank"><img src="<?php echo WOOF_LINK ?>img/plugin_options/woobe_banner.jpg" alt="<?php _e("WOOBE", 'woocommerce-products-filter'); ?>" /></a>
+                <a href="https://pluginus.net/affiliate/woocommerce-bulk-editor" target="_blank"><img width="300" src="<?php echo WOOF_LINK ?>img/plugin_options/woobe_banner.jpg" alt="<?php _e("WOOBE", 'woocommerce-products-filter'); ?>" /></a>
             </td>
-           
+
             <td style="width: 33%;">
                 <h3><?php _e("Get WooCommerce Currency Swither", 'woocommerce-products-filter') ?>:</h3>
-                <a href="http://codecanyon.net/item/woocommerce-currency-switcher/8085217?ref=realmag777" target="_blank"><img src="<?php echo WOOF_LINK ?>img/plugin_options/woocs_banner.png" alt="<?php _e("WOOCS", 'woocommerce-products-filter'); ?>" /></a>
+                <a href="https://pluginus.net/affiliate/woocommerce-currency-switcher" target="_blank"><img width="300" src="<?php echo WOOF_LINK ?>img/plugin_options/woocs_banner.jpg" alt="<?php _e("WOOCS", 'woocommerce-products-filter'); ?>" /></a>
             </td>
         </tr>
 
@@ -2449,10 +2658,20 @@ function woof_print_tax($key, $tax, $woof_settings) {
         if (isset($woof_settings['excluded_terms'][$key])) {
             $excluded_terms = $woof_settings['excluded_terms'][$key];
         }
+
+        $excluded_terms_reverse = 0;
+        if (isset($woof_settings['excluded_terms_reverse'][$key])) {
+            $excluded_terms_reverse = $woof_settings['excluded_terms_reverse'][$key];
+        }
         ?>
 
         <input type="text" style="width: 420px;" name="woof_settings[excluded_terms][<?php echo $key ?>]" placeholder="<?php _e('excluded terms ids', 'woocommerce-products-filter') ?>" value="<?php echo $excluded_terms ?>" />
-        <img class="help_tip" data-tip="<?php _e('If you want to exclude some current taxonomies terms from the search form! Example: 11,23,77', 'woocommerce-products-filter') ?>" src="<?php echo WP_PLUGIN_URL ?>/woocommerce/assets/images/help.png" height="16" width="16" />
+
+        <input <?php echo(((isset($WOOF->settings['excluded_terms_reverse']) ? is_array($WOOF->settings['excluded_terms_reverse']) : FALSE) ? in_array($key, (array) array_keys($WOOF->settings['excluded_terms_reverse'])) : false) ? 'checked="checked"' : '') ?> type="checkbox" name="woof_settings[excluded_terms_reverse][<?php echo $key ?>]" value="1" />
+        <label  style="font-size:10px;"><?php _e('Reverse', 'woocommerce-products-filter') ?></label>
+
+
+        <img class="help_tip" data-tip="<?php _e('If you want to exclude some current taxonomies terms from the search form! Use Reverse if you want include only instead of exclude! Example: 11,23,77', 'woocommerce-products-filter') ?>" src="<?php echo WP_PLUGIN_URL ?>/woocommerce/assets/images/help.png" height="16" width="16" />
         <input type="button" value="<?php _e('additional options', 'woocommerce-products-filter') ?>" data-taxonomy="<?php echo $key ?>" data-taxonomy-name="<?php echo $tax->labels->name ?>" class="woof-button js_woof_add_options" />
 
         <div style="display: none;">
@@ -2479,8 +2698,8 @@ function woof_print_tax($key, $tax, $woof_settings) {
             }
             ?>
             <input type="text" name="woof_settings[show_toggle_button][<?php echo $key ?>]" placeholder="" value="<?php echo $show_toggle_button ?>" />
-            
-            
+
+
             <?php
             $tooltip_text = "";
             if (isset($woof_settings['tooltip_text'][$key])) {
@@ -2497,26 +2716,34 @@ function woof_print_tax($key, $tax, $woof_settings) {
             ?>
             <input type="text" name="woof_settings[dispay_in_row][<?php echo $key ?>]" placeholder="" value="<?php echo $dispay_in_row ?>" />
 
-            
-             <?php
+
+            <?php
             $orderby = '-1';
             if (isset($woof_settings['orderby'][$key])) {
                 $orderby = $woof_settings['orderby'][$key];
             }
             ?>
             <input type="text" name="woof_settings[orderby][<?php echo $key ?>]" placeholder="" value="<?php echo $orderby ?>" />
-            
+
             <?php
             $order = 'ASC';
             if (isset($woof_settings['order'][$key])) {
                 $order = $woof_settings['order'][$key];
             }
             ?>
-             <input type="text" name="woof_settings[order][<?php echo $key ?>]" placeholder="" value="<?php echo $order ?>" />
+            <input type="text" name="woof_settings[order][<?php echo $key ?>]" placeholder="" value="<?php echo $order ?>" />
             <?php
             $comparison_logic = 'OR';
+            $logic_restriction = array('checkbox', 'mselect', 'label', 'color', 'image', 'slider', 'select_hierarchy');
             if (isset($woof_settings['comparison_logic'][$key])) {
                 $comparison_logic = $woof_settings['comparison_logic'][$key];
+            }
+            if (isset($woof_settings['tax_type'][$key]) AND ! in_array($woof_settings['tax_type'][$key], $logic_restriction) AND $comparison_logic == 'AND') {
+                $comparison_logic = 'OR';
+            }
+
+            if ($comparison_logic == 'NOT IN' AND $woof_settings['tax_type'][$key] == 'select_hierarchy') {
+                $comparison_logic = 'OR';
             }
             ?>
             <input type="text" name="woof_settings[comparison_logic][<?php echo $key ?>]" placeholder="" value="<?php echo $comparison_logic ?>" />
@@ -2581,6 +2808,14 @@ function woof_print_tax($key, $tax, $woof_settings) {
 function woof_print_item_by_key($key, $woof_settings) {
     switch ($key) {
         case 'by_price':
+
+            if (!isset($woof_settings[$key])) {
+                $woof_settings[$key] = [];
+            }
+
+            if (!is_array($woof_settings)) {
+                break;
+            }
             ?>
             <li data-key="<?php echo $key ?>" class="woof_options_li">
 
@@ -2620,7 +2855,9 @@ function woof_print_item_by_key($key, $woof_settings) {
                     $woof_settings[$key]['title_text'] = '';
                 }
 
-
+                if (!isset($woof_settings[$key]['show_toggle_button'])) {
+                    $woof_settings[$key]['show_toggle_button'] = 0;
+                }
                 if (!isset($woof_settings[$key]['ranges'])) {
                     $woof_settings[$key]['ranges'] = '';
                 }
@@ -2639,10 +2876,11 @@ function woof_print_item_by_key($key, $woof_settings) {
                 if (!isset($woof_settings[$key]['tooltip_text'])) {
                     $woof_settings[$key]['tooltip_text'] = "";
                 }
-            ?>
-                <input type="hidden" name="woof_settings[<?php echo $key ?>][tooltip_text]" placeholder="" value="<?php echo stripcslashes($woof_settings[$key]['tooltip_text'])?>" />
+                ?>
+                <input type="hidden" name="woof_settings[<?php echo $key ?>][tooltip_text]" placeholder="" value="<?php echo stripcslashes($woof_settings[$key]['tooltip_text']) ?>" />
                 <input type="hidden" name="woof_settings[<?php echo $key ?>][show_button]" value="<?php echo $woof_settings[$key]['show_button'] ?>" />
                 <input type="hidden" name="woof_settings[<?php echo $key ?>][title_text]" value="<?php echo $woof_settings[$key]['title_text'] ?>" />
+                <input type="hidden" name="woof_settings[<?php echo $key ?>][show_toggle_button]" value="<?php echo $woof_settings[$key]['show_toggle_button'] ?>" />
                 <input type="hidden" name="woof_settings[<?php echo $key ?>][ranges]" value="<?php echo $woof_settings[$key]['ranges'] ?>" />
                 <input type="hidden" name="woof_settings[<?php echo $key ?>][first_option_text]" value="<?php echo $woof_settings[$key]['first_option_text'] ?>" />
                 <input type="hidden" name="woof_settings[<?php echo $key ?>][ion_slider_step]" value="<?php echo $woof_settings[$key]['ion_slider_step'] ?>" />

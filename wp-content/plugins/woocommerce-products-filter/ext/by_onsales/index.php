@@ -2,7 +2,6 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
-//29-11-2016
 final class WOOF_EXT_BY_ONSALES extends WOOF_EXT {
 
     public $type = 'by_html_type';
@@ -20,7 +19,10 @@ final class WOOF_EXT_BY_ONSALES extends WOOF_EXT {
     {
         return plugin_dir_path(__FILE__);
     }
-
+    public function get_ext_override_path()
+    {
+        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->html_type. DIRECTORY_SEPARATOR;
+    }
     public function get_ext_link()
     {
         return plugin_dir_url(__FILE__);

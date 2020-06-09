@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Themes - Storefront package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-05-10 03:04:28+0000\n"
+"PO-Revision-Date: 2020-05-07 03:37:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
 "Language: nb_NO\n"
 "Project-Id-Version: Themes - Storefront\n"
 
@@ -19,6 +19,46 @@ msgstr "Storefront"
 msgid "Storefront is the perfect theme for your next WooCommerce project. Designed and developed by WooCommerce Core developers, it features a bespoke integration with WooCommerce itself plus many of the most popular customer facing WooCommerce extensions. There are several layout & color options to personalise your shop, multiple widget regions, a responsive design and much more. Developers will love its lean and extensible codebase making it a joy to customize and extend. Looking for a WooCommerce theme? Look no further!"
 msgstr "Storefront er det perfekte temaet for ditt neste WooCommerce-prosjekt. Designet og utviklet av WooCommerce Core-utviklere, har det en skreddersydd integrasjon med WooCommerce selv, pluss mange av de mest populære kundevennlige WooCommerce-utvidelsene. Det finnes flere layout og fargealternativer for å tilpasse butikken din, flere widgetregioner, responsiv design og mye mer. Utviklere vil elske den rene og utvidbare kodebasen som gjør det til en glede å tilpasse og utvide. Leter du etter et WooCommerce-tema? Se ikke lenger!"
 
+#. translators: conjunction of two alternative options user can choose (in
+#. missing plugin admin notice). Example: "Activate WooCommerce or learn more"
+#: inc/admin/class-storefront-plugin-install.php:113
+msgid "or"
+msgstr "eller"
+
+#: inc/storefront-template-functions.php:143
+msgid "Built with Storefront"
+msgstr "Bygget med Storefront"
+
+#: inc/storefront-template-functions.php:143
+msgid "Storefront -  The perfect platform for your next WooCommerce project."
+msgstr "Storefront -  Det perfekte platform for ditt neste WooCommerce prosjekt."
+
+#. translators: conjunction of two alternative options user can choose (in
+#. missing plugin admin notice). Example: "Activate WooCommerce or learn more"
+#: inc/admin/class-storefront-plugin-install.php:114
+msgid "learn more"
+msgstr "lær mer"
+
+#: inc/class-storefront.php:211
+msgid "Huge"
+msgstr "Diger"
+
+#: inc/class-storefront.php:206
+msgid "Large"
+msgstr "Stor"
+
+#: inc/class-storefront.php:201
+msgid "Medium"
+msgstr "Medium"
+
+#: inc/class-storefront.php:196
+msgid "Normal"
+msgstr "Normal"
+
+#: inc/class-storefront.php:191
+msgid "Small"
+msgstr "Liten"
+
 #: inc/nux/class-storefront-nux-starter-content.php:1109
 msgid "You can change this text by editing the \"Welcome\" page via the \"Pages\" menu in your dashboard."
 msgstr "Du kan endre denne teksten ved å redigere siden \"Velkommen\" via menyen \"Sider\" i dashbordet."
@@ -28,68 +68,68 @@ msgid "This is your homepage which is what most visitors will see when they firs
 msgstr "Dette er din hjemmeside som de fleste besøkende vil se når de besøker butikken din."
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/storefront-template-functions.php:509
+#: inc/storefront-template-functions.php:521
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Rediger <span class=\"screen-reader-text\">%s</span>"
 
-#: inc/storefront-template-functions.php:547
+#: inc/storefront-template-functions.php:559
 msgid "Tag:"
 msgid_plural "Tags:"
 msgstr[0] "Stikkord:"
 msgstr[1] "Stikkord:"
 
-#: inc/storefront-template-functions.php:541
+#: inc/storefront-template-functions.php:553
 msgid "Category:"
 msgid_plural "Categories:"
 msgstr[0] "Kategori:"
 msgstr[1] "Kategorier:"
 
 #. translators: %s: post date
-#: inc/storefront-template-functions.php:455
+#: inc/storefront-template-functions.php:467
 msgid "Posted on %s"
 msgstr "Publisert %s"
 
-#: inc/storefront-template-functions.php:461
+#: inc/storefront-template-functions.php:473
 msgid "by"
 msgstr "av"
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:837
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:841
 msgid "Product Brands"
 msgstr "Produktmerker"
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:822
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:826
 msgid "Shop by Brand"
 msgstr "Handle etter merke"
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:787
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:791
 msgid "You're viewing:"
 msgstr "Du ser på:"
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:724
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:728
 msgid "More products"
 msgstr "Flere produkter"
 
-#: inc/storefront-template-functions.php:580
+#: inc/storefront-template-functions.php:592
 msgid "Previous post:"
 msgstr "Forrige innlegg:"
 
-#: inc/storefront-template-functions.php:579
+#: inc/storefront-template-functions.php:591
 msgid "Next post:"
 msgstr "Neste innlegg:"
 
-#: inc/woocommerce/class-storefront-woocommerce-customizer.php:93
+#: inc/woocommerce/class-storefront-woocommerce-customizer.php:94
 msgid "Displays next and previous links on product pages. A product thumbnail is displayed with the title revealed on hover."
 msgstr "Viser neste og forrige lenker på produktsidene. Et miniatyrbilde av produktet vises med tittelen som kommer fram på hover."
 
-#: inc/woocommerce/class-storefront-woocommerce-customizer.php:92
+#: inc/woocommerce/class-storefront-woocommerce-customizer.php:93
 msgid "Product Pagination"
 msgstr "Produktsidenavigering"
 
-#: inc/woocommerce/class-storefront-woocommerce-customizer.php:83
+#: inc/woocommerce/class-storefront-woocommerce-customizer.php:84
 msgid "A small content bar at the top of the browser window which includes relevant product information and an add-to-cart button. It slides into view once the standard add-to-cart button has scrolled out of view."
 msgstr "Et lite innholdsfelt øverst i nettleservinduet som inneholder relevant produktinformasjon og en kjøp-knapp. Feltet kommer til syne når den vanlige kjøp-knappen har skrollet ut av visningen."
 
-#: inc/woocommerce/class-storefront-woocommerce-customizer.php:82
+#: inc/woocommerce/class-storefront-woocommerce-customizer.php:83
 msgid "Sticky Add-To-Cart"
 msgstr "Klebrig kjøp-knapp"
 
@@ -105,19 +145,19 @@ msgstr "Hero tekstfarge"
 msgid "Hero heading color"
 msgstr "Hero overskrift farge"
 
-#: inc/class-storefront.php:306
+#: inc/class-storefront.php:339
 msgid "Collapse child menu"
 msgstr "Fold sammen undermeny"
 
-#: inc/class-storefront.php:305
+#: inc/class-storefront.php:338
 msgid "Expand child menu"
 msgstr "Fold ut undermeny"
 
-#: inc/storefront-template-functions.php:147
+#: inc/storefront-template-functions.php:141
 msgid "Built with Storefront &amp; WooCommerce"
 msgstr "Bygget med Storefront og WooCommerce"
 
-#: inc/storefront-template-functions.php:147
+#: inc/storefront-template-functions.php:141
 msgid "WooCommerce - The Best eCommerce Platform for WordPress"
 msgstr "WooCommerce - Den beste netthandelsplatformen for WordPress"
 
@@ -129,7 +169,7 @@ msgstr "Organiser dine menyer ved å legge til sider, kategorier, stikkord og eg
 msgid "Customize your navigation menus"
 msgstr "Tilpass dine navigasjonsmenyer"
 
-#: inc/class-storefront.php:474
+#: inc/class-storefront.php:507
 msgid "Post Navigation"
 msgstr "Innleggsnavigasjon"
 
@@ -162,7 +202,7 @@ msgstr "Bestselgere"
 msgid "On Sale Products"
 msgstr "Produkter på salg"
 
-#: inc/storefront-template-functions.php:297
+#: inc/storefront-template-functions.php:309
 msgid "Edit this section"
 msgstr "Rediger denne delen"
 
@@ -306,72 +346,71 @@ msgid "No thanks, skip the tour"
 msgstr "Nei takk, hopp over omvisningen"
 
 #: inc/nux/class-storefront-nux-guided-tour.php:112
-#: inc/nux/class-storefront-nux-admin.php:131
+#: inc/nux/class-storefront-nux-admin.php:132
 msgid "Let's go!"
 msgstr "Kom igjen!"
 
-#: inc/nux/class-storefront-nux-admin.php:126
+#: inc/nux/class-storefront-nux-admin.php:127
 msgid "Add example products"
 msgstr "Legg til eksempelprodukter"
 
-#: inc/nux/class-storefront-nux-admin.php:118
+#: inc/nux/class-storefront-nux-admin.php:119
 msgid "Create a homepage using Storefront's homepage template"
 msgstr "Opprett en forside ved hjelp av Storefronts forsidemal"
 
-#: inc/nux/class-storefront-nux-admin.php:116
+#: inc/nux/class-storefront-nux-admin.php:117
 msgid "Apply the Storefront homepage template"
 msgstr "Bruk Storefronts forside-mal"
 
-#: inc/nux/class-storefront-nux-admin.php:95
+#: inc/nux/class-storefront-nux-admin.php:96
 msgid "You've set up WooCommerce, now it's time to give it some style! Let's get started by entering the Customizer and adding your logo."
 msgstr "Du har satt opp WooCommerce, nå er det på tide å gi den litt stil! La oss begynne med å gå til tilpasseren og legge til logoen din."
 
-#: inc/nux/class-storefront-nux-admin.php:93
+#: inc/nux/class-storefront-nux-admin.php:94
 msgid "Before you add your first product let's design your store. We'll add some example products for you. When you're ready let's get started by adding your logo."
 msgstr "Før du legger til ditt første produkt, la oss designe butikken din. Vi legger til noen produkteksempler for deg. Når du er klar, la oss begynne med å legge til logoen din."
 
-#: inc/nux/class-storefront-nux-admin.php:89
+#: inc/nux/class-storefront-nux-admin.php:90
 msgid "Design your store 🎨"
 msgstr "Design butikken din 🎨"
 
-#: inc/nux/class-storefront-nux-admin.php:85
+#: inc/nux/class-storefront-nux-admin.php:86
 msgid "Activate WooCommerce"
 msgstr "Aktiver WooCommerce"
 
-#: inc/nux/class-storefront-nux-admin.php:85
+#: inc/nux/class-storefront-nux-admin.php:86
 msgid "WooCommerce activated"
 msgstr "WooCommerce aktivert"
 
-#: inc/nux/class-storefront-nux-admin.php:84
+#: inc/nux/class-storefront-nux-admin.php:85
 msgid "To enable eCommerce features you need to install the WooCommerce plugin."
 msgstr "For å aktivere nettbutikkfunksjoner må du installere WooCommerce-utvidelsen."
 
-#: inc/nux/class-storefront-nux-admin.php:83
+#: inc/nux/class-storefront-nux-admin.php:84
 msgid "Thanks for installing Storefront, you rock! 🤘"
 msgstr "Takk for at du installerte Storefront! 🤘"
 
 #. translators: 1: column number, 2: row number
-#: inc/class-storefront.php:232
+#: inc/class-storefront.php:265
 msgid "Widgets added here will appear in column %1$d of footer row %2$d."
 msgstr "Widgets lagt til her vil vises i kolonne %1$d av bunntekst rad %2$d."
 
 #. translators: 1: row number, 2: column number
-#: inc/class-storefront.php:229
+#: inc/class-storefront.php:262
 msgid "Footer Row %1$d - Column %2$d"
 msgstr "Bunntekst rad %1$d - kolonne %2$d"
 
 #. translators: 1: column number
-#: inc/class-storefront.php:226
+#: inc/class-storefront.php:259
 msgid "Widgets added here will appear in column %1$d of the footer."
 msgstr "Widgets lagt til her vil vises i kolonne %1$d av bunnteksten."
 
 #. translators: 1: column number
-#: inc/class-storefront.php:223
+#: inc/class-storefront.php:256
 msgid "Footer Column %1$d"
 msgstr "Bunntekst kolonne %1$d"
 
 #: inc/admin/class-storefront-admin.php:205
-#: inc/admin/class-storefront-plugin-install.php:114
 msgid "Learn more"
 msgstr "Lær mer"
 
@@ -441,15 +480,15 @@ msgstr "Dokumentasjon"
 msgid "Support"
 msgstr "Støtte"
 
-#: inc/class-storefront.php:210
+#: inc/class-storefront.php:243
 msgid "Widgets added to this region will appear beneath the header and above the main content."
 msgstr "Widgets lagt til i dette området vil bli vist under toppen og over hovedinnholdet."
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:696
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:700
 msgid "My Account"
 msgstr "Min konto"
 
-#: 404.php:25 inc/woocommerce/storefront-woocommerce-template-functions.php:669
+#: 404.php:25 inc/woocommerce/storefront-woocommerce-template-functions.php:673
 msgid "Search"
 msgstr "Søk"
 
@@ -478,11 +517,11 @@ msgstr "Nyheter"
 msgid "Shop by Category"
 msgstr "Handle etter kategori"
 
-#: inc/storefront-template-functions.php:229
+#: inc/storefront-template-functions.php:241
 msgid "Menu"
 msgstr "Meny"
 
-#: inc/class-storefront.php:208
+#: inc/class-storefront.php:241
 msgid "Below Header"
 msgstr "Under toppfelt"
 
@@ -508,12 +547,12 @@ msgstr "Nytt i butikken"
 msgid "Header background image"
 msgstr "Topp bakgrunnsbilde"
 
-#: inc/storefront-template-functions.php:565
+#: inc/storefront-template-functions.php:577
 msgctxt "Next post"
 msgid "Next"
 msgstr "Neste"
 
-#: inc/storefront-template-functions.php:566
+#: inc/storefront-template-functions.php:578
 msgctxt "Previous post"
 msgid "Previous"
 msgstr "Forrige"
@@ -563,7 +602,7 @@ msgid "Featured Products"
 msgstr "Fremhevede produkter"
 
 #: inc/woocommerce/storefront-woocommerce-template-functions.php:75
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:682
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:686
 msgid "View your shopping cart"
 msgstr "Se din handlekurv"
 
@@ -576,47 +615,47 @@ msgstr "På salg"
 msgid "Next"
 msgstr "Neste"
 
-#: inc/storefront-template-functions.php:470
+#: inc/storefront-template-functions.php:482
 msgid "% Comments"
 msgstr "% kommentarer"
 
-#: inc/storefront-template-functions.php:470
+#: inc/storefront-template-functions.php:482
 msgid "1 Comment"
 msgstr "1 kommentar"
 
-#: inc/storefront-template-functions.php:470
+#: inc/storefront-template-functions.php:482
 msgid "Leave a comment"
 msgstr "Legg igjen en kommentar"
 
 #. translators: used between list items, there is a space after the comma
-#: inc/storefront-template-functions.php:532
-#: inc/storefront-template-functions.php:535
+#: inc/storefront-template-functions.php:544
+#: inc/storefront-template-functions.php:547
 msgid ", "
 msgstr ", "
 
 #. translators: %s: post title
-#: inc/storefront-template-functions.php:405
+#: inc/storefront-template-functions.php:417
 msgid "Continue reading %s"
 msgstr "Fortsett å lese %s"
 
-#: inc/storefront-template-functions.php:343
-#: inc/storefront-template-functions.php:414
+#: inc/storefront-template-functions.php:355
+#: inc/storefront-template-functions.php:426
 msgid "Pages:"
 msgstr "Sider:"
 
-#: inc/storefront-template-functions.php:284
+#: inc/storefront-template-functions.php:296
 msgid "Skip to navigation"
 msgstr "Hopp til navigasjon"
 
-#: inc/storefront-template-functions.php:260
+#: inc/storefront-template-functions.php:272
 msgid "Secondary Navigation"
 msgstr "Sekundær navigasjon"
 
-#: inc/storefront-template-functions.php:285
+#: inc/storefront-template-functions.php:297
 msgid "Skip to content"
 msgstr "Hopp til innhold"
 
-#: inc/storefront-template-functions.php:228
+#: inc/storefront-template-functions.php:240
 msgid "Primary Navigation"
 msgstr "Primærmeny"
 
@@ -633,7 +672,7 @@ msgstr "Din kommentar avventer moderasjon."
 msgid "Handheld Menu"
 msgstr "Håndholdt meny"
 
-#: inc/class-storefront.php:202
+#: inc/class-storefront.php:235
 msgid "Sidebar"
 msgstr "Sidekolonnen"
 
@@ -736,7 +775,7 @@ msgstr "Hvorfor ikke gi oss en anmeldelse på %1$sWordPress.org%2$s? Vi setter s
 msgid "Background"
 msgstr "Bakgrunn"
 
-#: inc/nux/class-storefront-nux-admin.php:85
+#: inc/nux/class-storefront-nux-admin.php:86
 msgid "Install WooCommerce"
 msgstr "Installer WooCommerce"
 

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Nineteen package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-12-23 14:26:21+0000\n"
+"PO-Revision-Date: 2020-04-01 02:39:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,19 @@ msgstr "Twenty Nineteen 預設佈景主題旨在展示區塊編輯器的強大�
 msgid "Twenty Nineteen"
 msgstr "Twenty Nineteen"
 
-#. translators: %s: parent post link
+#: classes/class-twentynineteen-walker-comment.php:96
+msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
+msgstr "你的留言正在等候審閱。目前顯示的是留言內容的預覽，留言核准後所有人都會看到這則留言。"
+
+#: functions.php:153
+msgid "Dark Blue"
+msgstr "深藍色"
+
+#: functions.php:148
+msgid "Blue"
+msgstr "藍色"
+
+#. translators: %s: Parent post link.
 #: single.php:31
 msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</span>"
 msgstr "<span class=\"meta-nav\">上層內容:</span><span class=\"post-title\">%s</span>"
@@ -29,21 +41,22 @@ msgctxt "Parent post link"
 msgid "<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">%title</span>"
 msgstr "<span class=\"meta-nav\">上層內容:</span><br><span class=\"post-title\">%title</span>"
 
-#: template-parts/content/content.php:18
 #: template-parts/content/content-excerpt.php:18
+#: template-parts/content/content.php:18
 msgctxt "post"
 msgid "Featured"
 msgstr "精選內容"
 
-#: inc/back-compat.php:39 inc/back-compat.php:53 inc/back-compat.php:73
+#. translators: %s: WordPress version.
+#: inc/back-compat.php:40 inc/back-compat.php:55 inc/back-compat.php:76
 msgid "Twenty Nineteen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
 msgstr "Twenty Nineteen 最低需求為 WordPress 4.7，而這個網站執行的是 %s，請於網站完成升級後再試一次。"
 
-#: inc/template-functions.php:216
+#: inc/template-functions.php:143
 msgid "Back"
 msgstr "返回"
 
-#: inc/template-functions.php:209
+#: inc/template-functions.php:136
 msgid "More"
 msgstr "更多"
 
@@ -65,55 +78,51 @@ msgctxt "primary color"
 msgid "Default"
 msgstr "預設"
 
-#: functions.php:166
+#: functions.php:168
 msgid "White"
 msgstr "白色"
 
-#: functions.php:161
+#: functions.php:163
 msgid "Light Gray"
 msgstr "淺灰色"
 
-#: functions.php:156
+#: functions.php:158
 msgid "Dark Gray"
 msgstr "深灰色"
 
-#: functions.php:151
-msgid "Secondary"
-msgstr "次要"
-
-#: functions.php:134
+#: functions.php:136
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:133
+#: functions.php:135
 msgid "Huge"
 msgstr "超大型"
 
-#: functions.php:128
+#: functions.php:130
 msgid "L"
 msgstr "L"
 
-#: functions.php:127
+#: functions.php:129
 msgid "Large"
 msgstr "大型"
 
-#: functions.php:122
+#: functions.php:124
 msgid "M"
 msgstr "M"
 
-#: functions.php:121
+#: functions.php:123
 msgid "Normal"
 msgstr "標準"
 
-#: functions.php:115
+#: functions.php:117
 msgid "Small"
 msgstr "小型"
 
-#: functions.php:116
+#: functions.php:118
 msgid "S"
 msgstr "S"
 
-#: functions.php:60 footer.php:37
+#: footer.php:37 functions.php:60
 msgid "Footer Menu"
 msgstr "頁尾選單"
 
@@ -126,11 +135,11 @@ msgstr "完整尺寸"
 msgid "Page"
 msgstr "頁次"
 
-#: functions.php:190
+#: functions.php:192
 msgid "Add widgets here to appear in your footer."
 msgstr "在這裡新增小工具便能顯示於網站頁尾。"
 
-#: functions.php:188 template-parts/footer/footer-widgets.php:12
+#: template-parts/footer/footer-widgets.php:12 functions.php:190
 msgid "Footer"
 msgstr "頁尾"
 
@@ -142,7 +151,7 @@ msgstr "主要色彩"
 msgid "No comments"
 msgstr "尚無留言"
 
-#. translators: %1(X comments)$s
+#. translators: %d: Number of comments.
 #: template-parts/post/discussion-meta.php:16
 msgid "%d Comment"
 msgid_plural "%d Comments"
@@ -152,7 +161,7 @@ msgstr[0] "%d 則留言"
 msgid "View more posts"
 msgstr "檢視更多文章"
 
-#. translators: %s: post author
+#. translators: %s: Post author.
 #: template-parts/post/author-bio.php:17
 msgid "Published by %s"
 msgstr "作者: %s"
@@ -161,15 +170,15 @@ msgstr "作者: %s"
 msgid "Top Menu"
 msgstr "頂端選單"
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content/content.php:36
+#. translators: %s: Post title. Only visible to screen readers.
 #: template-parts/content/content-single.php:27
+#: template-parts/content/content.php:36
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "閱讀全文<span class=\"screen-reader-text\">〈%s〉</span>"
 
-#: image.php:52 template-parts/content/content-page.php:27
-#: template-parts/content/content.php:49
 #: template-parts/content/content-single.php:40
+#: template-parts/content/content.php:49
+#: template-parts/content/content-page.php:27 image.php:52
 msgid "Pages:"
 msgstr "頁次:"
 
@@ -181,7 +190,7 @@ msgstr "找不到符合條件的內容。請使用搜尋功能，應會有所幫
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr "很抱歉，找不到符合搜尋條件的結果，請以不同的關鍵字重試。"
 
-#. translators: 1: link to WP admin new post page.
+#. translators: 1: Link to WP admin new post page.
 #: template-parts/content/content-none.php:26
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr "準備發佈第一篇文章了嗎？請從<a href=\"%1$s\">這裡</a>開始。"
@@ -207,8 +216,8 @@ msgid "Next Post"
 msgstr "下一篇文章"
 
 #: search.php:22
-msgid "Search results for:"
-msgstr "搜尋結果:"
+msgid "Search results for: "
+msgstr "搜尋結果: "
 
 #: inc/template-tags.php:234
 msgid "Older posts"
@@ -226,12 +235,12 @@ msgstr "標籤:"
 msgid "Posted in"
 msgstr "分類:"
 
-#. translators: used between list items, there is a space after the comma.
+#. translators: Used between list items, there is a space after the comma.
 #: inc/template-tags.php:86 inc/template-tags.php:98
 msgid ", "
 msgstr "、"
 
-#. translators: %s: Name of current post. Only visible to screen readers.
+#. translators: %s: Post title. Only visible to screen readers.
 #: inc/template-tags.php:63
 msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "<span class=\"screen-reader-text\">在〈%s〉</span>發佈留言"
@@ -254,7 +263,7 @@ msgstr "Y 年"
 msgid "Archives:"
 msgstr "彙整:"
 
-#. translators: %s: Taxonomy singular name
+#. translators: %s: Taxonomy singular name.
 #: inc/template-functions.php:90
 msgid "%s Archives:"
 msgstr "「%s」彙整:"
@@ -287,10 +296,9 @@ msgstr "標籤彙整: "
 msgid "Category Archives: "
 msgstr "分類彙整: "
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#. translators: %s: Name of current post. Only visible to screen readers.
-#: template-parts/content/content-page.php:41
-#: template-parts/header/entry-header.php:32 inc/template-tags.php:120
+#. translators: %s: Post title. Only visible to screen readers.
+#: template-parts/header/entry-header.php:32
+#: template-parts/content/content-page.php:41 inc/template-tags.php:120
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "編輯<span class=\"screen-reader-text\">〈%s〉</span>"
 
@@ -298,11 +306,11 @@ msgstr "編輯<span class=\"screen-reader-text\">〈%s〉</span>"
 msgid "Skip to content"
 msgstr "跳至主要內容"
 
-#: functions.php:61 template-parts/header/site-branding.php:46
+#: template-parts/header/site-branding.php:46 functions.php:61
 msgid "Social Links Menu"
 msgstr "社群網路連結選單"
 
-#: functions.php:59 functions.php:146
+#: functions.php:59
 msgid "Primary"
 msgstr "主要"
 
@@ -317,24 +325,24 @@ msgstr "留言功能已關閉。"
 
 #: comments.php:96
 msgid "Next"
-msgstr "下一張"
+msgstr "下一篇"
 
 #: comments.php:95
 msgid "Previous"
-msgstr "上一張"
+msgstr "上一篇"
 
 #: comments.php:92 comments.php:95 comments.php:96
 msgid "Comments"
 msgstr "留言"
 
-#. translators: 1: number of comments, 2: post title
+#. translators: 1: Number of comments, 2: Post title.
 #: comments.php:44
 msgctxt "comments title"
 msgid "%1$s reply on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
 msgstr[0] "在〈%2$s〉中有 %1$s 則留言"
 
-#. translators: %s: post title
+#. translators: %s: Post title.
 #: comments.php:40
 msgctxt "comments title"
 msgid "One reply on &ldquo;%s&rdquo;"
@@ -348,20 +356,21 @@ msgstr "發佈留言"
 msgid "Join the Conversation"
 msgstr "參與討論"
 
-#: classes/class-twentynineteen-walker-comment.php:99
+#: classes/class-twentynineteen-walker-comment.php:94
 msgid "Your comment is awaiting moderation."
 msgstr "你的留言正在等候審閱。"
 
-#: classes/class-twentynineteen-walker-comment.php:94
+#: classes/class-twentynineteen-walker-comment.php:87
 msgid "Edit"
 msgstr "編輯"
 
-#. translators: 1: comment date, 2: comment time
-#: classes/class-twentynineteen-walker-comment.php:86
+#. translators: 1: Comment date, 2: Comment time.
+#: classes/class-twentynineteen-walker-comment.php:79
 msgid "%1$s at %2$s"
 msgstr "%1$s%2$s"
 
-#: classes/class-twentynineteen-walker-comment.php:66
+#. translators: %s: Comment author link.
+#: classes/class-twentynineteen-walker-comment.php:59
 msgid "%s <span class=\"screen-reader-text says\">says:</span>"
 msgstr "%s<span class=\"screen-reader-text says\">表示:</span>"
 

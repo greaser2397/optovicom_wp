@@ -15,8 +15,8 @@ function woof_init_meta_slider() {
                 hideFromTo: false,
                 grid: true,
                 step: jQuery(input).data('step'),
-                onFinish: function (ui) {
-                    woof_current_values[jQuery(input).attr('name')] = parseFloat(ui.from, 10) + "-" + parseFloat(ui.to, 10);
+                onFinish: function (ui) { 
+                    woof_current_values[jQuery(input).attr('name')] = parseFloat(ui.from, 10) + "^" + parseFloat(ui.to, 10);
                     //***
                     woof_ajax_page_num = 1;
                     //jQuery(input).within('.woof').length -> if slider is as shortcode

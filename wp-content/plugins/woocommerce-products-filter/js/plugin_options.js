@@ -448,6 +448,15 @@ var woof_sort_order = [];
 	$(".woof-admin-preloader").fadeOut("slow");
 
     });
+    
+    $('select[name="woof_settings[show_images_by_attr_show]"]').change(function () {
+
+        if ($(this).val() == 0) {
+            $('select[name="woof_settings[show_images_by_attr][]"]').parents('.select-wrap').hide();         
+        }else{
+            $('select[name="woof_settings[show_images_by_attr][]"]').parents('.select-wrap').show();
+        }
+    });    
 
 })(jQuery);
 

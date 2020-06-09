@@ -2,7 +2,6 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
-//02-12-2017
 final class WOOF_EXT_QUICK_TEXT extends WOOF_EXT {
 
     public $type = 'application';
@@ -59,6 +58,10 @@ final class WOOF_EXT_QUICK_TEXT extends WOOF_EXT {
         return plugin_dir_path(__FILE__);
     }
 
+    public function get_ext_override_path() {
+        return get_stylesheet_directory() . DIRECTORY_SEPARATOR . "woof" . DIRECTORY_SEPARATOR . "ext" . DIRECTORY_SEPARATOR . $this->folder_name . DIRECTORY_SEPARATOR;
+    }
+
     public function get_ext_link() {
         return plugin_dir_url(__FILE__);
     }
@@ -104,6 +107,9 @@ final class WOOF_EXT_QUICK_TEXT extends WOOF_EXT {
         $_REQUEST['woof_quick_search_link'] = $this->get_ext_link() . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'data_' . $data['short_id'] . '_' . $curr_lang . '.json';
         //$_REQUEST['woof_quick_search_preload']=$data['preload'];
         //$_REQUEST['woof_quick_search_extended']=$data['extended_filter'];
+        if (file_exists($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_quick_search.php')) {
+            return $WOOF->render_html($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_quick_search.php', $data);
+        }
         return $WOOF->render_html($this->get_ext_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_quick_search.php', $data);
     }
 
@@ -125,6 +131,9 @@ final class WOOF_EXT_QUICK_TEXT extends WOOF_EXT {
         $_REQUEST['woof_qt_extended'] = $data['template_result'];
         $all_data = array();
         $all_data['data'] = $data;
+        if (file_exists($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_quick_search_results.php')) {
+            return $WOOF->render_html($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_quick_search_results.php', $all_data);
+        }
         return $WOOF->render_html($this->get_ext_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_quick_search_results.php', $all_data);
     }
 
@@ -133,21 +142,21 @@ final class WOOF_EXT_QUICK_TEXT extends WOOF_EXT {
             return;
         }
         if (isset($_REQUEST['woof_qt_extended'])) {
-            wp_enqueue_script('woof_alasql', $this->get_ext_link() . "/js/alasql/alasql.js");
+            wp_enqueue_script('woof_alasql', $this->get_ext_link() . "/js/alasql/alasql.min.js", array(), WOOF_VERSION);
             $parse_tpl = explode("/", $_REQUEST['woof_qt_extended']);
             if (count($parse_tpl) > 1 AND $parse_tpl[0] == 'custom') {
-                wp_enqueue_style('woof_qs_style', get_stylesheet_directory_uri() . "/woof_qs_templates/" . $parse_tpl[1] . "/css/" . $parse_tpl[1] . ".css");
-                wp_enqueue_script('woof_qs_script', get_stylesheet_directory_uri() . "/woof_qs_templates/" . $parse_tpl[1] . "/js/" . $parse_tpl[1] . ".js");
+                wp_enqueue_style('woof_qs_style', get_stylesheet_directory_uri() . "/woof_qs_templates/" . $parse_tpl[1] . "/css/" . $parse_tpl[1] . ".css", array(), WOOF_VERSION);
+                wp_enqueue_script('woof_qs_script', get_stylesheet_directory_uri() . "/woof_qs_templates/" . $parse_tpl[1] . "/js/" . $parse_tpl[1] . ".js", array(), WOOF_VERSION);
             } else {
-                wp_enqueue_style('woof_qs_style', $this->get_ext_link() . "/views/templates/" . $parse_tpl[0] . "/css/" . $parse_tpl[0] . ".css");
-                wp_enqueue_script('woof_qs_script', $this->get_ext_link() . "/views/templates/" . $parse_tpl[0] . "/js/" . $parse_tpl[0] . ".js");
+                wp_enqueue_style('woof_qs_style', $this->get_ext_link() . "/views/templates/" . $parse_tpl[0] . "/css/" . $parse_tpl[0] . ".css", array(), WOOF_VERSION);
+                wp_enqueue_script('woof_qs_script', $this->get_ext_link() . "/views/templates/" . $parse_tpl[0] . "/js/" . $parse_tpl[0] . ".js", array(), WOOF_VERSION);
             }
         } else {
-            wp_enqueue_script('easy-autocomplete', WOOF_LINK . 'js/easy-autocomplete/jquery.easy-autocomplete.min.js');
-            wp_enqueue_style('easy-autocomplete', WOOF_LINK . 'js/easy-autocomplete/easy-autocomplete.min.css');
-            wp_enqueue_style('easy-autocomplete-theme', WOOF_LINK . 'js/easy-autocomplete/easy-autocomplete.themes.min.css');
+            wp_enqueue_script('easy-autocomplete', WOOF_LINK . 'js/easy-autocomplete/jquery.easy-autocomplete.min.js', array(), WOOF_VERSION);
+            wp_enqueue_style('easy-autocomplete', WOOF_LINK . 'js/easy-autocomplete/easy-autocomplete.min.css', array(), WOOF_VERSION);
+            wp_enqueue_style('easy-autocomplete-theme', WOOF_LINK . 'js/easy-autocomplete/easy-autocomplete.themes.min.css', array(), WOOF_VERSION);
         }
-        wp_enqueue_script('woof_quick_search', $this->get_ext_link() . 'js/quick_search.js');
+        wp_enqueue_script('woof_quick_search', $this->get_ext_link() . 'js/quick_search.js', array(), WOOF_VERSION);
         $link = '';
         if (isset($_REQUEST['woof_quick_search_link'])) {
             $link = $_REQUEST['woof_quick_search_link'];
@@ -190,7 +199,7 @@ final class WOOF_EXT_QUICK_TEXT extends WOOF_EXT {
     }
 
     public function woof_print_applications_tabs_content() {
-        wp_enqueue_script('woof_qs_admin_', $this->get_ext_link() . 'js/admin.js');
+        wp_enqueue_script('woof_qs_admin_', $this->get_ext_link() . 'js/admin.js', array(), WOOF_VERSION);
         //***
         global $WOOF;
         $data = array();
@@ -260,7 +269,9 @@ final class WOOF_EXT_QUICK_TEXT extends WOOF_EXT {
             'cache_results' => false,
             //'no_found_rows'=>false,
             'update_post_meta_cache' => false,
-            'update_post_term_cache' => false
+            'update_post_term_cache' => false,
+            'orderby' => 'ID',
+            'order' => 'DESC',
         );
 
         if (class_exists('SitePress')) {
@@ -334,7 +345,11 @@ final class WOOF_EXT_QUICK_TEXT extends WOOF_EXT {
         $data['title'] = $product->get_name();
         $data['url'] = $product->get_permalink();
         $img = wp_get_attachment_image_src($product->get_image_id($id), 'shop_single');
-        $data['img'] = $this->optimize_url($img[0]);
+
+        if (isset($img[0])) {
+            $data['img'] = $this->optimize_url($img[0]);
+        }
+
         $data['sku'] = $product->get_sku();
         $data['price'] = $this->get_all_prices($product);
         $data['key_words'] = "";

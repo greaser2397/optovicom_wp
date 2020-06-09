@@ -3,22 +3,22 @@
 if (!defined('ABSPATH')) {
     exit;
 }
-/*
- * Code is distributed as-is
- * the Developer may change the code at its discretion without prior notice
- * Developers: Djo 
- * Website: http://zixn.ru
- * Twitter: https://twitter.com/Zixnru
- * Email: izm@zixn.ru
- */
+
+use Coderun\BuyOneClick\Help;
+use Coderun\BuyOneClick\BuyCore;
 
 class BuyShortcode {
+
+    protected $options = array();
 
     /**
      * Кнопка купить
      * Возможно размещение только в цикле вывода товаров
      */
     public function __construct() {
+
+        $this->options = Help::getInstance()->get_options();
+
         if (!shortcode_exists('viewBuyButton')) {
             add_shortcode('viewBuyButton', array($this, 'viewBuyButton'));
         }
@@ -33,9 +33,10 @@ class BuyShortcode {
      * @return string
      */
     public function viewBuyButton() {
-        $buyoptions = get_option('buyoptions');
+        $buyoptions = $this->options['buyoptions'];
+        
         if (!empty($buyoptions['enable_button_shortcod']) and $buyoptions['enable_button_shortcod'] == 'on') {
-            $core = new BuyCore();
+            $core = BuyCore::getInstance();
             $core->styleAddFrontPage();
             $core->scriptAddFrontPage();
             return BuyFunction::viewBuyButton(true);
@@ -49,7 +50,7 @@ class BuyShortcode {
      * Кнопка с возможностью передать параметры
      */
     public function viewBuyButtonCustom($arParams) {
-        $buyoptions = get_option('buyoptions');
+        $buyoptions = $this->options['buyoptions'];
         if (!empty($buyoptions['enable_button_shortcod']) and $buyoptions['enable_button_shortcod'] == 'on') {
             $arParams = shortcode_atts(array(
                 'id' => '1',
@@ -57,7 +58,7 @@ class BuyShortcode {
                 'count' => 1,
                 'price' => 5,
                     ), $arParams);
-            $core = new BuyCore();
+            $core = BuyCore::getInstance();
             $core->styleAddFrontPage();
             $core->scriptAddFrontPage();
             return BuyFunction::viewBuyButtonCustrom($arParams);

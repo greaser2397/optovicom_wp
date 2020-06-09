@@ -133,10 +133,15 @@ class BuyCore {
         if (class_exists('BuyVariationClass')) {
             self::$variation = TRUE;
         }
-        self::$buyoptions = get_option('buyoptions'); //Загрука опций из базы
-        self::$buyzakaz = get_option('buyzakaz'); //Загрука опций из базы
-        self::$buynotification = get_option('buynotification'); //Загрука опций из базы
-        self::$buysmscoptions = get_option('buysmscoptions'); //Получаем настройки смсцентра из опций
+
+        $help = \Coderun\BuyOneClick\Help::getInstance();
+
+        $options = $help->get_options();
+
+        self::$buyoptions = $options['buyoptions']; //Загрука опций из базы
+        self::$buyzakaz = $options['buyzakaz']; //Загрука опций из базы
+        self::$buynotification = $options['buynotification']; //Загрука опций из базы
+        self::$buysmscoptions = $options['buysmscoptions']; //Получаем настройки смсцентра из опций
         $this->addAction();
         $this->addOptions();
     }
@@ -307,6 +312,12 @@ class BuyCore {
 
         wp_enqueue_style('buyonclickfrontcss3');
         wp_enqueue_style('buyonclickcss2');
+
+        wp_register_style('loading', plugins_url() . '/' . self::PATCH_PLUGIN . '/css//loading-btn/loading.css');
+        wp_register_style('loading-btn', plugins_url() . '/' . self::PATCH_PLUGIN . '/css/loading-btn/loading-btn.css');
+
+        wp_enqueue_style('loading');
+        wp_enqueue_style('loading-btn');
     }
 
     /**

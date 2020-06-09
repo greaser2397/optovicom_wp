@@ -4,7 +4,14 @@
 global $WOOF;
 $_REQUEST['additional_taxes'] = $additional_taxes;
 $_REQUEST['hide_terms_count_txt'] = 0;
-
+//***
+if(isset($_REQUEST['hide_terms_count_txt_short']) AND $_REQUEST['hide_terms_count_txt_short']!=-1){
+    if((int)$_REQUEST['hide_terms_count_txt_short']==1){
+        $_REQUEST['hide_terms_count_txt']=0;
+    }else{
+        $_REQUEST['hide_terms_count_txt']=0;
+    }
+}
 //***
 if (!function_exists('woof_draw_radio_childs'))
 {
@@ -24,9 +31,9 @@ if (!function_exists('woof_draw_radio_childs'))
         global $WOOF;
         $request = $WOOF->get_request_data();
         $current_request = array();
-        if ($WOOF->is_isset_in_request_data($tax_slug))
+        if ($WOOF->is_isset_in_request_data($WOOF->check_slug($tax_slug)))
         {
-            $current_request = $request[$tax_slug];
+            $current_request = $request[$WOOF->check_slug($tax_slug)];
             $current_request = explode(',', urldecode($current_request));
         }
         //***
@@ -78,29 +85,38 @@ if (!function_exists('woof_draw_radio_childs'))
                         }
                     }
 
+                    if ($_REQUEST['hide_terms_count_txt'])
+                    {
+                        $count_string = "";
+                    }
 
                     //excluding hidden terms
-                    if (in_array($term['term_id'], $hidden_terms))
+                    $inreverse=true;
+                    if (isset($WOOF->settings['excluded_terms_reverse'][$tax_slug]) AND $WOOF->settings['excluded_terms_reverse'][$tax_slug])
+                    {
+                         $inreverse=!$inreverse;
+                    }  
+                    if (in_array($term['term_id'], $hidden_terms)==$inreverse)
                     {
                         continue;
                     }
                     ?>
 
                     <li <?php if ($WOOF->settings['dispay_in_row'][$tax_slug] AND empty($term['childs'])): ?>style="display: inline-block !important;"<?php endif; ?>>
-                        <input type="radio" <?php if (!$count AND ! in_array($term['slug'], $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_radio_term woof_radio_term_<?php echo $term['term_id'] ?>" data-slug="<?php echo $term['slug'] ?>" data-term-id="<?php echo $term['term_id'] ?>" name="<?php echo $tax_slug ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> /><label class="woof_radio_label woof_radio_label_<?php echo $term['slug'] ?> <?php if (in_array($term['slug'], $current_request)): ?>woof_radio_label_selected<?php endif; ?>" for="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>"><?php
+                        <input type="radio" <?php if (!$count AND ! in_array($term['slug'], $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_radio_term woof_radio_term_<?php echo $term['term_id'] ?>" data-slug="<?php echo $term['slug'] ?>" data-term-id="<?php echo $term['term_id'] ?>" name="<?php echo $WOOF->check_slug($tax_slug) ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> /><label class="woof_radio_label woof_radio_label_<?php echo $term['slug'] ?> <?php if (in_array($term['slug'], $current_request)): ?>woof_radio_label_selected<?php endif; ?>" for="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>"><?php
                             if (has_filter('woof_before_term_name'))
                                 echo apply_filters('woof_before_term_name', $term, $taxonomy_info);
                             else
                                 echo $term['name'];
                             ?><?php echo $count_string ?></label>
-                        <a href="#" data-name="<?php echo $tax_slug ?>" data-term-id="<?php echo $term['term_id'] ?>" style="<?php if (!in_array($term['slug'], $current_request)): ?>display: none;<?php endif; ?>" class="woof_radio_term_reset <?php if (in_array($term['slug'], $current_request)): ?>woof_radio_term_reset_visible<?php endif; ?> woof_radio_term_reset_<?php echo $term['term_id'] ?>"><img src="<?php echo WOOF_LINK ?>img/delete.png" height="12" width="12" alt="<?php _e("Delete", 'woocommerce-products-filter') ?>" /></a>
+                        <a href="#" data-name="<?php echo $WOOF->check_slug($tax_slug) ?>" data-term-id="<?php echo $term['term_id'] ?>" style="<?php if (!in_array($term['slug'], $current_request)): ?>display: none;<?php endif; ?>" class="woof_radio_term_reset <?php if (in_array($term['slug'], $current_request)): ?>woof_radio_term_reset_visible<?php endif; ?> woof_radio_term_reset_<?php echo $term['term_id'] ?>"><img src="<?php echo WOOF_LINK ?>img/delete.png" height="12" width="12" alt="<?php _e("Delete", 'woocommerce-products-filter') ?>" /></a>
                         <?php
                         if (!empty($term['childs']))
                         {
                             woof_draw_radio_childs($taxonomy_info, $tax_slug, $term['term_id'], $term['childs'], $show_count, $show_count_dynamic, $hide_dynamic_empty_pos,in_array($term['slug'], $current_request));
                         }
                         ?>
-                        <input type="hidden" value="<?php echo $term['name'] ?>" data-anchor="woof_n_<?php echo $tax_slug ?>_<?php echo $term['slug'] ?>" />
+                        <input type="hidden" value="<?php echo $term['name'] ?>" data-anchor="woof_n_<?php echo $WOOF->check_slug($tax_slug) ?>_<?php echo $term['slug'] ?>" />
 
                     </li>
                 <?php endforeach; ?>
@@ -116,9 +132,9 @@ if (!function_exists('woof_draw_radio_childs'))
     <?php
     $current_request = array();
     $request = $this->get_request_data();
-    if ($this->is_isset_in_request_data($tax_slug))
+    if ($this->is_isset_in_request_data($this->check_slug($tax_slug)))
     {
-        $current_request = $request[$tax_slug];
+        $current_request = $request[$this->check_slug($tax_slug)];
         $current_request = explode(',', urldecode($current_request));
     }
 
@@ -174,10 +190,19 @@ if (!function_exists('woof_draw_radio_childs'))
                 }
             }
 
+            if ($_REQUEST['hide_terms_count_txt'])
+            {
+                $count_string = "";
+            }
 
 
             //excluding hidden terms
-            if (in_array($term['term_id'], $hidden_terms))
+            $inreverse=true;
+            if (isset($WOOF->settings['excluded_terms_reverse'][$tax_slug]) AND $WOOF->settings['excluded_terms_reverse'][$tax_slug])
+            {
+                 $inreverse=!$inreverse;
+            }  
+            if (in_array($term['term_id'], $hidden_terms)==$inreverse)
             {
                 continue;
             }
@@ -190,14 +215,15 @@ if (!function_exists('woof_draw_radio_childs'))
             }
             ?>
             <li class="woof_term_<?php echo $term['term_id'] ?> <?php if ($hide_next_term_li): ?>woof_hidden_term<?php endif; ?>">
-                <input type="radio" <?php if (!$count AND ! in_array($term['slug'], $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_radio_term woof_radio_term_<?php echo $term['term_id'] ?>" data-slug="<?php echo $term['slug'] ?>" data-term-id="<?php echo $term['term_id'] ?>" name="<?php echo $tax_slug ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> /><label class="woof_radio_label <?php if (in_array($term['slug'], $current_request)): ?>woof_radio_label_selected<?php endif; ?>" for="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>"><?php
+                <input type="radio" <?php if (!$count AND ! in_array($term['slug'], $current_request) AND $show_count): ?>disabled=""<?php endif; ?> id="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>" class="woof_radio_term woof_radio_term_<?php echo $term['term_id'] ?>" data-slug="<?php echo $term['slug'] ?>" data-term-id="<?php echo $term['term_id'] ?>" name="<?php echo $this->check_slug($tax_slug) ?>" value="<?php echo $term['term_id'] ?>" <?php echo checked(in_array($term['slug'], $current_request)) ?> />
+                <label class="woof_radio_label <?php if (in_array($term['slug'], $current_request)): ?>woof_radio_label_selected<?php endif; ?>" for="<?php echo 'woof_' . $term['term_id'] . '_' . $inique_id ?>"><?php
                     if (has_filter('woof_before_term_name'))
                         echo apply_filters('woof_before_term_name', $term, $taxonomy_info);
                     else
                         echo $term['name'];
                     ?><?php echo $count_string ?></label>
 
-                <a href="#" data-name="<?php echo $tax_slug ?>" data-term-id="<?php echo $term['term_id'] ?>" style="<?php if (!in_array($term['slug'], $current_request)): ?>display: none;<?php endif; ?>" class="woof_radio_term_reset  <?php if (in_array($term['slug'], $current_request)): ?>woof_radio_term_reset_visible<?php endif; ?> woof_radio_term_reset_<?php echo $term['term_id'] ?>"><img src="<?php echo WOOF_LINK ?>img/delete.png" height="12" width="12" alt="<?php _e("Delete", 'woocommerce-products-filter') ?>" /></a>
+                <a href="#" data-name="<?php echo $this->check_slug($tax_slug) ?>" data-term-id="<?php echo $term['term_id'] ?>" style="<?php if (!in_array($term['slug'], $current_request)): ?>display: none;<?php endif; ?>" class="woof_radio_term_reset  <?php if (in_array($term['slug'], $current_request)): ?>woof_radio_term_reset_visible<?php endif; ?> woof_radio_term_reset_<?php echo $term['term_id'] ?>"><img src="<?php echo WOOF_LINK ?>img/delete.png" height="12" width="12" alt="<?php _e("Delete", 'woocommerce-products-filter') ?>" /></a>
 
                 <?php
                 if (!empty($term['childs']))
@@ -205,7 +231,7 @@ if (!function_exists('woof_draw_radio_childs'))
                     woof_draw_radio_childs($taxonomy_info, $tax_slug, $term['term_id'], $term['childs'], $show_count, $show_count_dynamic, $hide_dynamic_empty_pos, in_array($term['slug'], $current_request));
                 }
                 ?>
-                <input type="hidden" value="<?php echo $term['name'] ?>" data-anchor="woof_n_<?php echo $tax_slug ?>_<?php echo $term['slug'] ?>" />
+                <input type="hidden" value="<?php echo $term['name'] ?>" data-anchor="woof_n_<?php echo $this->check_slug($tax_slug) ?>_<?php echo $term['slug'] ?>" />
 
             </li>
             <?php

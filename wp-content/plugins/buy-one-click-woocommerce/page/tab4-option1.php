@@ -2,6 +2,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+use Coderun\BuyOneClick\BuyCore;
 ?>
 <h3><?php _e('Information on', 'coderun-oneclickwoo'); ?>  <?php echo BuyCore::NAME_PLUGIN; ?></h3>
 <table class="table">
@@ -31,7 +32,9 @@ if (!defined('ABSPATH')) {
                 </p>
             </td>
             <td>
-                <a href="https://beget.com/?id=5193" target="_blank"><img src="https://cp.beget.com/promo_data/static/static300x1050_2.png" border="0"></a>
+                <a href="https://beget.com/?id=5193" target="_blank"><img src="https://cp.beget.com/promo_data/static/static100x100_6.png" border="0"></a>
+                <a href="https://beget.com/?id=5193" target="_blank"><img src="https://cp.beget.com/promo_data/static/static100x100_2.png" border="0"></a>
+                <a href="https://beget.com/?id=5193" target="_blank"><img src="https://cp.beget.com/promo_data/static/static100x100_4.png" border="0"></a>
             </td>
         </tr>
     </tbody>

@@ -1,14 +1,12 @@
 //(function (jQuery, undefinde) {
 
 jQuery(document).ready(function () {
-
-
-
     jQuery(document).on('click', '.popup .close_order, .overlay', function (e) {
         e.preventDefault();
         jQuery('.popup, .overlay').css({'opacity': '0', 'visibility': 'hidden'});
         jQuery('#buyoneclick_form_order input:checkbox').removeAttr("checked");
         jQuery('#buyoneclick_form_order input[type=hidden].valTrFal').val('valTrFal_disabled');
+        buyone_click_body_scroll();
     });
 
     jQuery(function () {
@@ -23,164 +21,116 @@ jQuery(document).ready(function () {
     });
     //Доп сообщение
 
-    jQuery(document).on('click', '.popummessage .close_message, .overlay_message', function () {
-        jQuery('.popummessage, .overlay_message').css({'opacity': '0', 'visibility': 'hidden'});
+    jQuery(document).on('click', '#formOrderOneClick .popummessage .close_message, #formOrderOneClick .overlay_message', function () {
+        jQuery('#formOrderOneClick .popummessage, #formOrderOneClick .overlay_message').css({'opacity': '0', 'visibility': 'hidden'});
+        buyone_click_body_scroll();
 
     });
 });
 
-
-
-//Обработка клика по кнопке
-// Для формы - отправка в ajax class
-function saveButton(text, url, objThis, callback) {
-
-    jQuery.ajax({
-        type: "POST",
-        url: url,
-        async: false,
-        dataType: 'json',
-        data: {
-            action: 'buybuttonform',
-            form: text
-        },
-    }).done(function (response) {
-
-        callback(response);
-
-        setTimeout(function () {
-            jQuery("#buyoneclick_form_order .form-message-result").html('');
-        }, 3000);
-
-        var obj = response;
-        if (!obj.success) {
-            jQuery("#buyoneclick_form_order .form-message-result").html(obj.data.message)
-            return false;
-        }
-        if (obj.data.num == "1") { //Действие по умолчанию
-            jQuery("#buyoneclick_form_order .form-message-result").html(obj.data.result)
-        }
-        if (obj.data.num == "2") { // Закрытие формы через action мил сек
-            jQuery("#buyoneclick_form_order .form-message-result").html(obj.data.result)
-            jQuery('.popup, .overlay').fadeOut(obj.data.action);
-        }
-        if (obj.data.num == "3") { // Показать сообщение action
-            jQuery('.popup, .overlay').hide();
-            jQuery('.popummessage, .overlay_message').css('opacity', '1');
-            jQuery('.popummessage, .overlay_message').css('visibility', 'visible');
-
-        }
-        if (obj.data.num == "4") { // Сделать редирект action
-            jQuery("#buyoneclick_form_order .form-message-result").html(obj.data.result)
-            self.location = obj.data.action;
-        }
-
-
-
-    }).fail(function (response) {
-        jQuery("#buyoneclick_form_order .form-message-result").html('Ошибка сервера');
-
-        callback(response);
-
-        return false;
-    });
-
-}
-
 function getAjaxUrl() {
-
     return buyone_ajax.ajaxurl;
 }
 
+function buyone_click_body_scroll() {
+
+    var formVisible=jQuery('#formOrderOneClick .popup').css('visibility')
+
+    if(formVisible==='visible'){
+        jQuery('body').css('overflow','hidden')
+    }else {
+        jQuery('body').css('overflow','');
+    }
+}
+
 
 jQuery(document).ready(function () {
 
-    jQuery(document).on('click', '#buyoneclick_form_order .buyButtonOkForm', function (e) {
+
+    /**
+     * Отправит форму с заказом
+     */
+    jQuery(document).on('submit', '#buyoneclick_form_order', function (e) {
         e.preventDefault();
-        var objButton = this;
 
-        jQuery(objButton).prop("disabled", true);
+        var self = this;
 
-        var parentForm = jQuery(this).parent('#buyoneclick_form_order');
+        jQuery('#buyoneclick_form_order .buyButtonOkForm').prop('disabled', 'disabled');
 
-        var allRequired;
-        var errorSending = "no";
-        var txtname = jQuery(parentForm).find("input[name=txtname]").val();
-        var txtphone = jQuery(parentForm).find("input[name=txtphone]").val();
-        var txtemail = jQuery(parentForm).find("input[name=txtemail]").val();
-        var message = jQuery(".buymessage").val();
-        var buy_nametovar = jQuery(parentForm).find("input[name=buy_nametovar]").val();
-        var buy_pricetovar = jQuery(parentForm).find("input[name=buy_pricetovar]").val();
-        var buy_idtovar = jQuery(parentForm).find("input[name=buy_idtovar]").val();
-        var custom = jQuery(objButton).attr('data-custom');
+        var root_selector = '#buyoneclick_form_order';
 
-        jQuery(".b1c-form").find(".buyvalide").each(function () {
-            if (jQuery(this).attr("required") != undefined) { // если хотя бы одно поле обязательно
-                allRequired = "no";
+        jQuery('#buyoneclick_form_order .buyButtonOkForm').addClass('running');
+
+        jQuery.ajax({
+            url: getAjaxUrl(),
+            type: "POST",
+            data: new FormData(this),
+            cache: false,
+            processData: false,
+            contentType: false
+        }).done(function (response) {
+            setTimeout(function () {
+                jQuery("#buyoneclick_form_order .form-message-result").html('');
+            }, 3000);
+
+            var obj = response;
+
+            if (!obj.success) {
+                jQuery(root_selector + " .form-message-result").html(obj.data.message)
+                return false;
             }
+            if (buyone_ajax.success_action === 1) { //Действие по умолчанию
+                jQuery(root_selector + " .form-message-result").html(buyone_ajax.after_message_form)
+            } else if (buyone_ajax.success_action === 2) { // Закрытие формы через action мил сек
+                jQuery(root_selector + " .form-message-result").html(buyone_ajax.after_message_form)
+                setTimeout(function(){
+                    jQuery('#formOrderOneClick .close_order').trigger('click');
+                },buyone_ajax.after_submit_form);
+            } else if (buyone_ajax.success_action === 3) { // Показать сообщение action
+                jQuery('#formOrderOneClick .close_order').trigger('click');
+                jQuery('#formOrderOneClick .popummessage, #formOrderOneClick .overlay_message').css('opacity', '1');
+                jQuery('#formOrderOneClick .popummessage, #formOrderOneClick .overlay_message').css('visibility', 'visible');
 
+            } else if (buyone_ajax.success_action === 4) { // Сделать редирект action
+                jQuery("#buyoneclick_form_order .form-message-result").html(buyone_ajax.after_message_form)
+                window.location.href = buyone_ajax.after_submit_form;
+            }
+        }).fail(function (response) {
+            console.log(response);
+            jQuery(root_selector + " .form-message-result").html('server error 500');
+
+        }).complete(function () {
+            jQuery('#buyoneclick_form_order .buyButtonOkForm').prop("disabled", false);
+            jQuery('#buyoneclick_form_order .buyButtonOkForm').removeClass('running');
         });
-
-        jQuery(".b1c-form").find(".buyvalide").each(function () {  // проверяем заполенность полей
-
-            if (jQuery(this).val().length < 1) {
-
-                if (allRequired == "no" && jQuery(this).attr("required") != undefined) {
-
-                    errorSending = 1;
-                }
-                if (allRequired == 1) {
-
-                    errorSending = 1;
-                }
-            }
-        });
-
-        if (errorSending === "no") {
-            var infozakaz = {
-                txtname: txtname,
-                txtphone: txtphone,
-                txtemail: txtemail,
-                message: message,
-                nametovar: buy_nametovar,
-                pricetovar: buy_pricetovar,
-                idtovar: buy_idtovar,
-                custom: custom,
-                form: jQuery(this).parent('form').serializeArray(),
-            };
-
-            if (jQuery(parentForm).find("input[name=conset_personal_data]").is(":checked")) {
-                infozakaz.conset_personal_data = 1;
-            } else {
-                infozakaz.conset_personal_data = 0;
-            }
-
-            var zixnAjaxUrl = getAjaxUrl();
-            saveButton(infozakaz, zixnAjaxUrl, objButton, function (response) {
-
-                jQuery(objButton).prop("disabled", false);
-            });
-
-        }
-
 
 
     });
 
-});
-//Форма рисователь
-jQuery(document).ready(function () {
+    /**
+     * Нарисует форму
+     */
     jQuery(document).on('click', 'button.clickBuyButton', function (e) {
         e.preventDefault();
         var zixnAjaxUrl = getAjaxUrl();
         var butObj = 'body';
 
+        var button = jQuery(this);
+
         var urlpost = window.location.href;
         var productid = jQuery(this).attr('data-productid');
         var action = 'getViewForm';
+        var variation_selected = 0;
+        var variation_attr = '';
+
+        jQuery(button).addClass('running');
 
         if (typeof buyone_ajax.work_mode !== 'undefined' && buyone_ajax.work_mode == 1) {
             action = 'add_to_cart';
+            variation_selected = jQuery(this).attr('data-variation_id');
+            variation_attr = jQuery('.variations_form.cart').serialize();
+        } else {
+            variation_selected = jQuery(this).attr('data-variation_id');
         }
 
         jQuery.ajax({
@@ -190,7 +140,9 @@ jQuery(document).ready(function () {
             data: {
                 action: action,
                 urlpost: urlpost,
-                productid: productid
+                productid: productid,
+                variation_selected: variation_selected,
+                variation_attr: variation_attr,
             },
             success: function (response) {
 
@@ -208,7 +160,9 @@ jQuery(document).ready(function () {
                     jQuery('#buyoneclick_form_order [name="txtphone"]').mask(buyone_ajax.tel_mask);
                 }
 
+                jQuery(button).removeClass('running');
 
+                buyone_click_body_scroll();
             }
         });
     });
@@ -240,9 +194,10 @@ jQuery(document).ready(function () {
                 jQuery(butObj).after(response);
                 jQuery('.popup, .overlay').css('opacity', '1');
                 jQuery('.popup, .overlay').css('visibility', 'visible');
-
+                buyone_click_body_scroll();
 
             }
         });
     });
+
 });

@@ -2,6 +2,7 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+use Coderun\BuyOneClick\BuyCore;
 ?>
 <h3><?php _e('Methods and notification settings for the client', 'coderun-oneclickwoo'); ?>  <?php echo BuyCore::NAME_PLUGIN; ?></h3>
 <?php

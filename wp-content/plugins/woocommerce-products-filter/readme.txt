@@ -1,11 +1,11 @@
 === WOOF - Products Filter for WooCommerce ===
 Contributors: RealMag777
-Donate link: https://codecanyon.net/item/woof-woocommerce-products-filter/11498469?ref=realmag777
+Donate link: https://pluginus.net/affiliate/woocommerce-products-filter
 Tags: filter, products filter, woocommerce, products, ajax filter, woof, category filter, woocommerce products filter, woocommerce price filter, attributes filter, advanced product filters
 Requires at least: 4.1.0
-Tested up to: 5.1
+Tested up to: 5.4
 Requires PHP: 5.4
-Stable tag: 1.2.2.1
+Stable tag: 1.2.4
 
 WooCommerce Products Filter – flexible, easy and robust professional filter for products in the WooCommerce store
 
@@ -18,16 +18,18 @@ Supports latest version of the WooCommerce plugin. A must have plugin for your W
 If you are WP+PHP developer and you want to create something unusual in the search form interface – Welcome: using WOOF extension API and default extensions as an examples you can create any html-items for the search form and even custom woo-products loop template for your own purposes.
 Also its possible to [create any connectors for layout plugins](https://products-filter.com/extensions/)
 
-Latest PHP 7.3.x - COMPATIBLE!
+Latest PHP 7.4.x - COMPATIBLE!
 
-Demo site: [https://demo.products-filter.com](https://demo.products-filter.com/)
+Demo site 1: [demo.products-filter.com](https://demo.products-filter.com/)
+Demo site 2: [demo10k.products-filter.com/](https://demo10k.products-filter.com/)
+Demo site 3: [turbo.products-filter.com/](https://turbo.products-filter.com/)
 
 
 ### WOOF Products Filter Features:
 
-&#9989;&nbsp;**Representation:** WOOF can be used as Shortcode, so as the Widget. Special shortcode [[woof]](https://products-filter.com/shortcode/woof/) allows insert product filter in any part of your site. It is possible to show products taxonomies and attributes in the search form as: radio, checkbox, drop-down, multi-drop-down, radio buttons in drop-down. In the premium version also is possible to show html-elements as: color, image, label, hierarchy drop-down, range-slider, checkbox buttons in drop-down
+&#9989;&nbsp;**Representation:** WOOF can be used as Shortcode, so as the Widget. Special shortcode [[woof]](https://products-filter.com/shortcode/woof/) allows insert product filter in any part of your site. It is possible to show products taxonomies and attributes in the search form as: radio, checkbox, drop-down, multi-drop-down, radio buttons in drop-down. In the premium version also is possible to show html-elements as: color, image, label, hierarchy drop-down, [attributes/taxonomy range-slider](https://demo.products-filter.com/taxonomy-range-slider/), checkbox buttons in drop-down
 
-&#9989;&nbsp;**Products shortcode:** Products shortcode [[woof_products per_page=8 columns=3 is_ajax=1 taxonomies=product_cat:9]](https://products-filter.com/shortcode/woof_products/) allows to display and filter targeted products in a single page or as part of a post content, and of course products there are filterable
+&#9989;&nbsp;**Products shortcode:** Products shortcode [[woof_products per_page=8 columns=3 is_ajax=1 taxonomies=product_cat:9]](https://products-filter.com/shortcode/woof_products/) allows to display and filter targeted products in a single page or as part of a post content, and of course products there are filterable in redirect or ajax mode. Using shortcode attribute custom_tpl it is even possible use custom templates what give wide flexibility in different projects.
 
 &#9989;&nbsp;**Products searching by AJAX:** (optionally) allows filter woocommerce products without page reloading. Works for 95% wordpress themes and should be tested before release to the production site as it depends of the current wp theme functionality and integrated html code there
 
@@ -47,6 +49,8 @@ Demo site: [https://demo.products-filter.com](https://demo.products-filter.com/)
 
 &#9989;&nbsp;[**Quick Search**](https://products-filter.com/extencion/quick-search/): this technology created especially for WOOF and allows make instant search regardless of the products quantity of products without AJAX or page reloading
 
+&#9989;&nbsp;[**Turbo Mode**](https://products-filter.com/extencion/turbo-mode/): this mode allows to avoid generating big MySQL queries while products filtering on the site front
+
 &#9989;&nbsp;[**Products Messenger**](https://products-filter.com/extencion/products-messenger/): allows your logged-in customers subscribe to the products filter combinations and always be informed if in your shop appeared exact products they want to buy. Such tool can grow conversion of the shop. Use it as widget, so as shortcode [woof_products_messenger]
 
 &#9989;&nbsp;[**Saver of Search query**](https://products-filter.com/extencion/saver-of-search-query/): this extension allows for your customers save search combinations and access them in future by one click what makes your customers more informative and attenditive about your shop products
@@ -55,7 +59,15 @@ Demo site: [https://demo.products-filter.com](https://demo.products-filter.com/)
 
 &#9989;&nbsp;Images can be as filter html-elements in the [search form](https://demo.products-filter.com/all-by-images-only/)
 
+&#9989;&nbsp;Colors can be as filter html-elements in the [search form](https://demo.products-filter.com/clothing-by-color-only/)
+
+&#9989;&nbsp;Price filter as range-slider OR as drop-down
+
+&#9989;&nbsp;Showing hidden search form as [BUTTON](https://demo.products-filter.com/hidden-search-form/)
+
 &#9989;&nbsp;In the plugin settings for radio and checkboxes html-elements in the filter form can be selected different skins
+
+&#9989;&nbsp;Possibility to create products custom layout template and use it with shortcode [woof_products](https://products-filter.com/shortcode/woof_products/) in ajax and redirect mode, see attributes custom_tpl and tpl_index
 
 &#9989;&nbsp;Possible to create any extensions for the plugin (for developers only). See folder 'ext' for the code examples
 
@@ -71,7 +83,7 @@ Demo site: [https://demo.products-filter.com](https://demo.products-filter.com/)
 
 &#9989;&nbsp;Compatible with [WooCommerce Products Per Page](https://wordpress.org/plugins/woocommerce-products-per-page/)
 
-&#9989;&nbsp;PHP 5.4.x - 7.3.x full compatibility
+&#9989;&nbsp;PHP 5.4.x - 7.4.x full compatibility
 
 &#9989;&nbsp;Simple, robust AND rich options panel
 
@@ -97,6 +109,7 @@ https://www.youtube.com/watch?v=jZPtdWgAxKk
 
 &#9989;&nbsp;[WPCS - WordPress Currency Switcher](https://wordpress.org/plugins/currency-switcher/): is a WordPress plugin that allows to switch currencies and get their rates converted in the real time on your site!
 
+&#9989;&nbsp;[WPBE - WordPress Posts Bulk Editor Professional](https://wordpress.org/plugins/bulk-editor/): WordPress plugin for managing and bulk edit WordPress posts, pages and custom post types data in robust and flexible way! Be professionals with managing data of your site!
 
 
 == Installation ==
@@ -137,6 +150,12 @@ R: [https://products-filter.com/documentation/](https://products-filter.com/docu
 6. The plugin settings
 
 == Changelog ==
+
+= 1.2.4 =
+* https://products-filter.com/update-woocommerce-products-filter-v-2-2-4/
+
+= 1.2.3 =
+* https://products-filter.com/update-woocommerce-products-filter-v-2-2-3/
 
 = 1.2.2.1 =
 * 1 hot fix with redirecting from single page to shop page. Reset site cache as js/front.js and js/front_comprssd.js file was changed!!
@@ -191,15 +210,15 @@ R: [https://products-filter.com/documentation/](https://products-filter.com/docu
 * Fixed bugs from customers
 * A lot of the code has been remade
 * Extension installation functionality from backend is added and its API is finished and can be used in production
-* Using default extension php developers can create: types of filter elements using any 
+* Using default extension php developers can create: types of filter elements using any
   custom html templates, any products loop templates
 * Possibility to write custom templates for woocommerce products loop using extensions
 * Improved SKU searching for variable products and autocomplete added
-add_filter('woof_text_autocomplete_items', function($count){       
+add_filter('woof_text_autocomplete_items', function($count){
        return 2;
 }); (enabled optionally from admin panel)
 * Improved by Text searching and autocomplete added
-add_filter('woof_sku_autocomplete_items', function($count){       
+add_filter('woof_sku_autocomplete_items', function($count){
    return 2;
 }); (enabled optionally from admin panel)
 * Improved InStock searching for variable products
@@ -213,13 +232,13 @@ add_filter('woof_sku_autocomplete_items', function($count){
 * New option: Range-slider skin - tab Design
 * New option: Init plugin on the next site pages only - tab Advanced
 * New option: <strong>In the terms slugs uses non-latin characters</strong> - from now doesn matter which language uses in slug names - tab Advanced
-* New hook added: add_filter('woof_title_tag', function($tag){       
+* New hook added: add_filter('woof_title_tag', function($tag){
        return 'h3';
    });
-* New hook added: add_filter('woof_widget_title_tag', function($tag){       
+* New hook added: add_filter('woof_widget_title_tag', function($tag){
        return 'h3';
    });
-* New hook added: $price_slider_html = apply_filters('woof_price_slider_html', $price_slider_html, $price_slider_data);  
+* New hook added: $price_slider_html = apply_filters('woof_price_slider_html', $price_slider_html, $price_slider_data);
 * New hook added: $orderby = apply_filters('woof_get_terms_orderby', $taxonomy);
 * New hook added: $order = apply_filters('woof_get_terms_order', $taxonomy, $orderby);
 
@@ -240,7 +259,7 @@ add_filter('woof_sku_autocomplete_items', function($count){
 * Improved shortcode: [woof_price_filter type="slider"] //slider,select
 * Improved shortcode: [woof_products behaviour='recent' per_page=12 columns=3]
 * Improved shortcode: [woof redirect="xxx" autosubmit=1]
-* Improved shortcode: [woof redirect="http://www.your-site.com/page1" autosubmit=1 ajax_redraw=1 is_ajax=1 tax_only="locations" by_only="none"] - new attributes - tax_only,by_only,redirect
+* Improved shortcode: [woof redirect="https://www.your-site.com/page1" autosubmit=1 ajax_redraw=1 is_ajax=1 tax_only="locations" by_only="none"] - new attributes - tax_only,by_only,redirect
 * Disable swoof influence option
 * Custom front css styles file link option
 * Additional text in the widget optionally
@@ -304,22 +323,14 @@ Plugin release. Operate all the basic functions.
 
 == License ==
 
-This plugin is copyright pluginus.net &copy; 2012-2019 with [GNU General Public License][] by realmag777.
+This plugin is copyright pluginus.net &copy; 2012-2020 with [GNU General Public License][] by realmag777.
 
 This program is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License][] as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY. See the GNU General Public License for more details.
 
-[GNU General Public License]: http://www.gnu.org/copyleft/gpl.html
+[GNU General Public License]: https://www.gnu.org/copyleft/gpl.html
 
 
 == Upgrade Notice ==
-Old v.1.1.2: https://products-filter.com/wp-content/uploads/2015/12/woocommerce-products-filter-112.zip
-Old v.1.1.3.1: https://products-filter.com/wp-content/uploads/2016/03/woocommerce-products-filter-1131.zip
-Old v.1.1.4.2: https://products-filter.com/wp-content/uploads/2016/07/woocommerce-products-filter-1142.zip
-Old v.1.1.5.1: https://products-filter.com/wp-content/uploads/2016/11/woocommerce-products-filter-1151.zip
-Old v.1.1.6.1: https://products-filter.com/wp-content/uploads/2017/04/woocommerce-products-filter-v.1.1.6.1.zip
-Old v.1.1.7: https://products-filter.com/wp-content/uploads/2017/12/woocommerce-products-filter-1.1.7.zip
-Old v.1.1.8: https://products-filter.com/wp-content/uploads/2018/02/woocommerce-products-filter-1.1.8.zip
-Old v.1.2.0: https://products-filter.com/wp-content/uploads/2018/02/woocommerce-products-filter-120.zip
-Old v.1.2.2: https://products-filter.com/wp-content/uploads/2018/10/woocommerce-products-filter-1.2.2.zip
+Previous version: https://products-filter.com/wp-content/uploads/2020/04/woocommerce-products-filter-1.2.3.zip

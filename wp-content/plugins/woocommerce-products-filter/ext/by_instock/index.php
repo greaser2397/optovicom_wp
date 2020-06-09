@@ -2,7 +2,6 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
-//01-09-2016
 final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
 
     public $type = 'by_html_type';
@@ -20,7 +19,10 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
     {
         return plugin_dir_path(__FILE__);
     }
-
+    public function get_ext_override_path()
+    {
+        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->html_type. DIRECTORY_SEPARATOR;
+    }
     public function get_ext_link()
     {
         return plugin_dir_url(__FILE__);
@@ -99,14 +101,14 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
 
         //out of stock products - remove from dyn recount
         //wp-admin/admin.php?page=wc-settings&tab=products&section=inventory
-        if (get_option('woocommerce_hide_out_of_stock_items', 'no') == 'yes')
+       /*if (get_option('woocommerce_hide_out_of_stock_items', 'no') == 'yes')
         {
             $meta_query[] = array(
                 'key' => '_stock_status',
                 'value' => array('instock'),
                 'compare' => 'IN'
             );
-        }
+        }*/
 
         //+++
 
@@ -173,11 +175,23 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
           //'tax_query' => $tax_query
           );
          */
+        
+        if(isset($_REQUEST['woof_current_recount'])){
+            $dynamic_request=$_REQUEST['woof_current_recount'];
+            if(isset($dynamic_request["slug"]) AND isset($dynamic_request["taxonomy"])){
+                   if(isset($request[$dynamic_request["taxonomy"]])){
+                       $request[$dynamic_request["taxonomy"]]=$request[$dynamic_request["taxonomy"]].",".$dynamic_request["slug"];
+                   }else{
+                       $request[$dynamic_request["taxonomy"]]=$dynamic_request["slug"];
+                   }
+            }           
+        }
 
         if (isset($request['stock']))
         {
             if ($request['stock'] == 'instock')
             {
+                
                 $taxonomies = $WOOF->get_taxonomies();
                 $prod_attributes = array();
                 foreach ($taxonomies as $key => $value)
@@ -203,7 +217,7 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
 
                     if (!empty($prod_attributes_in_request))
                     {
-                         $meta_query = array('relation' => 'AND');
+                        $meta_query = array('relation' => 'AND');
                         $meta_query[] = array(
                             'key' => '_stock_status',
                             'value' => 'outofstock'
@@ -240,7 +254,7 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
                         $args = array(
                             'nopaging' => true,
                             'suppress_filters' => true,
-                            'post_status' => 'publish',
+                            //'post_status' => 'publish',
                             'post_type' => array('product_variation'),
                             'meta_query' => $meta_query
                         );
@@ -257,7 +271,7 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
                             }
                         }
                         $product_ids = implode(',', $products);
-                        //echo $product_ids;
+                        
                         //exit;
 
                         if (!empty($product_ids))
@@ -268,7 +282,7 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
                 }
             }
         }
-        //http://dev.products-filter.com/shop/?swoof=1&pa_size=xl&stock=instock&min_price=15&max_price=80&pa_color=green
+
         return $where;
     }
 

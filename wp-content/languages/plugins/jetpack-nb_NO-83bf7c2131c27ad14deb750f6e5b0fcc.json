@@ -1,1 +1,0 @@
-{"translation-revision-date":"2019-06-06 19:04:09+0000","generator":"GlotPress\/2.4.0-alpha","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n != 1;","lang":"nb_NO"},"image %1$d of %2$d in gallery":["bilde %1$d av %2$d i galleri"]}},"comment":{"reference":"extensions\/blocks\/tiled-gallery\/layout\/index.js"}}

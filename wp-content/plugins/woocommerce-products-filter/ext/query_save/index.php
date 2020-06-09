@@ -2,7 +2,6 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
-//18-04-2016
 final class WOOF_EXT_QUERY_SAVE extends WOOF_EXT {
 
     public $type = 'by_html_type';
@@ -11,21 +10,32 @@ final class WOOF_EXT_QUERY_SAVE extends WOOF_EXT {
     public $html_type_dynamic_recount_behavior = 'none';
     protected $user_meta_key = 'woof_user_search_query';
     public $search_count=2;
-
+    public $show_notise_product=0;
+    public $show_notise=0;
     public function __construct() {
 	parent::__construct();	
 	//***
 	if (isset($this->woof_settings["query_save"]['search_count']) AND ! empty($this->woof_settings["query_save"]['search_count'])) {
-	    $this->search_coun = (int) $this->woof_settings["query_save"]['search_count'];
+	    $this->search_count = (int) $this->woof_settings["query_save"]['search_count'];
 	}
 	
+        if (isset($this->woof_settings["query_save"]['show_notice_product']) AND ! empty($this->woof_settings["query_save"]['show_notice_product'])) {
+	    $this->show_notise_product = (int) $this->woof_settings["query_save"]['show_notice_product'];
+	}
+        if (isset($this->woof_settings["query_save"]['show_notice']) AND ! empty($this->woof_settings["query_save"]['show_notice'])) {
+	    $this->show_notise = (int) $this->woof_settings["query_save"]['show_notice'];
+	}        
+        
 	$this->init();
     }
 
     public function get_ext_path() {
 	return plugin_dir_path(__FILE__);
     }
-
+    public function get_ext_override_path()
+    {
+        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .$this->html_type. DIRECTORY_SEPARATOR;
+    }
     public function get_ext_link() {
 	return plugin_dir_url(__FILE__);
     }
@@ -45,6 +55,10 @@ final class WOOF_EXT_QUERY_SAVE extends WOOF_EXT {
 	add_action('wp_ajax_nopriv_woof_save_query_add_query', array($this, 'woof_add_query'));
 	add_action('wp_ajax_woof_save_query_remove_query', array($this, 'woof_remove_query'));
 	add_action('wp_ajax_nopriv_woof_save_query_remove_query', array($this, 'woof_remove_query'));
+        
+        add_action('wp_ajax_nopriv_woof_save_query_check_query', array($this, 'check_query'));
+        add_action('wp_ajax_woof_save_query_check_query', array($this, 'check_query'));
+        
 	//+++
 
         // add shortcode
@@ -53,6 +67,9 @@ final class WOOF_EXT_QUERY_SAVE extends WOOF_EXT {
 	self::$includes['js']['woof_' . $this->html_type . '_html_items'] = $this->get_ext_link() . 'js/' . $this->html_type . '.js';
 	self::$includes['css']['woof_' . $this->html_type . '_html_items'] = $this->get_ext_link() . 'css/' . $this->html_type . '.css';
 	self::$includes['js_init_functions'][$this->html_type] = 'woof_init_save_query';
+        
+        add_action( 'woocommerce_single_product_summary', array($this, 'show_notice_on_product') );
+        
     }
 
 
@@ -87,8 +104,14 @@ final class WOOF_EXT_QUERY_SAVE extends WOOF_EXT {
         
 	$data['user_id'] = $sanit_user_id;
 	$data['link'] = esc_url($_POST['link']);
+        if(!isset($_POST['get_var'])){
+            $_POST['get_var']=array();
+        }
 	$data['get'] =$this->woof_get_html_terms($this->sanitaz_array_r($_POST['get_var']));
 	$saved_q = get_user_meta($data['user_id'], $this->user_meta_key, true);
+        if(!is_array($saved_q)){
+            $saved_q=array();
+	}
         $data['request'] =$this->sanitazed_sql_query(base64_decode($WOOF->storage->get_val("woof_pm_request_".$data['user_id'])));
         // If the request has banned operators or is empty
         if(!$data['request'] OR empty($data['request'])){
@@ -100,8 +123,11 @@ final class WOOF_EXT_QUERY_SAVE extends WOOF_EXT {
         if($pos){
             $data['request']=substr($data['request'],0,$pos);
         }
+	if(!is_array($saved_q)){
+		$saved_q=array();
+	}	        
 	if (count($saved_q) >= $this->search_count) {
-	    die('count is max'); // Check limit count on backend
+	    die('<li class="woof_sq_max_count" >'.__('Сount is max', 'woocommerce-products-filter').'</li>'); // Check limit count on backend
 	}
         //+++
 	$data['date'] = time();
@@ -175,7 +201,22 @@ final class WOOF_EXT_QUERY_SAVE extends WOOF_EXT {
                 if (!empty($name)) {
                     $name .= ": ";
                 }
-                $name .= $val;
+                
+                $arr_val= explode(',', $val);
+                $result=array();
+                
+                foreach($arr_val as $slug){
+                    $term = get_term_by('slug', $slug, $key);
+                    if(is_object($term)){
+                       $result[]=$term->name;
+                   }else{
+                       $result[]= $val;
+                   }
+                }
+                                
+                $name .= implode(',', $result);
+
+                
                 $html .= "<span class='woof_terms'>" . $name . "</span><br />";                
             }
 
@@ -208,6 +249,9 @@ final class WOOF_EXT_QUERY_SAVE extends WOOF_EXT {
 	    'in_filter' => 0
 			), $args);
         global $WOOF;
+        if(file_exists($this->get_ext_override_path(). 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_save_query.php')){
+            return $WOOF->render_html($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_save_query.php', $data);
+        }        
         return $WOOF->render_html($this->get_ext_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes'. DIRECTORY_SEPARATOR.'woof_save_query.php',$data);
     }
 
@@ -222,6 +266,71 @@ final class WOOF_EXT_QUERY_SAVE extends WOOF_EXT {
         }
         return $sql;
     }
+    public function show_notice_on_product(){
+
+        if($this->show_notise_product AND is_user_logged_in()){
+            global $product;
+            $id = $product->get_id(); 
+            if($id){
+            ?>
+                <div class="woof_query_save_notice_product woof_query_save_notice_product_<?php echo $id ?>" data-id="<?php echo $id ?>" ></div>
+            <?php                                
+            } 
+        }
+    }
+    public function check_query() {
+        global $WOOF;
+        if (!isset($_POST['product_ids'])) {
+            die();
+        }
+        $type = "woof";
+        if (isset($_POST['type'])) {
+            $type = $_POST['type'];
+        }
+        $user_id = get_current_user_id();
+        if (!$user_id) {
+            die();
+        }
+        $data = get_user_meta($user_id, $this->user_meta_key, true);
+        $result = array();
+        if(!is_array($data)){
+          $data=array();  
+        }
+        $show_notice = ($type == "woof") ? $this->show_notise : $this->show_notise_product;
+
+        if ($show_notice==0) {
+            die();
+        }        
+        foreach ($_POST['product_ids'] as $id) {
+            $result[$id] = array();
+            
+            foreach ($data as $key => $item) {
+                $link = parse_url(html_entity_decode($item['link']), PHP_URL_QUERY);
+                parse_str($link, $_GET); //$_GET data init
+                $WOOF->woof_products_ids_prediction(array('post__in' => $id));
+                if (is_array($_REQUEST['woof_wp_query_ids']) AND in_array($id, $_REQUEST['woof_wp_query_ids'])) {
+                    $data['match'] = true;
+                    $data['notice'] = str_replace("%title%", $item['title'], $this->woof_settings["query_save"]["show_notice_text"]);
+                } else {
+                    $data['match'] = false;
+                    $data['notice'] = str_replace("%title%", $item['title'], $this->woof_settings["query_save"]["show_notice_text_not"]);
+                }
+                if($show_notice==1 AND $data['match'] == false){
+                    continue;
+                }
+                
+                if (file_exists($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'notice.php')) {
+                    $text = $WOOF->render_html($this->get_ext_override_path() . 'views' . DIRECTORY_SEPARATOR . 'notice.php', $data);
+                } else {
+                    $text = $WOOF->render_html($this->get_ext_path() . 'views' . DIRECTORY_SEPARATOR . 'notice.php', $data);
+                }                    
+                $result[$id][$key] = $text;
+                                                
+            }
+        }
+        die(json_encode($result));
+    }
+
 }
 
 WOOF_EXT::$includes['html_type_objects']['query_save'] = new WOOF_EXT_QUERY_SAVE();

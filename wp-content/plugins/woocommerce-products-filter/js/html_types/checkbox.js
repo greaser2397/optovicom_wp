@@ -87,7 +87,9 @@ function woof_checkbox_direct_search(term_id, name, tax, is_checked) {
     }
     jQuery('.woof_checkbox_term_' + term_id).attr('checked', checked);
     woof_ajax_page_num = 1;
+   
     if (woof_autosubmit) {
+
         woof_submit_link(woof_get_submit_link());
     }
 

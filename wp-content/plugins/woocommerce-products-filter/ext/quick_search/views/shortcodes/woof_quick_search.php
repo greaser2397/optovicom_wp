@@ -12,13 +12,13 @@ global $WOOF;
         if ($extended_filter) {
             if ($price_filter == 1) {
 
-                wp_enqueue_script('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/js/ion-rangeSlider/ion.rangeSlider.min.js', array('jquery'));
-                wp_enqueue_style('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.css');
+                wp_enqueue_script('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/js/ion-rangeSlider/ion.rangeSlider.min.js', array('jquery'),WOOF_VERSION);
+                wp_enqueue_style('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.css',array(),WOOF_VERSION);
                 $ion_slider_skin = 'skinNice';
                 if (isset($this->settings['ion_slider_skin'])) {
                     $ion_slider_skin = $this->settings['ion_slider_skin'];
                 }
-                wp_enqueue_style('ion.range-slider-skin', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.' . $ion_slider_skin . '.css');
+                wp_enqueue_style('ion.range-slider-skin', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.' . $ion_slider_skin . '.css',array(),WOOF_VERSION);
                 //***
                 $additional_taxes = "";
                 $min_price = $preset_min = WOOF_HELPER::get_min_price($additional_taxes);
@@ -233,7 +233,7 @@ global $WOOF;
 </div>       
 <?php
 
-if(!function_exists(woof_get_meta_filter_html)){
+if(!function_exists("woof_get_meta_filter_html")){
     function woof_get_meta_filter_html($meta_item,$type,$title=""){
         switch ($type){
             case'drop-down':
@@ -325,13 +325,13 @@ if(!function_exists(woof_get_meta_filter_html)){
 
                     global $WOOF;
                     $meta_settings=$WOOF->settings[$meta_item['meta_key']];
-                    wp_enqueue_script('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/js/ion-rangeSlider/ion.rangeSlider.min.js', array('jquery'));
-                    wp_enqueue_style('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.css');
+                    wp_enqueue_script('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/js/ion-rangeSlider/ion.rangeSlider.min.js', array('jquery'),WOOF_VERSION);
+                    wp_enqueue_style('ion.range-slider', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.css',array(),WOOF_VERSION);
                     $ion_slider_skin = 'skinNice';
                     if (isset($WOOF->settings['ion_slider_skin'])) {
                         $ion_slider_skin = $WOOF->settings['ion_slider_skin'];
                     }
-                    wp_enqueue_style('ion.range-slider-skin', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.' . $ion_slider_skin . '.css');
+                    wp_enqueue_style('ion.range-slider-skin', WOOF_LINK . 'js/ion.range-slider/css/ion.rangeSlider.' . $ion_slider_skin . '.css',array(),WOOF_VERSION);
                     $min=0;
                     $max=100;
                     if(!isset($meta_settings['range'])){

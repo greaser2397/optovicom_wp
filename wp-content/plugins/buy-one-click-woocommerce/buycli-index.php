@@ -1,17 +1,19 @@
 <?php
 
 /*
- *  Plugin Name: Buy one click WooCommerce
- *  Plugin URI: http://zixn.ru/plagin-zakazat-v-odin-klik-dlya-woocommerce.html
- *  Description: Buy in one click for WooCommerce. The best plugin that adds to your online store purchase button in one click
- *  Version: 1.9
- *  Author: Djo
- *  Author URI: http://zixn.ru
+ * Plugin Name: Buy one click WooCommerce
+ * Plugin URI: http://zixn.ru/plagin-zakazat-v-odin-klik-dlya-woocommerce.html
+ * Description: Buy in one click for WooCommerce. The best plugin that adds to your online store purchase button in one click
+ * Version: 1.9.12
+ * Author: Djo
+ * Author URI: http://zixn.ru
+ * WC requires at least: 3.9
+ * WC tested up to: 4.0.5
  * Text Domain: coderun-oneclickwoo
  * Domain Path: /languages
  */
 
-/*  Copyright 2019  Djo  (email: izm@zixn.ru)
+/*  Copyright 2020  Djo  (email: izm@zixn.ru)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -35,37 +37,60 @@ __('Buy in one click for WooCommerce. The best plugin that adds to your online s
 if (!defined('ABSPATH')) {
     exit;
 }
-add_action('wp_loaded', 'buy_plugin_init_core', 100);
+
+define('CODERUN_ONECLICKWOO_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)));
+
+define('CODERUN_ONECLICKWOO_TEMPLATES_PLUGIN_DIR', CODERUN_ONECLICKWOO_PLUGIN_DIR . '/templates');
+
+//add_action('wp_loaded', 'buy_plugin_init_core', 100);
 
 /**
  * Инициализация всего плагина
  */
-function buy_plugin_init_core() {
-    
-     load_plugin_textdomain(
-            'coderun-oneclickwoo',false,dirname( plugin_basename( __FILE__ ) ) . '/languages'
+function coderun_buy_plugin_init_core() {
+
+    load_plugin_textdomain(
+        'coderun-oneclickwoo', false, dirname(plugin_basename(__FILE__)) . '/languages'
     );
-    
-    require_once (WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)) . '/inc/core-class.php');
-    require_once (WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)) . '/inc/hook-class.php');
-    require_once (WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)) . '/inc/function-class.php');
-    require_once (WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)) . '/inc/javascript-class.php');
-    require_once (WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)) . '/inc/smsc-class.php');
-    require_once (WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)) . '/inc/shortcode-class.php');
-    if (file_exists(WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)) . '/inc/variation-class.php')) {
-        require_once (WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)) . '/inc/variation-class.php');
-    }
-//require_once (WP_PLUGIN_DIR . '/' . dirname(plugin_basename(__FILE__)) . '/lib/smtp.php');
 
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/Help.php');
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/Core.php');
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/hook-class.php');
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/function-class.php');
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/Ajax.php');
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/smsc-class.php');
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/shortcode-class.php');
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/Order.php');
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/Loadfile.php');
+    require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/ReCaptcha.php');
 
-    if (class_exists('BuyCore')) {
-        $bcore = new BuyCore();
-        $bjava = new BuyJavaScript();
-        $bshort = new BuyShortcode();
-//    $bsmsc = new BuySMSC();
-        register_deactivation_hook(__FILE__, array($bcore, 'deactivationPlugin'));
+    if (file_exists(CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/variation-class.php')) {
+        require_once (CODERUN_ONECLICKWOO_PLUGIN_DIR . '/inc/variation-class.php');
     }
+
+    $core = Coderun\BuyOneClick\BuyCore::getInstance();
+
+    add_action('wp', array($core, 'addAction'));
+
+    //$core->addAction();
+
+    if (is_admin()) {
+        $core->action_admin_page();
+    }
+
+    new BuyShortcode();
+
     if (class_exists('BuyHookPlugin')) {
         BuyHookPlugin::load();
     }
+
+    if (wp_doing_ajax()) {
+        new BuyJavaScript();
+    }
+
+    register_deactivation_hook(__FILE__, array($core, 'deactivationPlugin'));
+
+    register_activation_hook(__FILE__, array($core, 'addOptions'));
 }
+
+coderun_buy_plugin_init_core();

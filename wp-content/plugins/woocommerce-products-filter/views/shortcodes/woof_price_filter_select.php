@@ -21,7 +21,8 @@ if (isset($placeholder))
 
 $show_count = get_option('woof_show_count', 0);
 $show_count_dynamic = get_option('woof_show_count_dynamic', 0);
-$hide_dynamic_empty_pos = get_option('woof_hide_dynamic_empty_pos', 0);
+$hide_dynamic_empty_pos = 0;
+$opt_count = 0;
 ?>
 
 
@@ -48,6 +49,7 @@ $hide_dynamic_empty_pos = get_option('woof_hide_dynamic_empty_pos', 0);
                         continue;
                     }
                 }
+                $opt_count++;
                 ?>
 
                 <option <?php if ($c == 0 AND $show_count): ?>disabled=""<?php endif; ?> <?php echo selected($price2_filter_data['selected'], $k); ?> value="<?php echo $k ?>"><?php echo($value) ?> <?php echo $cs ?></option>
@@ -61,6 +63,13 @@ $hide_dynamic_empty_pos = get_option('woof_hide_dynamic_empty_pos', 0);
 
     </select>
 </div>
-
-
 <?php
+if(!$opt_count){
+?>
+<style>
+    .woof_price2_search_container{
+        display: none;
+    }
+</style>
+<?php
+}

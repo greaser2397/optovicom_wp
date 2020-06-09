@@ -19,6 +19,8 @@ abstract class  WOOF_META_FILTER_TYPE {
 
     abstract public function get_meta_filter_link(); 
     
+    abstract public function get_meta_filter_override_path(); 
+    
     abstract public function create_meta_query();
     
     public function get_js_func_name(){

@@ -2,507 +2,646 @@
 # This file is distributed under the same license as the Themes - Storefront package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-01-12 09:04:13+0000\n"
+"PO-Revision-Date: 2020-01-28 15:43:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/2.3.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
 "Language: zh_TW\n"
 "Project-Id-Version: Themes - Storefront\n"
 
-#. Theme Name of the plugin/theme
+#. Theme Name of the theme
 msgid "Storefront"
 msgstr "Storefront"
 
-#. Description of the plugin/theme
-msgid "Storefront is the perfect theme for your next WooCommerce project. Designed and developed by WooCommerce Core developers, it features a bespoke integration with WooCommerce itself plus many of the most popular customer facing WooCommerce extensions. There are several layout & color options to personalise your shop, multiple widget regions, a responsive design and much more. Developers will love it's lean and extensible codebase making it a joy to customise and extend. Looking for a WooCommerce theme? Look no further!"
-msgstr "Storefront 是我們建議作為您下一個 WooCommerce 專案的完美主題。它是由 WooCommerce 核心開發者所設計開發的，它是為 WooCommerce 量身訂作的主題，外加許多受歡迎的 WooCommerce 延伸功能。它有數種的版型和色彩選項，供你設定個人化的賣場，支援數個小工具版位，再加上響應式設計及許多優點。 開發者們將會愛上它精巧及可擴充的程式庫，這些都讓開發和擴充工作變得令人愉快。你正在尋找 WooCommerce 的主題嗎？不需要再看別的囉！"
+#: inc/storefront-template-functions.php:559
+msgid "Tag:"
+msgid_plural "Tags:"
+msgstr[0] "標籤:"
 
-#: inc/class-storefront.php:145
+#: inc/storefront-template-functions.php:553
+msgid "Category:"
+msgid_plural "Categories:"
+msgstr[0] "分類:"
+
+#. translators: %s: post date
+#: inc/storefront-template-functions.php:467
+msgid "Posted on %s"
+msgstr "發佈日期: %s"
+
+#: inc/storefront-template-functions.php:473
+msgid "by"
+msgstr "作者:"
+
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:841
+msgid "Product Brands"
+msgstr "產品品牌"
+
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:826
+msgid "Shop by Brand"
+msgstr "依品牌瀏覽"
+
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:791
+msgid "You're viewing:"
+msgstr "目前檢視項目:"
+
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:728
+msgid "More products"
+msgstr "更多產品"
+
+#: inc/storefront-template-functions.php:592
+msgid "Previous post:"
+msgstr "上一篇文章:"
+
+#: inc/storefront-template-functions.php:591
+msgid "Next post:"
+msgstr "下一篇文章:"
+
+#: inc/woocommerce/class-storefront-woocommerce-customizer.php:93
+msgid "Product Pagination"
+msgstr "產品分頁"
+
+#: inc/woocommerce/class-storefront-woocommerce-customizer.php:83
+msgid "Sticky Add-To-Cart"
+msgstr "將 [新增至購物車] 置頂"
+
+#: inc/woocommerce/class-storefront-woocommerce-customizer.php:59
+msgid "Product Page"
+msgstr "產品頁面"
+
+#: inc/customizer/class-storefront-customizer.php:273
+msgid "Hero text color"
+msgstr "宣傳內容文字色彩"
+
+#: inc/customizer/class-storefront-customizer.php:252
+msgid "Hero heading color"
+msgstr "宣傳內容標題色彩"
+
+#: inc/class-storefront.php:339
+msgid "Collapse child menu"
+msgstr "收合子選單"
+
+#: inc/class-storefront.php:338
+msgid "Expand child menu"
+msgstr "展開子選單"
+
+#: inc/storefront-template-functions.php:141
+msgid "Built with Storefront &amp; WooCommerce"
+msgstr "本站採用 Storefront 及 WooCommerce 建置"
+
+#: inc/storefront-template-functions.php:141
+msgid "WooCommerce - The Best eCommerce Platform for WordPress"
+msgstr "WooCommerce - 最佳 WordPress 電子商務平台"
+
+#: inc/class-storefront.php:507
+msgid "Post Navigation"
+msgstr "文章導覽"
+
+#: comments.php:58
+msgid "Comment Navigation Below"
+msgstr "留言導覽下方"
+
+#: comments.php:38
+msgid "Comment Navigation Above"
+msgstr "留言導覽上方"
+
+#: comments.php:21
+msgid "Post Comments"
+msgstr "發佈留言"
+
+#: inc/admin/class-storefront-admin.php:174
+#: inc/admin/class-storefront-plugin-install.php:62
+msgid "Activated"
+msgstr "已啟用"
+
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:542
+msgid "Best Selling Products"
+msgstr "暢銷商品"
+
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:490
+msgid "On Sale Products"
+msgstr "特價商品"
+
+#: inc/storefront-template-functions.php:309
+msgid "Edit this section"
+msgstr "編輯這個區段"
+
+#: inc/nux/class-storefront-nux-starter-content.php:72
+msgid "You might be an artist who would like to introduce yourself and your work here or maybe you&rsquo;re a business with a mission to describe."
+msgstr "也許你是位想要在這裡介紹自己及作品的創作者，又或你是一位想在這裡說明相關業務的商務人士。"
+
+#: inc/nux/class-storefront-nux-starter-content.php:71
+msgid "About"
+msgstr "關於"
+
+#: inc/nux/class-storefront-nux-starter-content.php:213
+#: inc/nux/class-storefront-nux-starter-content.php:1101
+msgid "Welcome"
+msgstr "歡迎使用"
+
+#: inc/nux/class-storefront-nux-guided-tour.php:147
+msgid "Done"
+msgstr "完成"
+
+#. translators: %s: 'End Of Line' symbol
+#: inc/nux/class-storefront-nux-guided-tour.php:111
+msgid "Here you can control the overall look and feel of your store.%sTo get started, let's add your logo"
+msgstr "網站管理員可以在外觀自訂器中綜覽商店的外觀與風格。%s請新增商店標製作為開始。"
+
+#: inc/nux/class-storefront-nux-guided-tour.php:109
+msgid "Welcome to the Customizer"
+msgstr "歡迎使用外觀自訂器"
+
+#: inc/nux/class-storefront-nux-guided-tour.php:91
+msgid "Skip this step"
+msgstr "略過這個步驟"
+
+#: inc/nux/class-storefront-nux-guided-tour.php:89
+msgid "No thanks, skip the tour"
+msgstr "不用了，謝謝，請略過功能導覽"
+
+#: inc/nux/class-storefront-nux-guided-tour.php:112
+#: inc/nux/class-storefront-nux-admin.php:132
+msgid "Let's go!"
+msgstr "開始"
+
+#: inc/nux/class-storefront-nux-admin.php:127
+msgid "Add example products"
+msgstr "新增示範商品"
+
+#: inc/nux/class-storefront-nux-admin.php:119
+msgid "Create a homepage using Storefront's homepage template"
+msgstr "使用 Storefront 的 [靜態首頁] 範本建立網站靜態首頁"
+
+#: inc/nux/class-storefront-nux-admin.php:117
+msgid "Apply the Storefront homepage template"
+msgstr "套用 Storefront 的 [靜態首頁] 範本"
+
+#: inc/nux/class-storefront-nux-admin.php:96
+msgid "You've set up WooCommerce, now it's time to give it some style! Let's get started by entering the Customizer and adding your logo."
+msgstr "這個網站已安裝 WooCommerce，接著便該為商店外觀進行設計。請前往外觀自訂器並新增商店標誌。"
+
+#: inc/nux/class-storefront-nux-admin.php:90
+msgid "Design your store 🎨"
+msgstr "設計商店外觀 🎨"
+
+#: inc/nux/class-storefront-nux-admin.php:86
+msgid "Activate WooCommerce"
+msgstr "啟用 WooCommerce"
+
+#: inc/nux/class-storefront-nux-admin.php:86
+msgid "WooCommerce activated"
+msgstr "WooCommerce 已啟用"
+
+#: inc/nux/class-storefront-nux-admin.php:85
+msgid "To enable eCommerce features you need to install the WooCommerce plugin."
+msgstr "這個網站必須安裝 WooCommerce 外掛，才能啟用電子商務相關功能。"
+
+#: inc/nux/class-storefront-nux-admin.php:84
+msgid "Thanks for installing Storefront, you rock! 🤘"
+msgstr "感謝安裝 Storefront 佈景主題，這是個絕佳選擇！🤘"
+
+#. translators: 1: column number, 2: row number
+#: inc/class-storefront.php:265
+msgid "Widgets added here will appear in column %1$d of footer row %2$d."
+msgstr "在這裡新增的小工具會顯示在頁尾小工具欄 %1$d - 列 %2$d。"
+
+#. translators: 1: row number, 2: column number
+#: inc/class-storefront.php:262
+msgid "Footer Row %1$d - Column %2$d"
+msgstr "頁尾小工具欄 %2$d - 列 %1$d。"
+
+#. translators: 1: column number
+#: inc/class-storefront.php:259
+msgid "Widgets added here will appear in column %1$d of the footer."
+msgstr "在這裡新增的小工具會顯示在頁尾小工具欄 %1$d。"
+
+#. translators: 1: column number
+#: inc/class-storefront.php:256
+msgid "Footer Column %1$d"
+msgstr "頁尾小工具欄 %1$d"
+
+#: inc/admin/class-storefront-admin.php:205
+msgid "Learn more"
+msgstr "進一步瞭解"
+
+#: inc/admin/class-storefront-admin.php:198
+#: inc/admin/class-storefront-plugin-install.php:94
+msgid "Install now"
+msgstr "立即安裝"
+
+#: inc/admin/class-storefront-admin.php:136
+msgid "Check 'em out"
+msgstr "查看其他商店外觀設計"
+
+#: inc/admin/class-storefront-admin.php:132
+msgid "Of course they are all fully compatible with each Storefront extension."
+msgstr "這些子佈景主題保證與 Storefront 擴充功能完全相容。"
+
+#: inc/admin/class-storefront-admin.php:128
+msgid "Each has been designed to serve a different industry - from fashion to food."
+msgstr "從時尚相關行業到食品業，不同的行業均備有專屬的 Storefront 的子佈景主題商店外觀設計。"
+
+#: inc/admin/class-storefront-admin.php:124
+msgid "Quickly and easily transform your shops appearance with Storefront child themes."
+msgstr "使用 Storefront 子佈景主題便能快速輕鬆地變更商店外觀設計。"
+
+#: inc/admin/class-storefront-admin.php:120
+msgid "Alternate designs"
+msgstr "其他商店外觀設計"
+
+#: inc/admin/class-storefront-admin.php:116
+msgid "Read more and purchase"
+msgstr "進一步瞭解及訂購使用授權"
+
+#: inc/admin/class-storefront-admin.php:111
+msgid "Make it yours without touching code with the Storefront Extensions bundle. Express yourself, optimize conversions, delight customers."
+msgstr "使用 Storefront 擴充功能套件組合後，便能在不修改程式碼的狀況下強化商店外觀設計功能，進而強化宣傳、達成轉換率最佳化及提高客戶滿意度。"
+
+#: inc/admin/class-storefront-admin.php:107
+msgid "All the tools you'll need to define your style and customize Storefront."
+msgstr "Storefront 擴充功能包含各種可用於設計及自訂商店外觀的工具。"
+
+#: inc/admin/class-storefront-admin.php:101
+msgid "Storefront Extensions Bundle"
+msgstr "Storefront 擴充功能套件組合"
+
+#: inc/admin/class-storefront-admin.php:94
+msgid "Hello! You might be interested in the following Storefront extensions and designs."
+msgstr "如有需要，請參考下方的 Storefront 擴充功能及其他商店外觀設計。"
+
+#: inc/admin/class-storefront-admin.php:74
+msgid "Development blog"
+msgstr "官方開發部落格"
+
+#: inc/admin/class-storefront-admin.php:73
+msgid "Documentation"
+msgstr "線上說明"
+
+#: inc/admin/class-storefront-admin.php:72
+msgid "Support"
+msgstr "技術支援"
+
+#: inc/class-storefront.php:243
 msgid "Widgets added to this region will appear beneath the header and above the main content."
-msgstr "加入此區域的小工具會顯示在頁首下方和主要內容的上方。"
+msgstr "新增至這個區域的小工具會顯示在頁首下方、主要內容上方。"
 
-#: inc/admin/welcome-screen/component-contribute.php:15
-msgid "Download Theme Customisations"
-msgstr "下載 Theme Customisations"
-
-#: inc/admin/welcome-screen/component-contribute.php:11
-msgid "We highly encourage you to make %s all yours. If you need to make a CSS tweak or add some custom JS or PHP, please use our Theme Customisations Plugin. Simply Click the button below, install as normal, and start Customizing today!"
-msgstr "我們非常建議您全面使用 %s。如果您需要調整 CSS 或新增一些自訂 JS 或 PHP，請使用 Theme Customisations 外掛程式。只要按以下按鈕並照平常步驟安裝，立即可開始自訂！"
-
-#: inc/admin/welcome-screen/component-contribute.php:10
-msgid "Customise Storefront"
-msgstr "自訂 Storefront"
-
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:327
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:700
 msgid "My Account"
 msgstr "我的帳號"
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:300
+#: 404.php:25 inc/woocommerce/storefront-woocommerce-template-functions.php:673
 msgid "Search"
 msgstr "搜尋"
 
-#: inc/storefront-template-functions.php:738
+#: inc/nux/class-storefront-nux-starter-content.php:1074
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:523
 msgid "Best Sellers"
-msgstr "最暢銷"
+msgstr "暢銷商品"
 
-#: inc/storefront-template-functions.php:662
+#: inc/nux/class-storefront-nux-starter-content.php:1058
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:417
 msgid "Fan Favorites"
 msgstr "粉絲最愛"
 
-#: inc/storefront-template-functions.php:621
+#: inc/nux/class-storefront-nux-starter-content.php:1135
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:364
 msgid "We Recommend"
-msgstr "我們建議使用"
+msgstr "精選商品"
 
-#: inc/storefront-template-functions.php:580
+#: inc/nux/class-storefront-nux-starter-content.php:1048
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:311
 msgid "New In"
-msgstr "剛到貨"
+msgstr "最新商品"
 
-#: inc/storefront-template-functions.php:539
+#: inc/nux/class-storefront-nux-starter-content.php:1040
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:259
 msgid "Shop by Category"
-msgstr "依類別購買"
+msgstr "依分類瀏覽"
 
-#: inc/storefront-template-functions.php:443
-msgid "Comments"
-msgstr "評論"
-
-#: inc/storefront-template-functions.php:433
-msgid "Tagged"
-msgstr "已標記"
-
-#: inc/storefront-template-functions.php:420
-msgid "Posted in"
-msgstr "發佈於 "
-
-#: inc/storefront-template-functions.php:409
-msgid "Written by"
-msgstr "作者："
-
-#: inc/storefront-template-functions.php:231
+#: inc/storefront-template-functions.php:241
 msgid "Menu"
-msgstr "功能表"
+msgstr "選單"
 
-#: inc/admin/welcome-screen/component-intro.php:66
-msgid "Stay up to date with Storefront developments on the %sdev blog%s."
-msgstr "瀏覽 %sdev blog%s，隨時得知 Storefront 最新開發消息。"
-
-#: inc/admin/welcome-screen/component-enhance.php:39
-#: inc/admin/welcome-screen/component-enhance.php:81
-#: inc/admin/welcome-screen/component-enhance.php:111
-msgid "We're currently unable to retrieve these products. Please double check your internet connection or try back later."
-msgstr "我們目前無法擷取這些產品。請仔細查看您的網際網路是否連線，或請稍後再試。"
-
-#: inc/admin/welcome-screen/component-contribute.php:32
-msgid "You can find a wide range of information on how to use and customise %s in our %sdocumentation%s. If you're a customer you can get support in our %sHelpdesk%3$s. Otherwise you can try posting on the WordPress.org %ssupport forums%3$s."
-msgstr "您可在我們的%s文件%s中找到如何使用和自訂 %s 的各類資訊。如果您是客戶，您可在我們的%s服務台%3$s獲得支援服務。否則，您可嘗試在 WordPress.org 的%s支援論壇%3$s中貼文。"
-
-#: inc/admin/welcome-screen/component-contribute.php:31
-msgid "Get support"
-msgstr "取得支援"
-
-#: inc/class-storefront.php:143
+#: inc/class-storefront.php:241
 msgid "Below Header"
-msgstr "標題下面"
+msgstr "頁首下方"
 
-#: inc/admin/welcome-screen/component-intro.php:58
-msgid "Customizer settings"
-msgstr "自訂器設定"
-
-#: inc/customizer/class-storefront-customizer-control-more.php:31
+#. translators: %s: Storefront
+#: inc/customizer/class-storefront-customizer-control-more.php:36
 msgid "Enjoying %s?"
-msgstr "喜歡 %s?"
+msgstr "非常喜愛 %s？"
 
-#: inc/admin/welcome-screen/component-intro.php:57
-msgid "FAQ"
-msgstr "問與答"
-
-#: inc/admin/welcome-screen/component-intro.php:56
-msgid "Installation &amp; configuration"
-msgstr "安裝與設定"
-
-#: inc/admin/welcome-screen/component-intro.php:54
-msgid "Featured Docs"
-msgstr "精選文件"
-
-#: inc/admin/welcome-screen/component-intro.php:34
-msgid "Recent News"
-msgstr "最近的消息"
-
-#: inc/admin/welcome-screen/component-intro.php:31
-msgid "Latest %s news"
-msgstr "%s 最新消息"
-
-#: inc/admin/welcome-screen/component-intro.php:26
-msgid "Install %s"
-msgstr "安裝 %s"
-
-#: inc/admin/welcome-screen/component-intro.php:19
-msgid "Built to enrich your %s store"
-msgstr "為了豐富您的 %s 商店服務"
-
-#: inc/admin/welcome-screen/component-intro.php:14
-msgid "%sEnjoying %s?%s Why not %sleave a review%s on WordPress.org? We'd really appreciate it!"
-msgstr "%s對 %s？ 滿意嗎？%s請在 WordPress.org %s留言評論%s，好嗎？非常感謝！"
-
-#: inc/admin/welcome-screen/component-enhance.php:86
-msgid "View all %s child themes &rarr;"
-msgstr "瀏覽所有 %s 子主題&rarr;"
-
-#: inc/admin/welcome-screen/component-enhance.php:53
-msgid "Take a look at our range of child themes for %s that allow you to easily change the look of your store to suit a specific industry."
-msgstr "請看我們各類 %s 子主題，可讓您輕鬆變更店面外觀，適合特定產業的需求。"
-
-#: inc/admin/welcome-screen/component-enhance.php:52
-msgid "Child themes"
-msgstr "子主題"
-
-#: inc/admin/welcome-screen/component-enhance.php:94
-msgid "There are a number of free plugins available for %s on the WordPress.org %splugin repository%s. Here's a few we made earlier:"
-msgstr "WordPress.org %s外掛程式庫%s中有許多 %s 可用的免費外掛程式。以下是我們以前設計的一些程式："
-
-#: inc/admin/welcome-screen/component-enhance.php:46
-msgid "View all %s extensions &rarr;"
-msgstr "瀏覽所有 %s 延伸功能&rarr;"
-
-#: inc/admin/welcome-screen/component-enhance.php:22
-msgid "Take a look at our range of extensions that extend and enhance %s functionality."
-msgstr "看看我們各類延伸服務為 %s 延伸和加強的功能。"
-
-#: inc/admin/welcome-screen/component-enhance.php:20
-msgid "Enhance %s"
-msgstr "加強 %s"
-
-#: inc/admin/welcome-screen/component-contribute.php:38
+#. translators: %s: Automattic branding
+#: inc/admin/class-storefront-admin.php:145
 msgid "An %s project"
 msgstr "%s 專案"
 
-#: inc/admin/welcome-screen/component-contribute.php:27
-msgid "Please suggest and vote on ideas at the %s%s Ideas board%s. The most popular ideas will see prioritised development."
-msgstr "請對%s%s創意板%s的創意想法提出建議並投票。最受歡迎的創意想法將優先獲得開發。"
-
-#: inc/admin/welcome-screen/component-contribute.php:26
-msgid "Suggest a feature"
-msgstr "功能建議"
-
-#: inc/admin/welcome-screen/component-contribute.php:21
-msgid "Contribute to Storefront"
-msgstr "貢獻給Storefront"
-
-#: inc/admin/welcome-screen/component-intro.php:24
-msgid "%s is activated"
-msgstr "%s 已啟用"
-
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:225
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:590
 msgid "On Sale Now"
 msgstr "折扣中"
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:233
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:600
 msgid "New In Store"
 msgstr "新上架商品"
 
-#: inc/admin/welcome-screen/component-enhance.php:62
-#: inc/admin/welcome-screen/component-enhance.php:106
-msgid "Free!"
-msgstr "免費!"
-
-#: inc/admin/welcome-screen/component-enhance.php:92
-msgid "Install free plugins"
-msgstr "安裝免費外掛程式"
-
-#: inc/customizer/class-storefront-customizer.php:234
+#: inc/customizer/class-storefront-customizer.php:286
 msgid "Header background image"
 msgstr "頁首背景圖片"
 
-#: inc/storefront-template-functions.php:461
+#: inc/storefront-template-functions.php:577
 msgctxt "Next post"
 msgid "Next"
-msgstr "下一頁"
+msgstr "往後"
 
-#: inc/storefront-template-functions.php:462
+#: inc/storefront-template-functions.php:578
 msgctxt "Previous post"
 msgid "Previous"
-msgstr "前一頁"
+msgstr "返前"
 
-#: 404.php:58
+#: 404.php:59 404.php:61
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:436
 msgid "Popular Products"
 msgstr "熱門商品"
 
 #: 404.php:22
 msgid "Nothing was found at this location. Try searching, or check out the links below."
-msgstr "在此位置中找不到。請搜尋看看，或請查看以下連結。"
+msgstr "在這裡找不到符合條件的項目，請嘗試搜尋或點擊下方的連結。"
 
-#. Template Name of the plugin/theme
+#. Template Name of the theme
+#: inc/nux/class-storefront-nux-starter-content.php:208
 msgid "Homepage"
-msgstr "Homepage"
+msgstr "靜態首頁"
 
-#. Template Name of the plugin/theme
+#. Template Name of the theme
 msgid "Full width"
-msgstr "Full width"
+msgstr "全幅寬度"
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:75
+#. translators: %d: number of items in cart
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:77
 msgid "%d item"
 msgid_plural "%d items"
-msgstr[0] "%d 件"
+msgstr[0] "%d 個項目"
 
-#: search.php:16
+#. translators: %s: search term
+#: search.php:19
 msgid "Search Results for: %s"
-msgstr "關於 <strong>%s</strong> 的搜尋結果"
+msgstr "「%s」的搜尋結果"
 
-#: 404.php:47
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:330
+msgid "Recent Products"
+msgstr "最新商品"
+
+#: 404.php:45 404.php:47
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:278
 msgid "Product Categories"
-msgstr "商品目錄"
+msgstr "產品分類"
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:217
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:384
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:580
 msgid "Featured Products"
-msgstr "特色商品"
+msgstr "精選商品"
 
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:74
-#: inc/woocommerce/storefront-woocommerce-template-functions.php:313
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:75
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:686
 msgid "View your shopping cart"
-msgstr "查看購物車"
+msgstr "檢視購物車"
 
-#: inc/storefront-template-functions.php:701
+#: inc/nux/class-storefront-nux-starter-content.php:1066
+#: inc/woocommerce/storefront-woocommerce-template-functions.php:470
 msgid "On Sale"
-msgstr "特價"
+msgstr "特價商品"
 
-#: inc/storefront-template-functions.php:500
-msgctxt "post date"
-msgid "Posted on %s"
-msgstr "發佈於 %s"
+#: inc/nux/class-storefront-nux-guided-tour.php:83
+msgid "Next"
+msgstr "下一步"
 
-#: inc/storefront-template-functions.php:444
+#: inc/storefront-template-functions.php:482
 msgid "% Comments"
-msgstr "% 則迴響"
+msgstr "% 則留言"
 
-#: inc/storefront-template-functions.php:444
+#: inc/storefront-template-functions.php:482
 msgid "1 Comment"
-msgstr "1 則迴響"
+msgstr "1 則留言"
 
-#: inc/storefront-template-functions.php:444
+#: inc/storefront-template-functions.php:482
 msgid "Leave a comment"
-msgstr "發表迴響"
+msgstr "發佈留言"
 
 #. translators: used between list items, there is a space after the comma
-#: inc/storefront-template-functions.php:415
-#: inc/storefront-template-functions.php:428
+#: inc/storefront-template-functions.php:544
+#: inc/storefront-template-functions.php:547
 msgid ", "
 msgstr "、"
 
-#: inc/storefront-template-functions.php:377
+#. translators: %s: post title
+#: inc/storefront-template-functions.php:417
 msgid "Continue reading %s"
-msgstr "繼續閱讀 %s"
+msgstr "閱讀全文 %s"
 
-#: inc/storefront-template-functions.php:322
-#: inc/storefront-template-functions.php:385
+#: inc/storefront-template-functions.php:355
+#: inc/storefront-template-functions.php:426
 msgid "Pages:"
-msgstr "頁次："
+msgstr "頁次:"
 
-#: inc/storefront-template-functions.php:286
+#: inc/storefront-template-functions.php:296
 msgid "Skip to navigation"
-msgstr "略過導覽"
+msgstr "跳至導覽列"
 
-#: inc/storefront-template-functions.php:262
+#: inc/storefront-template-functions.php:272
 msgid "Secondary Navigation"
-msgstr "次選單"
+msgstr "次要導覽"
 
-#: inc/storefront-template-functions.php:287
+#: inc/storefront-template-functions.php:297
 msgid "Skip to content"
-msgstr "跳至內容"
+msgstr "跳至主要內容"
 
-#: inc/storefront-template-functions.php:128
-msgid "%1$s designed by %2$s."
-msgstr "%1$s 是由 %2$s 所設計."
-
-#: inc/storefront-template-functions.php:230
+#: inc/storefront-template-functions.php:240
 msgid "Primary Navigation"
-msgstr "主導覽列"
+msgstr "主要導覽"
 
-#: inc/storefront-template-functions.php:64
+#: inc/storefront-template-functions.php:74
 msgid "Edit"
 msgstr "編輯"
 
-#: inc/class-storefront.php:154
-msgid "Footer %d"
-msgstr "頁尾 %d"
-
-#: inc/class-storefront.php:156
-msgid "Widgetized Footer Region %d."
-msgstr "小工具可用的尾頁位置 %d."
-
 #: inc/storefront-template-functions.php:48
 msgid "Your comment is awaiting moderation."
-msgstr "你的評論正在等候審核。"
+msgstr "你的留言正在等候審閱。"
 
-#: inc/class-storefront.php:88
+#: inc/nux/class-storefront-nux-starter-content.php:192
+#: inc/class-storefront.php:96
 msgid "Handheld Menu"
-msgstr "手持裝置介面選單"
+msgstr "行動版選單"
 
-#: inc/class-storefront.php:137
+#: inc/class-storefront.php:235
 msgid "Sidebar"
-msgstr "邊欄"
+msgstr "資訊欄"
 
-#: inc/class-storefront.php:87
+#: inc/nux/class-storefront-nux-starter-content.php:182
+#: inc/class-storefront.php:95
 msgid "Secondary Menu"
 msgstr "次要選單"
 
-#: inc/customizer/class-storefront-customizer.php:460
+#: inc/customizer/class-storefront-customizer.php:598
 msgid "Looking for more options?"
-msgstr "需要更多選項?"
+msgstr "正在尋找更多功能？"
 
-#: inc/class-storefront.php:86
+#: inc/nux/class-storefront-nux-starter-content.php:162
+#: inc/class-storefront.php:94
 msgid "Primary Menu"
-msgstr "主選單"
+msgstr "主要選單"
 
-#: inc/customizer/class-storefront-customizer.php:437
+#: inc/customizer/class-storefront-customizer.php:567
 msgid "General Layout"
-msgstr "一般版面型式"
+msgstr "一般版面配置"
 
-#: inc/customizer/class-storefront-customizer.php:450
+#: inc/customizer/class-storefront-customizer.php:583
 msgid "More"
-msgstr "更多"
+msgstr "更多功能"
 
-#: inc/customizer/class-storefront-customizer.php:289
-msgid "Customise the look & feel of your web site footer."
-msgstr "客製化你網站上的頁尾樣貌."
+#: inc/customizer/class-storefront-customizer.php:362
+msgid "Customize the look & feel of your website footer."
+msgstr "自訂網站頁尾的外觀與風格。"
 
-#: inc/customizer/class-storefront-customizer.php:358
-msgid "Customise the look & feel of your web site buttons."
-msgstr "客製化你網站上的按鈕樣式."
+#: inc/customizer/class-storefront-customizer.php:457
+msgid "Customize the look & feel of your website buttons."
+msgstr "自訂網站按鈕的外觀與風格。"
 
-#: inc/customizer/class-storefront-customizer.php:356
+#: inc/customizer/class-storefront-customizer.php:455
 msgid "Buttons"
 msgstr "按鈕"
 
-#: inc/customizer/class-storefront-customizer.php:415
+#: inc/customizer/class-storefront-customizer.php:537
 msgid "Alternate button text color"
-msgstr "取代按鈕上的文字顏色"
+msgstr "替代按鈕文字色彩"
 
-#: inc/customizer/class-storefront-customizer.php:400
+#: inc/customizer/class-storefront-customizer.php:516
 msgid "Alternate button background color"
-msgstr "取代按鈕的顏色"
+msgstr "替代按鈕背景色彩"
 
-#: inc/customizer/class-storefront-customizer.php:425
+#: inc/customizer/class-storefront-customizer.php:550
 msgid "Layout"
-msgstr "版面形式"
+msgstr "版面配置"
 
-#: inc/customizer/class-storefront-customizer.php:287
+#: inc/customizer/class-storefront-customizer.php:360
 msgid "Footer"
 msgstr "頁尾"
 
-#: inc/customizer/class-storefront-customizer.php:277
-#: inc/customizer/class-storefront-customizer.php:346
+#: inc/customizer/class-storefront-customizer.php:347
+#: inc/customizer/class-storefront-customizer.php:442
 msgid "Link color"
-msgstr "鏈結顏色"
+msgstr "連結色彩"
 
-#: inc/customizer/class-storefront-customizer.php:247
-#: inc/customizer/class-storefront-customizer.php:301
-#: inc/customizer/class-storefront-customizer.php:370
+#: inc/customizer/class-storefront-customizer.php:305
+#: inc/customizer/class-storefront-customizer.php:379
+#: inc/customizer/class-storefront-customizer.php:474
 msgid "Background color"
-msgstr "背景顏色"
+msgstr "背景色彩"
 
-#: inc/customizer/class-storefront-customizer.php:195
-#: inc/customizer/class-storefront-customizer.php:316
+#: inc/customizer/class-storefront-customizer.php:189
+#: inc/customizer/class-storefront-customizer.php:400
 msgid "Heading color"
-msgstr "標題顏色"
+msgstr "標題色彩"
 
-#: inc/customizer/class-storefront-customizer.php:225
+#: inc/customizer/class-storefront-customizer.php:231
 msgid "Link / accent color"
-msgstr "連結 / 主要強調色"
+msgstr "連結色彩/強調色彩"
 
 #: inc/customizer/class-storefront-customizer.php:210
-#: inc/customizer/class-storefront-customizer.php:262
-#: inc/customizer/class-storefront-customizer.php:331
-#: inc/customizer/class-storefront-customizer.php:385
+#: inc/customizer/class-storefront-customizer.php:326
+#: inc/customizer/class-storefront-customizer.php:421
+#: inc/customizer/class-storefront-customizer.php:495
 msgid "Text color"
-msgstr "文字顏色"
+msgstr "文字色彩"
 
-#: inc/customizer/class-storefront-customizer.php:182
+#: inc/customizer/class-storefront-customizer.php:171
 msgid "Typography"
-msgstr "字型"
+msgstr "排版樣式"
 
-#: inc/customizer/class-storefront-customizer.php:144
+#: inc/customizer/class-storefront-customizer.php:126
 msgid "Header"
 msgstr "頁首"
 
-#: inc/admin/welcome-screen/component-contribute.php:22
-msgid "Found a bug? Want to contribute a patch or create a new feature? %sGitHub is the place to go!%s Or would you like to translate %s into your language? %sGet involved on WordPress.org%s."
-msgstr "發現任何錯誤？想幫助修補或創造新功能？%sGitHub 是最佳選擇！%s或者，想要將 %s 翻譯為您的語言版本？%s前往並加入 WordPress.org%s。"
+#. translators: 1: Storefront, 2: start <a> tag, 3: Storefront, 4: end <a> tag
+#: inc/customizer/class-storefront-customizer-control-more.php:29
+msgid "There's a range of %1$s extensions available to put additional power in your hands. Check out the %2$s%3$s%4$s page in your dashboard for more information."
+msgstr "%1$s 有一系列擴充功能可供使用者自行安裝使用，請前往 [控制台] 的 [%2$s%3$s%4$s] 頁面以進一步瞭解更多資訊。"
 
-#: inc/admin/class-storefront-admin.php:57
-msgid "Get started with Storefront"
-msgstr "開始使用 Storefront"
+#. translators: 1: start <a> tag, 2: end <a> tag
+#: inc/customizer/class-storefront-customizer-control-more.php:43
+msgid "Why not leave us a review on %1$sWordPress.org%2$s?  We'd really appreciate it!"
+msgstr "還請撥空前往 %1$sWordPress.org%2$s 發佈個人評論，開發團隊在此致謝。"
 
-#: inc/admin/class-storefront-admin.php:56
-msgid "Thanks for choosing Storefront! You can read hints and tips on how get the most out of your new theme on the %swelcome screen%s."
-msgstr "感謝您選擇了 Storefront! 您可以在 %s歡迎頁面%s 中, 獲得關於如何最有效地使用你的新主題的提示和說明."
-
-#: inc/customizer/class-storefront-customizer-control-more.php:28
-msgid "There's a range of %s extensions available to put additional power in your hands. Check out the %s%s%s page in your dashboard for more information."
-msgstr "我們有各類 %s 延伸功能，可讓您一手掌握更多強大力量。請在您的儀表板內查看 %s%s%s 頁面以了解更多資訊。"
-
-#: inc/customizer/class-storefront-customizer-control-more.php:34
-msgid "Why not leave us a review on %sWordPress.org%s?  We'd really appreciate it!"
-msgstr "何不在 %sWordPress.org%s 上寫個評論? 我們一定會非常感謝你的! :-)"
-
-#: inc/customizer/class-storefront-customizer.php:140
+#: inc/customizer/class-storefront-customizer.php:122
 msgid "Background"
 msgstr "背景"
 
-#: inc/admin/welcome-screen/component-intro.php:21
-msgid "Although %s works fine as a regular WordPress theme, it really shines when used for an online store. Install %s and start selling now."
-msgstr "雖然 %s 當成一般 WordPress 主題也很好，但用在網路商店時更加出色。安裝 %s 並立即開始銷售。"
+#: inc/nux/class-storefront-nux-admin.php:86
+msgid "Install WooCommerce"
+msgstr "安裝 WooCommerce"
+
+#: inc/nux/class-storefront-nux-guided-tour.php:118
+msgid "Add your logo"
+msgstr "新增商店標誌"
+
+#: inc/admin/class-storefront-admin.php:183
+#: inc/admin/class-storefront-plugin-install.php:75
+msgid "Activate"
+msgstr "啟用"
+
+#: content-none.php:34
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "找不到符合條件的內容。請使用搜尋功能，應會有所幫助。"
 
 #: content-none.php:29
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
-msgstr "沒有找到你要的內容。也許你可以搜尋一下看看。"
-
-#: content-none.php:24
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr "抱歉，沒東西符合你的搜尋條件。請試試其他不同關鍵字。"
+msgstr "很抱歉，找不到符合搜尋條件的結果，請以不同的關鍵字重試。"
 
-#: content-none.php:20
+#. translators: 1: URL
+#: content-none.php:23
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "準備好發表你的第一篇文章了嗎？<a href=\"%1$s\">從這裡開始</a>。"
+msgstr "準備發佈第一篇文章了嗎？請從<a href=\"%1$s\">這裡</a>開始。"
 
 #: content-none.php:14
 msgid "Nothing Found"
-msgstr "找不到"
+msgstr "找不到符合條件的結果"
 
-#: comments.php:64
+#: comments.php:70
 msgid "Comments are closed."
-msgstr "迴響已被關閉。"
+msgstr "留言功能已關閉。"
 
-#: comments.php:39 comments.php:57
+#: comments.php:41 comments.php:61
 msgid "Newer Comments &rarr;"
-msgstr "較新評論 &rarr;"
+msgstr "較新的留言 &rarr;"
 
-#: comments.php:38 comments.php:56
+#: comments.php:40 comments.php:60
 msgid "&larr; Older Comments"
-msgstr "&larr; 較早評論"
+msgstr "&larr; 較舊的留言"
 
-#: comments.php:37 comments.php:55
+#: comments.php:39 comments.php:59
 msgid "Comment navigation"
-msgstr "評論導航列"
+msgstr "留言導覽"
 
-#: comments.php:28
+#. translators: 1: number of comments, 2: post title
+#: comments.php:30
 msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] "&ldquo;%2$s&rdquo; 有 %1$s 則迴響"
+msgstr[0] "在〈%2$s〉中有 %1$s 則留言"
 
 #: 404.php:19
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "糟糕！找不到該頁面。"
+msgstr "很抱歉，找不到符合條件的頁面。"
 
-#. Author URI of the plugin/theme
+#. Author of the theme
+msgid "Automattic"
+msgstr "Automattic"
+
+#. Author URI of the theme
 msgid "https://woocommerce.com/"
 msgstr "https://woocommerce.com/"
 
-#. Theme URI of the plugin/theme
-msgid "https://woocommerce.com/storefront"
-msgstr "https://woocommerce.com/storefront"
-
-#. Author of the plugin/theme
-msgid "WooThemes"
-msgstr "WooThemes"
+#. Theme URI of the theme
+msgid "https://woocommerce.com/storefront/"
+msgstr "https://woocommerce.com/storefront/"

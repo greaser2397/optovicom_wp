@@ -17,6 +17,7 @@ function woof_init_products_messenger() {
 	    // alert(jQuery.parseJSON(content));
 	    if (content) {
 		var req = content;
+                jQuery('.woof_pm_max_count').remove();
 		woof_redraw_subscr(req);
 	    }
 	});

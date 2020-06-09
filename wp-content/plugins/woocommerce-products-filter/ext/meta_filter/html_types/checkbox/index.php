@@ -41,13 +41,16 @@ if (!defined('ABSPATH'))
     }
 
     public function wp_footer(){
-         wp_enqueue_script( 'meta-checkbox-js',  $this->get_meta_filter_link(). 'js/checkbox.js', array('jquery'), '', true );
+         wp_enqueue_script( 'meta-checkbox-js',  $this->get_meta_filter_link(). 'js/checkbox.js', array('jquery'),WOOF_VERSION, true );
          //wp_enqueue_style( 'meta-checkbox-css',  $this->get_meta_filter_link(). 'css/checkbox.css' );
     }
     public function get_meta_filter_path(){
         return plugin_dir_path(__FILE__);
     }
-
+    public function get_meta_filter_override_path()
+    {
+        return get_stylesheet_directory(). DIRECTORY_SEPARATOR ."woof". DIRECTORY_SEPARATOR ."ext". DIRECTORY_SEPARATOR .'meta_filter'. DIRECTORY_SEPARATOR ."html_types". DIRECTORY_SEPARATOR .$this->type. DIRECTORY_SEPARATOR;
+    }
     public function get_meta_filter_link(){
         return plugin_dir_url(__FILE__);
     }
@@ -58,8 +61,16 @@ if (!defined('ABSPATH'))
         $data['search_option']=(isset($this->woof_settings[$this->meta_key]['search_option']))?$this->woof_settings[$this->meta_key]['search_option']:0;
         $data['search_value']=(isset($this->woof_settings[$this->meta_key]['search_value']))?$this->woof_settings[$this->meta_key]['search_value']:"";       
         $data['type']=(isset($this->woof_settings['meta_filter'][$this->meta_key]['type']))?$this->woof_settings['meta_filter'][$this->meta_key]['type']:'numeric';
+      
         if($this->woof_settings[$this->meta_key]["show"]){
-            echo  $this->render_html($this->get_meta_filter_path().'/views/woof.php', $data);
+            
+            if(file_exists($this->get_meta_filter_override_path(). 'views' . DIRECTORY_SEPARATOR . 'woof.php')){
+                echo $this->render_html($this->get_meta_filter_override_path() . 'views' .DIRECTORY_SEPARATOR . 'woof.php', $data);
+            }else{
+                echo  $this->render_html($this->get_meta_filter_path().'/views/woof.php', $data);
+            }              
+            
+            
         }
     }   
     /*public function draw_meta_filter_structure(){

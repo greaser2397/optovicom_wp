@@ -18,7 +18,7 @@ global $WOOF;
                 <br />
 
                 <h4><?php _e('Meta Fields', 'woocommerce-products-filter') ?></h4>
-                
+
                 <p style="border: dashed 1px #ddd; padding: 4px; color: red;">
                     <?php _e('In FREE version it is possible to operate by 2 meta fields only!', 'woocommerce-products-filter') ?>
                 </p>
@@ -63,13 +63,12 @@ global $WOOF;
                                 if ($m['meta_key'] == "__META_KEY__") {
                                     continue;
                                 }
-                                
-                                if ($counter >= 2) {
+
+                                if ($counter++ >= 2) {
                                     break;
                                 }
-                                
+
                                 woof_meta_print_li($m, $meta_types);
-                                $counter++;
                             }
                         }
                         ?>
@@ -115,11 +114,14 @@ global $WOOF;
                                 <select name="woof_settings[meta_filter][<?php echo $m['meta_key'] ?>][search_view]" class="woof_meta_view_selector" style="width: 99%;">
                                     <?php
                                     foreach ($meta_types as $key => $type):
-                                        if ($m['search_view'] == $key AND $m['type'] == $type['hide_if']) {
+                                        if (!is_array($type['hide_if'])) {
+                                            $type['hide_if'] = array($type['hide_if']);
+                                        }
+                                        if ($m['search_view'] == $key AND in_array($m['type'], $type['hide_if'])) {
                                             $m['search_view'] = 'textinput';
                                         }
                                         ?> 
-                                        <option  <?php selected($m['search_view'], $key) ?> value="<?php echo $key ?>" data-show-options="<?php echo ($type['show_options']) ? 'yes' : 'no'; ?>" data-hideif="<?php echo $type['hide_if'] ?>" <?php echo ($m['type'] == $type['hide_if']) ? "style='display:none;'" : ""; ?>  >
+                                        <option  <?php selected($m['search_view'], $key) ?> value="<?php echo $key ?>" data-show-options="<?php echo ($type['show_options']) ? 'yes' : 'no'; ?>" data-hideif="<?php echo implode(',', $type['hide_if']) ?>" <?php echo (in_array($m['type'], $type['hide_if'])) ? "style='display:none;'" : ""; ?>  >
                                             <?php echo $type['title'] ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -143,8 +145,9 @@ global $WOOF;
                         <div class="woof_options_item">
                             <div class="select-wrap" <?php if (in_array($m['search_view'], array('popupeditor', 'switcher'))): ?>style="display: none;"<?php endif; ?>>
                                 <select name="woof_settings[meta_filter][<?php echo $m['meta_key'] ?>][type]" class="woof_meta_type_selector">
-                                    <option <?php selected($m['type'], 'number') ?> value="number"><?php _e('number', 'woocommerce-products-filter') ?></option>
+                                    <option <?php selected($m['type'], 'NUMERIC') ?> value="NUMERIC"><?php _e('number', 'woocommerce-products-filter') ?></option>
                                     <option <?php selected($m['type'], 'string') ?> value="string"><?php _e('string', 'woocommerce-products-filter') ?></option>
+                                    <option <?php selected($m['type'], 'DATE') ?> value="DATE"><?php _e('date', 'woocommerce-products-filter') ?></option>
                                 </select>
                             </div>
                         </div>

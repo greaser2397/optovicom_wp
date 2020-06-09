@@ -1,10 +1,13 @@
 === Buy one click WooCommerce ===
 Contributors: northmule
-Donate link: https://money.yandex.ru/to/41001746944171
-Tags: woocommerce, ecommerce,  mode catalog, buy one click
-Requires at least: 4.8
-Tested up to: 5.2
-Stable tag: 5.2
+Donate link: https://www.paypal.me/coderunru
+Tags: woocommerce, ecommerce, mode catalog, buy one click
+Requires at least: 5.0
+Tested up to: 5.4
+Stable tag: 5.4
+Requires PHP: 7.0
+WC requires at least: 3.9
+WC tested up to: 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +52,7 @@ This is the best solution for Woocommers to easily add a quick order button to t
 
 = Donate link: =
 <a href="https://money.yandex.ru/to/41001746944171" target="_blank">Visa / MasterCard / Mir / YandexMoney</a>
+<a href="https://www.paypal.me/coderunru">PayPal</a>
 
 == Installation ==
 
@@ -63,9 +67,62 @@ This is the best solution for Woocommers to easily add a quick order button to t
 2. Order form.
 3. Settings add-on.
 4. Orders.
+5. Sample Orders with Supplement for Variable Items.
+6. An example of an added product with the option to add to WooCommerce
 
 
 == Changelog ==
+= 1.9.12 =
+* Улучшена совместимость формы с мобильными устройствами
+* Оптимизированны css файлы шаблонов
+
+
+= 1.9.11 =
+* fix с пересчётом цены
+
+= 1.9.10 =
+* Журнал заказов плагина связон с номером заказа Woo
+* Можно удалить заказ Woo из журнала плагина
+* Небольшие исправления кода
+
+= 1.9.9 =
+* Проверка на спам при помощи капчи. Зависит от плагина "Advanced noCaptcha & invisible Captcha (v2 & v3)"
+* Новая настройка для включения\отключения использования капчи
+
+
+= 1.9.8 =
+* Оптимизация кода
+* Добавлено поле nonce
+
+= 1.9.7 =
+* fix указания текущего пользователя в заказе woocommerce
+
+= 1.9.6 =
+* Исправлена опция "Редирект" после отправки формы
+* Мелкая реоргиназация кода в сторону оптимизации
+
+= 1.9.5 =
+* Инициализация плагина теперь на событии wp, ранее было init
+
+= 1.9.4 =
+* Добавлена возможность отправки файлов через форму
+* Улучшена читаемость кода
+* Улучшена производительность кода
+* Добавлены новые положения кнопок
+* Добавлены хуки для фильтрации некоторых данных
+* Улучшена совместимость с дополнением для вариативных товаров
+
+= 1.9.3 =
+* Оптимизация кода
+* Уменьшенно количество запросов к БД
+* Начат переход на новую структуру плагина
+* Улучшена совместимость с дополнением для вариативных товаров
+
+= 1.9.2 =
+* Добавлен спинер на кнопку. При нажатии на кнопку будет работать "крутилка". Реализация на основе loading.io
+
+= 1.9.1 =
+* Исправлены некоторые ошибки
 
 = 1.9 =
 * Добавлена возможность перевода плагина на другие языки

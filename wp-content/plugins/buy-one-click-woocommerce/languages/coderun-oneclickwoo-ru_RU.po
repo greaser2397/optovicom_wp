@@ -834,47 +834,47 @@ msgstr "Покупатель"
 msgid "Additionally"
 msgstr "Дополнительно"
 
-#: inc/javascript-class.php:54
+#: inc/Ajax.php:54
 msgid "Email field is required"
 msgstr "Поле электронной почты обязательно для заполнения"
 
-#: inc/javascript-class.php:58
+#: inc/Ajax.php:58
 msgid "Name field is required"
 msgstr "Имя обязательно для заполнения"
 
-#: inc/javascript-class.php:62
+#: inc/Ajax.php:62
 msgid "Telephone field is required"
 msgstr "Укажите телефон"
 
-#: inc/javascript-class.php:66
+#: inc/Ajax.php:66
 msgid "Message field is required"
 msgstr "Заполните обязательно поле"
 
-#: inc/javascript-class.php:70
+#: inc/Ajax.php:70
 msgid "You need to give consent"
 msgstr "Заполните обязательное поле"
 
-#: inc/javascript-class.php:83
+#: inc/Ajax.php:83
 msgid "You have already sent an order!"
 msgstr "Вы уже отправили заказ!"
 
-#: inc/javascript-class.php:127
+#: inc/Ajax.php:127
 msgid "request error"
 msgstr "ошибка запроса"
 
-#: inc/javascript-class.php:159
+#: inc/Ajax.php:159
 msgid "An error has occurred! Order not formed"
 msgstr "Произошла ошибка! Заказ не сформирован"
 
-#: inc/javascript-class.php:245
+#: inc/Ajax.php:245
 msgid "Look"
 msgstr "Посмотрите"
 
-#: inc/javascript-class.php:301
+#: inc/Ajax.php:301
 msgid "The order has been sent"
 msgstr "Заказ отправлен"
 
-#: inc/javascript-class.php:335
+#: inc/Ajax.php:335
 msgid "Are you a hacker?"
 msgstr "Вы хакер?"
 

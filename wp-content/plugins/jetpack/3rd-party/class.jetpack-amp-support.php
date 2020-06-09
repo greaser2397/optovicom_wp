@@ -1,4 +1,7 @@
 <?php //phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
+
+use Automattic\Jetpack\Sync\Functions;
+
 /**
  * Manages compatibility with the amp-wp plugin
  *
@@ -7,7 +10,7 @@
 class Jetpack_AMP_Support {
 
 	/**
-	 * Apply custom AMP changes onthe frontend.
+	 * Apply custom AMP changes on the front-end.
 	 */
 	public static function init() {
 
@@ -19,8 +22,15 @@ class Jetpack_AMP_Support {
 			add_action( 'amp_post_template_footer', array( 'Jetpack_AMP_Support', 'add_stats_pixel' ) );
 		}
 
+		/**
+		 * Remove this during the init hook in case users have enabled it during
+		 * the after_setup_theme hook, which triggers before init.
+		 */
+		remove_theme_support( 'jetpack-devicepx' );
+
 		// Sharing.
 		add_filter( 'jetpack_sharing_display_markup', array( 'Jetpack_AMP_Support', 'render_sharing_html' ), 10, 2 );
+		add_filter( 'sharing_enqueue_scripts', array( 'Jetpack_AMP_Support', 'amp_disable_sharedaddy_css' ) );
 
 		// enforce freedom mode for videopress.
 		add_filter( 'videopress_shortcode_options', array( 'Jetpack_AMP_Support', 'videopress_enable_freedom_mode' ) );
@@ -31,8 +41,32 @@ class Jetpack_AMP_Support {
 		// Post rendering changes for legacy AMP.
 		add_action( 'pre_amp_render_post', array( 'Jetpack_AMP_Support', 'amp_disable_the_content_filters' ) );
 
+		// Disable Comment Likes.
+		add_filter( 'jetpack_comment_likes_enabled', array( 'Jetpack_AMP_Support', 'comment_likes_enabled' ) );
+
+		// Transitional mode AMP should not have comment likes.
+		add_filter( 'the_content', array( 'Jetpack_AMP_Support', 'disable_comment_likes_before_the_content' ) );
+
+		// Remove the Likes button from the admin bar.
+		add_filter( 'jetpack_admin_bar_likes_enabled', array( 'Jetpack_AMP_Support', 'disable_likes_admin_bar' ) );
+
 		// Add post template metadata for legacy AMP.
 		add_filter( 'amp_post_template_metadata', array( 'Jetpack_AMP_Support', 'amp_post_template_metadata' ), 10, 2 );
+
+		// Filter photon image args for AMP Stories.
+		add_filter( 'jetpack_photon_post_image_args', array( 'Jetpack_AMP_Support', 'filter_photon_post_image_args_for_stories' ), 10, 2 );
+
+		// Sync the amp-options.
+		add_filter( 'jetpack_options_whitelist', array( 'Jetpack_AMP_Support', 'filter_jetpack_options_whitelist' ) );
+	}
+
+	/**
+	 * Disable the Comment Likes feature on AMP views.
+	 *
+	 * @param bool $enabled Should comment likes be enabled.
+	 */
+	public static function comment_likes_enabled( $enabled ) {
+		return $enabled && ! self::is_amp_request();
 	}
 
 	/**
@@ -86,6 +120,30 @@ class Jetpack_AMP_Support {
 	}
 
 	/**
+	 * Do not add comment likes on AMP requests.
+	 *
+	 * @param string $content Post content.
+	 */
+	public static function disable_comment_likes_before_the_content( $content ) {
+		if ( self::is_amp_request() ) {
+			remove_filter( 'comment_text', 'comment_like_button', 12, 2 );
+		}
+		return $content;
+	}
+
+	/**
+	 * Do not display the Likes' Admin bar on AMP requests.
+	 *
+	 * @param bool $is_admin_bar_button_visible Should the Like button be visible in the Admin bar. Default to true.
+	 */
+	public static function disable_likes_admin_bar( $is_admin_bar_button_visible ) {
+		if ( self::is_amp_request() ) {
+			return false;
+		}
+		return $is_admin_bar_button_visible;
+	}
+
+	/**
 	 * Add Jetpack stats pixel.
 	 *
 	 * @since 6.2.1
@@ -129,7 +187,7 @@ class Jetpack_AMP_Support {
 	 */
 	private static function add_site_icon_to_metadata( $metadata ) {
 		$size          = 60;
-		$site_icon_url = class_exists( 'Jetpack_Sync_Functions' ) ? Jetpack_Sync_Functions::site_icon_url( $size ) : '';
+		$site_icon_url = class_exists( 'Automattic\\Jetpack\\Sync\\Functions' ) ? Functions::site_icon_url( $size ) : '';
 
 		if ( function_exists( 'blavatar_domain' ) ) {
 			$metadata['publisher']['logo'] = array(
@@ -247,10 +305,10 @@ class Jetpack_AMP_Support {
 	 * @return array Dimensions.
 	 */
 	private static function extract_image_dimensions_from_getimagesize( $dimensions ) {
-		if ( ! ( defined( 'IS_WPCOM' ) && IS_WPCOM && function_exists( 'require_lib' ) ) ) {
+		if ( ! ( defined( 'IS_WPCOM' ) && IS_WPCOM && function_exists( 'jetpack_require_lib' ) ) ) {
 			return $dimensions;
 		}
-		require_lib( 'wpcom/imagesize' );
+		jetpack_require_lib( 'wpcom/imagesize' );
 
 		foreach ( $dimensions as $url => $value ) {
 			if ( is_array( $value ) ) {
@@ -338,11 +396,112 @@ class Jetpack_AMP_Support {
 			$sharing_link   .= '></amp-social-share>';
 			$sharing_links[] = $sharing_link;
 		}
-		return preg_replace( '#(?<=<div class="sd-content">).+?(?=</div>)#s', implode( '', $sharing_links ), $markup );
+
+		// Wrap AMP sharing buttons in container.
+		$markup = preg_replace( '#(?<=<div class="sd-content">).+?(?=</div>)#s', implode( '', $sharing_links ), $markup );
+
+		// Remove any lingering share-end list items.
+		$markup = str_replace( '<li class="share-end"></li>', '', $markup );
+
+		return $markup;
+	}
+
+	/**
+	 * Tells Jetpack not to enqueue CSS for share buttons.
+	 *
+	 * @param  bool $enqueue Whether or not to enqueue.
+	 * @return bool          Whether or not to enqueue.
+	 */
+	public static function amp_disable_sharedaddy_css( $enqueue ) {
+		if ( self::is_amp_request() ) {
+			$enqueue = false;
+		}
+
+		return $enqueue;
+	}
+
+	/**
+	 * Ensure proper Photon image dimensions for AMP Stories.
+	 *
+	 * @param array $args Array of Photon Arguments.
+	 * @param array $details {
+	 *     Array of image details.
+	 *
+	 *     @type string    $tag            Image tag (Image HTML output).
+	 *     @type string    $src            Image URL.
+	 *     @type string    $src_orig       Original Image URL.
+	 *     @type int|false $width          Image width.
+	 *     @type int|false $height         Image height.
+	 *     @type int|false $width_orig     Original image width before constrained by content_width.
+	 *     @type int|false $height_orig    Original Image height before constrained by content_width.
+	 *     @type string    $transform_orig Original transform before constrained by content_width.
+	 * }
+	 * @return array Args.
+	 */
+	public static function filter_photon_post_image_args_for_stories( $args, $details ) {
+		if ( ! is_singular( 'amp_story' ) ) {
+			return $args;
+		}
+
+		// Percentage-based dimensions are not allowed in AMP, so this shouldn't happen, but short-circuit just in case.
+		if ( false !== strpos( $details['width_orig'], '%' ) || false !== strpos( $details['height_orig'], '%' ) ) {
+			return $args;
+		}
+
+		$max_height = 1280; // See image size with the slug \AMP_Story_Post_Type::MAX_IMAGE_SIZE_SLUG.
+		$transform  = $details['transform_orig'];
+		$width      = $details['width_orig'];
+		$height     = $details['height_orig'];
+
+		// If height is available, constrain to $max_height.
+		if ( false !== $height ) {
+			if ( $height > $max_height && false !== $height ) {
+				$width  = ( $max_height * $width ) / $height;
+				$height = $max_height;
+			} elseif ( $height > $max_height ) {
+				$height = $max_height;
+			}
+		}
+
+		/*
+		 * Set a height if none is found.
+		 * If height is set in this manner and height is available, use `fit` instead of `resize` to prevent skewing.
+		 */
+		if ( false === $height ) {
+			$height = $max_height;
+			if ( false !== $width ) {
+				$transform = 'fit';
+			}
+		}
+
+		// Build array of Photon args and expose to filter before passing to Photon URL function.
+		$args = array();
+
+		if ( false !== $width && false !== $height ) {
+			$args[ $transform ] = $width . ',' . $height;
+		} elseif ( false !== $width ) {
+			$args['w'] = $width;
+		} elseif ( false !== $height ) {
+			$args['h'] = $height;
+		}
+
+		return $args;
+	}
+
+	/**
+	 *  Adds amp-options to the list of options to sync, if AMP is available
+	 *
+	 * @param array $options_whitelist Whitelist of options to sync.
+	 * @return array Updated options whitelist
+	 */
+	public static function filter_jetpack_options_whitelist( $options_whitelist ) {
+		if ( function_exists( 'is_amp_endpoint' ) ) {
+			$options_whitelist[] = 'amp-options';
+		}
+		return $options_whitelist;
 	}
 }
 
 add_action( 'init', array( 'Jetpack_AMP_Support', 'init' ), 1 );
 
 add_action( 'admin_init', array( 'Jetpack_AMP_Support', 'admin_init' ), 1 );
-
