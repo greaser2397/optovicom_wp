@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Themes - Twenty Nineteen package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-05-10 13:06:00+0000\n"
+"PO-Revision-Date: 2020-04-03 20:32:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,19 @@ msgstr "Το προεπιλεγμένο θέμα μας για το 2019 έχε�
 msgid "Twenty Nineteen"
 msgstr "Twenty Nineteen"
 
-#. translators: %s: parent post link
+#: classes/class-twentynineteen-walker-comment.php:96
+msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
+msgstr "Το σχόλιό σας αναμένει για έλεγχο. Αυτή είναι μια προεπισκόπηση. Το σχόλιό σας θα γίνει ορατό αφού εγκριθεί."
+
+#: functions.php:153
+msgid "Dark Blue"
+msgstr "Βαθύ Μπλε"
+
+#: functions.php:148
+msgid "Blue"
+msgstr "Μπλε"
+
+#. translators: %s: Parent post link.
 #: single.php:31
 msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%s</span>"
 msgstr "<span class=\"meta-nav\">Δημοσιευμένο</span><span class=\"post-title\">%s</span>"
@@ -29,21 +41,22 @@ msgctxt "Parent post link"
 msgid "<span class=\"meta-nav\">Published in</span><br><span class=\"post-title\">%title</span>"
 msgstr "<span class=\"meta-nav\">Δημοσιεύθηκε στο</span><br><span class=\"post-title\">%title</span>"
 
-#: template-parts/content/content.php:18
 #: template-parts/content/content-excerpt.php:18
+#: template-parts/content/content.php:18
 msgctxt "post"
 msgid "Featured"
 msgstr "Προβεβλημένα"
 
-#: inc/back-compat.php:39 inc/back-compat.php:53 inc/back-compat.php:73
+#. translators: %s: WordPress version.
+#: inc/back-compat.php:40 inc/back-compat.php:55 inc/back-compat.php:76
 msgid "Twenty Nineteen requires at least WordPress version 4.7. You are running version %s. Please upgrade and try again."
 msgstr "Το Twenty Nineteen απαιτεί τουλάχιστον έκδοση WordPress  4.7. Τρέχετε έκδοση %s. Παρακαλούμε αναβαθμίστε και δοκιμάστε ξανά."
 
-#: inc/template-functions.php:216
+#: inc/template-functions.php:143
 msgid "Back"
 msgstr "Επιστροφή"
 
-#: inc/template-functions.php:209
+#: inc/template-functions.php:136
 msgid "More"
 msgstr "Περισσότερα"
 
@@ -65,55 +78,51 @@ msgctxt "primary color"
 msgid "Default"
 msgstr "Προεπιλεγμένo"
 
-#: functions.php:166
+#: functions.php:168
 msgid "White"
 msgstr "Λευκό"
 
-#: functions.php:161
+#: functions.php:163
 msgid "Light Gray"
 msgstr "Ανοιχτό Γκρι"
 
-#: functions.php:156
+#: functions.php:158
 msgid "Dark Gray"
 msgstr "Σκούρο Γκρι"
 
-#: functions.php:151
-msgid "Secondary"
-msgstr "Δευτερεύον"
-
-#: functions.php:134
+#: functions.php:136
 msgid "XL"
 msgstr "XL"
 
-#: functions.php:133
+#: functions.php:135
 msgid "Huge"
 msgstr "Τεράστιο"
 
-#: functions.php:128
+#: functions.php:130
 msgid "L"
 msgstr "L"
 
-#: functions.php:127
+#: functions.php:129
 msgid "Large"
 msgstr "Μεγάλο"
 
-#: functions.php:122
+#: functions.php:124
 msgid "M"
 msgstr "Δ"
 
-#: functions.php:121
+#: functions.php:123
 msgid "Normal"
 msgstr "Κανονικό"
 
-#: functions.php:115
+#: functions.php:117
 msgid "Small"
 msgstr "Μικρό"
 
-#: functions.php:116
+#: functions.php:118
 msgid "S"
 msgstr "S"
 
-#: functions.php:60 footer.php:37
+#: footer.php:37 functions.php:60
 msgid "Footer Menu"
 msgstr "Μενού υποσέλιδου"
 
@@ -126,11 +135,11 @@ msgstr "Πλήρες μέγεθος"
 msgid "Page"
 msgstr "Σελίδας"
 
-#: functions.php:190
+#: functions.php:192
 msgid "Add widgets here to appear in your footer."
 msgstr "Προσθέστε τις μικρεφαρμογές σας εδώ για να εμφανίζονται στο υποσέλιδο."
 
-#: functions.php:188 template-parts/footer/footer-widgets.php:12
+#: template-parts/footer/footer-widgets.php:12 functions.php:190
 msgid "Footer"
 msgstr "Υποσέλιδο"
 
@@ -142,7 +151,7 @@ msgstr "Βασικό χρώμα"
 msgid "No comments"
 msgstr "Δεν υπάρχουν σχόλια"
 
-#. translators: %1(X comments)$s
+#. translators: %d: Number of comments.
 #: template-parts/post/discussion-meta.php:16
 msgid "%d Comment"
 msgid_plural "%d Comments"
@@ -153,7 +162,7 @@ msgstr[1] "%d Σχόλια"
 msgid "View more posts"
 msgstr "Δείτε περισσότερα άρθρα"
 
-#. translators: %s: post author
+#. translators: %s: Post author.
 #: template-parts/post/author-bio.php:17
 msgid "Published by %s"
 msgstr "Δημοσιεύθηκε από %s"
@@ -162,15 +171,15 @@ msgstr "Δημοσιεύθηκε από %s"
 msgid "Top Menu"
 msgstr "Αρχικό μενού"
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content/content.php:36
+#. translators: %s: Post title. Only visible to screen readers.
 #: template-parts/content/content-single.php:27
+#: template-parts/content/content.php:36
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr "Συνεχίστε την ανάγνωση του<span class=\"screen-reader-text\"> \"%s\"</span>"
 
-#: image.php:52 template-parts/content/content-page.php:27
-#: template-parts/content/content.php:49
 #: template-parts/content/content-single.php:40
+#: template-parts/content/content.php:49
+#: template-parts/content/content-page.php:27 image.php:52
 msgid "Pages:"
 msgstr "Σελίδες:"
 
@@ -182,7 +191,7 @@ msgstr "Φαίνεται ότι δε βρήκαμε αυτό που ζητούσ
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr "Λυπούμαστε, αλλά τίποτα δε βρέθηκε που ταιριάζει στους όρους αναζήτησης. Παρακαλώ προσπαθήστε ξανά με άλλες λέξεις κλειδιά."
 
-#. translators: 1: link to WP admin new post page.
+#. translators: 1: Link to WP admin new post page.
 #: template-parts/content/content-none.php:26
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr "Έτοιμοι για την πρώτη σας δημοσίευση; <a href=\"%1$s\">Πάμε</a>."
@@ -208,7 +217,7 @@ msgid "Next Post"
 msgstr "Επόμενο άρθρο"
 
 #: search.php:22
-msgid "Search results for:"
+msgid "Search results for: "
 msgstr "Αποτελέσματα αναζήτησης για:"
 
 #: inc/template-tags.php:234
@@ -227,12 +236,12 @@ msgstr "Ετικέτες:"
 msgid "Posted in"
 msgstr "Αναρτήθηκε σε"
 
-#. translators: used between list items, there is a space after the comma.
+#. translators: Used between list items, there is a space after the comma.
 #: inc/template-tags.php:86 inc/template-tags.php:98
 msgid ", "
 msgstr ", "
 
-#. translators: %s: Name of current post. Only visible to screen readers.
+#. translators: %s: Post title. Only visible to screen readers.
 #: inc/template-tags.php:63
 msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Αφήστε ένα σχόλιο <span class=\"screen-reader-text\">για το %s</span>"
@@ -255,7 +264,7 @@ msgstr "Y"
 msgid "Archives:"
 msgstr "Αρχεία:"
 
-#. translators: %s: Taxonomy singular name
+#. translators: %s: Taxonomy singular name.
 #: inc/template-functions.php:90
 msgid "%s Archives:"
 msgstr "%s Αρχεία:"
@@ -288,10 +297,9 @@ msgstr "Αρχεία Ετικετών: "
 msgid "Category Archives: "
 msgstr "Αρχεία Κατηγοριών: "
 
-#. translators: %s: Name of current post. Only visible to screen readers
-#. translators: %s: Name of current post. Only visible to screen readers.
-#: template-parts/content/content-page.php:41
-#: template-parts/header/entry-header.php:32 inc/template-tags.php:120
+#. translators: %s: Post title. Only visible to screen readers.
+#: template-parts/header/entry-header.php:32
+#: template-parts/content/content-page.php:41 inc/template-tags.php:120
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr "Επεξεργασία του<span class=\"screen-reader-text\"> \"%s\"</span>"
 
@@ -299,11 +307,11 @@ msgstr "Επεξεργασία του<span class=\"screen-reader-text\"> \"%s\"<
 msgid "Skip to content"
 msgstr "Μετάβαση στο περιεχόμενο"
 
-#: functions.php:61 template-parts/header/site-branding.php:46
+#: template-parts/header/site-branding.php:46 functions.php:61
 msgid "Social Links Menu"
 msgstr "Μενού Συνδέσμων Κοινωνικών Δικτύων"
 
-#: functions.php:59 functions.php:146
+#: functions.php:59
 msgid "Primary"
 msgstr "Κύριο"
 
@@ -328,7 +336,7 @@ msgstr "Προηγούμενη"
 msgid "Comments"
 msgstr "Σχόλια"
 
-#. translators: 1: number of comments, 2: post title
+#. translators: 1: Number of comments, 2: Post title.
 #: comments.php:44
 msgctxt "comments title"
 msgid "%1$s reply on &ldquo;%2$s&rdquo;"
@@ -336,7 +344,7 @@ msgid_plural "%1$s replies on &ldquo;%2$s&rdquo;"
 msgstr[0] "%1$s απάντηση στο &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s απαντησεις στο &ldquo;%2$s&rdquo;"
 
-#. translators: %s: post title
+#. translators: %s: Post title.
 #: comments.php:40
 msgctxt "comments title"
 msgid "One reply on &ldquo;%s&rdquo;"
@@ -350,20 +358,21 @@ msgstr "Σχολίασε"
 msgid "Join the Conversation"
 msgstr "Συμμετάσχετε στη συζήτηση"
 
-#: classes/class-twentynineteen-walker-comment.php:99
+#: classes/class-twentynineteen-walker-comment.php:94
 msgid "Your comment is awaiting moderation."
 msgstr "Το σχόλιό σας περιμένει έγκριση."
 
-#: classes/class-twentynineteen-walker-comment.php:94
+#: classes/class-twentynineteen-walker-comment.php:87
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#. translators: 1: comment date, 2: comment time
-#: classes/class-twentynineteen-walker-comment.php:86
+#. translators: 1: Comment date, 2: Comment time.
+#: classes/class-twentynineteen-walker-comment.php:79
 msgid "%1$s at %2$s"
 msgstr "%1$s την %2$s"
 
-#: classes/class-twentynineteen-walker-comment.php:66
+#. translators: %s: Comment author link.
+#: classes/class-twentynineteen-walker-comment.php:59
 msgid "%s <span class=\"screen-reader-text says\">says:</span>"
 msgstr "%s <span class=\"screen-reader-text says\">λέει:</span>"
 

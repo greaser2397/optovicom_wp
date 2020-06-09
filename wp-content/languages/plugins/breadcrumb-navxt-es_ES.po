@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Breadcrumb NavXT - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-05-03 14:50:26+0000\n"
+"PO-Revision-Date: 2020-04-05 12:40:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,39 +31,39 @@ msgstr "Cargando..."
 msgid "Import settings"
 msgstr "Importar ajustes"
 
-#: class.bcn_breadcrumb_trail.php:146
+#: class.bcn_breadcrumb_trail.php:149
 msgid "Go to the %title% category archives."
 msgstr "Ira a los archivos de la categoría %title%."
 
-#: class.bcn_breadcrumb_trail.php:136
+#: class.bcn_breadcrumb_trail.php:139
 msgid "Go to the first page of posts by %title%."
 msgstr "Ir a la primera página de las entradas de %title%."
 
-#: class.bcn_breadcrumb_trail.php:135 class.bcn_breadcrumb_trail.php:139
+#: class.bcn_breadcrumb_trail.php:138 class.bcn_breadcrumb_trail.php:142
 msgid "Articles by: %1$s"
 msgstr "Artículos de: %1$s"
 
-#: class.bcn_breadcrumb_trail.php:129 class.bcn_breadcrumb_trail.php:150
+#: class.bcn_breadcrumb_trail.php:132 class.bcn_breadcrumb_trail.php:153
 msgid "Go to the %title% archives."
 msgstr "Ir a los archivos de %title%."
 
-#: class.bcn_breadcrumb_trail.php:124
+#: class.bcn_breadcrumb_trail.php:127
 msgid "Go to the %title% tag archives."
 msgstr "Ir a los archivos de la etiqueta %title%."
 
-#: class.bcn_breadcrumb_trail.php:118
+#: class.bcn_breadcrumb_trail.php:121
 msgid "Go to the first page of search results for %title%."
 msgstr "Ir a la primera página de resultados de búsqueda de %title%."
 
-#: class.bcn_breadcrumb.php:91
+#: class.bcn_breadcrumb.php:92
 msgid "Go to %title%."
 msgstr "Ir a %title%."
 
-#: class.bcn_admin.php:628
+#: class.bcn_admin.php:621
 msgid "Use the parent of the %s as the primary hierarchy, falling back to the hierarchy selected below when the parent hierarchy is exhausted."
 msgstr "Usar el superior de la %s como jerarquía principal, usando la jerarquía seleccionada abajo cuando esté vacía la jerarquía superior."
 
-#: class.bcn_admin.php:628
+#: class.bcn_admin.php:621
 msgid "%s Hierarchy Use Parent First"
 msgstr "La jerarquía de %s usa primero la superior"
 
@@ -103,11 +103,11 @@ msgstr "El ID del término del que obtener la ristra de migas de pan."
 msgid "The ID of the post (any type) to retrieve the breadcrumb trail for."
 msgstr "El ID de la publicación (de cualquier tipo) de la que obtener la ristra de migas de pan."
 
-#: class.bcn_admin.php:737
+#: class.bcn_admin.php:730
 msgid "Author Root Page"
 msgstr "Página raiz del autor"
 
-#: class.bcn_breadcrumb.php:249
+#: class.bcn_breadcrumb.php:250
 msgid "bcn_breadcrumb::type must be an array"
 msgstr "bcn_breadcrumb::type debe ser un array"
 
@@ -123,11 +123,11 @@ msgstr "$uid no puede ser null si el mensaje es descartable "
 msgid "Ignore breadcrumb cache"
 msgstr "Ignorar la caché de breadcrumb"
 
-#: class.bcn_admin.php:629
+#: class.bcn_admin.php:622
 msgid "%s Hierarchy Referer Influence"
 msgstr "Influencia del referente en la jerarquía de %s"
 
-#: class.bcn_admin.php:547 class.bcn_admin.php:629
+#: class.bcn_admin.php:547 class.bcn_admin.php:622
 msgid "Allow the referring page to influence the taxonomy selected for the hierarchy."
 msgstr "Permite a la página referente influir en la taxonomía seleccionada para la jerarquía."
 
@@ -151,17 +151,17 @@ msgstr "Sus ajustes pertenecen a una versión más moderna de este plugin."
 msgid "Your settings are for an older version of this plugin and need to be migrated."
 msgstr "Sus ajustes pertenecen  una versión más antigua de este plugin y necesita ser migrado."
 
-#: class.bcn_breadcrumb_trail.php:624
+#: class.bcn_breadcrumb_trail.php:676
 msgctxt "year archive breadcrumb date format"
 msgid "Y"
 msgstr "Y"
 
-#: class.bcn_breadcrumb_trail.php:595
+#: class.bcn_breadcrumb_trail.php:644
 msgctxt "month archive breadcrumb date format"
 msgid "F"
 msgstr "m"
 
-#: class.bcn_breadcrumb_trail.php:566
+#: class.bcn_breadcrumb_trail.php:612
 msgctxt "day archive breadcrumb date format"
 msgid "d"
 msgstr "d"
@@ -316,7 +316,7 @@ msgstr "Migrar los ajustes ahora."
 
 #: includes/class.mtekk_adminkit.php:247
 msgid "Settings"
-msgstr "Configuraciones"
+msgstr "Ajustes"
 
 #: class.bcn_widget.php:135
 msgid "Hide the trail on the front page"
@@ -366,15 +366,15 @@ msgstr "Advertencia: los ajustes individuales del sitio pueden modificar los aju
 msgid "Warning: Individual site settings will override any settings set in this page."
 msgstr "Advertencia: los ajustes individuales del sitio modificarán cualquier ajuste en esta página."
 
-#: class.bcn_breadcrumb_trail.php:494
+#: class.bcn_breadcrumb_trail.php:525
 msgid "$post global is not of type WP_Post"
 msgstr "La global $post no corresponde al tipo de WP_Post"
 
-#: class.bcn_breadcrumb_trail.php:117 class.bcn_breadcrumb_trail.php:121
+#: class.bcn_breadcrumb_trail.php:120 class.bcn_breadcrumb_trail.php:124
 msgid "Search results for &#39;%1$s&#39;"
 msgstr "Resultados de buscar &#39;%1$s&#39;"
 
-#: class.bcn_breadcrumb_trail.php:113
+#: class.bcn_breadcrumb_trail.php:116
 msgid "404"
 msgstr "Página no encontrada"
 
@@ -382,233 +382,213 @@ msgstr "Página no encontrada"
 msgid "Page %htitle%"
 msgstr "Página %htitle%"
 
-#: class.bcn_admin.php:781
+#: class.bcn_admin.php:774
 msgid "Save Changes"
-msgstr "Grabar Cambios"
+msgstr "Guardar los cambios"
 
-#: class.bcn_admin.php:769
+#: class.bcn_admin.php:762
 msgid "Max Title Length: "
 msgstr "Longitud Máxima del Título:"
 
-#: class.bcn_admin.php:764
+#: class.bcn_admin.php:757
 msgid "Limit the length of the breadcrumb title. (Deprecated, %suse CSS instead%s)"
 msgstr "Limita la longitud de los títulos de la ruta (Descontinuado, %suse CSS en su lugar%s)"
 
-#: class.bcn_admin.php:759
+#: class.bcn_admin.php:752
 msgid "Title Length"
 msgstr "Longitud del título"
 
-#: class.bcn_admin.php:755
+#: class.bcn_admin.php:748
 msgid "Deprecated"
 msgstr "Descontinuado"
 
-#: class.bcn_admin.php:752
+#: class.bcn_admin.php:745
 msgid "The template for 404 breadcrumbs."
 msgstr "La plantilla para la ruta de la página de error 404."
 
-#: class.bcn_admin.php:752
+#: class.bcn_admin.php:745
 msgid "404 Template"
 msgstr "Plantilla de Error 404"
 
-#: class.bcn_admin.php:751
+#: class.bcn_admin.php:744
 msgid "404 Title"
 msgstr "Título Error 404"
 
-#: class.bcn_admin.php:750
+#: class.bcn_admin.php:743
 msgid "The anchor template for search breadcrumbs, used only when the search results span several pages and the breadcrumb is not linked."
 msgstr "La plantilla de la ruta de navegación para la primera página de resultados de búsqueda, utilizado sólo cuando éstos ocupan más de una página y el elemento no está enlazado."
 
-#: class.bcn_admin.php:750
+#: class.bcn_admin.php:743
 msgid "Search Template (Unlinked)"
 msgstr "Plantilla de la Búsqueda (sin vínculo)"
 
-#: class.bcn_admin.php:749
+#: class.bcn_admin.php:742
 msgid "The anchor template for search breadcrumbs, used only when the search results span several pages."
 msgstr "Plantilla del vínculo a la primera página de resultados de búsqueda en la ruta de navegación, utilizado sólo cuando éstos ocupan más de una página."
 
-#: class.bcn_admin.php:749
+#: class.bcn_admin.php:742
 msgid "Search Template"
 msgstr "Plantilla de la Búsqueda"
 
-#: class.bcn_admin.php:748
+#: class.bcn_admin.php:741
 msgid "The template for date breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "La plantilla de la ruta de navegación para fechas, cuando el elemento no está enlazado."
 
-#: class.bcn_admin.php:748
+#: class.bcn_admin.php:741
 msgid "Date Template (Unlinked)"
 msgstr "Plantilla de la Fecha (sin vínculo)"
 
-#: class.bcn_admin.php:747
+#: class.bcn_admin.php:740
 msgid "The template for date breadcrumbs."
 msgstr "La plantilla de la ruta de navegación para fechas."
 
-#: class.bcn_admin.php:747
+#: class.bcn_admin.php:740
 msgid "Date Template"
 msgstr "Plantilla de la Fecha"
 
-#: class.bcn_admin.php:732
+#: class.bcn_admin.php:725
 msgid "display_name uses the name specified in \"Display name publicly as\" under the user profile the others correspond to options in the user profile."
 msgstr "display_name utiliza el nombre especificado en \"Mostrar este nombre públicamente\" en el perfil del usuario, la otras opciones corresponden a los campos nombre (first_name), apellido (last_name) y alias (nickname) en el perfil del usuario."
 
-#: class.bcn_admin.php:732
+#: class.bcn_admin.php:725
 msgid "Author Display Format"
 msgstr "Formato de Despliegue de Autor"
 
-#: class.bcn_admin.php:731
+#: class.bcn_admin.php:724
 msgid "The template for author breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "La plantilla de la ruta de navegación para autores, cuando el elemento no está enlazado."
 
-#: class.bcn_admin.php:731
+#: class.bcn_admin.php:724
 msgid "Author Template (Unlinked)"
 msgstr "Plantilla del Autor (sin vínculo)"
 
-#: class.bcn_admin.php:730
+#: class.bcn_admin.php:723
 msgid "The template for author breadcrumbs."
 msgstr "La plantilla de la ruta de navegación para autores."
 
-#: class.bcn_admin.php:730
+#: class.bcn_admin.php:723
 msgid "Author Template"
 msgstr "Plantilla de Autor"
 
-#: class.bcn_admin.php:727
+#: class.bcn_admin.php:720
 msgid "Author Archives"
 msgstr "Archivos de Autor"
 
-#: class.bcn_admin.php:726 class.bcn_admin.php:744
+#: class.bcn_admin.php:719 class.bcn_admin.php:737
 msgid "Miscellaneous"
 msgstr "Misceláneos"
 
-#: class.bcn_admin.php:726
+#: class.bcn_admin.php:719
 msgid "The settings for author and date archives, searches, and 404 pages are located under this tab."
 msgstr "Los ajustes para autor y archivos, búsquedas, y páginas 404 están en esta pestaña."
 
-#: class.bcn_admin.php:696
+#: class.bcn_admin.php:689
 msgid "The template for post_format breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "La plantilla para el formato de la ruta de migas en la entrada, utilizado sólo cuando la miga no tiene enlace."
 
-#: class.bcn_admin.php:696
+#: class.bcn_admin.php:689
 msgid "Post Format Template (Unlinked)"
 msgstr "Plantilla para Formato de la Entrada (sin enlace)"
 
-#: class.bcn_admin.php:695
+#: class.bcn_admin.php:688
 msgid "The template for post format breadcrumbs."
 msgstr "La plantilla para el formato de la ruta de migas en la entrada"
 
-#: class.bcn_admin.php:695
+#: class.bcn_admin.php:688
 msgid "Post Format Template"
 msgstr "Plantilla para Formato de la Entrada"
 
-#: class.bcn_admin.php:692
+#: class.bcn_admin.php:685
 msgid "Post Formats"
 msgstr "Formatos de Entradas"
 
-#: class.bcn_admin.php:689
+#: class.bcn_admin.php:682
 msgid "The template for tag breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "La plantilla de la ruta de navegación para etiquetas, cuando el elemento no está enlazado."
 
-#: class.bcn_admin.php:689
+#: class.bcn_admin.php:682
 msgid "Tag Template (Unlinked)"
 msgstr "Plantilla de la Etiqueta (sin vínculo)"
 
-#: class.bcn_admin.php:688
+#: class.bcn_admin.php:681
 msgid "The template for tag breadcrumbs."
 msgstr "La plantilla de la ruta de navegación para etiquetas."
 
-#: class.bcn_admin.php:688
+#: class.bcn_admin.php:681
 msgid "Tag Template"
 msgstr "Plantilla de la Etiqueta"
 
-#: class.bcn_admin.php:682
+#: class.bcn_admin.php:675
 msgid "The template for category breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "La plantilla de la ruta de navegación para categorías, cuando el elemento no está enlazado."
 
-#: class.bcn_admin.php:682
+#: class.bcn_admin.php:675
 msgid "Category Template (Unlinked)"
 msgstr "Plantilla de la Categoría (sin vínculo)"
 
-#: class.bcn_admin.php:681
+#: class.bcn_admin.php:674
 msgid "The template for category breadcrumbs."
 msgstr "La plantilla de la ruta de navegación para categorías."
 
-#: class.bcn_admin.php:681
+#: class.bcn_admin.php:674
 msgid "Category Template"
 msgstr "Plantilla de Categoría"
 
-#: class.bcn_admin.php:677
+#: class.bcn_admin.php:670
 msgid "Taxonomies"
 msgstr "Taxonomías"
 
-#: class.bcn_admin.php:677
+#: class.bcn_admin.php:670
 msgid "The settings for all taxonomies (including Categories, Tags, and custom taxonomies) are located under this tab."
 msgstr "Los ajustes para todas las taxonomías (incluyendo Categorías, Etiquetas y Personalizadas) están en esta pestaña."
 
-#: class.bcn_admin.php:659
+#: class.bcn_admin.php:652
 msgid "The hierarchy which the breadcrumb trail will show."
 msgstr "La jerarquía que mostrará la ruta de migas."
 
-#: class.bcn_admin.php:633
+#: class.bcn_admin.php:626
 msgid "%s Hierarchy"
 msgstr "%s Jerarquía"
 
-#: class.bcn_admin.php:627
+#: class.bcn_admin.php:620
 msgid "Show the hierarchy (specified below) leading to a %s in the breadcrumb trail."
 msgstr "Mostrar la jerarquía (especificada abajo) que lleva a %s  en la ruta de navegación."
 
-#: class.bcn_admin.php:627
+#: class.bcn_admin.php:620
 msgid "%s Hierarchy Display"
 msgstr "%s Jerarquía de Despliegue"
 
-#: class.bcn_admin.php:626
+#: class.bcn_admin.php:619
 msgid "Show the breadcrumb for the %s post type archives in the breadcrumb trail."
 msgstr "Mostrar la ruta de navegación para los archivos de las entradas de tipo "
 
-#: class.bcn_admin.php:626
+#: class.bcn_admin.php:619
 msgid "%s Archive Display"
 msgstr "Despliegue de Archivos de %s"
 
-#: class.bcn_admin.php:622 class.bcn_admin.php:740
+#: class.bcn_admin.php:615 class.bcn_admin.php:733
 msgid "&mdash; Select &mdash;"
 msgstr "&mdash; Seleccione &mdash;"
 
-#: class.bcn_admin.php:619
+#: class.bcn_admin.php:612
 msgid "%s Root Page"
 msgstr "%s Página Raíz"
 
-#: class.bcn_admin.php:614 class.bcn_admin.php:717
+#: class.bcn_admin.php:607 class.bcn_admin.php:710
 msgid "The template for %s breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "La plantilla de la ruta de navegación para %s, cuando el elemento no está enlazado."
 
-#: class.bcn_admin.php:614 class.bcn_admin.php:717
+#: class.bcn_admin.php:607 class.bcn_admin.php:710
 msgid "%s Template (Unlinked)"
 msgstr "Plantilla de %s (sin vínculo)"
 
-#: class.bcn_admin.php:613 class.bcn_admin.php:716
+#: class.bcn_admin.php:606 class.bcn_admin.php:709
 msgid "The template for %s breadcrumbs."
 msgstr "La plantilla de la ruta de navegación para %s."
 
-#: class.bcn_admin.php:613 class.bcn_admin.php:716
+#: class.bcn_admin.php:606 class.bcn_admin.php:709
 msgid "%s Template"
 msgstr "Plantilla de %s"
-
-#: class.bcn_admin.php:593
-msgid "The template for attachment breadcrumbs, used only when the breadcrumb is not linked."
-msgstr "La plantilla de la ruta de navegación para archivos adjuntos, cuando el elemento no está enlazado."
-
-#: class.bcn_admin.php:593
-msgid "Attachment Template (Unlinked)"
-msgstr "Plantilla del Archivo Adjunto (sin vínculo)"
-
-#: class.bcn_admin.php:592
-msgid "The template for attachment breadcrumbs."
-msgstr "La plantilla de la ruta de navegación para archivos adjuntos."
-
-#: class.bcn_admin.php:592
-msgid "Attachment Template"
-msgstr "Plantilla de Archivo Adjunto"
-
-#: class.bcn_admin.php:589
-msgid "Attachments"
-msgstr "Adjuntos"
 
 #: class.bcn_admin.php:583
 msgid "The template for page breadcrumbs, used only when the breadcrumb is not linked."
@@ -630,23 +610,23 @@ msgstr "Plantilla de la Página"
 msgid "Pages"
 msgstr "Páginas"
 
-#: class.bcn_admin.php:575 class.bcn_admin.php:663
+#: class.bcn_admin.php:575 class.bcn_admin.php:656
 msgid "The hierarchy which the breadcrumb trail will show. Note that the \"Post Parent\" option may require an additional plugin to behave as expected since this is a non-hierarchical post type."
 msgstr "La jerarquia en la que se muestra la ruta de migas. Tome nota de que la opción de \"Entrada/Página Superior\" puede requerir un plugin adicional para comportarse como se espera, ya que este es un tipo de publicación sin jerarquía."
 
-#: class.bcn_admin.php:559 class.bcn_admin.php:638
+#: class.bcn_admin.php:559 class.bcn_admin.php:631
 msgid "Post Parent"
 msgstr "Entrada o Página superior"
 
-#: class.bcn_admin.php:557 class.bcn_admin.php:685
+#: class.bcn_admin.php:557 class.bcn_admin.php:678
 msgid "Tags"
 msgstr "Etiquetas"
 
-#: class.bcn_admin.php:556 class.bcn_admin.php:639
+#: class.bcn_admin.php:556 class.bcn_admin.php:632
 msgid "Dates"
 msgstr "Fechas"
 
-#: class.bcn_admin.php:555 class.bcn_admin.php:678
+#: class.bcn_admin.php:555 class.bcn_admin.php:671
 msgid "Categories"
 msgstr "Categorías"
 
@@ -786,7 +766,7 @@ msgstr "Un conjunto de ajustes que probablemente serán modificados se encuentra
 msgid "Breadcrumb NavXT Settings"
 msgstr "Opciones de Configuración de Breadcrumb NavXT"
 
-#: class.bcn_admin.php:446 class.bcn_admin.php:764
+#: class.bcn_admin.php:446 class.bcn_admin.php:757
 msgid "Go to the guide on trimming breadcrumb title lengths with CSS"
 msgstr "Ir a la guía sobre cómo recortar la longitud de los títulos con CSS"
 
@@ -806,15 +786,15 @@ msgstr "Advertencia: los ajustes de red pueden modificar los ajustes de esta pá
 msgid "Warning: Your network settings will override any settings set in this page."
 msgstr "Advertencia: los ajustes de red modificarán cualquier ajuste en esta página."
 
-#: class.bcn_admin.php:403 includes/class.mtekk_adminkit.php:879
+#: includes/class.mtekk_adminkit.php:879 class.bcn_admin.php:403
 msgid "Reset"
-msgstr "Reiniciar"
+msgstr "Restablecer"
 
-#: class.bcn_admin.php:402 includes/class.mtekk_adminkit.php:878
+#: includes/class.mtekk_adminkit.php:878 class.bcn_admin.php:402
 msgid "Export"
 msgstr "Exportar"
 
-#: class.bcn_admin.php:401 includes/class.mtekk_adminkit.php:877
+#: includes/class.mtekk_adminkit.php:877 class.bcn_admin.php:401
 msgid "Import"
 msgstr "Importar"
 
@@ -902,7 +882,7 @@ msgstr "Encontrará tips para los ajustes debajo de cada opción."
 msgid "Insufficient privileges to proceed."
 msgstr "No tiene privilegios para proceder."
 
-#: class.bcn_rest_controller.php:26 class.bcn_admin.php:26
-#: breadcrumb-navxt.php:36
+#: class.bcn_rest_controller.php:26 breadcrumb-navxt.php:36
+#: class.bcn_admin.php:26
 msgid "Your PHP version is too old, please upgrade to a newer version. Your version is %1$s, Breadcrumb NavXT requires %2$s"
 msgstr "Su versión de PHP es demasiado antigua, por favor, actualice a la nueva versión. Su versión es %1$s, el plugin Breadcrumb NavXT requiere la versión %2$s "

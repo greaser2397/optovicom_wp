@@ -2,16 +2,52 @@
 # This file is distributed under the same license as the Plugins - Breadcrumb NavXT - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2017-12-15 04:29:14+0000\n"
+"PO-Revision-Date: 2020-05-23 06:10:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
 "Language: zh_CN\n"
 "Project-Id-Version: Plugins - Breadcrumb NavXT - Stable (latest release)\n"
 
-#: class.bcn_widget.php:128
+#: bcn_gutenberg_block.js:94
+msgid "Loading..."
+msgstr "正在加载……"
+
+#: includes/class.mtekk_adminkit.php:868
+msgid "Import settings"
+msgstr "导入设置"
+
+#: class.bcn_breadcrumb_trail.php:139
+msgid "Go to the first page of posts by %title%."
+msgstr "按%title%转到文章的第一页。"
+
+#: class.bcn_breadcrumb_trail.php:121
+msgid "Go to the first page of search results for %title%."
+msgstr "转到%title%的搜索结果的第一页。"
+
+#: class.bcn_breadcrumb.php:92
+msgid "Go to %title%."
+msgstr "转到 %title%."
+
+#: includes/class.mtekk_adminkit.php:571
+msgid "Go to the %s support forum."
+msgstr "去 %s 支持论坛。"
+
+#: class.bcn_breadcrumb.php:250
+msgid "bcn_breadcrumb::type must be an array"
+msgstr "bcn_breadcrumb::type必须为数组"
+
+#: includes/class.mtekk_adminkit.php:797
+msgid "adminKit::message is deprecated, use new adminkit_messages instead."
+msgstr "adminKit::message已过时，请改用新的adminkit_messages。"
+
+#: includes/class.mtekk_adminkit_message.php:43
+msgid "$uid must not be null if message is dismissible"
+msgstr "如果消息被拒绝，则$uid不能为null"
+
+#: class.bcn_widget.php:137
 msgid "Ignore breadcrumb cache"
 msgstr "忽略路径导航缓存"
 
@@ -31,38 +67,20 @@ msgstr "你当前的配置是更新版的 Breadcrumb NavXT 的配置"
 msgid "Your settings are for an older version of this plugin and need to be migrated."
 msgstr "你当前的设置是旧版 Breadcrumb NavXT 的配置，需要迁移到新版配置。"
 
-#: class.bcn_breadcrumb_trail.php:630
+#: class.bcn_breadcrumb_trail.php:676
 msgctxt "year archive breadcrumb date format"
 msgid "Y"
 msgstr "Y"
 
-#: class.bcn_breadcrumb_trail.php:601
+#: class.bcn_breadcrumb_trail.php:644
 msgctxt "month archive breadcrumb date format"
 msgid "F"
 msgstr "F"
 
-#: class.bcn_breadcrumb_trail.php:572
+#: class.bcn_breadcrumb_trail.php:612
 msgctxt "day archive breadcrumb date format"
 msgid "d"
 msgstr "d"
-
-#: class.bcn_breadcrumb_trail.php:127
-msgid "<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name\">Articles by: %htitle%</span><meta property=\"position\" content=\"%position%\"></span>"
-msgstr ""
-"<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name\">%htitle%\n"
-" 撰写的文章</span><meta property=\"position\" content=\"%position%\"></span>"
-
-#: class.bcn_breadcrumb_trail.php:112
-msgid "<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name\">Search results for &#39;%htitle%&#39;</span><meta property=\"position\" content=\"%position%\"></span>"
-msgstr "<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name\">&#39;%htitle%&#39; 的搜索结果</span><meta property=\"position\" content=\"%position%\"></span>"
-
-#: class.bcn_breadcrumb_trail.php:110
-msgid "<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name\">Search results for &#39;<a property=\"item\" typeof=\"WebPage\" title=\"Go to the first page of search results for %title%.\" href=\"%link%\" class=\"%type%\">%htitle%</a>&#39;</span><meta property=\"position\" content=\"%position%\"></span>"
-msgstr "<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name\">&#39; 的搜索结果<a property=\"item\" typeof=\"WebPage\" title=\"跳转到 %title% 搜索结果的首页.\" href=\"%link%\" class=\"%type%\">%htitle%</a>&#39;</span><meta property=\"position\" content=\"%position%\"></span>"
-
-#: class.bcn_breadcrumb_trail.php:77
-msgid "<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name\">Page %htitle%</span><meta property=\"position\" content=\"%position%\"></span>"
-msgstr "<span property=\"itemListElement\" typeof=\"ListItem\"><span property=\"name\">页面 %htitle%</span><meta property=\"position\" content=\"%position%\"></span>"
 
 #: class.bcn_admin.php:507
 msgctxt "Paged as in when on an archive or post that is split into multiple pages"
@@ -82,51 +100,35 @@ msgstr "多页文章路径导航"
 msgid "%sTranslate%s: Is your language not available? Visit the Breadcrumb NavXT translation project on WordPress.org to start translating."
 msgstr "%s翻译%s: 有你需要的语言吗? 在 WordPress.org 访问 Breadcrumb NavXT 翻译项目参与共同翻译"
 
-#: class.bcn_breadcrumb_trail.php:132
-msgid "<span property=\"itemListElement\" typeof=\"ListItem\"><a property=\"item\" typeof=\"WebPage\" title=\"Go to the %title% category archives.\" href=\"%link%\" class=\"%type%\"><span property=\"name\">%htitle%</span></a><meta property=\"position\" content=\"%position%\"></span>"
-msgstr "<span property=\"itemListElement\" typeof=\"ListItem\"><a property=\"item\" typeof=\"WebPage\" title=\"跳转到 %title% 分类下的文章.\" href=\"%link%\" class=\"%type%\"><span property=\"name\">%htitle%</span></a><meta property=\"position\" content=\"%position%\"></span>"
-
-#: class.bcn_breadcrumb_trail.php:120 class.bcn_breadcrumb_trail.php:136
-msgid "<span property=\"itemListElement\" typeof=\"ListItem\"><a property=\"item\" typeof=\"WebPage\" title=\"Go to the %title% archives.\" href=\"%link%\" class=\"%type%\"><span property=\"name\">%htitle%</span></a><meta property=\"position\" content=\"%position%\"></span>"
-msgstr "<span property=\"itemListElement\" typeof=\"ListItem\"><a property=\"item\" typeof=\"WebPage\" title=\"跳转到标题为 %title% 文章.\" href=\"%link%\" class=\"%type%\"><span property=\"name\">%htitle%</span></a><meta property=\"position\" content=\"%position%\"></span>"
-
-#: class.bcn_breadcrumb_trail.php:115
-msgid "<span property=\"itemListElement\" typeof=\"ListItem\"><a property=\"item\" typeof=\"WebPage\" title=\"Go to the %title% tag archives.\" href=\"%link%\" class=\"%type%\"><span property=\"name\">%htitle%</span></a><meta property=\"position\" content=\"%position%\"></span>"
-msgstr "<span property=\"itemListElement\" typeof=\"ListItem\"><a property=\"item\" typeof=\"WebPage\" title=\"跳转到拥有 %title% 标签的文章.\" href=\"%link%\" class=\"%type%\"><span property=\"name\">%htitle%</span></a><meta property=\"position\" content=\"%position%\"></span>"
-
-#: class.bcn_breadcrumb.php:91
-msgid "<span property=\"itemListElement\" typeof=\"ListItem\"><a property=\"item\" typeof=\"WebPage\" title=\"Go to %title%.\" href=\"%link%\" class=\"%type%\"><span property=\"name\">%htitle%</span></a><meta property=\"position\" content=\"%position%\"></span>"
-msgstr "<span property=\"itemListElement\" typeof=\"ListItem\"><a property=\"item\" typeof=\"WebPage\" title=\"跳转到 %title%.\" href=\"%link%\" class=\"%type%\"><span property=\"name\">%htitle%</span></a><meta property=\"position\" content=\"%position%\"></span>"
-
-#. Author URI of the plugin/theme
+#. Author URI of the plugin
 msgid "http://mtekk.us/"
 msgstr "http://mtekk.us/"
 
-#. Author of the plugin/theme
+#. Author of the plugin
 msgid "John Havlik"
 msgstr "John Havlik"
 
-#. Description of the plugin/theme
+#. Description of the plugin
 msgid "Adds a breadcrumb navigation showing the visitor&#39;s path to their current location. For details on how to use this plugin visit <a href=\"http://mtekk.us/code/breadcrumb-navxt/\">Breadcrumb NavXT</a>."
 msgstr "添加一个面包屑导航以显示用户当前访问路径，关于插件的详情信息，请访问<a href=\"http://mtekk.us/code/breadcrumb-navxt/\">Breadcrumb NavXT</a>。"
 
-#. Plugin URI of the plugin/theme
+#. Plugin URI of the plugin
 msgid "http://mtekk.us/code/breadcrumb-navxt/"
 msgstr "http://mtekk.us/code/breadcrumb-navxt/"
 
-#. Plugin Name of the plugin/theme
+#. Plugin Name of the plugin
 msgid "Breadcrumb NavXT"
 msgstr "面包屑导航"
 
-#: includes/class.mtekk_adminkit.php:874
+#: includes/class.mtekk_adminkit.php:875
 msgid "Select a XML settings file to upload and import settings from."
 msgstr "选择需要上传和导入的XML文件"
 
-#: includes/class.mtekk_adminkit.php:871
+#: includes/class.mtekk_adminkit.php:872
 msgid "Settings File"
 msgstr "设置文件"
 
-#: includes/class.mtekk_adminkit.php:868
+#: includes/class.mtekk_adminkit.php:869
 msgid "Import settings from a XML file, export the current settings to a XML file, or reset to the default settings."
 msgstr "从XML文件中导入设置，导出当前设置到XML文件，或者重置到默认设置。"
 
@@ -165,10 +167,6 @@ msgstr "撤销导入操作"
 #: includes/class.mtekk_adminkit.php:670
 msgid "Settings successfully imported from the uploaded file."
 msgstr "设置成功从上传的文件中导入"
-
-#: includes/class.mtekk_adminkit.php:571
-msgid "Go to the %s support post for your version."
-msgstr "转到你所用版本%s的支持文章"
 
 #: includes/class.mtekk_adminkit.php:571
 msgid "Please include this message in your %sbug report%s."
@@ -236,39 +234,35 @@ msgstr "现在迁移设置。"
 msgid "Settings"
 msgstr "设置"
 
-#: class.bcn_widget.php:126
+#: class.bcn_widget.php:135
 msgid "Hide the trail on the front page"
 msgstr "在首页隐藏面包屑"
 
-#: class.bcn_widget.php:124
+#: class.bcn_widget.php:133
 msgid "Reverse the order of the trail"
 msgstr "反转面包屑导航的顺序"
 
-#: class.bcn_widget.php:122
+#: class.bcn_widget.php:131
 msgid "Link the breadcrumbs"
 msgstr "链接到面包屑"
 
-#: class.bcn_widget.php:116
+#: class.bcn_widget.php:125
 msgid "Plain"
 msgstr "纯文本"
 
-#: class.bcn_widget.php:115
-msgid "Google (RDFa) Breadcrumbs"
-msgstr "Google (RDFa) 面包屑"
-
-#: class.bcn_widget.php:114
+#: class.bcn_widget.php:122
 msgid "List"
 msgstr "列表"
 
-#: class.bcn_widget.php:112
+#: class.bcn_widget.php:120
 msgid "Output trail as:"
 msgstr "像这样输出面包屑："
 
-#: class.bcn_widget.php:108
+#: class.bcn_widget.php:116
 msgid "Text to show before the trail:"
 msgstr "导航前面的文本："
 
-#: class.bcn_widget.php:104
+#: class.bcn_widget.php:112
 msgid "Title:"
 msgstr "标题："
 
@@ -288,283 +282,271 @@ msgstr "警告：个别站点的设置将覆盖这个页面中的一些设置。
 msgid "Warning: Individual site settings will override any settings set in this page."
 msgstr "警告：个别站点的设置将覆盖这个页面中的一些设置。"
 
-#: class.bcn_breadcrumb_trail.php:484
+#: class.bcn_breadcrumb_trail.php:525
 msgid "$post global is not of type WP_Post"
 msgstr "全局 $post 变量不是WP_Post"
 
-#: class.bcn_breadcrumb_trail.php:107
+#: class.bcn_breadcrumb_trail.php:120 class.bcn_breadcrumb_trail.php:124
+msgid "Search results for &#39;%1$s&#39;"
+msgstr "搜索&#39;%1$s&#39;的结果"
+
+#: class.bcn_breadcrumb_trail.php:116
 msgid "404"
 msgstr "404"
 
-#: class.bcn_admin.php:769
+#: class.bcn_breadcrumb_trail.php:79
+msgid "Page %htitle%"
+msgstr "页面%htitle%"
+
+#: class.bcn_admin.php:774
 msgid "Save Changes"
 msgstr "保存修改"
 
-#: class.bcn_admin.php:757
+#: class.bcn_admin.php:762
 msgid "Max Title Length: "
 msgstr "最大标题长度："
 
-#: class.bcn_admin.php:752
+#: class.bcn_admin.php:757
 msgid "Limit the length of the breadcrumb title. (Deprecated, %suse CSS instead%s)"
 msgstr "限制面包屑导航的标题长度 (已启用，%suse，CSS instead%s 实现)"
 
-#: class.bcn_admin.php:747
+#: class.bcn_admin.php:752
 msgid "Title Length"
 msgstr "标题长度"
 
-#: class.bcn_admin.php:743
+#: class.bcn_admin.php:748
 msgid "Deprecated"
 msgstr "已启用"
 
-#: class.bcn_admin.php:740
+#: class.bcn_admin.php:745
 msgid "The template for 404 breadcrumbs."
 msgstr "404页面的面包屑。"
 
-#: class.bcn_admin.php:740
+#: class.bcn_admin.php:745
 msgid "404 Template"
 msgstr "404模版"
 
-#: class.bcn_admin.php:739
+#: class.bcn_admin.php:744
 msgid "404 Title"
 msgstr "404标题"
 
-#: class.bcn_admin.php:738
+#: class.bcn_admin.php:743
 msgid "The anchor template for search breadcrumbs, used only when the search results span several pages and the breadcrumb is not linked."
 msgstr "搜索结果首页模版，只在搜索结果分为多页，且面包屑没有连接时使用。"
 
-#: class.bcn_admin.php:738
+#: class.bcn_admin.php:743
 msgid "Search Template (Unlinked)"
 msgstr "搜索模版（没有链接）"
 
-#: class.bcn_admin.php:737
+#: class.bcn_admin.php:742
 msgid "The anchor template for search breadcrumbs, used only when the search results span several pages."
 msgstr "搜索结果首页模版，只在搜索结果分为多页时使用。"
 
-#: class.bcn_admin.php:737
+#: class.bcn_admin.php:742
 msgid "Search Template"
 msgstr "搜索模版"
 
-#: class.bcn_admin.php:736
+#: class.bcn_admin.php:741
 msgid "The template for date breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "日期面包屑模版，只在面包屑没有链接时使用"
 
-#: class.bcn_admin.php:736
+#: class.bcn_admin.php:741
 msgid "Date Template (Unlinked)"
 msgstr "日期面包屑（没有链接）"
 
-#: class.bcn_admin.php:735
+#: class.bcn_admin.php:740
 msgid "The template for date breadcrumbs."
 msgstr "日期面包屑模版"
 
-#: class.bcn_admin.php:735
+#: class.bcn_admin.php:740
 msgid "Date Template"
 msgstr "日期模版"
 
-#: class.bcn_admin.php:729
+#: class.bcn_admin.php:725
 msgid "display_name uses the name specified in \"Display name publicly as\" under the user profile the others correspond to options in the user profile."
 msgstr "显示名使用用户资料下\"公开显示为\"选项下对应的名称。"
 
-#: class.bcn_admin.php:729
+#: class.bcn_admin.php:725
 msgid "Author Display Format"
 msgstr "作者显示格式"
 
-#: class.bcn_admin.php:728
+#: class.bcn_admin.php:724
 msgid "The template for author breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "作者面包屑模版，只在面包屑没有链接时使用。"
 
-#: class.bcn_admin.php:728
+#: class.bcn_admin.php:724
 msgid "Author Template (Unlinked)"
 msgstr "作者模版（没有链接）"
 
-#: class.bcn_admin.php:727
+#: class.bcn_admin.php:723
 msgid "The template for author breadcrumbs."
 msgstr "作者面包屑模版"
 
-#: class.bcn_admin.php:727
+#: class.bcn_admin.php:723
 msgid "Author Template"
 msgstr "作者模版"
 
-#: class.bcn_admin.php:724
+#: class.bcn_admin.php:720
 msgid "Author Archives"
 msgstr "作者存档"
 
-#: class.bcn_admin.php:723 class.bcn_admin.php:732
+#: class.bcn_admin.php:719 class.bcn_admin.php:737
 msgid "Miscellaneous"
 msgstr "杂项"
 
-#: class.bcn_admin.php:723
+#: class.bcn_admin.php:719
 msgid "The settings for author and date archives, searches, and 404 pages are located under this tab."
 msgstr "作者和日期存档，搜索结果，404页面的设置在这个选项卡下面。"
 
-#: class.bcn_admin.php:693
+#: class.bcn_admin.php:689
 msgid "The template for post_format breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "文章格式面包屑模版，只在面包屑没有链接时使用。"
 
-#: class.bcn_admin.php:693
+#: class.bcn_admin.php:689
 msgid "Post Format Template (Unlinked)"
 msgstr "文章格式模版（没有链接）"
 
-#: class.bcn_admin.php:692
+#: class.bcn_admin.php:688
 msgid "The template for post format breadcrumbs."
 msgstr "文章格式面包屑模版"
 
-#: class.bcn_admin.php:692
+#: class.bcn_admin.php:688
 msgid "Post Format Template"
 msgstr "文章格式模版"
 
-#: class.bcn_admin.php:689
+#: class.bcn_admin.php:685
 msgid "Post Formats"
 msgstr "文章格式"
 
-#: class.bcn_admin.php:686
+#: class.bcn_admin.php:682
 msgid "The template for tag breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "标签面包屑模版，只在面包屑没有链接时使用。"
 
-#: class.bcn_admin.php:686
+#: class.bcn_admin.php:682
 msgid "Tag Template (Unlinked)"
 msgstr "标签模版（没有链接）"
 
-#: class.bcn_admin.php:685
+#: class.bcn_admin.php:681
 msgid "The template for tag breadcrumbs."
 msgstr "标签面包屑模版"
 
-#: class.bcn_admin.php:685
+#: class.bcn_admin.php:681
 msgid "Tag Template"
 msgstr "标签模版"
 
-#: class.bcn_admin.php:679
+#: class.bcn_admin.php:675
 msgid "The template for category breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "分类面包屑模版，只在面包屑没有链接时使用。"
 
-#: class.bcn_admin.php:679
+#: class.bcn_admin.php:675
 msgid "Category Template (Unlinked)"
 msgstr "分类模版（没有链接）"
 
-#: class.bcn_admin.php:678
+#: class.bcn_admin.php:674
 msgid "The template for category breadcrumbs."
 msgstr "分类面包屑模版"
 
-#: class.bcn_admin.php:678
+#: class.bcn_admin.php:674
 msgid "Category Template"
 msgstr "分类模版"
 
-#: class.bcn_admin.php:674
+#: class.bcn_admin.php:670
 msgid "Taxonomies"
 msgstr "分类法"
 
-#: class.bcn_admin.php:674
+#: class.bcn_admin.php:670
 msgid "The settings for all taxonomies (including Categories, Tags, and custom taxonomies) are located under this tab."
 msgstr "所有分类法（包括分类，标签，和自定义分类法）的设置都在这个选项卡下面。"
 
-#: class.bcn_admin.php:656
+#: class.bcn_admin.php:652
 msgid "The hierarchy which the breadcrumb trail will show."
 msgstr "面包屑显示的层次"
 
-#: class.bcn_admin.php:630
+#: class.bcn_admin.php:626
 msgid "%s Hierarchy"
 msgstr "%s分级"
 
-#: class.bcn_admin.php:625
+#: class.bcn_admin.php:620
 msgid "Show the hierarchy (specified below) leading to a %s in the breadcrumb trail."
 msgstr "显示 %s的层次结构（在下面定义）"
 
-#: class.bcn_admin.php:625
+#: class.bcn_admin.php:620
 msgid "%s Hierarchy Display"
 msgstr "%s分层显示"
 
-#: class.bcn_admin.php:624
+#: class.bcn_admin.php:619
 msgid "Show the breadcrumb for the %s post type archives in the breadcrumb trail."
 msgstr "在面包屑导航中显示%s文章类型存档的面包屑"
 
-#: class.bcn_admin.php:624
+#: class.bcn_admin.php:619
 msgid "%s Archive Display"
 msgstr "%s存档显示"
 
-#: class.bcn_admin.php:620
+#: class.bcn_admin.php:615 class.bcn_admin.php:733
 msgid "&mdash; Select &mdash;"
 msgstr "&mdash;选择&mdash;"
 
-#: class.bcn_admin.php:617
+#: class.bcn_admin.php:612
 msgid "%s Root Page"
 msgstr "%s根页面"
 
-#: class.bcn_admin.php:612 class.bcn_admin.php:714
+#: class.bcn_admin.php:607 class.bcn_admin.php:710
 msgid "The template for %s breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "%s面包屑模版，只在面包屑没有链接时使用。"
 
-#: class.bcn_admin.php:612 class.bcn_admin.php:714
+#: class.bcn_admin.php:607 class.bcn_admin.php:710
 msgid "%s Template (Unlinked)"
 msgstr "%s模版（未连接）"
 
-#: class.bcn_admin.php:611 class.bcn_admin.php:713
+#: class.bcn_admin.php:606 class.bcn_admin.php:709
 msgid "The template for %s breadcrumbs."
 msgstr "%s面包屑模版"
 
-#: class.bcn_admin.php:611 class.bcn_admin.php:713
+#: class.bcn_admin.php:606 class.bcn_admin.php:709
 msgid "%s Template"
 msgstr "%s模版"
 
-#: class.bcn_admin.php:591
-msgid "The template for attachment breadcrumbs, used only when the breadcrumb is not linked."
-msgstr "附件面包屑模版，只在面包屑没有链接时使用。"
-
-#: class.bcn_admin.php:591
-msgid "Attachment Template (Unlinked)"
-msgstr "附件模版（没有链接）"
-
-#: class.bcn_admin.php:590
-msgid "The template for attachment breadcrumbs."
-msgstr "附件面包屑模版"
-
-#: class.bcn_admin.php:590
-msgid "Attachment Template"
-msgstr "附件模版"
-
-#: class.bcn_admin.php:587
-msgid "Attachments"
-msgstr "附件"
-
-#: class.bcn_admin.php:582
+#: class.bcn_admin.php:583
 msgid "The template for page breadcrumbs, used only when the breadcrumb is not linked."
 msgstr "页面面包屑模版，只在面包屑没有链接时使用。"
 
-#: class.bcn_admin.php:582
+#: class.bcn_admin.php:583
 msgid "Page Template (Unlinked)"
 msgstr "页面模版（没有链接）"
 
-#: class.bcn_admin.php:581
+#: class.bcn_admin.php:582
 msgid "The template for page breadcrumbs."
 msgstr "页面面包屑模版"
 
-#: class.bcn_admin.php:581
+#: class.bcn_admin.php:582
 msgid "Page Template"
 msgstr "页面模版"
 
-#: class.bcn_admin.php:578
+#: class.bcn_admin.php:579
 msgid "Pages"
 msgstr "页面"
 
-#: class.bcn_admin.php:574 class.bcn_admin.php:660
+#: class.bcn_admin.php:575 class.bcn_admin.php:656
 msgid "The hierarchy which the breadcrumb trail will show. Note that the \"Post Parent\" option may require an additional plugin to behave as expected since this is a non-hierarchical post type."
 msgstr "面包屑导航显示的层次。需要注意的是\"父级文章\" 选项，可能需要额外的插件才能像预期的那样显示，因为文章是一个没有分层的文章类型。"
 
-#: class.bcn_admin.php:558 class.bcn_admin.php:635
+#: class.bcn_admin.php:559 class.bcn_admin.php:631
 msgid "Post Parent"
 msgstr "文章所属分类"
 
-#: class.bcn_admin.php:556 class.bcn_admin.php:682
+#: class.bcn_admin.php:557 class.bcn_admin.php:678
 msgid "Tags"
 msgstr "标签"
 
-#: class.bcn_admin.php:555 class.bcn_admin.php:636
+#: class.bcn_admin.php:556 class.bcn_admin.php:632
 msgid "Dates"
 msgstr "日期"
 
-#: class.bcn_admin.php:554 class.bcn_admin.php:675
+#: class.bcn_admin.php:555 class.bcn_admin.php:671
 msgid "Categories"
 msgstr "分类"
 
-#: class.bcn_admin.php:550
+#: class.bcn_admin.php:551
 msgid "Post Hierarchy"
 msgstr "文章层次"
 
@@ -700,7 +682,7 @@ msgstr "最有可能设置的选项都集合这个选项卡下面。"
 msgid "Breadcrumb NavXT Settings"
 msgstr "面包屑导航设置"
 
-#: class.bcn_admin.php:446 class.bcn_admin.php:752
+#: class.bcn_admin.php:446 class.bcn_admin.php:757
 msgid "Go to the guide on trimming breadcrumb title lengths with CSS"
 msgstr "进入用CSS修正标题长度的指南"
 
@@ -720,15 +702,15 @@ msgstr "警告：个别站点的设置将覆盖这个页面中的一些设置。
 msgid "Warning: Your network settings will override any settings set in this page."
 msgstr "警告：个别站点的设置将覆盖这个页面中的一些设置。"
 
-#: class.bcn_admin.php:403 includes/class.mtekk_adminkit.php:878
+#: includes/class.mtekk_adminkit.php:879 class.bcn_admin.php:403
 msgid "Reset"
 msgstr "重置"
 
-#: class.bcn_admin.php:402 includes/class.mtekk_adminkit.php:877
+#: includes/class.mtekk_adminkit.php:878 class.bcn_admin.php:402
 msgid "Export"
 msgstr "导出"
 
-#: class.bcn_admin.php:401 includes/class.mtekk_adminkit.php:876
+#: includes/class.mtekk_adminkit.php:877 class.bcn_admin.php:401
 msgid "Import"
 msgstr "导入"
 
@@ -816,6 +798,7 @@ msgstr "设置小提示在选项下面"
 msgid "Insufficient privileges to proceed."
 msgstr "足够的权限来执行"
 
-#: breadcrumb-navxt.php:36 class.bcn_admin.php:26
+#: class.bcn_rest_controller.php:26 breadcrumb-navxt.php:36
+#: class.bcn_admin.php:26
 msgid "Your PHP version is too old, please upgrade to a newer version. Your version is %1$s, Breadcrumb NavXT requires %2$s"
 msgstr "你的PHP版本太旧了，请升级，您的版本为：%1$s，面包屑导航需要的版本为%2$s"
