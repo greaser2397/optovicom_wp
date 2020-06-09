@@ -4,3 +4,4 @@ node_modules/
 .htaccess
 wp-content/uploads/*
 !wp-content/uploads/.gitkeep
+wp-config.php
