@@ -134,7 +134,9 @@ jQuery( function( $ ) {
 	 */
 	var show_notice = function( html_element, $target ) {
 		if ( ! $target ) {
-			$target = $( '.woocommerce-notices-wrapper:first' ) || $( '.cart-empty' ).closest( '.woocommerce' ) || $( '.woocommerce-cart-form' );
+			$target = $( '.woocommerce-notices-wrapper:first' ) ||
+				$( '.cart-empty' ).closest( '.woocommerce' ) ||
+				$( '.woocommerce-cart-form' );
 		}
 		$target.prepend( html_element );
 	};
@@ -188,6 +190,7 @@ jQuery( function( $ ) {
 		shipping_method_selected: function() {
 			var shipping_methods = {};
 
+			// eslint-disable-next-line max-len
 			$( 'select.shipping_method, :input[name^=shipping_method][type=radio]:checked, :input[name^=shipping_method][type=hidden]' ).each( function() {
 				shipping_methods[ $( this ).data( 'index' ) ] = $( this ).val();
 			} );
@@ -270,7 +273,7 @@ jQuery( function( $ ) {
 			this.update_cart           = this.update_cart.bind( this );
 
 			$( document ).on(
-				'wc_update_cart',
+				'wc_update_cart added_to_cart',
 				function() { cart.update_cart.apply( cart, [].slice.call( arguments, 1 ) ); } );
 			$( document ).on(
 				'click',
