@@ -1,0 +1,303 @@
+# Translation of Plugins - Restrict Widgets - Stable (latest release) in Chinese (China)
+# This file is distributed under the same license as the Plugins - Restrict Widgets - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2019-09-20 04:26:40+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Plugins - Restrict Widgets - Stable (latest release)\n"
+
+#: restrict-widgets.php:897
+msgid "Are you sure you want to reset these settings to defaults?"
+msgstr "您确定想要把这些设置还原为默认值吗？"
+
+#: restrict-widgets.php:458
+msgid "Settings restored to defaults."
+msgstr "已重置为默认设置。"
+
+#: restrict-widgets.php:308
+msgid "Modify is_sidebar_active() function"
+msgstr "修改 is_sidebar_active() 函数"
+
+#: restrict-widgets.php:207
+msgid "Restrict access to widgets page to specific user roles."
+msgstr "限制指定的用户角色访问小工具页面。"
+
+#: restrict-widgets.php:180
+msgid "Deactivation"
+msgstr "停用"
+
+#: restrict-widgets.php:179
+msgid "is_sidebar_active()"
+msgstr "is_sidebar_active()"
+
+#: restrict-widgets.php:178
+msgid "Option Groups"
+msgstr "选项分组"
+
+#: restrict-widgets.php:174
+msgid "Restrict User Roles"
+msgstr "限制用户角色"
+
+#: restrict-widgets.php:158
+msgid "Reset to defaults"
+msgstr "重置为默认值"
+
+#: restrict-widgets.php:143
+msgid "Created by"
+msgstr "开发者"
+
+#: restrict-widgets.php:140
+msgid "WordPress plugins"
+msgstr "WordPress 插件"
+
+#: restrict-widgets.php:140
+msgid "Check out our other"
+msgstr "看看我们的其他"
+
+#: restrict-widgets.php:139
+msgid "plugin page"
+msgstr "插件页面"
+
+#: restrict-widgets.php:139
+msgid "Blog about it & link to the"
+msgstr "关于页面并链接到"
+
+#: restrict-widgets.php:138
+msgid "on WordPress.org"
+msgstr "在 WordPress.org 上的"
+
+#: restrict-widgets.php:138
+msgid "Rate it 5"
+msgstr "给个 5 星好评"
+
+#: restrict-widgets.php:137
+msgid "Do you like this plugin?"
+msgstr "你喜欢这个插件吗？"
+
+#: restrict-widgets.php:135
+msgid "Support forum"
+msgstr "支持论坛"
+
+#: restrict-widgets.php:135
+msgid "If you are having problems with this plugin, please talk about them in the"
+msgstr "如果你有一些关于此插件的问题，请发表到"
+
+#: restrict-widgets.php:134
+msgid "Need support?"
+msgstr "需要技术支持？"
+
+#. Author URI of the plugin/theme
+msgid "http://www.dfactory.eu/"
+msgstr "http://www.dfactory.eu/"
+
+#. Author of the plugin/theme
+msgid "dFactory"
+msgstr "dFactory"
+
+#. Description of the plugin/theme
+msgid "All in one solution for widget management in WordPress. Allows you to hide or display widgets on specified pages and restrict access for users."
+msgstr "WordPress 小工具管理的一站式解决方案。允许您在指定页面上隐藏或显示窗口小工具，并限制用户访问。"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.dfactory.eu/plugins/restrict-widgets/"
+msgstr "http://www.dfactory.eu/plugins/restrict-widgets/"
+
+#: restrict-widgets.php:1254
+msgid "Hide widget on selected"
+msgstr "在所选项隐藏小工具"
+
+#: restrict-widgets.php:1253
+msgid "Display widget on selected"
+msgstr "在所选项显示小工具"
+
+#: restrict-widgets.php:1251
+msgid "Display / Hide Widget"
+msgstr "显示/隐藏小工具"
+
+#: restrict-widgets.php:987 restrict-widgets.php:996
+msgid "%s Archive"
+msgstr "%s 存档页"
+
+#: restrict-widgets.php:955 restrict-widgets.php:964
+msgid "Single %s"
+msgstr "单个 %s"
+
+#: restrict-widgets.php:874
+msgid "Select languages"
+msgstr "选择语言"
+
+#: restrict-widgets.php:873
+msgid "Select roles"
+msgstr "选择角色"
+
+#: restrict-widgets.php:872
+msgid "Select sidebars"
+msgstr "选择侧边栏"
+
+#: restrict-widgets.php:871
+msgid "Select widgets options"
+msgstr "选择小工具选项"
+
+#: restrict-widgets.php:870
+msgid "Select widgets"
+msgstr "选择小工具"
+
+#: restrict-widgets.php:869
+msgid "Select options"
+msgstr "选择选项"
+
+#: restrict-widgets.php:321
+msgid "Remove all plugin data on deactivation"
+msgstr "停用该插件时，删除插件数据"
+
+#: restrict-widgets.php:311
+msgid "By default is_active_sidebar() function returns true even if no widget is displayed in a sidebar. Check this if you want is_active_sidebar() to recognize Restrict Widgets display settings."
+msgstr "默认情况下，即使侧栏中没有小工具，is_active_sidebar() 函数也会返回 true。 如果您希望 is_active_sidebar() 识别 Restrict Widgets显示设置，请选中此项。"
+
+#: restrict-widgets.php:296
+msgid "Display widget options in groups"
+msgstr "分组显示小工具选项"
+
+#: restrict-widgets.php:286
+msgid "Select which widget options will be restricted to admins only."
+msgstr "选择限制管理员使用哪些小工具选项"
+
+#: restrict-widgets.php:177
+msgid "Restrict Widget Options"
+msgstr "限制小工具选项"
+
+#: restrict-widgets.php:268
+msgid "Select which widgets will be restricted to admins only."
+msgstr "选择限制管理员使用哪些小工具"
+
+#. #-#-#-#-#  tmp-restrict-widgets.pot (Restrict Widgets 1.3.1)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: restrict-widgets.php:120 restrict-widgets.php:129 restrict-widgets.php:132
+#: restrict-widgets.php:176
+msgid "Restrict Widgets"
+msgstr "限制小工具"
+
+#: restrict-widgets.php:232
+msgid "Select which sidebars will be restricted to admins only."
+msgstr "选择限制管理员使用哪些侧边栏区域"
+
+#: restrict-widgets.php:175
+msgid "Restrict Sidebars"
+msgstr "限制侧边栏"
+
+#: restrict-widgets.php:189
+msgid "Use this settings to manage access to widgets page and to restrict availability of widgets, sidebars and widget options to site administrators only."
+msgstr "通过下面的设置来管理小工具页面的访问权限，限制管理员可以使用哪些侧边栏区域、小工具、小工具选项等。"
+
+#: restrict-widgets.php:770
+msgid "Desktop, Laptop, etc."
+msgstr "桌面，平板等"
+
+#: restrict-widgets.php:769
+msgid "Mobile"
+msgstr "手机"
+
+#: restrict-widgets.php:765
+msgid "Logged out users"
+msgstr "未登录用户"
+
+#: restrict-widgets.php:764
+msgid "Logged in users"
+msgstr "已登录用户"
+
+#: restrict-widgets.php:760
+msgid "Search Page"
+msgstr "搜索结果页面"
+
+#: restrict-widgets.php:759
+msgid "404 Page"
+msgstr "404页面"
+
+#: restrict-widgets.php:758
+msgid "Date Archive"
+msgstr "日期存档页"
+
+#: restrict-widgets.php:757
+msgid "Author Archive"
+msgstr "作者存档页"
+
+#: restrict-widgets.php:756
+msgid "Sticky Posts"
+msgstr "置顶文章"
+
+#: restrict-widgets.php:755
+msgid "Single Posts"
+msgstr "所有文章"
+
+#: restrict-widgets.php:754
+msgid "Blog Page"
+msgstr "博客页面"
+
+#: restrict-widgets.php:753
+msgid "Front Page"
+msgstr "主页"
+
+#: restrict-widgets.php:750
+msgid "Languages"
+msgstr "语言"
+
+#: restrict-widgets.php:749
+msgid "Users"
+msgstr "用户"
+
+#: restrict-widgets.php:748
+msgid "Devices"
+msgstr "设备"
+
+#: restrict-widgets.php:745
+msgid "bbPress"
+msgstr "bbPress"
+
+#: restrict-widgets.php:742
+msgid "Topic Tag"
+msgstr "主题标签"
+
+#: restrict-widgets.php:741
+msgid "Single User"
+msgstr "单用户"
+
+#: restrict-widgets.php:740
+msgid "Search"
+msgstr "搜索"
+
+#: restrict-widgets.php:734
+msgid "Others"
+msgstr "其他"
+
+#: restrict-widgets.php:733
+msgid "Taxonomies"
+msgstr "分类法"
+
+#: restrict-widgets.php:732
+msgid "Categories"
+msgstr "分类"
+
+#: restrict-widgets.php:731
+msgid "Custom Post Type Archives"
+msgstr "自定义文章类型存档页"
+
+#: restrict-widgets.php:730
+msgid "Custom Post Types"
+msgstr "自定义文章类型"
+
+#: restrict-widgets.php:729
+msgid "Pages"
+msgstr "页面"
+
+#: restrict-widgets.php:659 restrict-widgets.php:1564 restrict-widgets.php:1598
+msgid "Widgets"
+msgstr "小工具"
+
+#: restrict-widgets.php:640
+msgid "Support"
+msgstr "支持"
