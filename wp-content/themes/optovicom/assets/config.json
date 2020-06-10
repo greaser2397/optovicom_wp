@@ -8,8 +8,8 @@
       "./scripts/customizer.js"
     ]
   },
-  "publicPath": "/wp-content/themes/optovicom",
-  "devUrl": "http://localhost:8888/optovicom",
+  "publicPath": "/wp-content/themes/your_theme_name",
+  "devUrl": "http://example.test",
   "proxyUrl": "http://localhost:3000",
   "cacheBusting": "[name]_[hash:8]",
   "watch": [
