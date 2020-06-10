@@ -13,39 +13,28 @@
 
 get_header(); ?>
 
-    <div id="primary" class="content-area">
-        <section id="main" class="site-main" role="main">
+  <div id="primary" class="content-area">
+    <section id="main" class="site-main" role="main">
+        <?php get_template_part('template-parts/breadcrumbs'); ?>
 
-            <?php if (function_exists('bcn_display')) : ?>
-                <div class="breadcrumbs-wrapper">
-                    <?php bcn_display(); ?>
-                </div>
-            <?php endif; ?>
+        <?php if (have_posts()) :
 
-            <?php if (have_posts()) :
+            if (is_home() && !is_front_page()) : ?>
+              <header class="page__title-wrapper">
+                <h1 class="page__title"><?php single_post_title(); ?></h1>
+              </header>
 
-                if (is_home() && !is_front_page()) : ?>
-                    <header class="page__title-wrapper">
-                        <h1 class="page__title"><?php single_post_title(); ?></h1>
-                    </header>
+            <?php endif;
 
-                <?php endif;
+            while (have_posts()) : the_post();
+                get_template_part('template-parts/content', get_post_format());
+            endwhile;
+            the_posts_navigation();
+        else :
+            get_template_part('template-parts/content', 'none');
+        endif; ?>
 
-                while (have_posts()) : the_post();
-
-                    get_template_part('template-parts/content', get_post_format());
-
-                endwhile;
-
-                the_posts_navigation();
-
-            else :
-
-                get_template_part('template-parts/content', 'none');
-
-            endif; ?>
-
-        </section>
-    </div>
+    </section>
+  </div>
 
 <?php get_footer();
