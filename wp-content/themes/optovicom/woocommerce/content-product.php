@@ -12,15 +12,15 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.4.0
+ * @version 3.6.0
  */
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 global $product;
 
 // Ensure visibility.
-if (empty($product) || !$product->is_visible()) {
+if ( empty( $product ) || ! $product->is_visible() ) {
     return;
 }
 ?>

@@ -29,13 +29,15 @@ get_header('shop');
 do_action('woocommerce_before_main_content');
 
 $class = !empty(get_queried_object()->description) && is_tax() ? 'header-desc' : ''; ?>
-    <header class="woocommerce-products-header <?= $class; ?>">
-        <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-            <div class="page__title-wrapper">
-                <h1 class="woocommerce-products-header__title page-title page__title"><?php woocommerce_page_title(); ?></h1>
-            </div>
-        <?php endif; ?>
-    </header>
+
+  <header class="woocommerce-products-header <?= $class; ?>">
+      <?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
+        <div class="page__title-wrapper">
+          <h1 class="woocommerce-products-header__title page-title page__title"><?php woocommerce_page_title(); ?></h1>
+        </div>
+      <?php endif; ?>
+  </header>
+
 <?php
 if (woocommerce_product_loop()) {
 
@@ -69,9 +71,9 @@ if (woocommerce_product_loop()) {
 
 global $wp_query;
 if ($wp_query->max_num_pages > 1) : ?>
-    <button id="load-more" class="load-more-btn">
-        <strond><?= esc_html__('Загрузить еще', 'ewoocommerce'); ?></strond>
-    </button>
+  <button id="load-more" class="load-more-btn">
+    <strond><?= esc_html__('Загрузить еще', 'ewoocommerce'); ?></strond>
+  </button>
 <?php endif;
 
 /**
