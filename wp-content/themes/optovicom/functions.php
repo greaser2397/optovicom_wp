@@ -22,7 +22,6 @@ $theme_includes = [
     '/lib/menu-areas.php',                     # Menu areas
     '/lib/widget-areas.php',                   # Widget areas
     '/lib/customizer.php',                     # Theme customizer
-    '/lib/vc_shortcodes.php',                  # Visual Composer shortcodes
     '/lib/jetpack.php',                        # Jetpack compatibility file
     '/lib/acf_field_groups_type.php',          # ACF Field Groups Organizer
 ];

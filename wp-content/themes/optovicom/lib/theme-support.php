@@ -5,56 +5,65 @@
  * @link https://codex.wordpress.org/Function_Reference/add_theme_support
  */
 
-if (!function_exists('optovicom_theme_support')) :
-    function optovicom_theme_support()
-    {
-        // Add language support: @link {https://codex.wordpress.org/Multilingual_WordPress}
-        load_theme_textdomain(THEME_TD, get_template_directory() . '/languages');
+add_action('after_setup_theme', function () {
 
-        // Add menu support
-        add_theme_support('menus');
+  # Add language support: @link {https://codex.wordpress.org/Multilingual_WordPress}
+  load_theme_textdomain(THEME_TD, get_template_directory() . '/languages');
 
-        // Let WordPress manage the document title
-        add_theme_support('title-tag');
+  # Add menu support
+  add_theme_support('menus');
 
-        // Add post thumbnail support: @link {http://codex.wordpress.org/Post_Thumbnails}
-        add_theme_support('post-thumbnails');
+  # Let WordPress manage the document title
+  add_theme_support('title-tag');
 
-        // RSS thingy
-        add_theme_support('automatic-feed-links');
+  # Add post thumbnail support: @link {http://codex.wordpress.org/Post_Thumbnails}
+  add_theme_support('post-thumbnails');
 
-        /*
-         * Switch default core markup for search form, comment form, and comments
-         * to output valid HTML5.
-         */
-        add_theme_support('html5', array(
-            'search-form',
-            'comment-form',
-            'comment-list',
-            'gallery',
-            'caption',
-        ));
+  # RSS thingy
+  add_theme_support('automatic-feed-links');
 
-        // Add post formarts support: @link {http://codex.wordpress.org/Post_Formats}
-        add_theme_support('post-formats', array('aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio', 'chat'));
+  /*
+   * Switch default core markup for search form, comment form, and comments
+   * to output valid HTML5.
+   */
+  add_theme_support('html5', [
+    'search-form',
+    'comment-form',
+    'comment-list',
+    'gallery',
+    'caption'
+  ]);
 
-        // Declare WooCommerce support per @link {http://docs.woothemes.com/document/third-party-custom-theme-compatibility/}
-        add_theme_support('woocommerce');
-        //  Add widget support shortcodes
-        add_filter('widget_text', 'do_shortcode');
+  # Add post formarts support: @link {http://codex.wordpress.org/Post_Formats}
+  add_theme_support('post-formats', [
+    'aside',
+    'gallery',
+    'link',
+    'image',
+    'quote',
+    'status',
+    'video',
+    'audio',
+    'chat'
+  ]);
 
-        // Custom Background
-        add_theme_support('custom-background', array('default-color' => 'fff'));
+  # Declare WooCommerce support per @link {http://docs.woothemes.com/document/third-party-custom-theme-compatibility/}
+  add_theme_support('woocommerce');
 
-        // Custom Header
-        add_theme_support('custom-header', array(
-            'default-image' => get_template_directory_uri() . '/assets/dist/images/custom-logo.png',
-            'height' => '200',
-            'flex-height' => true,
-            'uploads' => true,
-            'header-text' => false
-        ));
-    }
+  #  Add widget support shortcodes
+  add_filter('widget_text', 'do_shortcode');
 
-    add_action('after_setup_theme', 'optovicom_theme_support');
-endif;
+  # Custom Background
+  add_theme_support('custom-background', [
+    'default-color' => 'fff'
+  ]);
+
+  # Custom Header
+  add_theme_support('custom-header', [
+    'default-image' => get_template_directory_uri() . '/assets/dist/images/custom-logo.png',
+    'height'        => '200',
+    'flex-height'   => true,
+    'uploads'       => true,
+    'header-text'   => false
+  ]);
+});
