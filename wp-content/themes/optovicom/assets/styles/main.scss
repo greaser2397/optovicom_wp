@@ -1,18 +1,24 @@
+/** Utility partials (variables, mixins etc.) */
 @import "common/normalize";
 @import "common/variables";
 @import "common/mixins";
 @import "common/fonts";
-@import "common/typography";
 
 /** Import everything from autoload */
-
 @import "./autoload/**/*";
 @import "common/global";
+
+/** Components */
 @import "components/buttons";
 @import "components/banner";
 @import "components/forms";
 @import "components/comments";
 @import "components/wp-classes";
+@import "components/slick";
+@import "components/select2";
+@import "components/preloader";
+
+/** Layouts */
 @import "layouts/header";
 @import "layouts/footer";
 @import "layouts/front-page";
@@ -20,6 +26,8 @@
 @import "layouts/single";
 @import "layouts/404";
 @import "layouts/search";
+
+/** WooCommerce templates */
 @import "woocommerce/cart";
 @import "woocommerce/mini-cart";
 @import "woocommerce/account";

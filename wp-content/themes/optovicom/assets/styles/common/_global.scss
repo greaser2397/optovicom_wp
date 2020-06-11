@@ -32,6 +32,14 @@ img {
   height: auto;
 }
 
+body {
+  font-family: $f-primary;
+}
+
+p {
+  font: 400 16px/1.5em $f-primary;
+}
+
 .site-content {
   margin: 40px 0 0;
   min-height: 60vh;
@@ -74,176 +82,5 @@ img {
     text-transform: uppercase;
     font: 400 12px/1em $f-primary;
     color: #545454;
-  }
-}
-
-@keyframes bodyFadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes folding-cube {
-  0%,
-  10% {
-    transform: perspective(136px) rotateX(-180deg);
-    opacity: 0;
-  }
-
-  25%,
-  75% {
-    transform: perspective(136px) rotateX(0deg);
-    opacity: 1;
-  }
-
-  90%,
-  100% {
-    transform: perspective(136px) rotateY(180deg);
-    opacity: 0;
-  }
-}
-
-#preloader {
-  position: fixed;
-  z-index: 100000000;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: $black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.4s;
-
-  img {
-    display: block;
-  }
-
-  $loader-size: 160px;
-  $speed: 0.6s;
-
-  @keyframes leftAnim {
-    0% {
-      transform: translateX(($loader-size/2) + 22);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes rightAnim {
-    0% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(-($loader-size/2) - 18);
-    }
-  }
-
-  @keyframes dividerAnim {
-    0% {
-      border-color: $white;
-    }
-
-    100% {
-      border-color: $c-primary;
-    }
-  }
-
-  .split-loader {
-    width: $loader-size*2;
-    height: $loader-size;
-    margin: 35px 0;
-    position: relative;
-    transition: 0.4s;
-
-    &::after {
-      content: "";
-      display: inline-block;
-      position: absolute;
-      left: 50%;
-      margin-left: -1px;
-      width: 4px;
-      z-index: 1;
-      height: $loader-size;
-      border-left: 2px dotted $c-primary;
-      transition: 0.4s;
-    }
-
-    .loader {
-      &__box {
-        position: absolute;
-        top: 0;
-        width: $loader-size;
-        height: $loader-size;
-        overflow: hidden;
-        z-index: 2;
-      }
-
-      &__circle {
-        width: $loader-size/2;
-        height: $loader-size/2;
-        display: block;
-        background-color: $c-primary;
-        border-radius: 50%;
-        position: absolute;
-        top: 50%;
-        margin-top: -($loader-size/2)/2;
-      }
-
-      &--left {
-        left: 0;
-
-        .loader__circle {
-          background-color: $white;
-          right: 10px;
-          animation: leftAnim $speed ease-in-out alternate infinite;
-        }
-      }
-
-      &--right {
-        right: 0;
-
-        .loader__circle {
-          left: 10px;
-          animation: rightAnim $speed ease-in-out alternate infinite;
-        }
-      }
-    }
-  }
-
-  &.hidden {
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.8s;
-
-    .split-loader {
-      transition: 0.8s;
-    }
-
-    .loader {
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.8s;
-    }
-  }
-
-  &:not(.hidden) {
-    + body {
-      overflow: hidden;
-    }
-
-    .split-loader {
-      &::after {
-        animation: dividerAnim $speed ease-in-out alternate infinite;
-      }
-    }
   }
 }

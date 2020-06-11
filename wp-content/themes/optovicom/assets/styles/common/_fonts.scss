@@ -1,7 +1,6 @@
 /*  All fonts that are used on the website, hosted from a CDN or plugged-in locally  */
 
 /*  Exo 2  */
-
 @include fontFace('../fonts/Exo2/Exo2-Light.ttf', 'Exo2', 300);
 @include fontFace('../fonts/Exo2/Exo2-LightItalic.ttf', 'Exo 2', 300, italic);
 @include fontFace('../fonts/Exo2/Exo2-Regular.ttf', 'Exo 2');
@@ -16,7 +15,6 @@
 @include fontFace('../fonts/Exo2/Exo2-ExtraBoldItalic.ttf', 'Exo 2', 800, italic);
 
 /*  Oswald  */
-
 @include fontFace('../fonts/Oswald/Oswald-ExtraLight.ttf', 'Oswald', 200);
 @include fontFace('../fonts/Oswald/Oswald-Light.ttf', 'Oswald', 300);
 @include fontFace('../fonts/Oswald/Oswald-Regular.ttf', 'Oswald');
