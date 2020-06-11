@@ -5,3 +5,4 @@ node_modules/
 wp-content/uploads/*
 !wp-content/uploads/.gitkeep
 wp-config.php
+cache/
