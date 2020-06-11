@@ -95,15 +95,15 @@ class BuyFunction {
 
             ob_start();
             ?>
-
+            <?php if(strlen($name)>0) { ?>
             <button
-                class="single_add_to_cart_button clickBuyButton button21 button alt ld-ext-left" 
-                data-variation_id="0" 
-                data-productid="<?php echo $product_id; ?>">
+                    class="single_add_to_cart_button clickBuyButton button21 button alt ld-ext-left"
+                    data-variation_id="0"
+                    data-productid="<?php echo $product_id; ?>">
                 <span> <?php echo $name; ?></span>
                 <div style="font-size:14px" class="ld ld-ring ld-cycle"></div>
             </button>
-
+        <?php } ?>
             <?php
             $page = ob_get_contents();
             ob_end_clean();

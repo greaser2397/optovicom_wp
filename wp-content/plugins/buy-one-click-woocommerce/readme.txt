@@ -72,6 +72,9 @@ This is the best solution for Woocommers to easily add a quick order button to t
 
 
 == Changelog ==
+= 1.9.13 =
+* Фикс кнопки, когда включен режим управления запасами
+
 = 1.9.12 =
 * Улучшена совместимость формы с мобильными устройствами
 * Оптимизированны css файлы шаблонов
