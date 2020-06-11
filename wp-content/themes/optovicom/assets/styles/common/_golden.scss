@@ -39,43 +39,6 @@
   width: calc(100% - 7px) !important;
 }
 
-.golden-footer-title {
-  color: #fff;
-  margin-bottom: 10px;
-}
-
-.golden-footer-text {
-  color: #fff;
-  margin-bottom: 20px;
-}
-
-.viber-social {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 2;
-}
-
-.viber-pc {
-  background: url(/wp-content/themes/optovicom/viber.png) no-repeat;
-  background-size: contain;
-  width: 60px;
-  height: 60px;
-  display: inline-block;
-}
-
-@media (max-width: 1024px) {
-  .viber-pc {
-    display: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .viber-phone {
-    display: none;
-  }
-}
-
 .golden-wrap-products {
   display: flex;
   justify-content: space-between;
@@ -83,6 +46,10 @@
 
 .golden-filters {
   flex-basis: 20%;
+
+  @include bpmax(620px) {
+    flex-basis: 100%;
+  }
 
   a {
     text-decoration: none !important;
@@ -101,6 +68,10 @@
 
 .products {
   flex-basis: 80%;
+
+  @include bpmax(620px) {
+    flex-basis: 100%;
+  }
 }
 
 .golden-filters .ui-slider-range,
@@ -112,30 +83,16 @@
   padding: 0 0 30px;
 }
 
-@media (max-width: 620px) {
-  .golden-filters {
-    flex-basis: 100%;
-  }
-
-  .products {
-    flex-basis: 100%;
-  }
-}
-
 .golden-filter-button {
   display: none;
   outline: none;
+
+  @include bpmax(630px) {
+    display: block;
+  }
 }
 
 @media (max-width: 630px) {
-  .golden-filter-button {
-    display: block;
-  }
-
-  .golden-filters {
-    display: none;
-  }
-
   .golden-filters__active {
     display: block;
   }

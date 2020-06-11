@@ -113,6 +113,27 @@
             }
           }
         }
+
+        p {
+          color: $white;
+          margin: 0;
+
+          &.title {
+            margin-bottom: 8px;
+          }
+
+          &.text {
+            margin-bottom: 16px;
+          }
+
+          &:last-child {
+            margin: 0;
+          }
+
+          a {
+            color: $c-primary;
+          }
+        }
       }
 
       &-social {
@@ -232,6 +253,34 @@
           }
         }
       }
+    }
+  }
+}
+
+
+.viber {
+  &-social {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 2;
+  }
+
+  &-pc {
+    background: url('../images/viber.png') no-repeat;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+
+    @include bpmax(desktopsm) {
+      display: none;
+    }
+  }
+
+  &-mobile {
+    @include bpmin(desktopsm) {
+      display: none;
     }
   }
 }
