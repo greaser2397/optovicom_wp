@@ -12,15 +12,17 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.4.0
+ * @version 3.6.0
  */
 
 defined('ABSPATH') || exit;
 
+global $product;
+
 /**
  * Hook: woocommerce_before_single_product.
  *
- * @hooked wc_print_notices - 10
+ * @hooked woocommerce_output_all_notices - 10
  */
 do_action('woocommerce_before_single_product');
 
@@ -29,73 +31,72 @@ if (post_password_required()) {
     return;
 }
 ?>
-    <div id="product-<?php the_ID(); ?>" <?php wc_product_class(); ?>>
+  <div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
 
-        <?php
+      <?php
+      /**
+       * Hook: woocommerce_before_single_product_summary.
+       *
+       * @hooked woocommerce_show_product_sale_flash - 10
+       * @hooked woocommerce_show_product_images - 20
+       */
+      do_action('woocommerce_before_single_product_summary');
+      ?>
+
+    <div class="summary entry-summary">
+        <?php if (function_exists('bcn_display')) : ?>
+          <div class="breadcrumbs-wrapper"><?php bcn_display(); ?></div>
+        <?php else :
+            woocommerce_breadcrumb();
+        endif;
         /**
-         * Hook: woocommerce_before_single_product_summary.
+         * Hook: woocommerce_single_product_summary.
          *
-         * @hooked woocommerce_show_product_sale_flash - 10
-         * @hooked woocommerce_show_product_images - 20
+         * @hooked woocommerce_template_single_title - 5
+         * @hooked woocommerce_template_single_rating - 10
+         * @hooked woocommerce_template_single_price - 10
+         * @hooked woocommerce_template_single_excerpt - 20
+         * @hooked woocommerce_template_single_add_to_cart - 30
+         * @hooked woocommerce_template_single_meta - 40
+         * @hooked woocommerce_template_single_sharing - 50
+         * @hooked WC_Structured_Data::generate_product_data() - 60
          */
-        do_action('woocommerce_before_single_product_summary');
-        ?>
+        do_action('woocommerce_single_product_summary');
 
-        <div class="summary entry-summary">
-            <?php if (function_exists('bcn_display')) : ?>
-                <div class="breadcrumbs-wrapper"><?php bcn_display(); ?></div>
-            <?php else :
-                woocommerce_breadcrumb();
-            endif;
-            /**
-             * Hook: woocommerce_single_product_summary.
-             *
-             * @hooked woocommerce_template_single_title - 5
-             * @hooked woocommerce_template_single_rating - 10
-             * @hooked woocommerce_template_single_price - 10
-             * @hooked woocommerce_template_single_excerpt - 20
-             * @hooked woocommerce_template_single_add_to_cart - 30
-             * @hooked woocommerce_template_single_meta - 40
-             * @hooked woocommerce_template_single_sharing - 50
-             * @hooked WC_Structured_Data::generate_product_data() - 60
-             */
-            do_action('woocommerce_single_product_summary');
-
-            do_action('woocommerce_output_product_data_tabs');
-            ?>
-        </div>
-
-        <?php
-        /**
-         * Hook: woocommerce_after_single_product_summary.
-         *
-         * @hooked woocommerce_output_product_data_tabs - 10
-         * @hooked woocommerce_upsell_display - 15
-         * @hooked woocommerce_output_related_products - 20
-         */
-        do_action('woocommerce_after_single_product_summary');
+        do_action('woocommerce_output_product_data_tabs');
         ?>
     </div>
+
+      <?php
+      /**
+       * Hook: woocommerce_after_single_product_summary.
+       *
+       * @hooked woocommerce_output_product_data_tabs - 10
+       * @hooked woocommerce_upsell_display - 15
+       * @hooked woocommerce_output_related_products - 20
+       */
+      do_action('woocommerce_after_single_product_summary');
+      ?>
+  </div>
 
 <?php do_action('woocommerce_after_single_product'); ?>
 
 <?php do_action('woocommerce_output_related_products'); ?>
 
 <?php $args = array(
-    'post_type' => 'product',
+    'post_type'      => 'product',
     'posts_per_page' => 4,
-    'post__not_in' => array($post->ID),
+    'post__not_in'   => array($post->ID),
 );
-
 $new = new WP_Query($args);
 
 if ($new->have_posts()) : ?>
-    <div class="new-products-container">
-        <h2>Новинки</h2>
-        <ul class="products">
-            <?php while ($new->have_posts()) : $new->the_post();
-                wc_get_template_part('content', 'product');
-            endwhile; ?>
-        </ul>
-    </div>
+  <div class="new-products-container">
+    <h2>Новинки</h2>
+    <ul class="products">
+        <?php while ($new->have_posts()) : $new->the_post();
+            wc_get_template_part('content', 'product');
+        endwhile; ?>
+    </ul>
+  </div>
 <?php endif;

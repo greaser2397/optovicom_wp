@@ -10,22 +10,21 @@
  */
 defined('THEME_TD') ? THEME_TD : define('THEME_TD', 'optovicom');
 
-// Load modules
-
+# Load modules
 $theme_includes = [
     '/lib/helpers.php',
-    '/lib/cleanup.php',                        // Clean up default theme includes
-    '/lib/enqueue-scripts.php',                // Enqueue styles and scripts
-    '/lib/protocol-relative-theme-assets.php', // Protocol (http/https) relative assets path
-    '/lib/framework.php',                      // Css framework related stuff (content width, nav walker class, comments, pagination, etc.)
-    '/lib/theme-support.php',                  // Theme support options
-    '/lib/template-tags.php',                  // Custom template tags
-    '/lib/menu-areas.php',                     // Menu areas
-    '/lib/widget-areas.php',                   // Widget areas
-    '/lib/customizer.php',                     // Theme customizer
-    '/lib/vc_shortcodes.php',                  // Visual Composer shortcodes
-    '/lib/jetpack.php',                        // Jetpack compatibility file
-    '/lib/acf_field_groups_type.php',          // ACF Field Groups Organizer
+    '/lib/cleanup.php',                        # Clean up default theme includes
+    '/lib/enqueue-scripts.php',                # Enqueue styles and scripts
+    '/lib/protocol-relative-theme-assets.php', # Protocol (http/https) relative assets path
+    '/lib/framework.php',                      # Css framework related stuff (content width, nav walker class, comments, pagination, etc.)
+    '/lib/theme-support.php',                  # Theme support options
+    '/lib/template-tags.php',                  # Custom template tags
+    '/lib/menu-areas.php',                     # Menu areas
+    '/lib/widget-areas.php',                   # Widget areas
+    '/lib/customizer.php',                     # Theme customizer
+    '/lib/vc_shortcodes.php',                  # Visual Composer shortcodes
+    '/lib/jetpack.php',                        # Jetpack compatibility file
+    '/lib/acf_field_groups_type.php',          # ACF Field Groups Organizer
 ];
 
 foreach ($theme_includes as $file) {
@@ -38,50 +37,52 @@ foreach ($theme_includes as $file) {
 }
 unset($file, $filepath);
 
-
-// Theme the TinyMCE editor (Copy post/page text styles in this file)
-
+# Theme the TinyMCE editor (Copy post/page text styles in this file)
 add_editor_style('assets/dist/css/custom-editor-style.css');
 
 
-// Custom CSS for the login page
-
-function loginCSS()
-{
+/**
+ * Custom CSS for the login page
+ */
+add_action('login_head', function () {
     echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri(THEME_TD) . 'assets/dist/css/wp-login.css"/>';
-}
-
-add_action('login_head', 'loginCSS');
+});
 
 
-// Add body class for active sidebar
-function wp_has_sidebar($classes)
-{
+/**
+ * Add body class for active sidebar
+ * @param $classes array
+ *
+ * @return array
+ */
+add_filter('body_class', function ($classes) {
     if (is_active_sidebar('sidebar')) {
-        // add 'class-name' to the $classes array
+        # add 'class-name' to the $classes array
         $classes[] = 'has_sidebar';
     }
-    // return the $classes array
+
+    # return the $classes array
     return $classes;
-}
+});
 
-add_filter('body_class', 'wp_has_sidebar');
-
-// Remove the version number of WP
-// Warning - this info is also available in the readme.html file in your root directory - delete this file!
+/**
+ * Remove the version number of WP
+ * Warning - this info is also available in the readme.html file in your root directory - delete this file!
+ */
 remove_action('wp_head', 'wp_generator');
 
 
-// Obscure login screen error messages
-function wp_login_obscure()
-{
+/**
+ * Obscure login screen error messages
+ */
+add_filter('login_errors', function () {
     return '<strong>Error</strong>: wrong username or password';
-}
-
-add_filter('login_errors', 'wp_login_obscure');
+});
 
 
-// Disable the theme / plugin text editor in Admin
+/**
+ * Disable the theme / plugin text editor in Admin
+ */
 define('DISALLOW_FILE_EDIT', true);
 
 if (function_exists('acf_add_options_page')) {
@@ -89,55 +90,46 @@ if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
         'page_title' => 'Theme General Settings',
         'menu_title' => 'Theme Options',
-        'menu_slug' => 'theme-general-settings',
+        'menu_slug'  => 'theme-general-settings',
         'capability' => 'edit_posts',
-        'redirect' => false,
-        'icon_url' => 'dashicons-admin-generic',
+        'redirect'   => false,
+        'icon_url'   => 'dashicons-admin-generic',
     ));
-
 }
 
-add_action('after_setup_theme', 'optovicom_enable_wc_gallery_lightbox');
-
-function optovicom_enable_wc_gallery_lightbox()
-{
+/**
+ * Enable WooCommerce default gallery features disabled by default.
+ */
+add_action('after_setup_theme', function () {
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
-}
+});
 
 /**
  * Change woocommerce default breadcrumbs appearance
  */
-add_filter('woocommerce_breadcrumb_defaults', 'optovicom_woocommerce_breadcrumbs');
-
-function optovicom_woocommerce_breadcrumbs()
-{
-    $args = array(
-        'delimiter' => '<span> / </span>',
+add_filter('woocommerce_breadcrumb_defaults', function () {
+    return [
+        'delimiter'   => '<span> / </span>',
         'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb">',
-        'wrap_after' => '</nav>',
-        'before' => '<span>',
-        'after' => '</span>',
-    );
-
-    return $args;
-}
+        'wrap_after'  => '</nav>',
+        'before'      => '<span>',
+        'after'       => '</span>',
+    ];
+});
 
 /**
  * Change a currency symbol
  */
-add_filter('woocommerce_currency_symbol', 'optovicom_change_currency_symbol', 10, 2);
-
-function optovicom_change_currency_symbol($currency_symbol, $currency)
-{
+add_filter('woocommerce_currency_symbol', function ($currency_symbol, $currency) {
     switch ($currency) {
         case 'RUB':
             $currency_symbol = 'руб';
             break;
     }
     return $currency_symbol;
-}
+}, 10, 2);
 
 remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_button_view_cart', 10);
 remove_action('woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20);
@@ -203,11 +195,11 @@ add_action('woocommerce_shop_loop_item_title', 'optovicom_template_loop_product_
 function optovicom_woo_my_account_order()
 {
     $myorder = array(
-        'edit-account' => __('Личная информация', 'woocommerce'),
-        'dashboard' => __('Dashboard', 'woocommerce'),
-        'orders' => __('Мои заказы', 'woocommerce'),
-        'downloads' => __('Downloads', 'woocommerce'),
-        'edit-address' => __('Адреса доставки', 'woocommerce'),
+        'edit-account'    => __('Личная информация', 'woocommerce'),
+        'dashboard'       => __('Dashboard', 'woocommerce'),
+        'orders'          => __('Мои заказы', 'woocommerce'),
+        'downloads'       => __('Downloads', 'woocommerce'),
+        'edit-address'    => __('Адреса доставки', 'woocommerce'),
         'customer-logout' => __('Logout', 'woocommerce'),
     );
     return $myorder;
@@ -218,8 +210,8 @@ add_filter('woocommerce_account_menu_items', 'optovicom_woo_my_account_order');
 add_filter('woocommerce_account_menu_items', 'optovicom_remove_my_account_items');
 function optovicom_remove_my_account_items($menu_links)
 {
-    unset($menu_links['dashboard']); // Remove Dashboard link
-    unset($menu_links['downloads']); // Remove Downloads link
+    unset($menu_links['dashboard']); # Remove Dashboard link
+    unset($menu_links['downloads']); # Remove Downloads link
     return $menu_links;
 }
 
@@ -227,7 +219,7 @@ add_filter('woocommerce_add_to_cart_fragments', function ($fragments) {
 
     ob_start(); ?>
 
-    <span class="cart-contents-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+  <span class="cart-contents-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
 
     <?php $fragments['span.cart-contents-count'] = ob_get_clean();
 
@@ -239,9 +231,9 @@ add_filter('woocommerce_add_to_cart_fragments', function ($fragments) {
 
     ob_start(); ?>
 
-    <div class="mini-cart-container">
-        <?php woocommerce_mini_cart(); ?>
-    </div>
+  <div class="mini-cart-container">
+      <?php woocommerce_mini_cart(); ?>
+  </div>
 
     <?php $fragments['div.mini-cart-container'] = ob_get_clean();
 
@@ -305,14 +297,14 @@ add_filter('woocommerce_checkout_fields', 'optovicom_remove_checkout_fields');
 function optovicom_remove_checkout_fields($fields)
 {
 
-    // Billing fields
+    # Billing fields
     unset($fields['billing']['billing_company']);
     unset($fields['billing']['billing_state']);
     unset($fields['billing']['billing_postcode']);
     unset($fields['billing']['billing_country']);
     unset($fields['billing']['billing_address_2']);
 
-    // Shipping fields
+    # Shipping fields
     unset($fields['shipping']['shipping_company']);
     unset($fields['shipping']['shipping_state']);
     unset($fields['shipping']['shipping_postcode']);
@@ -324,14 +316,15 @@ function optovicom_remove_checkout_fields($fields)
     return $fields;
 }
 
-add_filter('woocommerce_billing_fields', 'optovicom_additional_billing_fields');
-function optovicom_additional_billing_fields($fields)
-{
+/**
+ * Inject additional billing fields into checkout form
+ */
+add_filter('woocommerce_billing_fields', function ($fields) {
 
     $fields['billing_comments'] = array(
-        'label' => esc_html__('Примечание к заказу', 'woocommerce'),
-        'type' => 'textarea',
-        'class' => array('form-row-wide row-textarea'),
+        'label'    => esc_html__('Примечание к заказу', 'woocommerce'),
+        'type'     => 'textarea',
+        'class'    => array('form-row-wide row-textarea'),
         'priority' => 28,
         'required' => false,
     );
@@ -339,31 +332,32 @@ function optovicom_additional_billing_fields($fields)
     $fields['billing_city']['label'] = esc_html__('Город', 'woocommerce');
 
     return $fields;
-}
+});
 
-add_filter('woocommerce_shipping_fields', 'optovicom_additional_shipping_fields');
-function optovicom_additional_shipping_fields($fields)
-{
+/**
+ * Inject additional shipping fields into checkout form
+ */
+add_filter('woocommerce_shipping_fields', function ($fields) {
     $fields['shipping_phone'] = array(
-        'label' => esc_html__('Phone', 'woocommerce'),
-        'type' => 'tel',
-        'class' => array('form-row-wide'),
+        'label'    => esc_html__('Phone', 'woocommerce'),
+        'type'     => 'tel',
+        'class'    => array('form-row-wide'),
         'priority' => 22,
         'required' => true,
     );
 
     $fields['shipping_email'] = array(
-        'label' => esc_html__('Email', 'woocommerce'),
-        'type' => 'email',
-        'class' => array('form-row-wide'),
+        'label'    => esc_html__('Email', 'woocommerce'),
+        'type'     => 'email',
+        'class'    => array('form-row-wide'),
         'priority' => 23,
         'required' => true,
     );
 
     $fields['shipping_comments'] = array(
-        'label' => esc_html__('Примечание к заказу', 'woocommerce'),
-        'type' => 'textarea',
-        'class' => array('form-row-wide row-textarea'),
+        'label'    => esc_html__('Примечание к заказу', 'woocommerce'),
+        'type'     => 'textarea',
+        'class'    => array('form-row-wide row-textarea'),
         'priority' => 28,
         'required' => false,
     );
@@ -371,25 +365,27 @@ function optovicom_additional_shipping_fields($fields)
     $fields['shipping_city']['label'] = esc_html__('Город', 'woocommerce');
 
     return $fields;
-}
+});
 
-add_filter('woocommerce_checkout_fields', 'optovicom_sort_checkout_fields');
-function optovicom_sort_checkout_fields($fields)
-{
+/**
+ * Sort checkout form fields in custom order
+ */
+add_filter('woocommerce_checkout_fields', function ($fields) {
+
+    # Billing
     $fields['billing']['billing_phone']['priority'] = 22;
     $fields['billing']['billing_email']['priority'] = 23;
     $fields['billing']['billing_address_1']['priority'] = 26;
     $fields['billing']['billing_comments']['priority'] = 120;
-
     $fields['billing']['billing_last_name']['required'] = false;
 
+    # Shipping
     $fields['shipping']['shipping_address_1']['priority'] = 26;
     $fields['shipping']['shipping_comments']['priority'] = 120;
-
     $fields['shipping']['shipping_last_name']['required'] = false;
 
     return $fields;
-}
+});
 
 add_filter('woocommerce_registration_errors', 'registration_errors_validation', 10, 3);
 function registration_errors_validation($reg_errors, $sanitized_user_login, $user_email)
@@ -406,12 +402,12 @@ add_action('woocommerce_register_form', 'wc_register_form_password_repeat');
 function wc_register_form_password_repeat()
 {
     ?>
-    <p class="form-row form-row-wide confirm_password">
-        <label for="reg_password2"><?php _e('Подтвердите пароль', 'woocommerce'); ?> <span
-                    class="required">*</span></label>
-        <input type="password" class="input-text" name="password2" id="reg_password2"
-               value="<?php if (!empty($_POST['password2'])) echo esc_attr($_POST['password2']); ?>" required/>
-    </p>
+  <p class="form-row form-row-wide confirm_password">
+    <label for="reg_password2"><?php _e('Подтвердите пароль', 'woocommerce'); ?> <span
+          class="required">*</span></label>
+    <input type="password" class="input-text" name="password2" id="reg_password2"
+           value="<?php if (!empty($_POST['password2'])) echo esc_attr($_POST['password2']); ?>" required/>
+  </p>
     <?php
 }
 
@@ -503,20 +499,20 @@ function optovicom_get_account_fields()
 
 
     $fields = array(
-        'user-birth-day' => array(
-            'type' => 'select',
-            'class' => array('form-row', 'form-row-composite'),
-            'label' => __('День рождения', 'woocommerce'),
+        'user-birth-day'   => array(
+            'type'    => 'select',
+            'class'   => array('form-row', 'form-row-composite'),
+            'label'   => __('День рождения', 'woocommerce'),
             'options' => $select_days
         ),
         'user-birth-month' => array(
-            'type' => 'select',
-            'class' => array('form-row', 'form-row-composite'),
+            'type'    => 'select',
+            'class'   => array('form-row', 'form-row-composite'),
             'options' => $select_months
         ),
-        'user-birth-year' => array(
-            'type' => 'select',
-            'class' => array('form-row', 'form-row-composite'),
+        'user-birth-year'  => array(
+            'type'    => 'select',
+            'class'   => array('form-row', 'form-row-composite'),
             'options' => $select_years
         ),
     );
@@ -556,10 +552,13 @@ function optovicom_is_field_visible($field_args)
 
     if (is_admin() && !empty($field_args['hide_in_admin'])) {
         $visible = false;
+
     } elseif ((is_account_page() || $action === 'save_account_details') && is_user_logged_in() && !empty($field_args['hide_in_account'])) {
         $visible = false;
+
     } elseif ((is_account_page() || $action === 'save_account_details') && !is_user_logged_in() && !empty($field_args['hide_in_registration'])) {
         $visible = false;
+
     } elseif (is_checkout() && !empty($field_args['hide_in_checkout'])) {
         $visible = false;
     }
@@ -594,10 +593,10 @@ function optovicom_save_account_fields($customer_id)
     }
 }
 
-add_action('woocommerce_created_customer', 'ioptovicomsave_account_fields'); // register/checkout
-add_action('personal_options_update', 'optovicom_save_account_fields'); // edit own account admin
-add_action('edit_user_profile_update', 'optovicom_save_account_fields'); // edit other account admin
-add_action('woocommerce_save_account_details', 'optovicom_save_account_fields'); // edit WC account
+add_action('woocommerce_created_customer', 'optovicom_save_account_fields'); # register/checkout
+add_action('personal_options_update', 'optovicom_save_account_fields'); # edit own account admin
+add_action('edit_user_profile_update', 'optovicom_save_account_fields'); # edit other account admin
+add_action('woocommerce_save_account_details', 'optovicom_save_account_fields'); # edit WC account
 
 function optovicom_print_user_frontend_fields()
 {
@@ -626,29 +625,30 @@ function optovicom_print_user_frontend_fields()
     }
 }
 
-add_action('woocommerce_edit_account_form', 'optovicom_print_user_frontend_fields', 10); // my account
+add_action('woocommerce_edit_account_form', 'optovicom_print_user_frontend_fields', 10); # my account
 
 function optovicom_get_account_orders_columns()
 {
     $columns = apply_filters(
         'optovicom_get_account_orders_columns', array(
             'order-number' => __('Products', 'woocommerce'),
-            'order-date' => __('Date', 'woocommerce'),
+            'order-date'   => __('Date', 'woocommerce'),
         )
     );
 
     return apply_filters('woocommerce_my_account_my_orders_columns', $columns);
 }
 
-function optovicom_not_product_cpts_from_search($query)
-{
+/**
+ * Include only 'Product' post type into WP search
+ */
+add_filter('pre_get_posts', function ($query) {
     if ($query->is_search) {
         $query->set('post_type', 'product');
     }
-    return $query;
-}
 
-add_filter('pre_get_posts', 'optovicom_not_product_cpts_from_search');
+    return $query;
+});
 
 function optovicom_instagram_feed($acc_name)
 {
@@ -705,42 +705,33 @@ add_filter('pre_post_link', 'filter_post_link', 10, 2);
 /**
  * Prepend default wordpress post URLs with blog/
  */
-
 add_action('generate_rewrite_rules', function ($wp_rewrite) {
     $wp_rewrite->rules = array(
-            'blog/([^/]+)/?$' => 'index.php?name=$matches[1]',
-            'blog/[^/]+/attachment/([^/]+)/?$' => 'index.php?attachment=$matches[1]',
-            'blog/[^/]+/attachment/([^/]+)/trackback/?$' => 'index.php?attachment=$matches[1]&tb=1',
+            'blog/([^/]+)/?$'                                                => 'index.php?name=$matches[1]',
+            'blog/[^/]+/attachment/([^/]+)/?$'                               => 'index.php?attachment=$matches[1]',
+            'blog/[^/]+/attachment/([^/]+)/trackback/?$'                     => 'index.php?attachment=$matches[1]&tb=1',
             'blog/[^/]+/attachment/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$' => 'index.php?attachment=$matches[1]&feed=$matches[2]',
-            'blog/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$' => 'index.php?attachment=$matches[1]&feed=$matches[2]',
-            'blog/[^/]+/attachment/([^/]+)/comment-pagea-([0-9]{1,})/?$' => 'index.php?attachment=$matches[1]&cpage=$matches[2]',
-            'blog/([^/]+)/trackback/?$' => 'index.php?name=$matches[1]&tb=1',
-            'blog/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$' => 'index.php?name=$matches[1]&feed=$matches[2]',
-            'blog/([^/]+)/(feed|rdf|rss|rss2|atom)/?$' => 'index.php?name=$matches[1]&feed=$matches[2]',
-            'blog/([^/]+)/page/?([0-9]{1,})/?$' => 'index.php?name=$matches[1]&paged=$matches[2]',
-            'blog/([^/]+)/comment-page-([0-9]{1,})/?$' => 'index.php?name=$matches[1]&cpage=$matches[2]',
-            'blog/([^/]+)(/[0-9]+)?/?$' => 'index.php?name=$matches[1]&page=$matches[2]',
-            'blog/[^/]+/([^/]+)/?$' => 'index.php?attachment=$matches[1]',
-            'blog/[^/]+/([^/]+)/trackback/?$' => 'index.php?attachment=$matches[1]&tb=1',
-            'blog/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$' => 'index.php?attachment=$matches[1]&feed=$matches[2]',
-            'blog/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$' => 'index.php?attachment=$matches[1]&feed=$matches[2]',
-            'blog/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$' => 'index.php?attachment=$matches[1]&cpage=$matches[2]',
+            'blog/[^/]+/attachment/([^/]+)/(feed|rdf|rss|rss2|atom)/?$'      => 'index.php?attachment=$matches[1]&feed=$matches[2]',
+            'blog/[^/]+/attachment/([^/]+)/comment-pagea-([0-9]{1,})/?$'     => 'index.php?attachment=$matches[1]&cpage=$matches[2]',
+            'blog/([^/]+)/trackback/?$'                                      => 'index.php?name=$matches[1]&tb=1',
+            'blog/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$'                  => 'index.php?name=$matches[1]&feed=$matches[2]',
+            'blog/([^/]+)/(feed|rdf|rss|rss2|atom)/?$'                       => 'index.php?name=$matches[1]&feed=$matches[2]',
+            'blog/([^/]+)/page/?([0-9]{1,})/?$'                              => 'index.php?name=$matches[1]&paged=$matches[2]',
+            'blog/([^/]+)/comment-page-([0-9]{1,})/?$'                       => 'index.php?name=$matches[1]&cpage=$matches[2]',
+            'blog/([^/]+)(/[0-9]+)?/?$'                                      => 'index.php?name=$matches[1]&page=$matches[2]',
+            'blog/[^/]+/([^/]+)/?$'                                          => 'index.php?attachment=$matches[1]',
+            'blog/[^/]+/([^/]+)/trackback/?$'                                => 'index.php?attachment=$matches[1]&tb=1',
+            'blog/[^/]+/([^/]+)/feed/(feed|rdf|rss|rss2|atom)/?$'            => 'index.php?attachment=$matches[1]&feed=$matches[2]',
+            'blog/[^/]+/([^/]+)/(feed|rdf|rss|rss2|atom)/?$'                 => 'index.php?attachment=$matches[1]&feed=$matches[2]',
+            'blog/[^/]+/([^/]+)/comment-page-([0-9]{1,})/?$'                 => 'index.php?attachment=$matches[1]&cpage=$matches[2]',
         ) + $wp_rewrite->rules;
 });
-
-//add_filter('rewrite_rules_array', function ($rules) {
-//    $new_rules = array(
-//        'product-category/([^/]*?)/page/([0-9]{1,})/?$' => 'index.php?product_cat=$matches[1]&paged=$matches[2]',
-//        'product-category/([^/]*?)/?$' => 'index.php?product_cat=$matches[1]',
-//    );
-//    return $new_rules + $rules;
-//});
 
 function optovicom_product_category_base_same_shop_base($flash = false)
 {
     $terms = get_terms(array(
-        'taxonomy' => 'product_cat',
-        'post_type' => 'product',
+        'taxonomy'   => 'product_cat',
+        'post_type'  => 'product',
         'hide_empty' => false,
     ));
     if ($terms && !is_wp_error($terms)) {
@@ -763,6 +754,13 @@ function optovicom_product_cat_same_shop_edit_success($term_id, $taxonomy)
 {
     optovicom_product_category_base_same_shop_base(true);
 }
-add_filter( 'wpseo_prev_rel_link', '__return_empty_string' );
-add_filter( 'wpseo_next_rel_link', '__return_empty_string' );
-remove_action( 'woocommerce_before_shop_loop', 'storefront_woocommerce_pagination', 30 );
+
+add_filter('wpseo_prev_rel_link', '__return_empty_string');
+add_filter('wpseo_next_rel_link', '__return_empty_string');
+remove_action('woocommerce_before_shop_loop', 'storefront_woocommerce_pagination', 30);
+
+/* Remove product meta */
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+/* Remove order details from order view */
+remove_action('woocommerce_view_order', 'woocommerce_order_details_table', 10);

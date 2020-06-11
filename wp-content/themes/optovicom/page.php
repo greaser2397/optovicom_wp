@@ -6,20 +6,15 @@ if (is_user_logged_in() && is_page(get_page_by_path('register')->ID)) {
 
 get_header(); ?>
 
-    <div id="primary" class="content-area">
-        <section id="main" class="site-main" role="main">
-            <?php if (function_exists('bcn_display')) : ?>
-                <div class="breadcrumbs-wrapper">
-                    <?php bcn_display(); ?>
-                </div>
-            <?php endif; ?>
-            <?php while (have_posts()) : the_post();
+  <div id="primary" class="content-area">
+    <section id="main" class="site-main" role="main">
+        <?php get_template_part('template-parts/breadcrumbs');
 
-                get_template_part('template-parts/content', 'page');
+        while (have_posts()) : the_post();
+            get_template_part('template-parts/content', 'page');
+        endwhile; ?>
 
-            endwhile; ?>
-
-        </section>
-    </div>
+    </section>
+  </div>
 
 <?php get_footer();

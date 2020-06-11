@@ -11,22 +11,21 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.6.0
+ * @version 3.5.0
  */
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
-wc_print_notices(); ?>
+defined('ABSPATH') || exit; ?>
 
 <div class="woocommerce-account-wrapper">
-    <?php global $current_user, $user_login;
+    <?php
+    global $current_user,
+           $user_login;
+
     if ($user_login) : ?>
-        <span class="welcome-user"><?= esc_html__('Привет', 'woocommerce') . ', ' . $current_user->display_name; ?></span>
+      <span class="welcome-user"><?= esc_html__('Привет', 'woocommerce') . ', ' . $current_user->display_name; ?></span>
     <?php endif; ?>
+
     <?php
     /**
      * My Account navigation.
@@ -34,13 +33,13 @@ wc_print_notices(); ?>
      */
     do_action('woocommerce_account_navigation'); ?>
 
-    <div class="woocommerce-MyAccount-content">
-        <?php
-        /**
-         * My Account content.
-         * @since 2.6.0
-         */
-        do_action('woocommerce_account_content');
-        ?>
-    </div>
+  <div class="woocommerce-MyAccount-content">
+      <?php
+      /**
+       * My Account content.
+       * @since 2.6.0
+       */
+      do_action('woocommerce_account_content');
+      ?>
+  </div>
 </div>
