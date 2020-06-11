@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.4.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-23 06:34:34+0000\n"
+"PO-Revision-Date: 2020-06-11 01:24:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1722,7 +1722,7 @@ msgstr "不符合執行環境需求"
 msgid "The %1$s, %2$s, and %3$s values can be edited to set the video track language and kind."
 msgstr "編輯 %1$s、%2$s 及 %3$s 這幾項屬性值，便能設定視訊音軌的語言及種類。"
 
-#: wp-includes/comment.php:3498
+#: wp-includes/comment.php:3503
 msgid "User&#8217;s comment data."
 msgstr "使用者留言資料"
 
@@ -2478,8 +2478,8 @@ msgid "Failed <span class=\"count\">(%s)</span>"
 msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] "已失敗 <span class=\"count\">(%s)</span>"
 
-#: wp-includes/class-walker-comment.php:271
-#: wp-includes/class-walker-comment.php:361
+#: wp-includes/class-walker-comment.php:304
+#: wp-includes/class-walker-comment.php:402
 msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
 msgstr "你的留言正在等候審閱。目前顯示的是留言內容的預覽，留言核准後所有人都會看到這則留言。"
 
@@ -5527,7 +5527,7 @@ msgid "[deleted]"
 msgstr "[已刪除]"
 
 #. translators: %d: Comment ID.
-#: wp-includes/comment.php:3599
+#: wp-includes/comment.php:3604
 msgid "Comment %d contains personal data but could not be anonymized."
 msgstr "留言 %d 包含個人資料但無法進行匿名化處理。"
 
@@ -5630,39 +5630,39 @@ msgctxt "request status"
 msgid "Pending"
 msgstr "待確認"
 
-#: wp-includes/comment.php:3454
+#: wp-includes/comment.php:3459
 msgid "Comment URL"
 msgstr "留言網址"
 
-#: wp-includes/comment.php:3453
+#: wp-includes/comment.php:3458
 msgid "Comment Content"
 msgstr "留言內容"
 
-#: wp-includes/comment.php:3452
+#: wp-includes/comment.php:3457
 msgid "Comment Date"
 msgstr "留言日期"
 
-#: wp-includes/comment.php:3451
+#: wp-includes/comment.php:3456
 msgid "Comment Author User Agent"
 msgstr "留言者使用者代理程式"
 
-#: wp-includes/comment.php:3450
+#: wp-includes/comment.php:3455
 msgid "Comment Author IP"
 msgstr "留言者 IP 位址"
 
-#: wp-includes/comment.php:3449
+#: wp-includes/comment.php:3454
 msgid "Comment Author URL"
 msgstr "留言者網址"
 
-#: wp-includes/comment.php:3448
+#: wp-includes/comment.php:3453
 msgid "Comment Author Email"
 msgstr "留言者電子郵件地址"
 
-#: wp-includes/comment.php:3447
+#: wp-includes/comment.php:3452
 msgid "Comment Author"
 msgstr "留言者"
 
-#: wp-includes/comment.php:3412 wp-includes/comment.php:3522
+#: wp-includes/comment.php:3417 wp-includes/comment.php:3527
 msgid "WordPress Comments"
 msgstr "WordPress 留言"
 
@@ -7199,7 +7199,7 @@ msgstr "建議的圖片尺寸: %1$s x %2$s 像素"
 msgid "Sorry, this file type is not permitted for security reasons."
 msgstr "很抱歉，基於安全性考量，系統不接受這個檔案類型。"
 
-#: wp-includes/comment.php:3295
+#: wp-includes/comment.php:3300
 msgid "Sorry, comments are not allowed for this item."
 msgstr "很抱歉，無法在這個項目中進行留言。"
 
@@ -8674,7 +8674,7 @@ msgstr "無法新增已存在的留言。"
 #: wp-includes/class-wp-xmlrpc-server.php:3852
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:446
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:468
-#: wp-includes/comment.php:3347
+#: wp-includes/comment.php:3352
 msgid "Sorry, you must be logged in to comment."
 msgstr "很抱歉，必須完成登入才能發佈留言。"
 
@@ -9191,7 +9191,7 @@ msgstr "請在這裡輸入頁面標題"
 
 #: wp-includes/feed.php:553
 msgid "PHP's XML extension is not available. Please contact your hosting provider to enable PHP's XML extension."
-msgstr "PHP 的 XML 延伸模組無法使用。請聯絡這個網站的主機服務提供商以啟用 PHP 的 XML 延伸模組。"
+msgstr "PHP 的 XML 擴充功能無法使用。請聯絡這個網站的主機服務提供商以啟用 PHP 的 XML 擴充功能。"
 
 #. translators: %s: Current user's display name.
 #: wp-includes/admin-bar.php:246
@@ -9969,7 +9969,7 @@ msgctxt "genitive"
 msgid "January"
 msgstr "1 月"
 
-#: wp-includes/embed.php:1143
+#: wp-includes/embed.php:1156
 msgid "Sharing options"
 msgstr "分享選項"
 
@@ -10031,7 +10031,7 @@ msgid "Oops! That embed can&#8217;t be found."
 msgstr "很抱歉，找不到符合條件的嵌入內容。"
 
 #. translators: %s: Post title.
-#: wp-includes/embed.php:943 wp-includes/post-template.php:296
+#: wp-includes/embed.php:956 wp-includes/post-template.php:296
 msgid "Continue reading %s"
 msgstr "閱讀全文 %s"
 
@@ -10402,32 +10402,32 @@ msgstr "文章發佈於 %s"
 msgid "Use the %s filter instead."
 msgstr "請改用 %s 篩選器。"
 
-#: wp-includes/embed.php:1170
+#: wp-includes/embed.php:1183
 msgid "Close sharing dialog"
 msgstr "關閉分享對話方塊"
 
-#: wp-includes/embed.php:1165
+#: wp-includes/embed.php:1178
 msgid "Copy and paste this code into your site to embed"
 msgstr "複製這段程式碼並在你的網站貼上以嵌入內容"
 
-#: wp-includes/embed.php:1158
+#: wp-includes/embed.php:1171
 msgid "Copy and paste this URL into your WordPress site to embed"
 msgstr "複製這個網址並在你的 WordPress 網站貼上以嵌入內容"
 
-#: wp-includes/embed.php:1151
+#: wp-includes/embed.php:1164
 msgid "HTML Embed"
 msgstr "以 HTML 程式碼嵌入"
 
-#: wp-includes/embed.php:1148
+#: wp-includes/embed.php:1161
 msgid "WordPress Embed"
 msgstr "以 WordPress 內容網址嵌入"
 
-#: wp-includes/embed.php:1126
+#: wp-includes/embed.php:1139
 msgid "Open sharing dialog"
 msgstr "開啟分享對話方塊"
 
 #. translators: %s: Number of comments.
-#: wp-includes/embed.php:1102
+#: wp-includes/embed.php:1115
 msgid "%s <span class=\"screen-reader-text\">Comment</span>"
 msgid_plural "%s <span class=\"screen-reader-text\">Comments</span>"
 msgstr[0] "%s <span class=\"screen-reader-text\">則留言</span>"
@@ -11886,7 +11886,7 @@ msgstr "小工具是網頁內容的獨立區塊，這種獨立區塊可放置於
 msgid "You are customizing %s"
 msgstr "目前的自訂項目 %s"
 
-#: wp-includes/comment.php:3396
+#: wp-includes/comment.php:3401
 msgid "<strong>Error</strong>: The comment could not be saved. Please try again later."
 msgstr "<strong>錯誤:</strong> 無法儲存這則留言。請稍後再試。"
 
@@ -13094,8 +13094,8 @@ msgid "The login page will open in a new tab. After logging in you can close it 
 msgstr "登入頁面會在新分頁中開啟。完成登入後，便可以關閉分頁並返回這個頁面。"
 
 #. translators: %s: Comment author link.
-#: wp-includes/class-walker-comment.php:287
-#: wp-includes/class-walker-comment.php:377
+#: wp-includes/class-walker-comment.php:326
+#: wp-includes/class-walker-comment.php:423
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s<span class=\"says\">表示:</span>"
 
@@ -14083,15 +14083,15 @@ msgstr "%s 已超過這個網站的檔案上傳大小限制。"
 msgid "Feedback"
 msgstr "意見反應"
 
-#: wp-includes/comment.php:3355
+#: wp-includes/comment.php:3360
 msgid "<strong>Error</strong>: Please fill the required fields (name, email)."
 msgstr "<strong>錯誤:</strong> 請填寫 [顯示名稱] 及 [電子郵件地址] 這兩個必填欄位。"
 
-#: wp-includes/comment.php:3357
+#: wp-includes/comment.php:3362
 msgid "<strong>Error</strong>: Please enter a valid email address."
 msgstr "<strong>錯誤:</strong> 請輸入有效的電子郵件地址。"
 
-#: wp-includes/comment.php:3382
+#: wp-includes/comment.php:3387
 msgid "<strong>Error</strong>: Please type a comment."
 msgstr "<strong>錯誤:</strong> 請輸入留言內容。"
 
@@ -14241,7 +14241,7 @@ msgstr "文章導覽"
 msgid "Link to %s"
 msgstr "連結到 %s"
 
-#: wp-includes/class-walker-comment.php:242
+#: wp-includes/class-walker-comment.php:250
 msgid "Pingback:"
 msgstr "自動引用通知:"
 
@@ -15159,7 +15159,7 @@ msgstr "WordPress 資料庫錯誤: %1$s (由 %3$s 的查詢 %2$s 觸發)"
 
 #: wp-includes/load.php:149
 msgid "Your PHP installation appears to be missing the MySQL extension which is required by WordPress."
-msgstr "網站伺服器的 PHP 環境缺少 WordPress 需要的 MySQL 延伸模組。"
+msgstr "網站伺服器的 PHP 環境缺少 WordPress 需要的 MySQL 擴充功能。"
 
 #: wp-includes/class-wp-xmlrpc-server.php:7020
 msgid "The specified target URL does not exist."
@@ -15578,7 +15578,7 @@ msgstr "發佈日期:"
 
 #: wp-includes/script-loader.php:1328 wp-includes/js/dist/editor.js:9687
 msgid "Password Protected"
-msgstr "密碼保護"
+msgstr "受密碼保護"
 
 #: wp-includes/script-loader.php:1319
 msgid "No more comments found."
@@ -16929,7 +16929,7 @@ msgstr "每小時一次"
 msgid "This argument has changed to an array to match the behavior of the other cron functions."
 msgstr "這個引數已變更為符合其他 cron 函式行為的陣列。"
 
-#: wp-includes/comment.php:2279
+#: wp-includes/comment.php:2284
 msgid "Could not update comment status"
 msgstr "無法更新留言狀態"
 
@@ -17012,18 +17012,18 @@ msgstr "其他操作"
 msgid "Search results for %s"
 msgstr "「%s」的搜尋結果"
 
-#: wp-includes/class-walker-comment.php:304
+#: wp-includes/class-walker-comment.php:343
 msgid "(Edit)"
 msgstr "(編輯)"
 
 #. translators: 1: Comment date, 2: Comment time.
-#: wp-includes/class-walker-comment.php:300
-#: wp-includes/class-walker-comment.php:388
+#: wp-includes/class-walker-comment.php:339
+#: wp-includes/class-walker-comment.php:434
 msgid "%1$s at %2$s"
 msgstr "%1$s%2$s"
 
-#: wp-includes/class-walker-comment.php:269
-#: wp-includes/class-walker-comment.php:359
+#: wp-includes/class-walker-comment.php:302
+#: wp-includes/class-walker-comment.php:400
 msgid "Your comment is awaiting moderation."
 msgstr "你的留言正在等候審閱。"
 
@@ -17100,7 +17100,7 @@ msgstr "全部"
 
 #: wp-includes/class-wp-xmlrpc-server.php:3875
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:549
-#: wp-includes/comment.php:3268
+#: wp-includes/comment.php:3273
 msgid "Sorry, comments are closed for this item."
 msgstr "很抱歉，這個項目的留言功能已關閉。"
 
@@ -17643,7 +17643,7 @@ msgid "Submit"
 msgstr "傳送"
 
 #. translators: Name of a comment's author after being anonymized.
-#: wp-includes/comment.php:3568 wp-includes/class-wp-theme.php:897
+#: wp-includes/comment.php:3573 wp-includes/class-wp-theme.php:897
 #: wp-includes/comment-template.php:32
 msgid "Anonymous"
 msgstr "匿名訪客"
@@ -17758,7 +17758,7 @@ msgstr "內容摘要"
 msgid "Publish"
 msgstr "發佈"
 
-#: wp-includes/script-loader.php:1274 wp-includes/comment.php:3497
+#: wp-includes/script-loader.php:1274 wp-includes/comment.php:3502
 #: wp-includes/link-template.php:3047 wp-includes/link-template.php:3107
 msgid "Comments"
 msgstr "留言"
@@ -17787,8 +17787,8 @@ msgid "%s ago"
 msgstr "%s前"
 
 #: wp-includes/class-wp-editor.php:1388
-#: wp-includes/class-walker-comment.php:242
-#: wp-includes/class-walker-comment.php:392 wp-includes/js/dist/editor.js:12394
+#: wp-includes/class-walker-comment.php:250
+#: wp-includes/class-walker-comment.php:438 wp-includes/js/dist/editor.js:12394
 #: wp-includes/js/dist/block-editor.js:20123
 #: wp-includes/js/dist/block-editor.js:20742
 #: wp-includes/js/dist/block-editor.js:22523

@@ -1738,7 +1738,7 @@ msgstr "Несоответствие требованиям"
 msgid "The %1$s, %2$s, and %3$s values can be edited to set the video track language and kind."
 msgstr "Значения %1$s, %2$s, и %3$s могут быть отредактированы для определения языка и вида видеодорожки."
 
-#: wp-includes/comment.php:3498
+#: wp-includes/comment.php:3503
 msgid "User&#8217;s comment data."
 msgstr "Пользовательские данные комментария."
 
@@ -2500,8 +2500,8 @@ msgstr[0] "Неудачные <span class=\"count\">(%s)</span>"
 msgstr[1] "Неудачные <span class=\"count\">(%s)</span>"
 msgstr[2] "Неудачные <span class=\"count\">(%s)</span>"
 
-#: wp-includes/class-walker-comment.php:271
-#: wp-includes/class-walker-comment.php:361
+#: wp-includes/class-walker-comment.php:304
+#: wp-includes/class-walker-comment.php:402
 msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
 msgstr "Ваш комментарий ожидает одобрения. Это его предварительный просмотр, комментарий станет видимым для всех после одобрения."
 
@@ -5573,7 +5573,7 @@ msgid "[deleted]"
 msgstr "[удалено]"
 
 #. translators: %d: Comment ID.
-#: wp-includes/comment.php:3599
+#: wp-includes/comment.php:3604
 msgid "Comment %d contains personal data but could not be anonymized."
 msgstr "Комментарий %d содержит персональные данные, но не может быть анонимизирован."
 
@@ -5677,39 +5677,39 @@ msgctxt "request status"
 msgid "Pending"
 msgstr "В ожидании"
 
-#: wp-includes/comment.php:3454
+#: wp-includes/comment.php:3459
 msgid "Comment URL"
 msgstr "URL комментария"
 
-#: wp-includes/comment.php:3453
+#: wp-includes/comment.php:3458
 msgid "Comment Content"
 msgstr "Содержимое комментария"
 
-#: wp-includes/comment.php:3452
+#: wp-includes/comment.php:3457
 msgid "Comment Date"
 msgstr "Дата комментария"
 
-#: wp-includes/comment.php:3451
+#: wp-includes/comment.php:3456
 msgid "Comment Author User Agent"
 msgstr "User Agent автора комментария"
 
-#: wp-includes/comment.php:3450
+#: wp-includes/comment.php:3455
 msgid "Comment Author IP"
 msgstr "IP автора комментария"
 
-#: wp-includes/comment.php:3449
+#: wp-includes/comment.php:3454
 msgid "Comment Author URL"
 msgstr "URL автора комментария"
 
-#: wp-includes/comment.php:3448
+#: wp-includes/comment.php:3453
 msgid "Comment Author Email"
 msgstr "Адрес email автора комментария"
 
-#: wp-includes/comment.php:3447
+#: wp-includes/comment.php:3452
 msgid "Comment Author"
 msgstr "Автор комментария"
 
-#: wp-includes/comment.php:3412 wp-includes/comment.php:3522
+#: wp-includes/comment.php:3417 wp-includes/comment.php:3527
 msgid "WordPress Comments"
 msgstr "Комментарии WordPress"
 
@@ -7271,7 +7271,7 @@ msgstr "Предлагаемый размер изображения: %1$s на 
 msgid "Sorry, this file type is not permitted for security reasons."
 msgstr "Извините, этот тип файла недопустим по соображениям безопасности."
 
-#: wp-includes/comment.php:3295
+#: wp-includes/comment.php:3300
 msgid "Sorry, comments are not allowed for this item."
 msgstr "Извините, комментарии для этого элемента не разрешены."
 
@@ -8750,7 +8750,7 @@ msgstr "Нельзя создать уже имеющийся комментар
 #: wp-includes/class-wp-xmlrpc-server.php:3852
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:446
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:468
-#: wp-includes/comment.php:3347
+#: wp-includes/comment.php:3352
 msgid "Sorry, you must be logged in to comment."
 msgstr "Извините, для отправки комментария необходимо авторизоваться."
 
@@ -10045,7 +10045,7 @@ msgctxt "genitive"
 msgid "January"
 msgstr "января"
 
-#: wp-includes/embed.php:1143
+#: wp-includes/embed.php:1156
 msgid "Sharing options"
 msgstr "Варианты вставки"
 
@@ -10107,7 +10107,7 @@ msgid "Oops! That embed can&#8217;t be found."
 msgstr "Ой! Объект не найден."
 
 #. translators: %s: Post title.
-#: wp-includes/embed.php:943 wp-includes/post-template.php:296
+#: wp-includes/embed.php:956 wp-includes/post-template.php:296
 msgid "Continue reading %s"
 msgstr "Читать далее %s"
 
@@ -10478,32 +10478,32 @@ msgstr "Записи, опубликованные %s"
 msgid "Use the %s filter instead."
 msgstr "Используйте фильтр %s."
 
-#: wp-includes/embed.php:1170
+#: wp-includes/embed.php:1183
 msgid "Close sharing dialog"
 msgstr "Закрыть окно вставки"
 
-#: wp-includes/embed.php:1165
+#: wp-includes/embed.php:1178
 msgid "Copy and paste this code into your site to embed"
 msgstr "Скопируйте и вставьте этот код на ваш сайт"
 
-#: wp-includes/embed.php:1158
+#: wp-includes/embed.php:1171
 msgid "Copy and paste this URL into your WordPress site to embed"
 msgstr "Скопируйте и вставьте этот URL на ваш сайт под управлением WordPress"
 
-#: wp-includes/embed.php:1151
+#: wp-includes/embed.php:1164
 msgid "HTML Embed"
 msgstr "HTML-код"
 
-#: wp-includes/embed.php:1148
+#: wp-includes/embed.php:1161
 msgid "WordPress Embed"
 msgstr "Вставка в WordPress"
 
-#: wp-includes/embed.php:1126
+#: wp-includes/embed.php:1139
 msgid "Open sharing dialog"
 msgstr "Открыть окно вставки"
 
 #. translators: %s: Number of comments.
-#: wp-includes/embed.php:1102
+#: wp-includes/embed.php:1115
 msgid "%s <span class=\"screen-reader-text\">Comment</span>"
 msgid_plural "%s <span class=\"screen-reader-text\">Comments</span>"
 msgstr[0] "%s <span class=\"screen-reader-text\">комментарий</span>"
@@ -11970,7 +11970,7 @@ msgstr "Виджеты &#8212; это независимые блоки соде
 msgid "You are customizing %s"
 msgstr "Вы настраиваете %s"
 
-#: wp-includes/comment.php:3396
+#: wp-includes/comment.php:3401
 msgid "<strong>Error</strong>: The comment could not be saved. Please try again later."
 msgstr "<strong>ОШИБКА</strong>: Не удалось сохранить комментарий. Пожалуйста, повторите попытку позже."
 
@@ -13184,8 +13184,8 @@ msgid "The login page will open in a new tab. After logging in you can close it 
 msgstr "Страница входа откроется в новом окне. После входа вы можете закрыть окно и вернуться к текущей странице."
 
 #. translators: %s: Comment author link.
-#: wp-includes/class-walker-comment.php:287
-#: wp-includes/class-walker-comment.php:377
+#: wp-includes/class-walker-comment.php:326
+#: wp-includes/class-walker-comment.php:423
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s<span class=\"says\">:</span>"
 
@@ -14181,15 +14181,15 @@ msgstr "Размер файла «%s» превышает максимальны
 msgid "Feedback"
 msgstr "Обратная связь"
 
-#: wp-includes/comment.php:3355
+#: wp-includes/comment.php:3360
 msgid "<strong>Error</strong>: Please fill the required fields (name, email)."
 msgstr "<strong>ОШИБКА</strong>: пожалуйста, заполните необходимые поля (имя, email)."
 
-#: wp-includes/comment.php:3357
+#: wp-includes/comment.php:3362
 msgid "<strong>Error</strong>: Please enter a valid email address."
 msgstr "<strong>ОШИБКА</strong>: пожалуйста, введите корректный адрес email."
 
-#: wp-includes/comment.php:3382
+#: wp-includes/comment.php:3387
 msgid "<strong>Error</strong>: Please type a comment."
 msgstr "<strong>ОШИБКА</strong>: пожалуйста, введите комментарий."
 
@@ -14341,7 +14341,7 @@ msgstr "Навигация по записям"
 msgid "Link to %s"
 msgstr "Ссылка на %s"
 
-#: wp-includes/class-walker-comment.php:242
+#: wp-includes/class-walker-comment.php:250
 msgid "Pingback:"
 msgstr "Уведомление:"
 
@@ -17057,7 +17057,7 @@ msgstr "Каждый час"
 msgid "This argument has changed to an array to match the behavior of the other cron functions."
 msgstr "Этот аргумент изменён на массив, чтобы соответствовать поведению других функций планировщика."
 
-#: wp-includes/comment.php:2279
+#: wp-includes/comment.php:2284
 msgid "Could not update comment status"
 msgstr "Не удалось обновить статус комментария"
 
@@ -17140,18 +17140,18 @@ msgstr "Мета"
 msgid "Search results for %s"
 msgstr "Результаты поиска для %s"
 
-#: wp-includes/class-walker-comment.php:304
+#: wp-includes/class-walker-comment.php:343
 msgid "(Edit)"
 msgstr "(Изменить)"
 
 #. translators: 1: Comment date, 2: Comment time.
-#: wp-includes/class-walker-comment.php:300
-#: wp-includes/class-walker-comment.php:388
+#: wp-includes/class-walker-comment.php:339
+#: wp-includes/class-walker-comment.php:434
 msgid "%1$s at %2$s"
 msgstr "%1$s в %2$s"
 
-#: wp-includes/class-walker-comment.php:269
-#: wp-includes/class-walker-comment.php:359
+#: wp-includes/class-walker-comment.php:302
+#: wp-includes/class-walker-comment.php:400
 msgid "Your comment is awaiting moderation."
 msgstr "Ваш комментарий ожидает проверки."
 
@@ -17228,7 +17228,7 @@ msgstr "Все"
 
 #: wp-includes/class-wp-xmlrpc-server.php:3875
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:549
-#: wp-includes/comment.php:3268
+#: wp-includes/comment.php:3273
 msgid "Sorry, comments are closed for this item."
 msgstr "Извините, обсуждение этой записи закрыто."
 
@@ -17773,7 +17773,7 @@ msgid "Submit"
 msgstr "Отправить"
 
 #. translators: Name of a comment's author after being anonymized.
-#: wp-includes/comment.php:3568 wp-includes/class-wp-theme.php:897
+#: wp-includes/comment.php:3573 wp-includes/class-wp-theme.php:897
 #: wp-includes/comment-template.php:32
 msgid "Anonymous"
 msgstr "Аноним"
@@ -17888,7 +17888,7 @@ msgstr "Отрывок"
 msgid "Publish"
 msgstr "Опубликовать"
 
-#: wp-includes/script-loader.php:1274 wp-includes/comment.php:3497
+#: wp-includes/script-loader.php:1274 wp-includes/comment.php:3502
 #: wp-includes/link-template.php:3047 wp-includes/link-template.php:3107
 msgid "Comments"
 msgstr "Комментарии"
@@ -17917,8 +17917,8 @@ msgid "%s ago"
 msgstr "%s назад"
 
 #: wp-includes/class-wp-editor.php:1388
-#: wp-includes/class-walker-comment.php:242
-#: wp-includes/class-walker-comment.php:392 wp-includes/js/dist/editor.js:12394
+#: wp-includes/class-walker-comment.php:250
+#: wp-includes/class-walker-comment.php:438 wp-includes/js/dist/editor.js:12394
 #: wp-includes/js/dist/block-editor.js:20123
 #: wp-includes/js/dist/block-editor.js:20742
 #: wp-includes/js/dist/block-editor.js:22523

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Jetpack by WordPress.com - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-06-04 10:55:11+0000\n"
+"PO-Revision-Date: 2020-06-10 16:54:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,13 @@ msgstr ""
 "X-Generator: GlotPress/3.0.0-alpha\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - Jetpack by WordPress.com - Stable (latest release)\n"
+
+#: _inc/blocks/editor.js:18 _inc/blocks/editor-experimental.js:18
+#: _inc/blocks/editor-no-post-editor.js:18 _inc/blocks/editor-beta.js:18
+msgid "There is currently only %s post in your Instagram account."
+msgid_plural "There are currently only %s posts in your Instagram account."
+msgstr[0] "Il n’y a pour l’instant que %s article sur votre compte Instagram."
+msgstr[1] "Il n’y a pour l’instant que %s articles sur votre compte Instagram."
 
 #: _inc/blocks/editor.js:18 _inc/blocks/editor-experimental.js:18
 #: _inc/blocks/editor-beta.js:18
@@ -883,6 +890,10 @@ msgstr "Analyse Jetpack {{em}}quotidienne{{/em}}"
 #: _inc/jetpack-strings.php:99
 msgid "The WordPress.com toolbar replaces the default WordPress admin toolbar."
 msgstr "La barre d’outils WordPress.com remplace la barre d’outils administrateur  WordPress par défaut."
+
+#: _inc/jetpack-strings.php:75
+msgid "Add contact forms using the block editor."
+msgstr "Ajouter des formulaires de contact à l’aide de l’éditeur de blocs."
 
 #. translators: %1$s is awarded rating score, %2$s is the best possible rating.
 #: extensions/blocks/rating-star/rating-meta.php:126

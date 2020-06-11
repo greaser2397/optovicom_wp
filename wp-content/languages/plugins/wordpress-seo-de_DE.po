@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-03 19:55:15+0000\n"
+"PO-Revision-Date: 2020-06-10 20:37:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -89,6 +89,11 @@ msgstr "Deine Website kann sich nicht mit %1$s verbinden."
 msgid "%1$sGo to %2$s to analyze your entire site%3$s"
 msgstr "%1$sGehe zu %2$s, um die gesamte Website zu analysieren%3$s"
 
+#. translators: %1$s: Expands to 'Ryte', %2$s: Expands to 'Yoast SEO'.
+#: inc/health-check-ryte.php:231
+msgid "%1$s offers a free indexability check for %2$s users, and it shows that your site can be found by search engines."
+msgstr "%1$s bietet eine kostenlose Prüfung der Indexierbarkeit für Benutzer von %2$s und zeigt, dass deine Website von Suchmaschinen gefunden werden kann."
+
 #: inc/health-check-ryte.php:226
 msgid "Your site can be found by search engines"
 msgstr "Deine Website kann von Suchmaschinen gefunden werden"
@@ -107,7 +112,7 @@ msgstr "%1$sLies mehr über die Problembehandlung bei der Sichtbarkeit für Such
 #. translators: %1$s: Expands to 'Ryte', %2$s: Expands to 'Yoast SEO'.
 #: inc/health-check-ryte.php:155
 msgid "%1$s offers a free indexability check for %2$s users and it has determined that your site cannot be found by search engines. If this site is live or about to become live, this should be fixed."
-msgstr "%1$s bietet eine kostenlose Prüfung der Indizierbarkeit für %2$s-Benutzer an und hat festgestellt, dass deine Website von Suchmaschinen nicht gefunden werden kann. Wenn diese Site live ist oder dabei ist, live zu werden, sollte dies behoben werden."
+msgstr "%1$s bietet eine kostenlose Prüfung der Indexierbarkeit für Benutzer von %2$s an und hat festgestellt, dass deine Website von Suchmaschinen nicht gefunden werden kann. Wenn diese Website live ist oder in Kürze live geschaltet wird, sollte dies behoben werden."
 
 #: inc/health-check-ryte.php:149
 msgid "Your site cannot be found by search engines"
@@ -1403,7 +1408,7 @@ msgstr "Ungültige POST-Anfrage. Meta-Werte für ein Objekt mit der ID %1$s sind
 #. translators: %1$s expands to the indexable's ID.
 #: inc/exceptions/class-invalid-indexable-exception.php:24
 msgid "Indexable with ID `%1$s` does not exist"
-msgstr "Indizierbare ID »%1$s« ist nicht vorhanden"
+msgstr "Indexierung mit der ID `%1$s` ist nicht vorhanden"
 
 #. translators: %1$s expands to the object ID. %2$s resolved to the object
 #. type.
@@ -2508,6 +2513,10 @@ msgstr "Technisch gesehen, resultiert das Nicht-Anzeigen der %1$s-Archive in den
 #: admin/views/class-view-utils.php:44
 msgid "Not showing %1$s in the search results technically means those will have a %2$s robots meta and will be excluded from XML sitemaps. %3$sMore info on the search results settings%4$s."
 msgstr "Technisch gesehen, resultiert das Nicht-Anzeigen von %1$s in den Suchergebnissen darin, dass diese Seiten eine %2$s robots Meta-Angabe aufweisen und aus den XML Sitemaps ausgeschlossen werden. %3$sWeitere Infos zu den Einstellungen für Suchergebnisse%4$s."
+
+#: languages/wordpress-seojs.php:47
+msgid "%s (current default for %s)"
+msgstr "%s (aktueller Standard für %s)"
 
 #: admin/pages/metas.php:20
 msgid "Media"

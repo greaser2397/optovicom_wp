@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WooCommerce - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-13 09:06:38+0000\n"
+"PO-Revision-Date: 2020-06-09 20:57:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -331,6 +331,10 @@ msgstr "Darmowe motywy"
 #: packages/woocommerce-admin/dist/chunks/profile-wizard.314f6a9f9e0ee86eb8bf.js:5155
 msgid "All themes"
 msgstr "Wszystkie motywy"
+
+#: packages/woocommerce-admin/dist/chunks/profile-wizard.314f6a9f9e0ee86eb8bf.js:3578
+msgid "Build a better WooCommerce"
+msgstr "Zbuduj lepszy WooCommerce"
 
 #: packages/woocommerce-admin/dist/chunks/profile-wizard.314f6a9f9e0ee86eb8bf.js:5367
 msgid "Business Details"
@@ -905,6 +909,16 @@ msgstr "Nie zawiera"
 msgctxt "products"
 msgid "Includes"
 msgstr "Zawiera"
+
+#: packages/woocommerce-admin/dist/chunks/analytics-report-categories~analytics-report-products.b94ffcec7f813ed34edb.js:1302
+#: packages/woocommerce-admin/dist/chunks/analytics-report-orders.f2d90c48c3f4b0a88512.js:328
+#: packages/woocommerce-admin/dist/chunks/analytics-report-products.28c933e5937d420efe22.js:266
+#: packages/woocommerce-admin/dist/chunks/analytics-report-categories.13b966705db9cfeb4814.js:316
+msgid "item sold"
+msgid_plural "items sold"
+msgstr[0] "sprzedany przedmiot"
+msgstr[1] "sprzedane przedmioty"
+msgstr[2] "sprzedanych przedmiotów"
 
 #: packages/woocommerce-admin/src/Features/Analytics.php:83
 #: packages/woocommerce-admin/dist/app/index.js:6457
@@ -2241,6 +2255,18 @@ msgstr "Unikalny identyfikator pozycji w koszyku."
 #: packages/woocommerce-blocks/src/RestApi/StoreApi/Schemas/CartSchema.php:63
 msgid "Total price of all products in the cart."
 msgstr "Łączna cena wszystkich produktów w koszyku."
+
+#. translators: %s: field name
+#: includes/class-wc-checkout.php:733
+msgctxt "checkout-validation"
+msgid "Billing %s"
+msgstr "%s płatnika"
+
+#. translators: %s: field name
+#: includes/class-wc-checkout.php:729
+msgctxt "checkout-validation"
+msgid "Shipping %s"
+msgstr "%s wysyłki"
 
 #: includes/integrations/maxmind-geolocation/views/html-admin-options.php:15
 #: includes/integrations/maxmind-geolocation/views/html-admin-options.php:19
@@ -5671,6 +5697,11 @@ msgstr "Nie można pobrać informacji o bazie danych. Zwykle nie stanowi to prob
 #: includes/emails/class-wc-email-new-order.php:149
 msgid "Congratulations on the sale."
 msgstr "Gratulacje za sprzedaż."
+
+#: includes/emails/class-wc-email-customer-processing-order.php:144
+#: includes/emails/class-wc-email-customer-invoice.php:115
+msgid "Thanks for using {site_url}!"
+msgstr "Dziękujemy za korzystanie z {site_url}!"
 
 #: includes/emails/class-wc-email-new-order.php:192
 #: includes/emails/class-wc-email-customer-invoice.php:224
