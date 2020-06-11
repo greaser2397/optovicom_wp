@@ -266,7 +266,7 @@ msgstr "Roskakorista ei löytynyt kommentteja."
 msgid "File is empty. Please upload something more substantial. This error could also be caused by uploads being disabled in your %1$s file or by %2$s being defined as smaller than %3$s in %1$s."
 msgstr "Tiedosto on tyhjä. Ole hyvä ja yritä siirtää jotain vähän runsaampaa. Virhe voi myös johtua %1$s -tiedoston siirtoasetuksista, tai siitä että %2$s on määritelty pienemmäksi kuin %3$s %1$s:ssä."
 
-#: wp-admin/includes/class-wp-site-health.php:2296
+#: wp-admin/includes/class-wp-site-health.php:2302
 msgid "A test is unavailable"
 msgstr "Testiä ei ole saatavilla."
 

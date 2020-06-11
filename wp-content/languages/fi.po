@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.4.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-24 09:39:32+0000\n"
+"PO-Revision-Date: 2020-06-10 10:30:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1732,7 +1732,7 @@ msgstr "Vaatimukset eivät täyty"
 msgid "The %1$s, %2$s, and %3$s values can be edited to set the video track language and kind."
 msgstr "HTML-attribuutteja %1$s, %2$s ja %3$s voi muokata kertomaan videon kielen ja tyypin."
 
-#: wp-includes/comment.php:3498
+#: wp-includes/comment.php:3503
 msgid "User&#8217;s comment data."
 msgstr "Käyttäjän kommenttitiedot."
 
@@ -2488,8 +2488,8 @@ msgid_plural "Failed <span class=\"count\">(%s)</span>"
 msgstr[0] "Epäonnistuneita <span class=\"count\">(%s)</span>"
 msgstr[1] "Epäonnistuneita <span class=\"count\">(%s)</span>"
 
-#: wp-includes/class-walker-comment.php:271
-#: wp-includes/class-walker-comment.php:361
+#: wp-includes/class-walker-comment.php:304
+#: wp-includes/class-walker-comment.php:402
 msgid "Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved."
 msgstr "Kommenttisi odottaa tarkastusta. Tämä on vasta esikatselu, kommenttisi tulee julkiseksi hyväksynnän jälkeen."
 
@@ -3213,7 +3213,7 @@ msgstr "Kuvan koko"
 #: wp-includes/js/dist/block-library.js:5245
 #: wp-includes/js/dist/block-library.js:15029
 msgid "Alt text (alternative text)"
-msgstr "Alt-teksti"
+msgstr "Vaihtoehtoinen teksti (alt-teksti)"
 
 #: wp-includes/js/dist/block-library.js:5243
 msgid "Image settings"
@@ -5549,7 +5549,7 @@ msgid "[deleted]"
 msgstr "[poistettu]"
 
 #. translators: %d: Comment ID.
-#: wp-includes/comment.php:3599
+#: wp-includes/comment.php:3604
 msgid "Comment %d contains personal data but could not be anonymized."
 msgstr "Kommentti %d sisältää henkilötietoa mutta sitä ei voitu anonymisoida."
 
@@ -5654,39 +5654,39 @@ msgctxt "request status"
 msgid "Pending"
 msgstr "Vireillä"
 
-#: wp-includes/comment.php:3454
+#: wp-includes/comment.php:3459
 msgid "Comment URL"
 msgstr "Kommentin URL"
 
-#: wp-includes/comment.php:3453
+#: wp-includes/comment.php:3458
 msgid "Comment Content"
 msgstr "Kommentin sisältö"
 
-#: wp-includes/comment.php:3452
+#: wp-includes/comment.php:3457
 msgid "Comment Date"
 msgstr "Kommentin päivämäärä"
 
-#: wp-includes/comment.php:3451
+#: wp-includes/comment.php:3456
 msgid "Comment Author User Agent"
 msgstr "Kommentoijan selaimen tiedot"
 
-#: wp-includes/comment.php:3450
+#: wp-includes/comment.php:3455
 msgid "Comment Author IP"
 msgstr "Kommentoijan IP"
 
-#: wp-includes/comment.php:3449
+#: wp-includes/comment.php:3454
 msgid "Comment Author URL"
 msgstr "Kommentoijan URL"
 
-#: wp-includes/comment.php:3448
+#: wp-includes/comment.php:3453
 msgid "Comment Author Email"
 msgstr "Kommentoijan sähköposti"
 
-#: wp-includes/comment.php:3447
+#: wp-includes/comment.php:3452
 msgid "Comment Author"
 msgstr "Kommentin kirjoittaja"
 
-#: wp-includes/comment.php:3412 wp-includes/comment.php:3522
+#: wp-includes/comment.php:3417 wp-includes/comment.php:3527
 msgid "WordPress Comments"
 msgstr "WordPress-kommentit"
 
@@ -7234,7 +7234,7 @@ msgstr "Suositeltu kuvakoko: %1$s x %2$s pikseliä (leveys x korkeus)."
 msgid "Sorry, this file type is not permitted for security reasons."
 msgstr "Tietoturvasyistä tämän tiedostotyypin käyttö on kielletty."
 
-#: wp-includes/comment.php:3295
+#: wp-includes/comment.php:3300
 msgid "Sorry, comments are not allowed for this item."
 msgstr "Pahoittelemme, kohteen kommentointi ei ole sallittu."
 
@@ -8711,7 +8711,7 @@ msgstr "Olemassa olevaa kommenttia ei voi luoda. "
 #: wp-includes/class-wp-xmlrpc-server.php:3852
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:446
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:468
-#: wp-includes/comment.php:3347
+#: wp-includes/comment.php:3352
 msgid "Sorry, you must be logged in to comment."
 msgstr "Pahoittelemme, sinun täytyy olla kirjautunut sisään voidaksesi kommentoida. "
 
@@ -11927,7 +11927,7 @@ msgstr "Vimpaimet ovat itsenäisiä sisältöelementtejä, jotka voidaan asettaa
 msgid "You are customizing %s"
 msgstr "Olet muokkaamassa kohdetta %s"
 
-#: wp-includes/comment.php:3396
+#: wp-includes/comment.php:3401
 msgid "<strong>Error</strong>: The comment could not be saved. Please try again later."
 msgstr "<strong>VIRHE</strong>: Kommenttia ei voitu tallentaa"
 
@@ -13138,8 +13138,8 @@ msgid "The login page will open in a new tab. After logging in you can close it 
 msgstr "Kirjautumissivu aukeaa uuteen välilehteen. Sisäänkirjautumisen jälkeen voit sulkea sen ja palata tälle sivulle."
 
 #. translators: %s: Comment author link.
-#: wp-includes/class-walker-comment.php:287
-#: wp-includes/class-walker-comment.php:377
+#: wp-includes/class-walker-comment.php:326
+#: wp-includes/class-walker-comment.php:423
 msgid "%s <span class=\"says\">says:</span>"
 msgstr "%s <span class=\"says\">sanoo:</span>"
 
@@ -14131,15 +14131,15 @@ msgstr "%s ylittää tämän sivuston suurimman sallitun tiedostokoon."
 msgid "Feedback"
 msgstr "Palaute"
 
-#: wp-includes/comment.php:3355
+#: wp-includes/comment.php:3360
 msgid "<strong>Error</strong>: Please fill the required fields (name, email)."
 msgstr "<strong>VIRHE</strong>: täytä vaaditut kentät (nimi, sähköposti)."
 
-#: wp-includes/comment.php:3357
+#: wp-includes/comment.php:3362
 msgid "<strong>Error</strong>: Please enter a valid email address."
 msgstr "<strong>VIRHE</strong>: anna oikea sähköpostiosoite."
 
-#: wp-includes/comment.php:3382
+#: wp-includes/comment.php:3387
 msgid "<strong>Error</strong>: Please type a comment."
 msgstr "<strong>VIRHE</strong>: lisää kommentti, ole hyvä."
 
@@ -14290,7 +14290,7 @@ msgstr "Artikkelien selaus"
 msgid "Link to %s"
 msgstr "Linkki: %s"
 
-#: wp-includes/class-walker-comment.php:242
+#: wp-includes/class-walker-comment.php:250
 msgid "Pingback:"
 msgstr "Paluuviite:"
 
@@ -16992,7 +16992,7 @@ msgstr "Kerran tunnissa"
 msgid "This argument has changed to an array to match the behavior of the other cron functions."
 msgstr "Tämä argumentti on muutettu taulukoksi (array), jotta se vastaisi paremmin muiden cron-funktioiden toimintaa."
 
-#: wp-includes/comment.php:2279
+#: wp-includes/comment.php:2284
 msgid "Could not update comment status"
 msgstr "Kommenttia ei voitu päivittää"
 
@@ -17075,18 +17075,18 @@ msgstr "Meta"
 msgid "Search results for %s"
 msgstr "Hakutulokset haulle: %s"
 
-#: wp-includes/class-walker-comment.php:304
+#: wp-includes/class-walker-comment.php:343
 msgid "(Edit)"
 msgstr "(Muokkaa)"
 
 #. translators: 1: Comment date, 2: Comment time.
-#: wp-includes/class-walker-comment.php:300
-#: wp-includes/class-walker-comment.php:388
+#: wp-includes/class-walker-comment.php:339
+#: wp-includes/class-walker-comment.php:434
 msgid "%1$s at %2$s"
 msgstr "%1$s  %2$s"
 
-#: wp-includes/class-walker-comment.php:269
-#: wp-includes/class-walker-comment.php:359
+#: wp-includes/class-walker-comment.php:302
+#: wp-includes/class-walker-comment.php:400
 msgid "Your comment is awaiting moderation."
 msgstr "Kommenttisi odottaa hyväksyntää."
 
@@ -17163,7 +17163,7 @@ msgstr "Kaikki"
 
 #: wp-includes/class-wp-xmlrpc-server.php:3875
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:549
-#: wp-includes/comment.php:3268
+#: wp-includes/comment.php:3273
 msgid "Sorry, comments are closed for this item."
 msgstr "Tätä ei voi kommentoida."
 
@@ -17707,7 +17707,7 @@ msgid "Submit"
 msgstr "Lähetä"
 
 #. translators: Name of a comment's author after being anonymized.
-#: wp-includes/comment.php:3568 wp-includes/class-wp-theme.php:897
+#: wp-includes/comment.php:3573 wp-includes/class-wp-theme.php:897
 #: wp-includes/comment-template.php:32
 msgid "Anonymous"
 msgstr "Nimetön"
@@ -17822,7 +17822,7 @@ msgstr "Ote"
 msgid "Publish"
 msgstr "Julkaise"
 
-#: wp-includes/script-loader.php:1274 wp-includes/comment.php:3497
+#: wp-includes/script-loader.php:1274 wp-includes/comment.php:3502
 #: wp-includes/link-template.php:3047 wp-includes/link-template.php:3107
 msgid "Comments"
 msgstr "Kommentit"
@@ -17851,8 +17851,8 @@ msgid "%s ago"
 msgstr "%s sitten"
 
 #: wp-includes/class-wp-editor.php:1388
-#: wp-includes/class-walker-comment.php:242
-#: wp-includes/class-walker-comment.php:392 wp-includes/js/dist/editor.js:12394
+#: wp-includes/class-walker-comment.php:250
+#: wp-includes/class-walker-comment.php:438 wp-includes/js/dist/editor.js:12394
 #: wp-includes/js/dist/block-editor.js:20123
 #: wp-includes/js/dist/block-editor.js:20742
 #: wp-includes/js/dist/block-editor.js:22523

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-12-25 16:38:37+0000\n"
+"PO-Revision-Date: 2020-06-10 10:59:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,10 +11,195 @@ msgstr ""
 "Language: vi_VN\n"
 "Project-Id-Version: Plugins - Yoast SEO - Stable (latest release)\n"
 
+#. translators: %1$s expands to 'my.yoast.com'.
+#: inc/health-check-curl-version.php:72
+msgid "Your site can connect to %1$s"
+msgstr "Website của bạn có thể kết nối đến %1$s"
+
+#. translators: %1$s Emphasis open tag, %2$s: Emphasis close tag, %3$s Link
+#. start tag to the Yoast knowledge base, %4$s Link closing tag.
+#: inc/health-check-curl-version.php:61
+msgid "You can %1$snot%2$s activate your premium plugin(s) and receive updates. The cause for this error is probably that the cURL software on your server is too old. Please contact your host and ask them to update it to at least version 7.34. %3$sRead more about cURL in our knowledge base%4$s."
+msgstr "Bạn có thể %1$snot%2$s kích hoạt bản premium và nhận các bản cập nhật. Nguyên nhân của lỗi này có thể do phần mềm cURL trên máy chủ của bạn đã cũ. Vui lòng liên hệ với nhà cung cấp host và đề nghị họ nâng cấp lên tối thiểu phiên bản 7.34.  %3$sĐọc thêm về cURL trong kiến thức cơ bản%4$s."
+
+#. translators: %1$s Emphasis open tag, %2$s: Emphasis close tag, %3$s Link
+#. start tag to the Yoast knowledge base, %4$s Link closing tag.
+#: inc/health-check-curl-version.php:40
+msgid "You can %1$snot%2$s activate your premium plugin(s) and receive updates. A common cause for not being able to connect is an out-of-date version of cURL, software used to connect to other servers. However, your cURL version seems fine. Please talk to your host and, if needed, the Yoast support team to figure out what is broken. %3$sRead more about cURL in our knowledge base%4$s."
+msgstr "Bạn có thể %1$snot%2$s kích hoạt bản premium và nhận các bản cập nhật. Nguyên nhân chung thường gây ra việc không thể kết nối là do phiên bản cURL (phần mềm được dùng để kết nối tới các máy chủ khác) đã cũ. Tuy nhiên, phiên bản cURL của bạn đạt yêu cầu. Vui lòng trao đổi với nhà cung cấp host và, nếu cần, với đội hỗ trợ Yoast để khắc phục. %3$sĐọc thêm về cURL trong kiến thức cơ bản%4$s."
+
+#. translators: %1$s expands to 'my.yoast.com'.
+#: inc/health-check-curl-version.php:33 inc/health-check-curl-version.php:54
+msgid "Your site can not connect to %1$s"
+msgstr "Website của bạn không thể kết nối đến  %1$s"
+
+#. translators: %1$s: Opening tag of the link to the Yoast Ryte website, %2$s:
+#. Expands to 'Ryte', %3$s: Link closing tag.
+#: inc/health-check-ryte.php:246
+msgid "%1$sGo to %2$s to analyze your entire site%3$s"
+msgstr "%1$s Đi tới %2$s để phân tích toàn bộ trang web của bạn %3$s"
+
+#. translators: %1$s: Expands to 'Ryte', %2$s: Expands to 'Yoast SEO'.
+#: inc/health-check-ryte.php:231
+msgid "%1$s offers a free indexability check for %2$s users, and it shows that your site can be found by search engines."
+msgstr "%1$s cung cấp kiểm tra khả năng lập chỉ mục miễn phí cho người dùng %2$s, và nó cho thấy rằng trang web của bạn có thể được tìm thấy bởi các công cụ tìm kiếm."
+
+#: inc/health-check-ryte.php:226
+msgid "Your site can be found by search engines"
+msgstr "Trang web của bạn có thể được tìm thấy bởi các công cụ tìm kiếm"
+
+#. translators: %1$s: Expands to 'Ryte', %2$s: Expands to 'Yoast SEO'.
+#: inc/health-check-ryte.php:186
+msgid ""
+"%1$s offers a free indexability check for %2$s users and right now it has trouble determining\n"
+"\t\t\twhether search engines can find your site. This could have several (legitimate) reasons and\n"
+"\t\t\tis not a problem in itself. If this is a live site, it is recommended that you figure out why\n"
+"\t\t\tthe %1$s check failed."
+msgstr ""
+"%1$s cung cấp kiểm tra khả năng lập chỉ mục miễn phí cho người dùng %2$s và ngay bây giờ nó gặp khó khăn trong việc xác định liệu công cụ tìm kiếm có thể tìm thấy trang web của bạn không.\n"
+"Điều này có thể có một số lý do (hợp pháp) và bản thân nó không phải là vấn đề. Nếu đây là một trang web trực tiếp, %3$s bạn nên tìm hiểu kiểm tra tại sao %1$s không thành công.%4$s"
+
+#. translators: %1$s: Expands to 'Ryte'.
+#: inc/health-check-ryte.php:179
+msgid "%1$s cannot determine whether your site can be found by search engines"
+msgstr "%1$s không thể xác định liệu trang web của bạn có thể được tìm thấy bởi các công cụ tìm kiếm"
+
+#. translators: %1$s: Opening tag of the link to the Yoast knowledge base,
+#. %2$s: Link closing tag.
+#: inc/health-check-ryte.php:162
+msgid "%1$sRead more about troubleshooting search engine visibility.%2$s"
+msgstr "%1$s Đọc thêm về khả năng hiển thị của công cụ tìm kiếm. %2$s"
+
+#. translators: %1$s: Expands to 'Ryte', %2$s: Expands to 'Yoast SEO'.
+#: inc/health-check-ryte.php:155
+msgid "%1$s offers a free indexability check for %2$s users and it has determined that your site cannot be found by search engines. If this site is live or about to become live, this should be fixed."
+msgstr "%1$s cung cấp kiểm tra khả năng lập chỉ mục miễn phí cho người dùng %2$s và nó đã xác định rằng trang web của bạn không thể được tìm thấy bởi các công cụ tìm kiếm. Nếu trang web này đang hoạt động hoặc sắp trở thành trực tiếp, điều này cần được khắc phục."
+
+#: inc/health-check-ryte.php:149
+msgid "Your site cannot be found by search engines"
+msgstr "Trang web của bạn không thể được tìm thấy bởi các công cụ tìm kiếm"
+
+#. translators: %1$s: Opening tag of the link to the Yoast knowledge base,
+#. %2$s: Link closing tag.
+#: inc/health-check-ryte.php:134
+msgid "If this is a live site, %1$sit is recommended that you figure out why the check failed.%2$s"
+msgstr "Nếu đây là trang web trực tiếp, bạn nên tìm hiểu %1$s tại sao kiểm tra không thành công.%2$s"
+
+#. translators: 1: The Ryte response raw error code, if any. 2: The error
+#. message. 3: The WordPress error code, if any.
+#: inc/health-check-ryte.php:125
+msgid "Error details: %1$s %2$s %3$s"
+msgstr "Chi tiết lỗi: %1$s %2$s %3$s"
+
+#: inc/health-check-ryte.php:111
+msgid "An error occurred while checking whether your site can be found by search engines"
+msgstr "Đã xảy ra lỗi trong khi kiểm tra xem trang web của bạn có thể được tìm thấy bởi các công cụ tìm kiếm không"
+
+#. translators: 1: link open tag; 2: link close tag.
+#: inc/health-check-default-tagline.php:46
+msgid "%1$sYou can change the tagline in the customizer%2$s."
+msgstr "%1$s Bạn có thể thay đổi khẩu hiệu trong tùy biến %2$s."
+
+#: inc/health-check-default-tagline.php:37
+msgid "You still have the default WordPress tagline. Even an empty one is probably better."
+msgstr "Bạn vẫn có khẩu hiệu mặc định của WordPress. Hoặc để trống có lẽ là tốt hơn."
+
+#: inc/health-check-default-tagline.php:33
+msgid "You should change the default WordPress tagline"
+msgstr "Bạn nên thay đổi khẩu hiệu mặc định của WordPress"
+
+#: inc/health-check-default-tagline.php:28
+msgid "You are using a custom tagline or an empty one."
+msgstr "Bạn đang sử dụng một khẩu hiệu tùy chỉnh hoặc một cái trống."
+
+#: inc/health-check-default-tagline.php:25
+msgid "You changed the default WordPress tagline"
+msgstr "Bạn đã thay đổi TAGLINE mặc định của wordpress"
+
+#: inc/health-check-page-comments.php:28
+msgid "Comments on your posts are displayed on a single page. This is just like we'd suggest it. You're doing well!"
+msgstr "Bình luận trên các post của bạn được hiển thị trên một trang đơn. Điều này đúng với những gì chúng tôi đề nghị. Bạn đang làm rất tốt!"
+
+#. translators: %s expands to '/%postname%/'
+#: inc/health-check-postname-permalink.php:39
+msgid "It's highly recommended to have your postname in the URL of your posts and pages. Consider setting your permalink structure to %s."
+msgstr "Khuyến nghị đặt postname trong địa chỉ URL của bài viết và trang. Hãy cân nhắc thiết lập cấu hình liên kết tĩnh của bạn thành %s."
+
+#: inc/health-check-postname-permalink.php:33
+msgid "You do not have your postname in the URL of your posts and pages"
+msgstr "Bạn không có postname trong URL của bài viết và trang."
+
+#: inc/health-check-postname-permalink.php:28
+msgid "You do have your postname in the URL of your posts and pages."
+msgstr "Bạn đã có postname trong URL của bài viết và trang. "
+
+#: inc/health-check-postname-permalink.php:25
+msgid "Your permalink structure includes the post name"
+msgstr "Cấu trúc liên kết tĩnh bao gồm tên bài viết"
+
+#: admin/ryte/class-ryte-request.php:89
+msgid "The request to Ryte returned an error."
+msgstr "Request tới Ryte trả về một lỗi."
+
+#: inc/health-check-page-comments.php:35
+msgid "Comments on your posts break into multiple pages. As this is not needed in 999 out of 1000 cases, we recommend you disable it. To fix this, uncheck \"Break comments into pages...\" on the Discussion Settings page."
+msgstr "Bình luận trên bài viết của bạn bị phân ra nhiều trang. Điều này không cần thiết trong đa số trường hợp, chúng tôi khuyến nghị bạn ngưng kích hoạt thiết lập này. Để sửa điều này, bỏ chọn \"Tách bình luận thành nhiều trang...\" trong trang thiết lập thảo luận. "
+
+#: inc/health-check-page-comments.php:32
+msgid "Comments break into multiple pages"
+msgstr "Bình luận bị tách thành nhiều trang"
+
+#: inc/health-check-page-comments.php:25
+msgid "Comments are displayed on a single page"
+msgstr "Bình luận được hiển thị trên một trang đơn"
+
+#: languages/yoast-components.php:147
+msgid "Mobile result"
+msgstr "Kết quả trên di động"
+
+#: languages/yoast-components.php:144
+msgid "Preview as:"
+msgstr "Xem trước: "
+
+#: languages/yoast-components.php:141
+msgid "Desktop result"
+msgstr "Kết quả trên máy tính"
+
+#. translators: %1$s expands to Yoast SEO academy
+#: admin/views/sidebar.php:141
+msgid "Check out %1$s"
+msgstr "Thanh toán %1$s"
+
+#: admin/views/sidebar.php:134
+msgid "We have both free and premium online courses to learn everything you need to know about SEO."
+msgstr "Chúng tôi có các khóa học để giúp bạn hiểu hơn về SEO "
+
+#. translators: %1$s expands to Yoast SEO academy, which is a clickable link.
+#: admin/views/sidebar.php:132
+msgid "Want to learn SEO from Team Yoast? Check out our %1$s!"
+msgstr "Bạn muốn học SEO từ Team Yoast? Chỉ với  %1$s!"
+
+#: admin/views/sidebar.php:124
+msgid "Learn SEO"
+msgstr "Học SEO"
+
+#: admin/views/sidebar.php:116
+msgid "Start to optimize your site for Google News traffic today!"
+msgstr "Hãy bắt đầu tối ưu trang web của bạn cho Google News ngay!"
+
+#: admin/views/sidebar.php:72
+msgid "Our Local SEO plugin will help you rank in Google Maps and local results."
+msgstr "Local SEO plugin của chúng tôi có thể giúp bạn cải thiện vị trí trên Google Maps"
+
 #. translators: %1$s expands to Yoast SEO
 #: admin/class-export.php:68
 msgid "Your %1$s settings:"
 msgstr "Bạn đã cài đặt %1$s :"
+
+#. translators: 1: expands to Yoast SEO, 2: expands to Import settings.
+#: admin/views/tabs/tool/wpseo-import.php:23
+msgid "Import settings from another %1$s installation by pasting them here and clicking \"%2$s\"."
+msgstr "Tải dữ liệu vào từ %1$s cài đặt khác bằng cách dán nó vào đây và nhấn \"%2$s\"."
 
 #: languages/wordpress-seojs.php:223
 msgid "Schema"

@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Contact Form 7 - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-28 13:27:06+0000\n"
+"PO-Revision-Date: 2020-06-09 15:36:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -129,13 +129,37 @@ msgstr "Ustaw adres URL jako identyfikator URI dla przekierowania."
 msgid "Redirect URI"
 msgstr "Adres URL przekierowania"
 
+#: modules/constant-contact.php:536
+msgid "App Secret"
+msgstr "App Sekretne"
+
 #: modules/constant-contact.php:519
 msgid "API Key"
 msgstr "Klucz do API"
 
+#: modules/recaptcha.php:516 modules/constant-contact.php:507
+msgid "Setup Integration"
+msgstr "Ustawienia integracji"
+
+#: modules/constant-contact.php:490
+msgid "Constant Contact Integration"
+msgstr "Stała integracja kontaktów"
+
 #: modules/constant-contact.php:486
 msgid "https://contactform7.com/constant-contact-integration/"
 msgstr "https://contactform7.com/constant-contact-integration/"
+
+#: modules/constant-contact.php:484
+msgid "The Constant Contact integration module allows you to send contact data collected through your contact forms to the Constant Contact API. You can create reliable email subscription services in a few easy steps. For details, see %s."
+msgstr "Moduł stała integracja kontaktów umożliwia wysyłanie danych kontaktowych zebranych za pośrednictwem formularzy kontaktowych do interfejsu Constant Contact API. Można tworzyć niezawodne usługi subskrypcji e-mail w kilku prostych krokach. Aby uzyskać szczegółowe informacje: %s."
+
+#: modules/constant-contact.php:236
+msgid "Constant Contact"
+msgstr "Constant Contact"
+
+#: modules/constant-contact.php:9
+msgid "Email Marketing"
+msgstr "Marketing mailowy"
 
 #: includes/config-validator.php:649
 msgid "It is not allowed to use files outside the wp-content directory."
@@ -145,9 +169,17 @@ msgstr "Nie wolno używać plików spoza folderu wp-content."
 msgid "Make this checkbox optional"
 msgstr "Zaznacz to pole jako opcjonalne"
 
+#: admin/edit-contact-form.php:206
+msgid "Professional services"
+msgstr "Profesjonalne usługi"
+
 #: admin/edit-contact-form.php:205
 msgid "https://contactform7.com/custom-development/"
 msgstr "https://contactform7.com/custom-development/"
+
+#: admin/edit-contact-form.php:202
+msgid "Support forums"
+msgstr "Fora wsparcia"
 
 #: admin/edit-contact-form.php:201
 msgid "https://wordpress.org/support/plugin/contact-form-7/"
@@ -187,6 +219,10 @@ msgstr "Wysyłanie wiadomości została wstrzymane."
 msgid "You can edit messages used in various situations here. For details, see %s."
 msgstr "Tutaj możesz edytować komunikaty używane w różnych sytuacjach. Po więcej szczegółów przejdź do %s."
 
+#: admin/includes/editor.php:210
+msgid "Editing messages"
+msgstr "Edycja wiadomości"
+
 #: admin/includes/editor.php:209
 msgid "https://contactform7.com/editing-messages/"
 msgstr "https://contactform7.com/editing-messages/"
@@ -198,6 +234,10 @@ msgstr "Tutaj możesz edytować szablon wiadomości e-mail. Po więcej szczegó�
 #: admin/includes/editor.php:57
 msgid "You can edit the form template here. For details, see %s."
 msgstr "Tu możesz edytować pola formularza. Po więcej szczegółów przejdź do %s"
+
+#: admin/includes/editor.php:56
+msgid "Editing form template"
+msgstr "Edycja szablonu formularza"
 
 #: admin/includes/editor.php:55
 msgid "https://contactform7.com/editing-form-template/"
@@ -514,6 +554,14 @@ msgstr[2] "Konfiguracja została sprawdzona. Znalezionych zostało %s błędnych
 msgid "Validate Configuration"
 msgstr "Sprawdzanie poprawności konfiguracji"
 
+#. translators: %s: number of contact forms
+#: admin/includes/config-validator.php:108
+msgid "Validate %s contact form now"
+msgid_plural "Validate %s contact forms now"
+msgstr[0] "Sprawdź teraz %s formularz kontaktowy"
+msgstr[1] "Sprawdź teraz %s formularze kontaktowe"
+msgstr[2] "Sprawdź teraz %s formularzy kontaktowych"
+
 #: admin/includes/config-validator.php:66
 msgid "You are not allowed to validate configuration."
 msgstr "Nie posiadasz uprawnienia do zweryfikowania konfiguracji."
@@ -594,6 +642,10 @@ msgid "Akismet"
 msgstr "Akismet"
 
 #: modules/textarea.php:143 modules/text.php:239
+msgid "Text fields"
+msgstr "Pola tekstowe"
+
+#: modules/textarea.php:143 modules/text.php:239
 msgid "https://contactform7.com/text-fields/"
 msgstr "https://contactform7.com/text-fields/"
 
@@ -644,6 +696,10 @@ msgstr "Adres e-mail jest niepoprawny"
 #: modules/submit.php:65
 msgid "Label"
 msgstr "Etykieta"
+
+#: modules/submit.php:55
+msgid "Submit button"
+msgstr "Przycisk wysyłania"
 
 #: modules/submit.php:55
 msgid "https://contactform7.com/submit-button/"
@@ -710,6 +766,10 @@ msgid "Spinbox"
 msgstr "Pole przewijane"
 
 #: modules/number.php:159
+msgid "Number fields"
+msgstr "Pola liczbowe"
+
+#: modules/number.php:159
 msgid "https://contactform7.com/number-fields/"
 msgstr "https://contactform7.com/number-fields/"
 
@@ -748,6 +808,10 @@ msgstr "Dozwolone typy plików"
 #: modules/file.php:226
 msgid "File size limit (bytes)"
 msgstr "Limit rozmiaru pliku (bajty)"
+
+#: modules/file.php:201
+msgid "File uploading and attachment"
+msgstr "Wgrywanie i dołączanie plików"
 
 #: modules/file.php:201
 msgid "https://contactform7.com/file-uploading-and-attachment/"
@@ -801,6 +865,10 @@ msgid "Default value"
 msgstr "Domyślna wartość"
 
 #: modules/date.php:156
+msgid "Date field"
+msgstr "Pole daty"
+
+#: modules/date.php:156
 msgid "https://contactform7.com/date-field/"
 msgstr "https://contactform7.com/date-field/"
 
@@ -810,7 +878,7 @@ msgstr "Generuj znacznik formularza dla pola wprowadzania daty. Więcej szczegó
 
 #: modules/date.php:146
 msgid "date"
-msgstr "randka"
+msgstr "data"
 
 #: modules/date.php:133
 msgid "Date is later than maximum limit"
@@ -858,6 +926,10 @@ msgstr "Pole wymagane"
 #: modules/text.php:249 modules/text.php:252
 msgid "Field type"
 msgstr "Typ pola"
+
+#: modules/select.php:164 modules/checkbox.php:284
+msgid "Checkboxes, radio buttons and menus"
+msgstr "Pola jednokrotnego i wielokrotnego wyboru oraz menu"
 
 #: modules/select.php:164 modules/checkbox.php:284
 msgid "https://contactform7.com/checkboxes-radio-buttons-and-menus/"
@@ -955,6 +1027,10 @@ msgstr "Opcje"
 #: modules/file.php:221 modules/text.php:259
 msgid "Name"
 msgstr "Nazwa"
+
+#: modules/acceptance.php:243
+msgid "Acceptance checkbox"
+msgstr "Pole wyrażania zgody"
 
 #: modules/acceptance.php:243
 msgid "https://contactform7.com/acceptance-checkbox/"
@@ -1157,6 +1233,10 @@ msgstr "Tutaj możesz wprowadzić kod ustawień dodatkowych. Zobacz szczegóły:
 msgid "https://contactform7.com/additional-settings/"
 msgstr "https://contactform7.com/additional-settings/"
 
+#: admin/includes/editor.php:194
+msgid "File attachments"
+msgstr "Załączniki"
+
 #: admin/includes/editor.php:188
 msgid "Use HTML content type"
 msgstr "Użyj treści w formacie HTML"
@@ -1164,6 +1244,14 @@ msgstr "Użyj treści w formacie HTML"
 #: admin/includes/editor.php:186
 msgid "Exclude lines with blank mail-tags from output"
 msgstr "Usuń linie zawierające puste tagi"
+
+#: admin/includes/editor.php:181
+msgid "Message body"
+msgstr "Treść wiadomości"
+
+#: admin/includes/editor.php:172
+msgid "Additional headers"
+msgstr "Dodatkowe nagłówki"
 
 #: admin/includes/editor.php:163 includes/contact-form-template.php:40
 msgid "Subject"
@@ -1325,6 +1413,10 @@ msgstr "https://contactform7.com/save-submitted-messages-with-flamingo/"
 #: admin/includes/welcome-panel.php:31
 msgid "https://contactform7.com/spam-filtering-with-akismet/"
 msgstr "https://contactform7.com/spam-filtering-with-akismet/"
+
+#: admin/includes/editor.php:129
+msgid "Setting up mail"
+msgstr "Ustawienia poczty"
 
 #: admin/includes/editor.php:128
 msgid "https://contactform7.com/setting-up-mail/"
