@@ -9973,7 +9973,7 @@ msgctxt "genitive"
 msgid "January"
 msgstr "1月"
 
-#: wp-includes/embed.php:1143
+#: wp-includes/embed.php:1156
 msgid "Sharing options"
 msgstr "共有オプション"
 
@@ -10035,7 +10035,7 @@ msgid "Oops! That embed can&#8217;t be found."
 msgstr "埋め込みが見つかりません。"
 
 #. translators: %s: Post title.
-#: wp-includes/embed.php:943 wp-includes/post-template.php:296
+#: wp-includes/embed.php:956 wp-includes/post-template.php:296
 msgid "Continue reading %s"
 msgstr "続きを読む %s"
 
@@ -10406,32 +10406,32 @@ msgstr "%s に投稿を公開"
 msgid "Use the %s filter instead."
 msgstr "代わりにフィルタ %s を使用してください。"
 
-#: wp-includes/embed.php:1170
+#: wp-includes/embed.php:1183
 msgid "Close sharing dialog"
 msgstr "共有ダイアログを閉じる"
 
-#: wp-includes/embed.php:1165
+#: wp-includes/embed.php:1178
 msgid "Copy and paste this code into your site to embed"
 msgstr "埋め込むにはこのコードをコピーしてサイトに貼り付けてください"
 
-#: wp-includes/embed.php:1158
+#: wp-includes/embed.php:1171
 msgid "Copy and paste this URL into your WordPress site to embed"
 msgstr "埋め込むにはこの URL をコピーして WordPress サイトに貼り付けてください。"
 
-#: wp-includes/embed.php:1151
+#: wp-includes/embed.php:1164
 msgid "HTML Embed"
 msgstr "HTML での埋め込み"
 
-#: wp-includes/embed.php:1148
+#: wp-includes/embed.php:1161
 msgid "WordPress Embed"
 msgstr "WordPress への埋め込み"
 
-#: wp-includes/embed.php:1126
+#: wp-includes/embed.php:1139
 msgid "Open sharing dialog"
 msgstr "共有ダイアログを開く"
 
 #. translators: %s: Number of comments.
-#: wp-includes/embed.php:1102
+#: wp-includes/embed.php:1115
 msgid "%s <span class=\"screen-reader-text\">Comment</span>"
 msgid_plural "%s <span class=\"screen-reader-text\">Comments</span>"
 msgstr[0] "%s <span class=\"screen-reader-text\">コメント</span>"

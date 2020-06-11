@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.4.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-05-17 04:53:04+0000\n"
+"PO-Revision-Date: 2020-06-11 01:26:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -265,7 +265,7 @@ msgstr "在回收桶中找不到符合條件的留言。"
 msgid "File is empty. Please upload something more substantial. This error could also be caused by uploads being disabled in your %1$s file or by %2$s being defined as smaller than %3$s in %1$s."
 msgstr "檔案內容為空。請上傳含有必要內容的檔案。這個錯誤的成因可能是因為上傳功能已於 %1$s 中停用，或 %1$s 中單次上傳檔案大小總計上限 (%2$s) 的設定值小於上傳單一檔案大小上限 (%3$s) 的設定值。"
 
-#: wp-admin/includes/class-wp-site-health.php:2296
+#: wp-admin/includes/class-wp-site-health.php:2302
 msgid "A test is unavailable"
 msgstr "測試功能無法使用"
 
@@ -388,7 +388,7 @@ msgstr "傳遞至 %s 的第 7 個參數應該為代表選單位置的整數。"
 #. translators: 1: WordPress version number, 2: The PHP extension name needed.
 #: wp-admin/includes/update-core.php:1013
 msgid "The update cannot be installed because WordPress %1$s requires the %2$s PHP extension."
-msgstr "由於 WordPress %1$s 需要 PHP 的 %2$s 擴充模組，因此無法進行更新。"
+msgstr "由於 WordPress %1$s 需要 PHP 的 %2$s 擴充功能，因此無法進行更新。"
 
 #: wp-admin/includes/class-wp-site-health.php:1200
 msgid "UTF8MB4 is the character set WordPress prefers for database storage because it safely supports the widest set of characters and encodings, including Emoji, enabling better support for non-English languages."
@@ -1386,7 +1386,7 @@ msgstr "MySQL UTF8MB4 支援"
 
 #: wp-admin/includes/class-wp-site-health.php:1940
 msgid "PHP Extensions"
-msgstr "PHP 擴充模組"
+msgstr "PHP 擴充功能"
 
 #: wp-admin/includes/class-wp-site-health.php:1948
 msgid "Database Server version"
@@ -1948,7 +1948,7 @@ msgstr "伺服器版本"
 
 #: wp-admin/includes/class-wp-debug-data.php:748
 msgid "Extension"
-msgstr "延伸模組"
+msgstr "擴充功能"
 
 #. translators: %s: .htaccess
 #: wp-admin/includes/class-wp-debug-data.php:712
@@ -2764,7 +2764,7 @@ msgid "Privacy Policy Page"
 msgstr "隱私權政策頁面"
 
 #. translators: %s: Page title.
-#: wp-admin/includes/misc.php:1385
+#: wp-admin/includes/misc.php:1408
 msgid "%s (Draft)"
 msgstr "%s (草稿)"
 
@@ -4953,7 +4953,7 @@ msgstr "回收桶"
 #. translators: %s: stream_get_contents()
 #: wp-admin/includes/class-wp-filesystem-ssh2.php:77
 msgid "The ssh2 PHP extension is available, however, we require the PHP5 function %s"
-msgstr "PHP 的 ssh2 擴充模組可以使用，但系統需要 PHP5 的 %s 函式"
+msgstr "PHP 的 ssh2 擴充功能可以使用，但系統需要 PHP5 的 %s 函式"
 
 #: wp-admin/includes/class-wp-comments-list-table.php:727
 msgid "Quick edit this comment inline"
@@ -5977,7 +5977,7 @@ msgstr ""
 
 #. translators: Do not translate USERNAME, ADMIN_URL, EMAIL, SITENAME, SITEURL:
 #. those are placeholders.
-#: wp-admin/includes/misc.php:1306
+#: wp-admin/includes/misc.php:1329
 msgid ""
 "Howdy ###USERNAME###,\n"
 "\n"
@@ -7516,7 +7516,7 @@ msgid "You cannot move this item to the Trash. %s is currently editing."
 msgstr "無法這個項目移至回收桶。「%s」目前正在編輯。"
 
 #. translators: %s: User's display name.
-#: wp-admin/includes/misc.php:1075
+#: wp-admin/includes/misc.php:1098
 msgid "%s has taken over and is currently editing."
 msgstr "「%s」已接管編輯工作且正在進行編輯。"
 
@@ -7570,7 +7570,7 @@ msgid "The Documentation menu below the editor lists the PHP functions recognize
 msgstr "編輯器下方的 [線上說明] 下拉式選單，會列出目前編輯器所載入的外掛檔案中可識別的 PHP 函式；選取函式名稱後點擊 [查詢] 按鈕，便會開啟這個指定函式的參考資料網頁。"
 
 #. translators: %s: User's display name.
-#: wp-admin/includes/misc.php:1025
+#: wp-admin/includes/misc.php:1048
 #: wp-admin/includes/class-wp-posts-list-table.php:1003
 msgid "%s is currently editing"
 msgstr "「%s」正在編輯"
@@ -8313,7 +8313,7 @@ msgstr[0] "暫停使用 <span class=\"count\">(%s)</span>"
 
 #. translators: New admin email address notification email subject. %s: Site
 #. title.
-#: wp-admin/includes/misc.php:1359
+#: wp-admin/includes/misc.php:1382
 msgid "[%s] New Admin Email Address"
 msgstr "《%s》通知：新增網站管理員電子郵件地址"
 
@@ -10826,7 +10826,7 @@ msgstr "可用的小工具"
 msgid "Error in displaying the widget settings form."
 msgstr "顯示小工具設定表單時發生錯誤。"
 
-#: wp-admin/includes/misc.php:1195 wp-admin/includes/post.php:1941
+#: wp-admin/includes/misc.php:1218 wp-admin/includes/post.php:1941
 #: wp-admin/widgets.php:378
 msgid "Error while saving."
 msgstr "儲存時發生錯誤。"
@@ -10969,7 +10969,7 @@ msgstr "名字"
 msgid "Enable keyboard shortcuts for comment moderation."
 msgstr "啟用審閱留言的鍵盤快速鍵。"
 
-#: wp-admin/includes/misc.php:924 wp-admin/user-edit.php:295
+#: wp-admin/includes/misc.php:947 wp-admin/user-edit.php:295
 msgid "Admin Color Scheme"
 msgstr "管理後台色彩配置"
 
@@ -12550,7 +12550,7 @@ msgstr "將這篇文章置頂"
 
 #: wp-admin/includes/meta-boxes.php:166 wp-admin/includes/meta-boxes.php:191
 msgid "Password protected"
-msgstr "密碼保護"
+msgstr "受密碼保護"
 
 #: wp-admin/includes/meta-boxes.php:99 wp-admin/edit-form-comment.php:98
 #: wp-admin/export.php:222 wp-admin/export.php:269
@@ -12892,7 +12892,7 @@ msgstr "無效的表單資料。"
 
 #: wp-admin/includes/file.php:784
 msgid "File upload stopped by extension."
-msgstr "檔案上傳已由擴充模組停止。"
+msgstr "檔案上傳已由擴充功能停止。"
 
 #: wp-admin/includes/file.php:783
 msgid "Failed to write file to disk."
@@ -13300,7 +13300,7 @@ msgstr "SSH2 主機名稱為必填欄位"
 
 #: wp-admin/includes/class-wp-filesystem-ssh2.php:69
 msgid "The ssh2 PHP extension is not available"
-msgstr "PHP 的 ssh2 擴充模組無法使用"
+msgstr "PHP 的 ssh2 擴充功能無法使用"
 
 #. translators: %s: Username.
 #: wp-admin/includes/class-wp-filesystem-ftpsockets.php:110
@@ -13333,7 +13333,7 @@ msgstr "FTP 主機名稱為必填欄位"
 
 #: wp-admin/includes/class-wp-filesystem-ftpext.php:37
 msgid "The ftp PHP extension is not available"
-msgstr "PHP 的 ftp 擴充模組無法使用"
+msgstr "PHP 的 ftp 擴充功能無法使用"
 
 #. translators: %s: Directory name.
 #: wp-admin/includes/class-wp-filesystem-base.php:301
@@ -13778,12 +13778,12 @@ msgid "Someone"
 msgstr "訪客"
 
 #. translators: %s: Date and time.
-#: wp-admin/includes/misc.php:1203
+#: wp-admin/includes/misc.php:1226
 msgid "Draft saved at %s."
 msgstr "草稿已於 %s 完成儲存。"
 
 #. translators: Draft saved date format, see https://www.php.net/date
-#: wp-admin/includes/misc.php:1199
+#: wp-admin/includes/misc.php:1222
 msgid "g:i:s a"
 msgstr "a g:i:s"
 
