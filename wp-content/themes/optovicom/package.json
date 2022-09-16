@@ -106,7 +106,7 @@
     "yargs": "~11.0.0"
   },
   "dependencies": {
-    "bootstrap": "v4.1.1",
+    "bootstrap": "v4.3.1",
     "font-awesome": "~4.7",
     "foundation-sites": "^6.5.0-rc.2",
     "motion-ui": "~1.2.2",
